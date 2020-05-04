@@ -1,7 +1,7 @@
 Ant Design Project
 ---
 
-一个基于 [antd](https://github.com/ant-design/ant-design/) 的初始级别项目，集成路由、Redux、选项卡等特性。
+一个基于 [antd](https://github.com/ant-design/ant-design/) 和 [umi](https://github.com/umijs/umi) 的初始级别项目，集成路由、Redux、选项卡等特性。
 
 ### 发布版本
 

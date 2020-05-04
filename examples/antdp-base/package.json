@@ -19,7 +19,7 @@
     ]
   },
   "dependencies": {
-    "@antdp/base-layouts": "1.0.0",
+    "@antdp/basic-layouts": "1.0.0",
     "antd": "4.2.0"
   },
   "devDependencies": {

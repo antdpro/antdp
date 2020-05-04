@@ -10,7 +10,7 @@
   },
   {
     "path": "/",
-    "component": "@/layouts/BasicLayout.js",
+    "component": "@/layouts/BasicLayout",
     "routes": [
       { "path": "/", "redirect": "/welcome", "icon": "profile" },
       { "path": "/welcome", "name": "欢迎页面", "pinYin": "hyym", "icon": "profile", "component": "@/pages/index" },

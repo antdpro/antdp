@@ -1,5 +1,5 @@
 {
-  "name": "@antdp/base-layouts",
+  "name": "@antdp/basic-layouts",
   "version": "1.0.0",
   "description": "ane 入口公共界面",
   "sideEffects": false,
@@ -22,20 +22,19 @@
     "lib",
     "src"
   ],
+  "scripts": {
+    "build": "tsbb build --target react",
+    "watch": "tsbb watch --target react"
+  },
   "babel": {
     "plugins": [
-      [
-        "import",
+      ["import",
         {
           "libraryName": "antd",
           "style": true
         }
       ]
     ]
-  },
-  "scripts": {
-    "build": "tsbb build --target react",
-    "watch": "tsbb watch --target react"
   },
   "peerDependencies": {
     "antd": ">=3.16.2",
@@ -49,7 +48,7 @@
   },
   "devDependencies": {
     "antd": "3.26.4",
-    "babel-plugin-import": "1.11.0",
+    "babel-plugin-import": "1.13.0",
     "react": "16.8.6",
     "react-dom": "16.8.6"
   }

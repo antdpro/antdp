@@ -1,4 +1,4 @@
-import request from '@ane/request';
+import { request } from 'uim';
 
 export async function fakeAccountLogin(params) {
   return request('api/access/login', {

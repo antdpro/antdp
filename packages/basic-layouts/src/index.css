@@ -13,5 +13,10 @@
 
 .ant-layout .ant-layout-sider {
   min-height: 100%;
-  background-color: #484848;
+  background-color: #001529;
+  overflow: auto;
+}
+
+.ant-layout-content {
+  background-color: #fff;
 }

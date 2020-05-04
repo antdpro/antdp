@@ -4,6 +4,9 @@
   "description": "核心依赖包，在这里升级依赖，包含底层编译 umi，代码检测等",
   "author": "any",
   "license": "ISC",
+  "scripts": {
+    "build": "echo 'Lib @antdp/dependencies'"
+  },
   "dependencies": {
     "@umijs/preset-react": "1.x",
     "react": "^16.12.0",

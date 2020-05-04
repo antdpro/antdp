@@ -1,3 +1,3 @@
-import BasicLayout from '@aned/base-layouts';
+import BasicLayout from '@antdp/base-layouts';
 
 export default BasicLayout;

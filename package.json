@@ -4,19 +4,14 @@
   "private": true,
   "description": "Ant Design Project",
   "scripts": {
-    "bootstrap": "lerna bootstrap --no-ci",
-
+    "bootstrap": "lerna bootstrap",
     "install": "npm run install:pkg && npm run install:example",
     "install:pkg": "lerna bootstrap --scope @antdp/*",
-    "install:d": "lerna bootstrap --scope @antdp/*",
-    "install:e": "lerna bootstrap --scope @example/antdp-base",
     "install:example": "lerna bootstrap --scope @example/*",
-
     "build": "npm run build:pkg",
     "build:pkg": "lerna exec npm run build --scope @antdp/*",
     "watch": "lerna run watch --stream",
     "watch:lib": "lerna run --scope @antdp/* watch --stream",
-
     "version": "lerna version --no-changelog --no-git-tag-version",
     "publish": "lerna publish from-package",
     "start": "lerna exec npm run start",
@@ -26,8 +21,8 @@
   },
   "author": "jaywcjlove",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "lerna": "3.20.2",
-    "tsbb": "1.7.0"
+    "tsbb": "1.7.2"
   }
 }

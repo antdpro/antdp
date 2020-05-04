@@ -1,10 +1,18 @@
-@ane3/dependencies
+@antdp/config
 ---
 
-这是一个空包，安装核心依赖包，在这里升级依赖，包含底层编译 umi，代码检测等。
+将 umi 配置包裹一层
 
 ```bash
-npm i @ane3/dependencies --save-dev
+npm i @antdp/config --save-dev
 ```
 
 
+```js
+import config from '@antdp/config';
+import router from './router.json';
+
+export default config(router, {
+  
+});
+```

@@ -1,0 +1,17 @@
+#root, .ant-layout {
+  height: 100%;
+}
+
+.ant-layout .ant-layout-header {
+  background: #3a3a3a;
+  padding: 0;
+  line-height: 39px;
+  height: 46px;
+  color: #fff;
+  z-index: 1210;
+}
+
+.ant-layout .ant-layout-sider {
+  min-height: 100%;
+  background-color: #484848;
+}

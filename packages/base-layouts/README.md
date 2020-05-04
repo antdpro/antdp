@@ -1,9 +1,9 @@
-@ane3/base-layouts
+@antdp/base-layouts
 ---
 
 入口公共界面
 
 
 ```bash
-lerna run --scope @ane3/base-layouts watch --stream
+lerna run --scope @antdp/base-layouts watch --stream
 ```

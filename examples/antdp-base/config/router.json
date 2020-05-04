@@ -1,0 +1,52 @@
+[
+  {
+    "path": "/user",
+    "component": "@/layouts/UserLayout",
+    "routes": [
+      { "path": "/user", "redirect": "/user/login" },
+      { "path": "/user/login", "name": "login", "component": "@/pages/index" },
+      { "component": "@/pages/index" }
+    ]
+  },
+  {
+    "path": "/",
+    "component": "@/layouts/BasicLayout.js",
+    "routes": [
+      { "path": "/", "redirect": "/welcome", "icon": "profile" },
+      { "path": "/welcome", "name": "欢迎页面", "pinYin": "hyym", "icon": "profile", "component": "@/pages/index" },
+      {
+        "path": "/dashboard",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "pinYin": "dashboard",
+        "routes": [
+          { "path": "/dashboard/workplace", "name": "工作台", "pinYin": "gzt", "component": "@/pages/Dashboard/Workplace" },
+          { "path": "/dashboard/analysis", "name": "分析页", "pinYin": "fxy", "component": "@/pages/index" },
+          { "path": "/dashboard/monitor", "name": "监控台", "pinYin": "jkt", "component": "@/pages/index" },
+          { "component": "@/pages/Exception/404" }
+        ]
+      },
+      {
+        "path": "/profile",
+        "name": "详情页",
+        "icon": "profile",
+        "pinYin": "xqy",
+        "routes": [
+          { 
+            "path": "/profile/basic", 
+            "name": "基础详情页", 
+            "pinYin": "jcxqy", 
+            "component": "@/pages/index"
+          },
+          { 
+            "path": "/profile/advanced", 
+            "name": "高级详情页",
+            "pinYin": "gjxqy",
+            "component": "@/pages/index" 
+          },
+          { "component": "@/pages/Exception/404" }
+        ]
+      }
+    ]
+  }
+]

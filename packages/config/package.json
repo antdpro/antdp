@@ -1,0 +1,21 @@
+{
+  "name": "@antdp/config",
+  "version": "1.0.0",
+  "description": "路由配置",
+  "author": "anneng",
+  "license": "ISC",
+  "sideEffects": false,
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "scripts": {
+    "build": "tsbb build --target react",
+    "watch": "tsbb watch --target react"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "dependencies": {
+    "umi": "^3.1.1"
+  }
+}

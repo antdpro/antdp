@@ -1,0 +1,13 @@
+{
+  "name": "@antdp/dependencies",
+  "version": "1.0.0",
+  "description": "核心依赖包，在这里升级依赖，包含底层编译 umi，代码检测等",
+  "author": "any",
+  "license": "ISC",
+  "dependencies": {
+    "@umijs/preset-react": "1.x",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "yorkie": "^2.0.0"
+  }
+}

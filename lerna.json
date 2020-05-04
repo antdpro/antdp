@@ -1,0 +1,23 @@
+{
+  "packages": [
+    "examples/*",
+    "packages/*"
+  ],
+  "version": "2.1.1",
+  "command": {
+    "create": {
+      "license": "MIT"
+    },
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock",
+        "--no-ci"
+      ],
+      "yarnClientArgs": [
+        "--no-package-lock",
+        "--no-ci"
+      ],
+      "forceLocal": true
+    }
+  }
+}

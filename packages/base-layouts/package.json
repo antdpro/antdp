@@ -1,0 +1,56 @@
+{
+  "name": "@antdp/base-layouts",
+  "version": "1.0.0",
+  "description": "ane 入口公共界面",
+  "sideEffects": false,
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "license": "MIT",
+  "keywords": [
+    "table",
+    "ane"
+  ],
+  "author": "jaywcjlove <wcj@nihaosi.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://g.showgold.cn/antdp/ane-ui-pro"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "babel": {
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "style": true
+        }
+      ]
+    ]
+  },
+  "scripts": {
+    "build": "tsbb build --target react",
+    "watch": "tsbb watch --target react"
+  },
+  "peerDependencies": {
+    "antd": ">=3.16.2",
+    "prop-types": ">=15.7.2",
+    "react": ">=16.7.0",
+    "react-dom": ">=16.7.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.4.4",
+    "classnames": "2.2.6"
+  },
+  "devDependencies": {
+    "antd": "3.26.4",
+    "babel-plugin-import": "1.11.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
+  }
+}

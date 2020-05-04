@@ -1,0 +1,34 @@
+{
+  "name": "@example/antdp-base",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@antdp/base-layouts": "1.0.0",
+    "antd": "4.2.0"
+  },
+  "devDependencies": {
+    "@antdp/config": "1.0.0",
+    "@antdp/dependencies": "1.0.0",
+    "@umijs/plugin-request": "2.3.2",
+    "@umijs/test": "3.1.1",
+    "lint-staged": "10.0.7",
+    "prettier": "1.19.1",
+    "umi": "3.1.1"
+  }
+}

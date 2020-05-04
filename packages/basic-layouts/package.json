@@ -11,10 +11,6 @@
     "ane"
   ],
   "author": "jaywcjlove <wcj@nihaosi.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://g.showgold.cn/antdp/ane-ui-pro"
-  },
   "publishConfig": {
     "access": "public"
   },
@@ -44,6 +40,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.4.4",
+    "@ant-design/icons": "4.1.0",
     "classnames": "2.2.6"
   },
   "devDependencies": {

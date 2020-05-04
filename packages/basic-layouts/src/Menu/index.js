@@ -4,6 +4,12 @@ import { Link } from 'umi';
 import { getIcon } from '../utils';
 
 export default class MeunView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      defaultOpenKeys: [],
+    };
+  }
   static defaultProps = {
     route: [],
   }
@@ -27,9 +33,22 @@ export default class MeunView extends Component {
       .map(item => this.getSubMenuOrItem(item))
       .filter(item => item);
   };
+  /**
+   * 设置 默认展开的父菜单 keys
+   */
+  setMenuOpenKeys = (path) => {
+    const { defaultOpenKeys } = this.state;
+    if (defaultOpenKeys.indexOf(path) === -1) {
+      defaultOpenKeys.push(path);
+      // this.setState({ defaultOpenKeys });
+    }
+  }
   getSubMenuOrItem = item => {
     if (item.routes && item.routes.some(child => child.name)) {
       const { name } = item;
+      if (this.props.selectedKey.indexOf(item.path) > -1) {
+        this.setMenuOpenKeys(item.path);
+      }
       return (
         <Menu.SubMenu
           title={
@@ -54,19 +73,19 @@ export default class MeunView extends Component {
     
   }
   render() {
-    const { route } = this.props;
+    const { route, selectedKey } = this.props;
+    console.log('~~::::', this.state.defaultOpenKeys)
     return (
-      <div>
-        <Menu
-          theme="dark"
-          mode="inline"
-          onOpenChange={this.handleOpenChange}
-          selectedKeys={[]}
-          style={{ width: '100%' }}
-        >
-          {this.getNavMenuItems(route.routes)}
-        </Menu>
-      </div>
+      <Menu
+        theme="dark"
+        mode="inline"
+        onOpenChange={this.handleOpenChange}
+        selectedKeys={[selectedKey]}
+        defaultOpenKeys={this.state.defaultOpenKeys}
+        style={{ width: '100%' }}
+      >
+        {this.getNavMenuItems(route.routes)}
+      </Menu>
     );
   }
 }

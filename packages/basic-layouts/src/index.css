@@ -20,3 +20,26 @@
 .ant-layout-content {
   background-color: #fff;
 }
+
+.ant-tabs-bar {
+  margin-bottom: 0 !important;
+}
+
+.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
+  padding: 0 10px;
+  line-height: 28px;
+  height: 28px;
+}
+
+.ant-tabs-nav-container {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 33px !important;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  /* background-color: #1890ff; */
+  background-color: transparent;
+  border-left: 3px solid #1890ff;
+}

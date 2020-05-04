@@ -36,11 +36,20 @@
             "path": "/profile/basic", 
             "name": "基础详情页", 
             "pinYin": "jcxqy", 
-            "component": "@/pages/index"
+            "routes": [
+              { 
+                "path": "/profile/basic/demo1", 
+                "name": "高级详情页",
+                "icon": "profile",
+                "pinYin": "gjxqy",
+                "component": "@/pages/Dashboard/Workplace" 
+              }
+            ]
           },
           { 
             "path": "/profile/advanced", 
             "name": "高级详情页",
+            "icon": "profile",
             "pinYin": "gjxqy",
             "component": "@/pages/index" 
           },

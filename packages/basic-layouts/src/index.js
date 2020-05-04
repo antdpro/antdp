@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Tabs, Layout } from 'antd';
 import { history } from 'umi';
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import MeunView from './Menu';
 import { getTreeList } from './utils';
 import './index.css';
@@ -9,6 +10,7 @@ export default class BaseLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      collapsed: false,
       tabList: [],
       /**
        * tab 所有数据
@@ -64,15 +66,25 @@ export default class BaseLayout extends Component {
     }
     this.setState({ activeKey, tabList: data });
   }
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  }
   onChange = activeKey => history.push(activeKey);
   render() {
     return (
       <Layout>
-        <Layout.Header>Header</Layout.Header>
+        <Layout.Sider collapsed={this.state.collapsed}>
+          <MeunView {...this.props} selectedKey={this.state.activeKey} />
+        </Layout.Sider>
         <Layout>
-          <Layout.Sider>
-            <MeunView {...this.props} />
-          </Layout.Sider>
+          <Layout.Header style={{ padding: 0 }}>
+            {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+              className: 'trigger',
+              onClick: this.toggle,
+            })}
+          </Layout.Header>
           <Layout.Content>
             <Tabs
               onChange={this.onChange}

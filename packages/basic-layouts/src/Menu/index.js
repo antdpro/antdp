@@ -15,7 +15,16 @@ export default class MeunView extends Component {
   }
   getMenuItemPath = (item) => {
     if (item.path) {
-      return <Link to={item.path}>{item.name}</Link>
+      return (
+        <Link to={item.path}>
+          {item.icon ? (
+            <span>
+              {getIcon(item.icon)}
+              <span>{item.name}</span>
+            </span>
+          ): item.name}
+        </Link>
+      );
     }
     return null;
   }
@@ -57,9 +66,7 @@ export default class MeunView extends Component {
                 {getIcon(item.icon)}
                 <span>{name}</span>
               </span>
-            ) : (
-              name
-            )
+            ) : name
           }
           key={item.path}
         >
@@ -67,7 +74,11 @@ export default class MeunView extends Component {
         </Menu.SubMenu>
       );
     }
-    return <Menu.Item key={item.path}>{this.getMenuItemPath(item)}</Menu.Item>;
+    return (
+      <Menu.Item icon="profile" key={item.path}>
+        {this.getMenuItemPath(item)}
+      </Menu.Item>
+    );
   }
   handleOpenChange() {
     

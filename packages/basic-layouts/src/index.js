@@ -79,11 +79,16 @@ export default class BaseLayout extends Component {
           <MeunView {...this.props} selectedKey={this.state.activeKey} />
         </Layout.Sider>
         <Layout>
-          <Layout.Header style={{ padding: 0 }}>
-            {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-              className: 'trigger',
-              onClick: this.toggle,
-            })}
+          <Layout.Header style={{ padding: 0 }} className="antdp-global-header">
+            <div className="antdp-global-header-left">
+              {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+                className: 'trigger',
+                onClick: this.toggle,
+              })}
+            </div>
+            <div className="antdp-global-header-right">
+
+            </div>
           </Layout.Header>
           <Layout.Content>
             <Tabs

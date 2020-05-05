@@ -4,56 +4,75 @@
     "component": "@/layouts/UserLayout",
     "routes": [
       { "path": "/user", "redirect": "/user/login" },
-      { "path": "/user/login", "name": "login", "component": "@/pages/index" },
-      { "component": "@/pages/index" }
+      { "path": "/user/login", "name": "login", "component": "@/pages/index" }
     ]
   },
   {
     "path": "/",
     "component": "@/layouts/BasicLayout",
     "routes": [
-      { "path": "/", "redirect": "/welcome", "icon": "profile" },
-      { "path": "/welcome", "name": "欢迎页面", "pinYin": "hyym", "icon": "profile", "component": "@/pages/index" },
+      { "path": "/", "redirect": "/welcome" },
+      { "path": "/welcome", "name": "首页", "icon": "home", "component": "@/pages/Home/index" },
       {
         "path": "/dashboard",
         "name": "Dashboard",
         "icon": "dashboard",
         "pinYin": "dashboard",
         "routes": [
-          { "path": "/dashboard/workplace", "name": "工作台", "pinYin": "gzt", "component": "@/pages/Dashboard/Workplace" },
-          { "path": "/dashboard/analysis", "name": "分析页", "pinYin": "fxy", "component": "@/pages/index" },
-          { "path": "/dashboard/monitor", "name": "监控台", "pinYin": "jkt", "component": "@/pages/index" },
-          { "component": "@/pages/Exception/404" }
+          { "path": "/dashboard/workplace", "name": "工作台", "icon": "pie-chart", "component": "@/pages/Dashboard/Workplace" },
+          { "path": "/dashboard/analysis", "name": "分析页", "icon": "bar-chart", "component": "@/pages/index" },
+          { "path": "/dashboard/monitor", "name": "监控台", "icon": "radar-chart", "component": "@/pages/index" }
         ]
       },
       {
         "path": "/profile",
         "name": "详情页",
         "icon": "profile",
-        "pinYin": "xqy",
         "routes": [
           { 
-            "path": "/profile/basic", 
-            "name": "基础详情页", 
-            "pinYin": "jcxqy", 
+            "path": "/profile/basic",
+            "name": "基础详情页",
+            "icon": "file-jpg",
             "routes": [
               { 
-                "path": "/profile/basic/demo1", 
-                "name": "高级详情页",
-                "icon": "profile",
-                "pinYin": "gjxqy",
-                "component": "@/pages/Dashboard/Workplace" 
+                "path": "/profile/basic/demo1",
+                "name": "详情页1",
+                "icon": "file-zip",
+                "component": "@/pages/Dashboard/Workplace"
+              },
+              { 
+                "path": "/profile/basic/demo2",
+                "name": "详情页2",
+                "icon": "file-sync",
+                "component": "@/pages/Dashboard/Workplace"
               }
             ]
           },
           { 
-            "path": "/profile/advanced", 
+            "path": "/profile/advanced",
             "name": "高级详情页",
-            "icon": "profile",
-            "pinYin": "gjxqy",
-            "component": "@/pages/index" 
+            "icon": "file-protect",
+            "component": "@/pages/index"
+          }
+        ]
+      },
+      { 
+        "path": "/setting",
+        "name": "设置页面",
+        "icon": "setting",
+        "routes": [
+          { 
+            "path": "/setting/basic",
+            "name": "基础详情页",
+            "icon": "file-jpg",
+            "component": "@/pages/Dashboard/Workplace"
           },
-          { "component": "@/pages/Exception/404" }
+          { 
+            "path": "/setting/advanced",
+            "name": "高级详情页高级详情页",
+            "icon": "file-protect",
+            "component": "@/pages/index"
+          }
         ]
       }
     ]

@@ -76,7 +76,7 @@ export default class BaseLayout extends Component {
   }
   onChange = activeKey => history.push(activeKey);
   render() {
-    const { logo } = this.props;
+    const { logo, route } = this.props;
     const { collapsed } = this.state;
     return (
       <Layout>
@@ -96,7 +96,7 @@ export default class BaseLayout extends Component {
                 className: 'trigger',
                 onClick: this.toggle,
               })}
-              <Breadcrumb />
+              <Breadcrumb routeData={getTreeList(route.routes)} {...this.props} />
             </div>
             <div className="antdp-global-header-right">
               

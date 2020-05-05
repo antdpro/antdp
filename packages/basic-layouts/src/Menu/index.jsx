@@ -85,7 +85,6 @@ export default class MeunView extends Component {
   }
   render() {
     const { route, selectedKey } = this.props;
-    console.log('~~::::', this.state.defaultOpenKeys)
     return (
       <Menu
         theme="dark"

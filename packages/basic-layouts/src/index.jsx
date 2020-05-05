@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Tabs, Layout } from 'antd';
-import { history } from 'umi';
+import { history, Link } from 'umi';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import MeunView from './Menu';
+import Breadcrumb from './Breadcrumb';
 import { getTreeList } from './utils';
 import './index.css';
 
@@ -64,7 +65,9 @@ export default class BaseLayout extends Component {
     if (data && data.length > 0) {
       activeKey = data[index === 0 ? 0 : index - 1]['path'];
     }
-    this.setState({ activeKey, tabList: data });
+    this.setState({ activeKey, tabList: data }, () => {
+      activeKey && this.props.history.push(activeKey);
+    });
   }
   toggle = () => {
     this.setState({
@@ -73,21 +76,30 @@ export default class BaseLayout extends Component {
   }
   onChange = activeKey => history.push(activeKey);
   render() {
+    const { logo } = this.props;
+    const { collapsed } = this.state;
     return (
       <Layout>
-        <Layout.Sider collapsed={this.state.collapsed}>
+        <Layout.Sider width={260} collapsed={collapsed}>
+          <div className="antdp-global-title">
+            <Link to="/">
+              {logo && <img src={logo} alt="logo" />}
+              {!collapsed && <h1>Ant Design Pro</h1>}
+            </Link>
+          </div>
           <MeunView {...this.props} selectedKey={this.state.activeKey} />
         </Layout.Sider>
         <Layout>
           <Layout.Header style={{ padding: 0 }} className="antdp-global-header">
             <div className="antdp-global-header-left">
-              {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+              {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
                 className: 'trigger',
                 onClick: this.toggle,
               })}
+              <Breadcrumb />
             </div>
             <div className="antdp-global-header-right">
-
+              
             </div>
           </Layout.Header>
           <Layout.Content>
@@ -101,7 +113,7 @@ export default class BaseLayout extends Component {
               {this.state.tabList.map(pane => {
                 const Comp = typeof pane.component === 'function' ? pane.component : null;
                 return (
-                  <Tabs.TabPane tab={pane.name} key={pane.key}>
+                  <Tabs.TabPane closable={this.state.tabList.length !== 1} tab={pane.name} key={pane.key}>
                     {Comp &&  <Comp />}
                   </Tabs.TabPane>
                 )

@@ -5,7 +5,6 @@ import { Icon } from 'antd';
  * @param {Array} data 
  */
 export function getTreeList(data, treeList = []) {
-  console.log('data:', data)
   data.forEach((node) => {
     if (node.routes) {
       treeList = getTreeList(node.routes, treeList);

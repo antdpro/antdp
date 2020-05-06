@@ -16,7 +16,17 @@ export interface BaseLayoutState {
 }
 
 export interface BaseLayoutProps {
+  /**
+   * 项目logo
+   */
   logo?: JSX.Element;
+  /**
+   * 项目名称
+   */
+  projectName?: string;
+  /**
+   * 项目路由数据
+   */
   route: RouterData;
   location: any;
   history: any;

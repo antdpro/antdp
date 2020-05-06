@@ -32,6 +32,29 @@ interface AntdIconProps {
 }
 ```
 
+### 用新的 @ant-design/icons 替换字符串类型的 icon 属性值
+
+```diff
+  import { Avatar, Button, Result } from 'antd';
++ import { QuestionOutlined, UserOutlined } from '@ant-design/icons';
+
+  ReactDOM.render(
+    <div>
+-     <Button type="primary" shape="circle" icon="search" />
++     <Button type="primary" shape="circle" icon={SearchOutlined} />
+-     <Avatar shape="square" icon="user" />
++     <Avatar shape="square" icon={UserOutlined} />
+      <Result
+-       icon="question"
++       icon={<QuestionOutlined />}
+        title="Great, we have done all the operations!"
+        extra={<Button type="primary">Next</Button>}
+      />
+    </div>,
+    mountNode,
+  );
+```
+
 ### 将 v3 Icon 组件转换成 @ant-design/icons 中引入
 
 ```diff

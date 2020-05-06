@@ -1,15 +1,18 @@
 import { defineConfig } from 'umi';
 
 /**
- * - optiosn umi 参数配置
+ * - options umi 参数配置
  * - routes 路由配置
  */
-export default (routes = [], optiosn = {}) => {
+export default (routes = [], options = {}) => {
+  const { REACT_APP_ENV } = process.env;
+  options.proxy = options.proxy ? proxy[REACT_APP_ENV || 'dev'] : undefined;
+  
   return defineConfig({
     nodeModulesTransform: {
       type: 'none',
     },
-    ...optiosn,
+    ...options,
     nodeModulesTransform: {
       type: 'none',
       exclude: [],

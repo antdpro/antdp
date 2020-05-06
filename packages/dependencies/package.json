@@ -1,6 +1,6 @@
 {
   "name": "@antdp/dependencies",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "核心依赖包，在这里升级依赖，包含底层编译 umi，代码检测等",
   "author": "any",
   "license": "ISC",

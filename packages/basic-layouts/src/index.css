@@ -77,7 +77,7 @@
   background-color: transparent;
   box-shadow: inset 4px 0px 0px #1890ff;
 }
-.ant-menu-item-group .ant-menu-item-group-title i.anticon {
+.ant-menu-item-group .ant-menu-item-group-title span.anticon {
   margin-right: 10px;
 }
 

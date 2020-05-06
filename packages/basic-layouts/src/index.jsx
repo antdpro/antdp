@@ -111,7 +111,7 @@ export default class BaseLayout extends Component {
               onEdit={this.onClose}
             >
               {this.state.tabList.map(pane => {
-                const Comp = typeof pane.component === 'function' ? pane.component : null;
+                const Comp = /(function|object)/.test(typeof pane.component) ? pane.component : null;
                 return (
                   <Tabs.TabPane closable={this.state.tabList.length !== 1} tab={pane.name} key={pane.key}>
                     {Comp &&  <Comp />}

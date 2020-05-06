@@ -1,6 +1,6 @@
 {
   "name": "@antdp/basic-layouts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ane 入口公共界面",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
@@ -24,7 +24,8 @@
   },
   "babel": {
     "plugins": [
-      ["import",
+      [
+        "import",
         {
           "libraryName": "antd",
           "style": true
@@ -39,8 +40,8 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.4.4",
     "@ant-design/icons": "4.1.0",
+    "@babel/runtime": "7.4.4",
     "classnames": "2.2.6"
   },
   "devDependencies": {

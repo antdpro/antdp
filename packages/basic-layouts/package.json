@@ -16,7 +16,7 @@
   },
   "files": [
     "lib",
-    "src"
+    "index.d.ts"
   ],
   "scripts": {
     "build": "tsbb build --target react",

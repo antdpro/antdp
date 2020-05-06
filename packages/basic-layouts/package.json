@@ -1,6 +1,6 @@
 {
   "name": "@antdp/basic-layouts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "入口框架公共界面",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
@@ -40,8 +40,8 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@antdp/icons": "1.0.1",
     "@ant-design/icons": "4.1.0",
+    "@antdp/icons": "^1.0.2",
     "@babel/runtime": "7.4.4"
   },
   "devDependencies": {

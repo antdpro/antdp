@@ -1,0 +1,20 @@
+{
+  "name": "@antdp/icons",
+  "version": "1.0.1",
+  "description": "解决 antd 4.x Icon 组件不存在问题。",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "scripts": {
+    "build": "tsbb build --target react",
+    "watch": "tsbb watch --target react"
+  },
+  "author": "jaywcjlove",
+  "license": "MIT",
+  "dependencies": {
+    "@ant-design/icons": "4.1.0",
+    "@babel/runtime": "7.4.4"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "1.13.0"
+  }
+}

@@ -91,7 +91,6 @@ export default class MeunView extends Component {
         </Menu.SubMenu>
       );
     }
-    console.log('item.pat:', item.path)
     return (
       <Menu.Item key={item.path}>
         {this.getMenuItemPath(item)}

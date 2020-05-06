@@ -21,12 +21,13 @@ export const toCamel = str => {
 };
 
 export default (props = {}) => {
-  if (!props.type) {
+  const { type, ...otherProps } = props;
+  if (!type) {
     return <Fragment />;
   }
-  const Icons = getIconComponent(props.type);
+  const Icons = getIconComponent(type);
   if (Icons) {
-    return <Icons />;
+    return <Icons {...otherProps} />;
   }
   return <Fragment />;
 }

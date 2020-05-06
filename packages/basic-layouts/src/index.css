@@ -19,6 +19,7 @@
   z-index: 9999;
 }
 
+
 .ant-layout .ant-layout-sider::-webkit-scrollbar {
   border-radius: 5px;
   width: 10px;
@@ -75,6 +76,9 @@
 .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
   background-color: transparent;
   box-shadow: inset 4px 0px 0px #1890ff;
+}
+.ant-menu-item-group .ant-menu-item-group-title i.anticon {
+  margin-right: 10px;
 }
 
 /* ---------------------- */

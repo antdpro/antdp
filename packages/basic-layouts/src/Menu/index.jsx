@@ -39,7 +39,7 @@ export default class MeunView extends Component {
     return menusData
       .filter(item => item.name && !item.hideInMenu)
       .sort((a, b) => a.order - b.order)
-      .map(item => this.getSubMenuOrItem(item))
+      .map((item, index) => this.getSubMenuOrItem(item, index))
       .filter(item => item);
   };
   /**
@@ -52,7 +52,24 @@ export default class MeunView extends Component {
       // this.setState({ defaultOpenKeys });
     }
   }
-  getSubMenuOrItem = item => {
+  getSubMenuOrItem = (item, index) => {
+    if (!item.path && item.routes) {
+      return (
+        <Menu.ItemGroup
+          key={index}
+          title={
+            item.icon ? (
+              <span>
+                {getIcon(item.icon)}
+                <span>{item.name}</span>
+              </span>
+            ) : item.name
+          }
+        >
+          {this.getNavMenuItems(item.routes)}
+        </Menu.ItemGroup>
+      )
+    }
     if (item.routes && item.routes.some(child => child.name)) {
       const { name } = item;
       if (this.props.selectedKey.indexOf(item.path) > -1) {
@@ -74,8 +91,9 @@ export default class MeunView extends Component {
         </Menu.SubMenu>
       );
     }
+    console.log('item.pat:', item.path)
     return (
-      <Menu.Item icon="profile" key={item.path}>
+      <Menu.Item key={item.path}>
         {this.getMenuItemPath(item)}
       </Menu.Item>
     );
@@ -85,6 +103,7 @@ export default class MeunView extends Component {
   }
   render() {
     const { route, selectedKey } = this.props;
+    console.log('selectedKey:', selectedKey, this.state)
     return (
       <Menu
         theme="dark"

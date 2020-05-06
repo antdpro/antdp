@@ -30,18 +30,17 @@
         "icon": "profile",
         "routes": [
           { 
-            "path": "/profile/basic",
-            "name": "基础详情页",
+            "name": "基础",
             "icon": "file-jpg",
             "routes": [
               { 
-                "path": "/profile/basic/demo1",
+                "path": "/profile/demo1",
                 "name": "详情页1",
                 "icon": "file-zip",
                 "component": "@/pages/Dashboard/Workplace"
               },
               { 
-                "path": "/profile/basic/demo2",
+                "path": "/profile/demo2",
                 "name": "详情页2",
                 "icon": "file-sync",
                 "component": "@/pages/Dashboard/Workplace"
@@ -63,13 +62,13 @@
         "routes": [
           { 
             "path": "/setting/basic",
-            "name": "基础详情页",
+            "name": "用户设置",
             "icon": "file-jpg",
             "component": "@/pages/Dashboard/Workplace"
           },
           { 
             "path": "/setting/advanced",
-            "name": "高级详情页高级详情页",
+            "name": "参数设置",
             "icon": "file-protect",
             "component": "@/pages/index"
           }

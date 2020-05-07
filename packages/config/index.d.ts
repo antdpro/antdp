@@ -1,18 +1,12 @@
-import { IConfigFromPlugins, IConfig } from 'umi';
+import {  IConfig, IRoute } from 'umi';
 
-export interface Options extends IConfigFromPlugins, IConfig {
-  routes: Routes;
+export interface Options extends Omit<IConfig, 'routes'> {
+  routes: IRoute;
 }
 
-export type Routes = Array<{
-  path: string;
-  component?: JSX.Element;
-  [key: string]: Routes;
-}>;
-
-export interface Request {
-  (routes?: Routes, optiosn: Options): IConfigFromPlugins | IConfig;
+export interface Config {
+  (routes?: IRoute, optiosn?: Options): IConfig;
 }
 
-declare var request: Request
-export default request;
+declare var config: Config
+export default config;

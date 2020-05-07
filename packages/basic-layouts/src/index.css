@@ -8,7 +8,6 @@
   padding: 0;
   line-height: 42px;
   height: 42px;
-  z-index: 1210;
 }
 
 .ant-layout .ant-layout-sider {
@@ -43,41 +42,42 @@
   background-color: #fff;
 }
 
-.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
+.antdp-global-tabs.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
   padding: 0 10px;
   line-height: 28px;
   height: 28px;
 }
 
-.ant-tabs-bar {
+.antdp-global-tabs .ant-tabs-bar {
   background-color: #f5f5f5 !important;
   margin-bottom: 0 !important;
   padding-top: 5px;
   padding-left: 5px;
   padding-right: 5px;
 }
-.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-nav-container {
+.antdp-global-tabs.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-nav-container {
   height: inherit !important;
 }
-.ant-tabs-nav-container-scrolling {
+.antdp-global-tabs .ant-tabs-nav-container-scrolling {
   padding-right: 24px;
   padding-left: 24px;
 }
-.ant-tabs-tab-prev.ant-tabs-tab-arrow-show {
+.antdp-global-tabs .ant-tabs-tab-prev.ant-tabs-tab-arrow-show {
   width: 28px;
   margin-left: -5px;
 }
-.ant-tabs-tab-next.ant-tabs-tab-arrow-show {
+.antdp-global-tabs .ant-tabs-tab-next.ant-tabs-tab-arrow-show {
   width: 28px;
   margin-right: -7px;
 }
 
-.ant-menu.ant-menu-dark .ant-menu-item-selected,
-.ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+
+.antdp-global-sider .ant-menu.ant-menu-dark .ant-menu-item-selected,
+.antdp-global-sider .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
   background-color: transparent !important;
   box-shadow: inset 4px 0px 0px #1890ff;
 }
-.ant-menu-item-group .ant-menu-item-group-title span.anticon {
+.antdp-global-sider .ant-menu-item-group .ant-menu-item-group-title span.anticon {
   margin-right: 10px;
 }
 
@@ -112,6 +112,11 @@
   height: 32px;
   vertical-align: middle;
 }
+.antdp-global-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 .antdp-global-header-left .trigger {
   vertical-align: middle;
   height: 100%;
@@ -121,4 +126,8 @@
 .antdp-global-header-left .ant-breadcrumb {
   vertical-align: initial;
   display: inline-block;
+}
+
+.antdp-global-header-right {
+  float: right;
 }

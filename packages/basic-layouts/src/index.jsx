@@ -4,6 +4,7 @@ import { history, Link } from 'umi';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import MeunView from './Menu';
 import Breadcrumb from './Breadcrumb';
+import TopRightMenu from './TopRightMenu';
 import { getTreeList } from './utils';
 import './index.css';
 
@@ -23,6 +24,20 @@ export default class BaseLayout extends Component {
      * 项目名称
      */
     projectName: 'Ant Design Pro',
+    profile: {
+      // avatar: 'https://www',
+      // name: '',
+    },
+    topRightMenu: [
+      // {
+      //   label: '个人中心',
+      //   icon: 'user',
+      //   onClick: () => {}
+      // },
+      // {
+      //   divider: true
+      // }
+    ],
   };
   constructor(props) {
     super(props);
@@ -94,11 +109,22 @@ export default class BaseLayout extends Component {
   };
   onChange = activeKey => history.push(activeKey);
   render() {
-    const { logo, route, projectName, siderWidth } = this.props;
+    const {
+      logo,
+      route,
+      projectName,
+      siderWidth,
+      topRightMenu,
+      profile,
+    } = this.props;
     const { collapsed } = this.state;
     return (
       <Layout>
-        <Layout.Sider width={siderWidth} collapsed={collapsed}>
+        <Layout.Sider
+          width={siderWidth}
+          collapsed={collapsed}
+          className="antdp-global-sider"
+        >
           <div className="antdp-global-title">
             <Link to="/">
               {logo && <img src={logo} alt="logo" />}
@@ -122,10 +148,14 @@ export default class BaseLayout extends Component {
                 {...this.props}
               />
             </div>
-            <div className="antdp-global-header-right"></div>
+            <div style={{ flex: '1 1 0%' }}></div>
+            <div className="antdp-global-header-right">
+              <TopRightMenu menu={topRightMenu} profile={profile} />
+            </div>
           </Layout.Header>
           <Layout.Content>
             <Tabs
+              className="antdp-global-tabs"
               onChange={this.onChange}
               activeKey={this.state.activeKey}
               type="editable-card"

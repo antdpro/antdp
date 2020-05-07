@@ -7,9 +7,13 @@ export function getIconComponent(name) {
   } catch (_) {
     try {
       comp = require(`@ant-design/icons/${toCamel(name)}Outlined`);
-    } catch (error) {}
+    } catch (_) {
+      try {
+        comp = require(`@ant-design/icons/${toCamel(name)}TwoTone`);
+      } catch (error) { }
+    }
   }
-  return comp.default || null;
+  return comp.default || comp || null;
 }
 
 export const toCamel = str => {

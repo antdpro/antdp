@@ -15,14 +15,25 @@
     "version": "lerna version --force-publish --no-push --no-git-tag-version",
     "publish": "lerna publish from-package",
     "start": "lerna exec npm run start",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "clean": "lerna clean",
     "tsbb": "tsbb",
     "lerna": "lerna"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ]
   },
   "author": "jaywcjlove",
   "license": "MIT",
   "dependencies": {
     "lerna": "3.20.2",
+    "lint-staged": "10.0.7",
+    "prettier": "1.19.1",
     "tsbb": "1.7.2"
   }
 }

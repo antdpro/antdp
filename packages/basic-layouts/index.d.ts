@@ -40,10 +40,13 @@ export interface BaseLayoutProps {
     params: any;
     path: string;
     url: string;
-  }
+  };
 }
 
-export default class BaseLayout extends React.Component<BaseLayoutProps, BaseLayoutState> {
+export default class BaseLayout extends React.Component<
+  BaseLayoutProps,
+  BaseLayoutState
+> {
   static defaultProps: BaseLayoutProps;
   state: BaseLayoutState;
   constructor(props: BaseLayoutProps);

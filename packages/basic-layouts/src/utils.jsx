@@ -4,10 +4,10 @@ import FixIcons from '@antdp/icons';
 
 /**
  * 递归获取树列表
- * @param {Array} data 
+ * @param {Array} data
  */
 export function getTreeList(data, treeList = []) {
-  data.forEach((node) => {
+  data.forEach(node => {
     if (node.routes) {
       treeList = getTreeList(node.routes, treeList);
     } else if (node.path) {
@@ -20,7 +20,9 @@ export function getTreeList(data, treeList = []) {
 
 export function isUrl(path) {
   /* eslint no-useless-escape:0 */
-  return /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/.test(path);
+  return /(((^https?:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(?::\d+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)$/.test(
+    path,
+  );
 }
 
 // Allow menu.js config icon as string or ReactNode
@@ -33,7 +35,7 @@ export function getIcon(icon) {
     if (isUrl(icon)) {
       return <Icon component={() => <img src={icon} alt="icon" />} />;
     }
-    return <FixIcons type={icon} />
+    return <FixIcons type={icon} />;
   }
   return icon;
-};
+}

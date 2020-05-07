@@ -6,8 +6,10 @@ import { defineConfig } from 'umi';
  */
 export default (routes = [], options = {}) => {
   const { REACT_APP_ENV } = process.env;
-  options.proxy = options.proxy ? options.proxy[REACT_APP_ENV || 'dev'] : undefined;
-  
+  options.proxy = options.proxy
+    ? options.proxy[REACT_APP_ENV || 'dev']
+    : undefined;
+
   return defineConfig({
     nodeModulesTransform: {
       type: 'none',
@@ -48,4 +50,4 @@ export default (routes = [], options = {}) => {
     // },
     routes: routes || [],
   });
-}
+};

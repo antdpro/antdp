@@ -27,7 +27,6 @@ function itemRender(route, params, routes, paths) {
   );
 }
 
-
 export default class BreadcrumbView extends Component {
   render() {
     const { location, routeData } = this.props;
@@ -36,8 +35,6 @@ export default class BreadcrumbView extends Component {
       const data = routeData.filter(item => item.path === location.pathname);
       routes = routes.concat(data);
     }
-    return (
-      <Breadcrumb itemRender={itemRender} routes={routes} />
-    );
+    return <Breadcrumb itemRender={itemRender} routes={routes} />;
   }
 }

@@ -8,5 +8,5 @@ export interface Config {
   (routes?: IRoute, optiosn?: Options): IConfig;
 }
 
-declare var config: Config
+declare var config: Config;
 export default config;

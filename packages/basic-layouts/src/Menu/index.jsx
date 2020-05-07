@@ -12,8 +12,8 @@ export default class MeunView extends Component {
   }
   static defaultProps = {
     route: [],
-  }
-  getMenuItemPath = (item) => {
+  };
+  getMenuItemPath = item => {
     if (item.path) {
       return (
         <Link to={item.path}>
@@ -22,12 +22,14 @@ export default class MeunView extends Component {
               {getIcon(item.icon)}
               <span>{item.name}</span>
             </span>
-          ): item.name}
+          ) : (
+            item.name
+          )}
         </Link>
       );
     }
     return null;
-  }
+  };
   /**
    * 获得菜单子节点
    * @memberof SiderMenu
@@ -45,13 +47,13 @@ export default class MeunView extends Component {
   /**
    * 设置 默认展开的父菜单 keys
    */
-  setMenuOpenKeys = (path) => {
+  setMenuOpenKeys = path => {
     const { defaultOpenKeys } = this.state;
     if (defaultOpenKeys.indexOf(path) === -1) {
       defaultOpenKeys.push(path);
       // this.setState({ defaultOpenKeys });
     }
-  }
+  };
   getSubMenuOrItem = (item, index) => {
     if (!item.path && item.routes) {
       return (
@@ -63,12 +65,14 @@ export default class MeunView extends Component {
                 {getIcon(item.icon)}
                 <span>{item.name}</span>
               </span>
-            ) : item.name
+            ) : (
+              item.name
+            )
           }
         >
           {this.getNavMenuItems(item.routes)}
         </Menu.ItemGroup>
-      )
+      );
     }
     if (item.routes && item.routes.some(child => child.name)) {
       const { name } = item;
@@ -83,7 +87,9 @@ export default class MeunView extends Component {
                 {getIcon(item.icon)}
                 <span>{name}</span>
               </span>
-            ) : name
+            ) : (
+              name
+            )
           }
           key={item.path}
         >
@@ -91,18 +97,12 @@ export default class MeunView extends Component {
         </Menu.SubMenu>
       );
     }
-    return (
-      <Menu.Item key={item.path}>
-        {this.getMenuItemPath(item)}
-      </Menu.Item>
-    );
-  }
-  handleOpenChange() {
-    
-  }
+    return <Menu.Item key={item.path}>{this.getMenuItemPath(item)}</Menu.Item>;
+  };
+  handleOpenChange() {}
   render() {
     const { route, selectedKey } = this.props;
-    console.log('selectedKey:', selectedKey, this.state)
+    console.log('selectedKey:', selectedKey, this.state);
     return (
       <Menu
         theme="dark"

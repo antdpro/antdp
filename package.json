@@ -20,8 +20,10 @@
     "tsbb": "tsbb",
     "lerna": "lerna"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [

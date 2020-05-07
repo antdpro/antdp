@@ -33,6 +33,7 @@
   "dependencies": {
     "lerna": "3.20.2",
     "lint-staged": "10.0.7",
+    "husky": "4.2.5",
     "prettier": "1.19.1",
     "tsbb": "1.7.2"
   }

@@ -6,7 +6,7 @@ const getAccess = () => {
   return access ? JSON.parse(access) : '';
 };
 
-const getTheme = (type) => {
+const getTheme = type => {
   const th = localStorage.getItem('theme');
   const bodyEle = document.body;
   if (th) {
@@ -25,15 +25,16 @@ const getTheme = (type) => {
 export default {
   namespace: 'global',
   state: {
-    collapsed: localStorage.getItem('collapsed') ? JSON.parse(localStorage.getItem('collapsed')) : false,
+    collapsed: localStorage.getItem('collapsed')
+      ? JSON.parse(localStorage.getItem('collapsed'))
+      : false,
     isLogin: false,
     theme: getTheme('dark'),
     access: getAccess(),
     token: getToken() || '',
     bodyHeight: null,
-
   },
-  effects:{
+  effects: {
     *caslogin(_, { call, put }) {
       // 调用后台auth接口获取权限数据
       const response = yield call(fakeAccessAuth);
@@ -55,9 +56,8 @@ export default {
         payload: response,
       });
     },
-
   },
-  reducers:{
+  reducers: {
     changeLayoutCollapsed(state, { payload }) {
       // 保存菜单搜索状态
       localStorage.setItem('collapsed', payload);
@@ -67,7 +67,7 @@ export default {
       };
     },
     changeTheme(state) {
-      const theme = (state.theme === 'light' || !state.theme) ? 'dark' : 'light';
+      const theme = state.theme === 'light' || !state.theme ? 'dark' : 'light';
       localStorage.setItem('theme', theme);
       const bodyEle = document.body;
       if (bodyEle) {
@@ -88,9 +88,9 @@ export default {
         type: payload.type,
         token: payload.token,
         submitting: false,
-        'access': payload.data,
+        access: payload.data,
         message: payload.message,
       };
     },
-  }
-}
+  },
+};

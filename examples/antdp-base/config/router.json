@@ -12,16 +12,36 @@
     "component": "@/layouts/BasicLayout",
     "routes": [
       { "path": "/", "redirect": "/welcome" },
-      { "path": "/welcome", "name": "首页", "icon": "home", "component": "@/pages/Home/index" },
+      {
+        "path": "/welcome",
+        "name": "首页",
+        "icon": "home",
+        "component": "@/pages/Home/index"
+      },
       {
         "path": "/dashboard",
         "name": "Dashboard",
         "icon": "dashboard",
         "pinYin": "dashboard",
         "routes": [
-          { "path": "/dashboard/workplace", "name": "工作台", "icon": "pie-chart", "component": "@/pages/Dashboard/Workplace" },
-          { "path": "/dashboard/analysis", "name": "分析页", "icon": "bar-chart", "component": "@/pages/index" },
-          { "path": "/dashboard/monitor", "name": "监控台", "icon": "radar-chart", "component": "@/pages/index" }
+          {
+            "path": "/dashboard/workplace",
+            "name": "工作台",
+            "icon": "pie-chart",
+            "component": "@/pages/Dashboard/Workplace"
+          },
+          {
+            "path": "/dashboard/analysis",
+            "name": "分析页",
+            "icon": "bar-chart",
+            "component": "@/pages/index"
+          },
+          {
+            "path": "/dashboard/monitor",
+            "name": "监控台",
+            "icon": "radar-chart",
+            "component": "@/pages/index"
+          }
         ]
       },
       {
@@ -29,17 +49,17 @@
         "name": "详情页",
         "icon": "profile",
         "routes": [
-          { 
+          {
             "name": "基础",
             "icon": "file-jpg",
             "routes": [
-              { 
+              {
                 "path": "/profile/demo1",
                 "name": "详情页1",
                 "icon": "file-zip",
                 "component": "@/pages/Dashboard/Workplace"
               },
-              { 
+              {
                 "path": "/profile/demo2",
                 "name": "详情页2",
                 "icon": "file-sync",
@@ -47,7 +67,7 @@
               }
             ]
           },
-          { 
+          {
             "path": "/profile/advanced",
             "name": "高级详情页",
             "icon": "file-protect",
@@ -55,18 +75,18 @@
           }
         ]
       },
-      { 
+      {
         "path": "/setting",
         "name": "设置页面",
         "icon": "setting",
         "routes": [
-          { 
+          {
             "path": "/setting/basic",
             "name": "用户设置",
             "icon": "file-jpg",
             "component": "@/pages/Dashboard/Workplace"
           },
-          { 
+          {
             "path": "/setting/advanced",
             "name": "参数设置",
             "icon": "file-protect",

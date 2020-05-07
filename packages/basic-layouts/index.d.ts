@@ -1,4 +1,6 @@
 import React from 'react';
+import { MenuItemProps } from 'antd/lib/menu/MenuItem';
+import { History, Location } from 'umi';
 
 export interface RouterData {
   path: string;
@@ -32,8 +34,25 @@ export interface BaseLayoutProps {
    * 设置最左边菜单宽度
    */
   siderWidth?: number;
-  location: any;
-  history: any;
+  /**
+   * 用户信息显示
+   */
+  profile?: {
+    /**
+     * 用户头像
+     */
+    avatar?: string,
+    /**
+     * 用户名称/昵称
+     */
+    name?: string,
+  };
+  /**
+   * 顶部右方菜单设置
+   */
+  topRightMenu?: (MenuItemProps | { divider: boolean })[];
+  location: Location;
+  history: History;
   staticContext?: any;
   match: {
     isExact: boolean;

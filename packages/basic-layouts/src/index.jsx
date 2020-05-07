@@ -76,7 +76,7 @@ export default class BaseLayout extends Component {
   }
   onChange = activeKey => history.push(activeKey);
   render() {
-    const { logo, route } = this.props;
+    const { logo, route, projectName } = this.props;
     const { collapsed } = this.state;
     return (
       <Layout>
@@ -84,7 +84,7 @@ export default class BaseLayout extends Component {
           <div className="antdp-global-title">
             <Link to="/">
               {logo && <img src={logo} alt="logo" />}
-              {!collapsed && <h1>Ant Design Pro</h1>}
+              {!collapsed && projectName && <h1>{projectName || 'Ant Design Pro'}</h1>}
             </Link>
           </div>
           <MeunView {...this.props} selectedKey={this.state.activeKey} />

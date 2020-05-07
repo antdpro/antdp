@@ -25,3 +25,10 @@ export default (props) => {
   )
 };
 ```
+
+
+## Component Interface
+
+```typescript
+
+```

@@ -1,4 +1,4 @@
-import {  IConfig, IRoute } from 'umi';
+import { IConfig, IRoute } from 'umi';
 
 export interface Options extends Omit<IConfig, 'routes'> {
   routes: IRoute;

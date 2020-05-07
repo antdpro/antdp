@@ -28,6 +28,10 @@ export interface BaseLayoutProps {
    * 项目路由数据
    */
   route: RouterData;
+  /**
+   * 设置最左边菜单宽度
+   */
+  siderWidth?: number;
   location: any;
   history: any;
   staticContext?: any;

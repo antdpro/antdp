@@ -74,7 +74,7 @@
 
 .ant-menu.ant-menu-dark .ant-menu-item-selected,
 .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
-  background-color: transparent;
+  background-color: transparent !important;
   box-shadow: inset 4px 0px 0px #1890ff;
 }
 .ant-menu-item-group .ant-menu-item-group-title span.anticon {

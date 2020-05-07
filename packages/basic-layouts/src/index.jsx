@@ -8,6 +8,22 @@ import { getTreeList } from './utils';
 import './index.css';
 
 export default class BaseLayout extends Component {
+  static defaultProps = {
+    /**
+     * 路由数据
+     */
+    route: {
+      routes: []
+    },
+    /**
+     * 左边宽度
+     */
+    siderWidth: 260,
+    /**
+     * 项目名称
+     */
+    projectName: 'Ant Design Pro'
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -76,15 +92,15 @@ export default class BaseLayout extends Component {
   }
   onChange = activeKey => history.push(activeKey);
   render() {
-    const { logo, route, projectName } = this.props;
+    const { logo, route, projectName, siderWidth } = this.props;
     const { collapsed } = this.state;
     return (
       <Layout>
-        <Layout.Sider width={260} collapsed={collapsed}>
+        <Layout.Sider width={siderWidth} collapsed={collapsed}>
           <div className="antdp-global-title">
             <Link to="/">
               {logo && <img src={logo} alt="logo" />}
-              {!collapsed && projectName && <h1>{projectName || 'Ant Design Pro'}</h1>}
+              {!collapsed && projectName && <h1>{projectName}</h1>}
             </Link>
           </div>
           <MeunView {...this.props} selectedKey={this.state.activeKey} />

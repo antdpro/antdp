@@ -1,6 +1,6 @@
 {
   "name": "@example/antdp-base",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "private": true,
   "scripts": {
     "start": "umi dev",
@@ -19,12 +19,12 @@
     ]
   },
   "dependencies": {
-    "@antdp/basic-layouts": "^1.1.7",
+    "@antdp/basic-layouts": "^1.1.8",
     "antd": "4.2.0"
   },
   "devDependencies": {
-    "@antdp/config": "^1.1.7",
-    "@antdp/dependencies": "^1.1.7",
+    "@antdp/config": "^1.1.8",
+    "@antdp/dependencies": "^1.1.8",
     "@umijs/plugin-request": "2.3.2",
     "@umijs/test": "3.1.1",
     "lint-staged": "10.0.7",

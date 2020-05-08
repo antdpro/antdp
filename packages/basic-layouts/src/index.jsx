@@ -76,7 +76,7 @@ export default class BaseLayout extends Component {
       });
   }
   componentDidMount() {
-    const { route, location } = this.props;
+    const { route, location, bodyPadding } = this.props;
     const data = getTreeList(route.routes) || [];
     if (location.pathname === '/') {
       location.pathname = '/welcome';
@@ -138,7 +138,10 @@ export default class BaseLayout extends Component {
           <MeunView {...this.props} selectedKey={this.state.activeKey} />
         </Layout.Sider>
         <Layout>
-          <Layout.Header style={{ padding: 0 }} className="antdp-global-header">
+          <Layout.Header
+            style={{ padding: bodyPadding }}
+            className="antdp-global-header"
+          >
             <div className="antdp-global-header-left">
               {React.createElement(
                 collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,

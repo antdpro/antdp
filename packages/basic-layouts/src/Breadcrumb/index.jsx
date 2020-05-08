@@ -6,25 +6,25 @@ import { Link } from 'umi';
 // const routes = [
 //   {
 //     path: '/',
-//     name: 'home',
+//     breadcrumbName: 'home',
 //   },
 //   {
 //     path: 'first',
-//     name: 'first',
+//     breadcrumbName: 'first',
 //   },
 //   {
 //     path: 'second',
-//     name: 'second',
+//     breadcrumbName: 'second',
 //   },
 // ];
 
 function itemRender(route, params, routes, paths) {
   const last = routes.indexOf(route) === routes.length - 1;
   return last ? (
-    <span key={route.path}>{route.name}</span>
+    <span key={route.path}>{route.breadcrumbName}</span>
   ) : (
     <Link to={paths.join('/')} key={route.path}>
-      {route.name}
+      {route.breadcrumbName}
     </Link>
   );
 }
@@ -32,9 +32,14 @@ function itemRender(route, params, routes, paths) {
 export default class BreadcrumbView extends Component {
   render() {
     const { location, routeData } = this.props;
-    let routes = [{ path: '/', name: '首页' }];
+    let routes = [{ path: '/', breadcrumbName: '首页' }];
     if (!/^(\/|\/welcome)$/.test(location.pathname)) {
-      const data = routeData.filter((item) => item.path === location.pathname);
+      const data = routeData
+        .filter((item) => item.path === location.pathname)
+        .map((item) => {
+          item.breadcrumbName = item.name;
+          return item;
+        });
       routes = routes.concat(data);
     }
     return <Breadcrumb itemRender={itemRender} routes={routes} />;

@@ -76,7 +76,7 @@ export default class BaseLayout extends Component {
       });
   }
   componentDidMount() {
-    const { route, location, bodyPadding } = this.props;
+    const { route, location } = this.props;
     const data = getTreeList(route.routes) || [];
     if (location.pathname === '/') {
       location.pathname = '/welcome';
@@ -120,6 +120,7 @@ export default class BaseLayout extends Component {
       siderWidth,
       topRightMenu,
       profile,
+      bodyPadding,
     } = this.props;
     const { collapsed } = this.state;
     return (

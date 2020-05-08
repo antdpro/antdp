@@ -130,7 +130,6 @@ export default class BaseLayout extends Component {
       bodyPadding,
     } = this.props;
     const { collapsed } = this.state;
-    console.log('this.state.tabList:', this.state.tabList);
     return (
       <Layout>
         <Layout.Sider

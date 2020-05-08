@@ -139,10 +139,7 @@ export default class BaseLayout extends Component {
           <MeunView {...this.props} selectedKey={this.state.activeKey} />
         </Layout.Sider>
         <Layout>
-          <Layout.Header
-            style={{ padding: bodyPadding }}
-            className="antdp-global-header"
-          >
+          <Layout.Header style={{ padding: 0 }} className="antdp-global-header">
             <div className="antdp-global-header-left">
               {React.createElement(
                 collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
@@ -176,7 +173,7 @@ export default class BaseLayout extends Component {
                   : null;
                 return (
                   <Tabs.TabPane
-                    style={{ padding: 14 }}
+                    style={{ padding: bodyPadding }}
                     closable={this.state.tabList.length !== 1}
                     tab={pane.name}
                     key={pane.key}

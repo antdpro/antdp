@@ -13,7 +13,7 @@ export default class MeunView extends Component {
   static defaultProps = {
     route: [],
   };
-  getMenuItemPath = item => {
+  getMenuItemPath = (item) => {
     if (item.path) {
       return (
         <Link to={item.path}>
@@ -39,15 +39,15 @@ export default class MeunView extends Component {
       return [];
     }
     return menusData
-      .filter(item => item.name && !item.hideInMenu)
+      .filter((item) => item.name && !item.hideInMenu)
       .sort((a, b) => a.order - b.order)
       .map((item, index) => this.getSubMenuOrItem(item, index))
-      .filter(item => item);
+      .filter((item) => item);
   };
   /**
    * 设置 默认展开的父菜单 keys
    */
-  setMenuOpenKeys = path => {
+  setMenuOpenKeys = (path) => {
     const { defaultOpenKeys } = this.state;
     if (defaultOpenKeys.indexOf(path) === -1) {
       defaultOpenKeys.push(path);
@@ -74,7 +74,7 @@ export default class MeunView extends Component {
         </Menu.ItemGroup>
       );
     }
-    if (item.routes && item.routes.some(child => child.name)) {
+    if (item.routes && item.routes.some((child) => child.name)) {
       const { name } = item;
       if (this.props.selectedKey.indexOf(item.path) > -1) {
         this.setMenuOpenKeys(item.path);
@@ -102,7 +102,6 @@ export default class MeunView extends Component {
   handleOpenChange() {}
   render() {
     const { route, selectedKey } = this.props;
-    console.log('selectedKey:', selectedKey, this.state);
     return (
       <Menu
         theme="dark"

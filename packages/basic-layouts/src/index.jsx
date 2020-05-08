@@ -53,23 +53,26 @@ export default class BaseLayout extends Component {
        */
       activeKey: '',
     };
-    props.history.listen((location, action) => {
-      if (location.pathname === '/') {
-        location.pathname = '/welcome';
-      }
-      const { routeList, tabList } = this.state;
-      const data = routeList.filter(item => item.path === location.pathname)[0];
-      const include = tabList.filter(
-        item => item.path === location.pathname,
-      )[0];
-      if (!include) {
-        tabList.push(data);
-      }
-      this.setState({
-        activeKey: location.pathname,
-        tabList,
+    props.history &&
+      props.history.listen((location, action) => {
+        if (location.pathname === '/') {
+          location.pathname = '/welcome';
+        }
+        const { routeList, tabList } = this.state;
+        const data = routeList.filter(
+          (item) => item.path === location.pathname,
+        )[0];
+        const include = tabList.filter(
+          (item) => item.path === location.pathname,
+        )[0];
+        if (!include) {
+          tabList.push(data);
+        }
+        this.setState({
+          activeKey: location.pathname,
+          tabList,
+        });
       });
-    });
   }
   componentDidMount() {
     const { route, location } = this.props;
@@ -78,7 +81,7 @@ export default class BaseLayout extends Component {
       location.pathname = '/welcome';
     }
 
-    const tabList = data.filter(item => item.path === location.pathname);
+    const tabList = data.filter((item) => item.path === location.pathname);
     this.setState({
       activeKey: location.pathname,
       routeList: data,
@@ -107,7 +110,7 @@ export default class BaseLayout extends Component {
       collapsed: !this.state.collapsed,
     });
   };
-  onChange = activeKey => history.push(activeKey);
+  onChange = (activeKey) => history.push(activeKey);
   render() {
     const {
       logo,
@@ -162,7 +165,7 @@ export default class BaseLayout extends Component {
               hideAdd={true}
               onEdit={this.onClose}
             >
-              {this.state.tabList.map(pane => {
+              {this.state.tabList.map((pane) => {
                 const Comp = /(function|object)/.test(typeof pane.component)
                   ? pane.component
                   : null;

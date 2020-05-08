@@ -1,5 +1,7 @@
 Ant Design Project
 
+用于简化 [antd](https://github.com/ant-design/ant-design) 的部分使用。
+
 This git repository is a repo built using Lerna. It contains several packages:
 
 Package | Version | Description

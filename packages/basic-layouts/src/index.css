@@ -42,18 +42,21 @@
   background-color: #fff;
 }
 
-.antdp-global-tabs.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
-  padding: 0 10px;
-  line-height: 28px;
-  height: 28px;
+.antdp-global-tabs {
+  background: #fff;
 }
-
 .antdp-global-tabs .ant-tabs-bar {
   background-color: #f5f5f5 !important;
+  box-shadow: inset 0px 3px 8px 0px #33333317;
   margin-bottom: 0 !important;
   padding-top: 5px;
   padding-left: 5px;
   padding-right: 5px;
+}
+.antdp-global-tabs.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
+  padding: 0 10px;
+  line-height: 28px;
+  height: 28px;
 }
 .antdp-global-tabs.ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-nav-container {
   height: inherit !important;

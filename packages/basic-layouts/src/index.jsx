@@ -54,8 +54,29 @@ export default class BaseLayout extends Component {
        */
       activeKey: '',
     };
-    props.history &&
-      props.history.listen((location, action) => {
+  }
+  componentDidMount() {
+    const { route, location } = this.props;
+    const data = getTreeList(route.routes) || [];
+    if (location.pathname === '/') {
+      location.pathname = '/welcome';
+    }
+
+    const tabList = data.filter((item) => item.path === location.pathname);
+    this.setState(
+      {
+        activeKey: location.pathname,
+        routeList: data,
+        tabList,
+      },
+      () => {
+        this.listenRouter();
+      },
+    );
+  }
+  listenRouter = () => {
+    this.props.history &&
+      this.props.history.listen((location, action) => {
         if (location.pathname === '/') {
           location.pathname = '/welcome';
         }
@@ -66,7 +87,7 @@ export default class BaseLayout extends Component {
         const include = tabList.filter(
           (item) => item.path === location.pathname,
         )[0];
-        if (!include) {
+        if (!include && data) {
           tabList.push(data);
         }
         this.setState({
@@ -74,21 +95,7 @@ export default class BaseLayout extends Component {
           tabList,
         });
       });
-  }
-  componentDidMount() {
-    const { route, location } = this.props;
-    const data = getTreeList(route.routes) || [];
-    if (location.pathname === '/') {
-      location.pathname = '/welcome';
-    }
-
-    const tabList = data.filter((item) => item.path === location.pathname);
-    this.setState({
-      activeKey: location.pathname,
-      routeList: data,
-      tabList,
-    });
-  }
+  };
   onClose = (targetKey, action) => {
     const { tabList } = this.state;
     let index = 0;
@@ -123,6 +130,7 @@ export default class BaseLayout extends Component {
       bodyPadding,
     } = this.props;
     const { collapsed } = this.state;
+    console.log('this.state.tabList:', this.state.tabList);
     return (
       <Layout>
         <Layout.Sider
@@ -168,6 +176,7 @@ export default class BaseLayout extends Component {
               onEdit={this.onClose}
             >
               {this.state.tabList.map((pane) => {
+                if (!pane) return null;
                 const Comp = /(function|object)/.test(typeof pane.component)
                   ? pane.component
                   : null;

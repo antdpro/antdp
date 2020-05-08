@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Input, Button, Table, Form } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { connect } from 'umi';
 import 'antd/dist/antd.css';
 
 const data = [];
@@ -14,7 +15,7 @@ for (let i = 0; i < 20; i++) {
   };
 }
 
-export default class Workplace extends Component {
+class Workplace extends Component {
   columns = [
     {
       title: '序号',
@@ -77,3 +78,9 @@ export default class Workplace extends Component {
     );
   }
 }
+
+export default connect(({ loading }) => {
+  return {
+    loading: loading,
+  };
+})(Workplace);

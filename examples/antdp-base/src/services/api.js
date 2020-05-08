@@ -1,4 +1,4 @@
-import { request } from 'uim';
+import { request } from 'umi';
 
 export async function fakeAccountLogin(params) {
   return request('api/access/login', {

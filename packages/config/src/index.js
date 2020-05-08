@@ -14,6 +14,12 @@ export default (routes = [], options = {}) => {
     nodeModulesTransform: {
       type: 'none',
     },
+    /**
+     * 整合 dva 数据流
+     */
+    dva: {
+      hmr: true,
+    },
     ...options,
     nodeModulesTransform: {
       type: 'none',

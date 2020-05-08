@@ -51,6 +51,10 @@ export interface BaseLayoutProps {
    * 顶部右方菜单设置
    */
   topRightMenu?: (MenuItemProps | { divider: boolean })[];
+  /**
+   * 设置内容区域补白，默认 14px
+   */
+  bodyPadding?: number;
   location: Location;
   history: History;
   staticContext?: any;

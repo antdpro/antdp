@@ -28,6 +28,7 @@ export default class BaseLayout extends Component {
       // avatar: 'https://www',
       // name: '',
     },
+    bodyPadding: 14,
     topRightMenu: [
       // {
       //   label: '个人中心',
@@ -171,6 +172,7 @@ export default class BaseLayout extends Component {
                   : null;
                 return (
                   <Tabs.TabPane
+                    style={{ padding: 14 }}
                     closable={this.state.tabList.length !== 1}
                     tab={pane.name}
                     key={pane.key}

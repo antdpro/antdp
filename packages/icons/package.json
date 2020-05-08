@@ -1,6 +1,6 @@
 {
   "name": "@antdp/icons",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "解决 antd 4.x Icon 组件不存在问题。",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

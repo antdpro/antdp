@@ -26,9 +26,29 @@ export default (props) => {
 };
 ```
 
-
 ## Component Interface
 
 ```typescript
+import React from 'react';
+import { FormProps, FormItemProps } from 'antd/lib/form';
+import { InputProps } from 'antd/lib/input';
 
+
+export interface formItem extends FormItemProps {
+  inputProps?: InputProps;
+}
+
+export interface UserLoginProps extends FormProps{
+  /**
+   * 项目logo
+   */
+  logo?: JSX.Element;
+  /**
+   * 项目名称
+   */
+  projectName?: string;
+  className?: string;
+  loading?: boolean;
+  formItems?: formItem[];
+}
 ```

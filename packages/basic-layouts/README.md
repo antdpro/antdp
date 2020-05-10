@@ -30,5 +30,52 @@ export default (props) => {
 ## Component Interface
 
 ```typescript
-
+ interface BaseLayoutProps {
+  /**
+   * 项目logo
+   */
+  logo?: JSX.Element;
+  /**
+   * 项目名称
+   */
+  projectName?: string;
+  /**
+   * 项目路由数据
+   */
+  route: RouterData;
+  /**
+   * 设置最左边菜单宽度
+   */
+  siderWidth?: number;
+  /**
+   * 用户信息显示
+   */
+  profile?: {
+    /**
+     * 用户头像
+     */
+    avatar?: string,
+    /**
+     * 用户名称/昵称
+     */
+    name?: string,
+  };
+  /**
+   * 顶部右方菜单设置
+   */
+  topRightMenu?: (MenuItemProps | { divider: boolean })[];
+  /**
+   * 设置内容区域补白，默认 14px
+   */
+  bodyPadding?: number;
+  location: Location;
+  history: History;
+  staticContext?: any;
+  match: {
+    isExact: boolean;
+    params: any;
+    path: string;
+    url: string;
+  };
+}
 ```

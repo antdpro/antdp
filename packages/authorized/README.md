@@ -1,7 +1,7 @@
 @antdp/authorized
 ---
 
-入口公共界面
+通过判断是否进入主界面还是登录界面。
 
 ## Installation
 

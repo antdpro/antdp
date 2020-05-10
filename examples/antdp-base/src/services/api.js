@@ -1,9 +1,9 @@
 import { request } from 'umi';
 
-export async function fakeAccountLogin(params) {
-  return request('api/access/login', {
+export async function userLogin(params) {
+  return request('/api/users/login', {
     method: 'POST',
-    body: params,
+    data: params,
   });
 }
 

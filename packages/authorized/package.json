@@ -1,34 +1,38 @@
 {
-	"name": "@antdp/authorized",
-	"version": "1.1.21",
-	"description": "通过 token 判断是否进入主界面还是登录界面。",
-	"main": "lib/cjs/index.js",
-	"module": "lib/esm/index.js",
-	"license": "MIT",
-	"keywords": [
-		"authorized",
-		"antd"
-	],
-	"author": "jaywcjlove <wcj@nihaosi.com>",
-	"publishConfig": {
-		"access": "public"
-	},
-	"files": [
-		"lib",
-		"index.d.ts"
-	],
-	"peerDependencies": {
-		"antd": ">=4.x",
-		"prop-types": ">=15.7.2",
-		"react": ">=16.7.0",
-		"react-dom": ">=16.7.0"
-	},
-	"dependencies": {
-		"@babel/runtime": "7.4.4",
-		"umi": "3.1.2"
-	},
-	"devDependencies": {
-		"react": "16.8.6",
-		"react-dom": "16.8.6"
-	}
+  "name": "@antdp/authorized",
+  "version": "1.1.21",
+  "description": "通过 token 判断是否进入主界面还是登录界面。",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "license": "MIT",
+  "keywords": [
+    "authorized",
+    "antd"
+  ],
+  "author": "jaywcjlove <wcj@nihaosi.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "tsbb build --target react",
+    "watch": "tsbb watch --target react"
+  },
+  "peerDependencies": {
+    "antd": ">=4.x",
+    "prop-types": ">=15.7.2",
+    "react": ">=16.7.0",
+    "react-dom": ">=16.7.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.4.4",
+    "umi": "3.1.2"
+  },
+  "devDependencies": {
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
+  }
 }

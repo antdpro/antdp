@@ -1,4 +1,6 @@
 import { userLogin } from '@/services/api';
+import { message } from 'antd';
+import { history } from 'umi';
 
 const getToken = () => sessionStorage.getItem('token');
 
@@ -11,9 +13,21 @@ export default {
   },
   effects: {
     // 登录
-    *login({ payload }, { put }) {
-      const data = yield call(userLogin, { ...payload });
-      console.log('data:', data);
+    *login({ payload: { password, phone } }, { call, put }) {
+      const data = yield call(userLogin, { password, phone });
+      if (data.code === 1) {
+        yield sessionStorage.setItem('token', data.token);
+        yield put({ type: 'update', payload: { token: data.token } });
+        history.push('/');
+      } else if (data && data.message) {
+        message.error(data.message);
+      }
+    },
+    // 退出登录
+    *logout(_, { call, put }) {
+      yield sessionStorage.removeItem('token');
+      yield put({ type: 'update', payload: { token: '' } });
+      history.push('/login');
     },
   },
   reducers: {

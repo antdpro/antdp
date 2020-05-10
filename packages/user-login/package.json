@@ -1,13 +1,13 @@
 {
-  "name": "@antdp/basic-layouts",
+  "name": "@antdp/user-login",
   "version": "1.1.21",
-  "description": "入口框架公共界面",
+  "description": "用户登录页面",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "license": "MIT",
   "keywords": [
-    "layouts",
+    "login",
     "antd"
   ],
   "author": "jaywcjlove <wcj@nihaosi.com>",
@@ -41,7 +41,6 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.1.0",
-    "@antdp/icons": "^1.1.21",
     "@babel/runtime": "7.4.4",
     "umi": "3.1.2"
   },

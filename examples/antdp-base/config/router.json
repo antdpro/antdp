@@ -1,11 +1,7 @@
 [
   {
-    "path": "/user",
-    "component": "@/layouts/UserLayout",
-    "routes": [
-      { "path": "/user", "redirect": "/user/login" },
-      { "path": "/user/login", "name": "login", "component": "@/pages/index" }
-    ]
+    "path": "/login",
+    "component": "@/layouts/UserLayout"
   },
   {
     "path": "/",

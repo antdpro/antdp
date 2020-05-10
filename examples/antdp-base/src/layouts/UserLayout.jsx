@@ -1,10 +1,15 @@
 import React from 'react';
-import { Link } from 'umi';
+import UserLogin from '@antdp/user-login';
+import logo from './logo.svg';
 
 export default () => {
   return (
-    <div>
-      用户登录界面，<Link to="/">返回首页</Link>
-    </div>
+    <UserLogin
+      logo={logo}
+      projectName="Ant Design"
+      onFinish={(values) => {
+        console.log('values:', values);
+      }}
+    />
   );
 };

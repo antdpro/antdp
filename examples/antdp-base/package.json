@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@antdp/basic-layouts": "^1.1.21",
+    "@antdp/user-login": "^1.1.21",
     "antd": "4.2.0",
     "umi": "3.1.2"
   },

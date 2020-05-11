@@ -9,7 +9,6 @@ export default {
   state: {
     isLogin: false,
     token: getToken() || '',
-    bodyHeight: null,
   },
   effects: {
     // 登录

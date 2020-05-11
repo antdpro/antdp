@@ -23,6 +23,7 @@
   "dependencies": {
     "@antdp/authorized": "^1.1.22",
     "@antdp/basic-layouts": "^1.1.22",
+    "@antdp/page-loading": "^1.1.22",
     "@antdp/user-login": "^1.1.22",
     "antd": "4.2.0",
     "umi": "3.1.2"

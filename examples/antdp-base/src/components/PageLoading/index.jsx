@@ -1,14 +1,6 @@
 import React from 'react';
-import { Spin } from 'antd';
+import PageLoading from '@antdp/page-loading';
 
 // loading components from code split
 // https://umijs.org/plugin/umi-plugin-react.html#dynamicimport
-export default () => (
-  <div style={{ paddingTop: 100, textAlign: 'center' }}>
-    <Spin size="large" tip="加载中..." />
-  </div>
-);
-
-// export default () => {
-//   return <div>加载中...</div>;
-// }
+export default () => <PageLoading />;

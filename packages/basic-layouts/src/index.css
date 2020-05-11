@@ -42,38 +42,6 @@
   background-color: #fff;
 }
 
-.antdp-global-tabs {
-  background: #fff;
-}
-.antdp-global-tabs > .ant-tabs-bar {
-  background-color: #f5f5f5 !important;
-  box-shadow: inset 0px 3px 8px 0px #33333317;
-  margin-bottom: 0 !important;
-  padding-top: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.antdp-global-tabs.ant-tabs.ant-tabs-card > .ant-tabs-card-bar .ant-tabs-tab {
-  padding: 0 10px;
-  line-height: 28px;
-  height: 28px;
-}
-.antdp-global-tabs.ant-tabs.ant-tabs-card > .ant-tabs-card-bar .ant-tabs-nav-container {
-  height: inherit !important;
-}
-.antdp-global-tabs > .ant-tabs-card-bar .ant-tabs-nav-container-scrolling {
-  padding-right: 24px;
-  padding-left: 24px;
-}
-.antdp-global-tabs > .ant-tabs-card-bar  .ant-tabs-tab-prev.ant-tabs-tab-arrow-show {
-  width: 28px;
-  margin-left: -5px;
-}
-.antdp-global-tabs > .ant-tabs-card-bar .ant-tabs-tab-next.ant-tabs-tab-arrow-show {
-  width: 28px;
-  margin-right: -7px;
-}
-
 
 .antdp-global-sider .ant-menu.ant-menu-dark .ant-menu-item-selected,
 .antdp-global-sider .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {

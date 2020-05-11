@@ -1,199 +1,77 @@
-import React, { Component } from 'react';
-import { Tabs, Layout } from 'antd';
-import { history, Link } from 'umi';
+import React, { useState, useMemo, Fragment } from 'react';
+import { Layout } from 'antd';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+import LayoutTabs from '@antdp/layout-tabs';
 import MeunView from './Menu';
 import Breadcrumb from './Breadcrumb';
 import TopRightMenu from './TopRightMenu';
+import LogoHeader from './LogoHeader';
 import { getTreeList } from './utils';
 import './index.css';
 
-export default class BaseLayout extends Component {
-  static defaultProps = {
-    /**
-     * 路由数据
-     */
-    route: {
+export default (props = {}) => {
+  const {
+    route = {
       routes: [],
     },
-    /**
-     * 左边宽度
-     */
-    siderWidth: 260,
-    /**
-     * 项目名称
-     */
-    projectName: 'Ant Design Pro',
-    profile: {
-      // avatar: 'https://www',
-      // name: '',
-    },
-    bodyPadding: 14,
-    topRightMenu: [
-      // {
-      //   label: '个人中心',
-      //   icon: 'user',
-      //   onClick: () => {}
-      // },
-      // {
-      //   divider: true
-      // }
-    ],
-  };
-  constructor(props) {
-    super(props);
-    this.state = {
-      collapsed: false,
-      tabList: [],
-      /**
-       * tab 所有数据
-       */
-      routeList: [],
-      /**
-       * 当前激活 tab 面板的 key
-       */
-      activeKey: '',
-    };
-  }
-  componentDidMount() {
-    const { route, location } = this.props;
-    const data = getTreeList(route.routes) || [];
-    if (location.pathname === '/') {
-      location.pathname = '/welcome';
-    }
+    projectName = 'Ant Design Pro',
+    siderWidth = 260,
+    topRightMenu,
+    profile = {},
+    bodyPadding = 14,
+  } = props;
+  const [collapsed, setCollapsed] = useState(!!props.collapsed);
+  const collapsedView = useMemo(
+    () =>
+      React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+        className: 'trigger',
+        onClick: () => setCollapsed(!collapsed),
+      }),
+    [collapsed],
+  );
 
-    const tabList = data.filter((item) => item.path === location.pathname);
-    this.setState(
-      {
-        activeKey: location.pathname,
-        routeList: data,
-        tabList,
-      },
-      () => {
-        this.listenRouter();
-      },
-    );
-  }
-  listenRouter = () => {
-    this.props.history &&
-      this.props.history.listen((location, action) => {
-        if (location.pathname === '/') {
-          location.pathname = '/welcome';
-        }
-        const { routeList, tabList } = this.state;
-        const data = routeList.filter(
-          (item) => item.path === location.pathname,
-        )[0];
-        const include = tabList.filter(
-          (item) => item.path === location.pathname,
-        )[0];
-        if (!include && data) {
-          tabList.push(data);
-        }
-        this.setState({
-          activeKey: location.pathname,
-          tabList,
-        });
-      });
-  };
-  onClose = (targetKey, action) => {
-    const { tabList } = this.state;
-    let index = 0;
-    const data = tabList.filter((item, idx) => {
-      if (item.path === targetKey) {
-        index = idx;
-      }
-      return item.path !== targetKey;
-    });
-    let activeKey = '';
-    if (data && data.length > 0) {
-      activeKey = data[index === 0 ? 0 : index - 1]['path'];
-    }
-    this.setState({ activeKey, tabList: data }, () => {
-      activeKey && this.props.history.push(activeKey);
-    });
-  };
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-  onChange = (activeKey) => history.push(activeKey);
-  render() {
-    const {
-      logo,
-      route,
-      projectName,
-      siderWidth,
-      topRightMenu,
-      profile,
-      bodyPadding,
-    } = this.props;
-    const { collapsed } = this.state;
+  const headerRightView = useMemo(() => {
     return (
-      <Layout>
-        <Layout.Sider
-          width={siderWidth}
-          collapsed={collapsed}
-          className="antdp-global-sider"
-        >
-          <div className="antdp-global-title">
-            <Link to="/">
-              {logo && <img src={logo} alt="logo" />}
-              {!collapsed && projectName && <h1>{projectName}</h1>}
-            </Link>
-          </div>
-          <MeunView {...this.props} selectedKey={this.state.activeKey} />
-        </Layout.Sider>
-        <Layout>
-          <Layout.Header style={{ padding: 0 }} className="antdp-global-header">
-            <div className="antdp-global-header-left">
-              {React.createElement(
-                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-                {
-                  className: 'trigger',
-                  onClick: this.toggle,
-                },
-              )}
-              <Breadcrumb
-                routeData={getTreeList(route.routes)}
-                {...this.props}
-              />
-            </div>
-            <div style={{ flex: '1 1 0%' }}></div>
-            <div className="antdp-global-header-right">
-              <TopRightMenu menu={topRightMenu} profile={profile} />
-            </div>
-          </Layout.Header>
-          <Layout.Content>
-            <Tabs
-              className="antdp-global-tabs"
-              onChange={this.onChange}
-              activeKey={this.state.activeKey}
-              type="editable-card"
-              hideAdd={true}
-              onEdit={this.onClose}
-            >
-              {this.state.tabList.map((pane) => {
-                if (!pane) return null;
-                const Comp = /(function|object)/.test(typeof pane.component)
-                  ? pane.component
-                  : null;
-                return (
-                  <Tabs.TabPane
-                    style={{ padding: bodyPadding }}
-                    closable={this.state.tabList.length !== 1}
-                    tab={pane.name}
-                    key={pane.key}
-                  >
-                    {Comp && <Comp />}
-                  </Tabs.TabPane>
-                );
-              })}
-            </Tabs>
-          </Layout.Content>
-        </Layout>
-      </Layout>
+      <Fragment>
+        <div style={{ flex: '1 1 0%' }}></div>
+        <div className="antdp-global-header-right">
+          <TopRightMenu menu={topRightMenu} profile={profile} />
+        </div>
+      </Fragment>
     );
-  }
-}
+  }, [profile.avatar, profile.name]);
+
+  return (
+    <Layout>
+      <Layout.Sider
+        width={siderWidth}
+        collapsed={collapsed}
+        className="antdp-global-sider"
+      >
+        <LogoHeader
+          collapsed={collapsed}
+          projectName={projectName}
+          logo={props.logo}
+        />
+        <MeunView {...props} selectedKey={location.pathname} />
+      </Layout.Sider>
+      <Layout>
+        <Layout.Header style={{ padding: 0 }} className="antdp-global-header">
+          <div className="antdp-global-header-left">
+            {collapsedView}
+            <Breadcrumb routeData={getTreeList(route.routes)} {...props} />
+          </div>
+          {headerRightView}
+        </Layout.Header>
+        <Layout.Content>
+          <LayoutTabs
+            isReRender
+            bodyPadding={bodyPadding}
+            activeKey={location.pathname}
+            dataSource={getTreeList(route.routes)}
+          />
+        </Layout.Content>
+      </Layout>
+    </Layout>
+  );
+};

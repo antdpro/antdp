@@ -4,19 +4,24 @@ import { UserOutlined } from '@ant-design/icons';
 import { Menu, Avatar, Dropdown } from 'antd';
 import './index.css';
 
-
 export default class extends Component {
-  static defaultProps = {
-    data: [],
-    profile: {},
-  };
+  shouldComponentUpdate(nextProps) {
+    if (
+      nextProps.profile &&
+      (nextProps.profile.name !== this.props.profile.name ||
+        nextProps.profile.avatar !== this.props.profile.avatar)
+    ) {
+      return true;
+    }
+    return false;
+  }
   render() {
     const { profile, menu = [] } = this.props;
     const menuView = (
       <Menu>
         {menu.map((item, index) => {
           if (item.divider) {
-            return <Menu.Divider key={index} />
+            return <Menu.Divider key={index} />;
           }
           const { icon, title, link, to, ...otherProps } = item;
           if (!title) {
@@ -27,14 +32,12 @@ export default class extends Component {
               {icon && <span style={{ marginRight: 5 }}>{icon}</span>}
               {title}
             </Fragment>
-          )
+          );
           return (
             <Menu.Item key={index} {...otherProps}>
-              {link ? (
-                <Link to={link}>{child}</Link>
-              ): <span>{child}</span>}
+              {link ? <Link to={link}>{child}</Link> : <span>{child}</span>}
             </Menu.Item>
-          )
+          );
         })}
       </Menu>
     );

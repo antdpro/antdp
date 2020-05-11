@@ -23,7 +23,7 @@ export default class BaseLayout extends Component {
         inputProps: {
           prefix: <LockOutlined className="site-form-item-icon" />,
           placeholder: '请输入密码',
-          autoComplete: 'false',
+          autoComplete: 'true',
           type: 'password',
         },
       },

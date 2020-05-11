@@ -1,13 +1,12 @@
 {
-  "name": "@antdp/basic-layouts",
+  "name": "@antdp/layout-tabs",
   "version": "1.1.22",
-  "description": "入口框架公共界面",
-  "sideEffects": false,
+  "description": "用于主框架选项卡组件。",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "license": "MIT",
   "keywords": [
-    "layouts",
+    "layout-tabs",
     "antd"
   ],
   "author": "Kenny Wong <wcj@nihaosi.com>",
@@ -18,33 +17,16 @@
     "lib",
     "index.d.ts"
   ],
-  "babel": {
-    "plugins": [
-      [
-        "import",
-        {
-          "libraryName": "antd",
-          "style": true
-        }
-      ]
-    ]
-  },
   "peerDependencies": {
-    "antd": ">=4.x",
     "prop-types": ">=15.7.2",
     "react": ">=16.7.0",
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@ant-design/icons": "4.1.0",
-    "@antdp/icons": "^1.1.22",
-    "@antdp/layout-tabs": "^1.1.22",
     "@babel/runtime": "7.4.4",
-    "umi": "3.1.2"
+    "antd": "4.2.2"
   },
   "devDependencies": {
-    "antd": "4.2.0",
-    "babel-plugin-import": "1.13.0",
     "react": "16.8.6",
     "react-dom": "16.8.6"
   }

@@ -1,0 +1,8 @@
+
+
+.antdp-global-breadcrumb > span::after {
+  display: inline-block;
+  content: attr(data-separator);
+  padding-left: 5px;
+  padding-right: 5px;
+} 

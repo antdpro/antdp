@@ -10,7 +10,7 @@
     "login",
     "antd"
   ],
-  "author": "jaywcjlove <wcj@nihaosi.com>",
+  "author": "Kenny Wong <wcj@nihaosi.com>",
   "publishConfig": {
     "access": "public"
   },
@@ -18,10 +18,6 @@
     "lib",
     "index.d.ts"
   ],
-  "scripts": {
-    "build": "tsbb build --target react",
-    "watch": "tsbb watch --target react"
-  },
   "babel": {
     "plugins": [
       [

@@ -4,11 +4,7 @@
   "description": "解决 antd 4.x Icon 组件不存在问题。",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
-  "scripts": {
-    "build": "tsbb build --target react",
-    "watch": "tsbb watch --target react"
-  },
-  "author": "jaywcjlove",
+  "author": "Kenny Wong <wcj@nihaosi.com>",
   "license": "MIT",
   "files": [
     "lib",

@@ -1,7 +1,7 @@
 {
-  "name": "@antdp/authorized",
+  "name": "@antdp/page-loading",
   "version": "1.1.22",
-  "description": "通过判断是否进入主界面还是登录界面。",
+  "description": "页面过渡动画组件。",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "license": "MIT",
@@ -17,17 +17,28 @@
     "lib",
     "index.d.ts"
   ],
+  "babel": {
+    "plugins": [
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "style": true
+        }
+      ]
+    ]
+  },
   "peerDependencies": {
     "antd": ">=4.x",
-    "prop-types": ">=15.7.2",
     "react": ">=16.7.0",
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.4.4",
-    "umi": "3.1.2"
+    "@babel/runtime": "7.4.4"
   },
   "devDependencies": {
+    "antd": "4.2.0",
+    "babel-plugin-import": "1.13.0",
     "react": "16.8.6",
     "react-dom": "16.8.6"
   }

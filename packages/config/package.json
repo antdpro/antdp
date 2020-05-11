@@ -4,12 +4,8 @@
   "description": "路由配置",
   "author": "anneng",
   "license": "ISC",
-  "sideEffects": false,
-  "main": "lib/index.js",
-  "scripts": {
-    "build": "tsbb build",
-    "watch": "tsbb watch"
-  },
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
   "files": [
     "lib",
     "index.d.ts"

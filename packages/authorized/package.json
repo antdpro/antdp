@@ -1,6 +1,6 @@
 {
   "name": "@antdp/authorized",
-  "version": "1.1.22",
+  "version": "1.1.23",
   "description": "通过判断是否进入主界面还是登录界面。",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

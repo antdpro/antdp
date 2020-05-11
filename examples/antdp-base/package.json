@@ -1,6 +1,6 @@
 {
   "name": "@example/antdp-base",
-  "version": "1.1.22",
+  "version": "1.1.23",
   "private": true,
   "scripts": {
     "start": "umi dev",
@@ -21,16 +21,16 @@
     ]
   },
   "dependencies": {
-    "@antdp/authorized": "^1.1.22",
-    "@antdp/basic-layouts": "^1.1.22",
-    "@antdp/page-loading": "^1.1.22",
-    "@antdp/user-login": "^1.1.22",
+    "@antdp/authorized": "^1.1.23",
+    "@antdp/basic-layouts": "^1.1.23",
+    "@antdp/page-loading": "^1.1.23",
+    "@antdp/user-login": "^1.1.23",
     "antd": "4.2.0",
     "umi": "3.1.2"
   },
   "devDependencies": {
-    "@antdp/config": "^1.1.22",
-    "@antdp/dependencies": "^1.1.22",
+    "@antdp/config": "^1.1.23",
+    "@antdp/dependencies": "^1.1.23",
     "@umijs/plugin-dva": "0.6.5",
     "@umijs/plugin-request": "2.3.2",
     "@umijs/test": "3.1.3",

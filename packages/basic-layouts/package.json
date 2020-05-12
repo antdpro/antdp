@@ -38,6 +38,7 @@
   "dependencies": {
     "@ant-design/icons": "4.1.0",
     "@antdp/icons": "^1.2.2",
+    "@antdp/document-title": "^1.2.2",
     "@antdp/layout-tabs": "^1.2.2",
     "@babel/runtime": "7.4.4",
     "umi": "3.1.2"

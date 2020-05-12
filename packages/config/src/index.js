@@ -20,6 +20,12 @@ export default (routes = [], options = {}) => {
     dva: {
       hmr: true,
     },
+    /**
+     * 如果需要自行通过 react-helment 等方式渲染 title，配 `title: false` 可禁用内置的 title 渲染机制
+     * https://github.com/umijs/umi/pull/4345/files
+     * https://umijs.org/zh-CN/config#title
+     */
+    title: false,
     ...options,
     nodeModulesTransform: {
       type: 'none',

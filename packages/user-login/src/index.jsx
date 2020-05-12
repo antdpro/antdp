@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, Input, Button } from 'antd';
+import DocumentTitle from '@antdp/document-title';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './index.css';
 
@@ -39,32 +40,34 @@ export default class BaseLayout extends Component {
       ...otherProps
     } = this.props;
     return (
-      <div className={`antdp-login ${className || ''}`}>
-        <div className="antdp-login-title">
-          {logo && <img src={logo} alt="logo" />}
-          {projectName && <h1>{projectName}</h1>}
+      <DocumentTitle title={`用户登录 - ${projectName || ''}`}>
+        <div className={`antdp-login ${className || ''}`}>
+          <div className="antdp-login-title">
+            {logo && <img src={logo} alt="logo" />}
+            {projectName && <h1>{projectName}</h1>}
+          </div>
+          <Form
+            className="antdp-login-form"
+            initialValues={{ remember: true }}
+            {...otherProps}
+          >
+            {Array.isArray(formItems) &&
+              formItems.map((item, index) => {
+                const { inputProps, ...formItemProps } = item;
+                return (
+                  <Form.Item key={index} {...formItemProps}>
+                    {inputProps && <Input disabled={loading} {...inputProps} />}
+                  </Form.Item>
+                );
+              })}
+            <Form.Item>
+              <Button type="primary" loading={loading} htmlType="submit">
+                登录
+              </Button>
+            </Form.Item>
+          </Form>
         </div>
-        <Form
-          className="antdp-login-form"
-          initialValues={{ remember: true }}
-          {...otherProps}
-        >
-          {Array.isArray(formItems) &&
-            formItems.map((item, index) => {
-              const { inputProps, ...formItemProps } = item;
-              return (
-                <Form.Item key={index} {...formItemProps}>
-                  {inputProps && <Input disabled={loading} {...inputProps} />}
-                </Form.Item>
-              );
-            })}
-          <Form.Item>
-            <Button type="primary" loading={loading} htmlType="submit">
-              登录
-            </Button>
-          </Form.Item>
-        </Form>
-      </div>
+      </DocumentTitle>
     );
   }
 }

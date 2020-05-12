@@ -1,5 +1,6 @@
 import React, { useState, useMemo, Fragment } from 'react';
 import { Layout } from 'antd';
+import { Redirect } from 'umi';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import LayoutTabs from '@antdp/layout-tabs';
 import MeunView from './Menu';
@@ -20,6 +21,10 @@ export default (props = {}) => {
     profile = {},
     bodyPadding = 14,
   } = props;
+
+  if (location.pathname === '/') {
+    return <Redirect to="/welcome" />;
+  }
   const [collapsed, setCollapsed] = useState(!!props.collapsed);
   const collapsedView = useMemo(
     () =>

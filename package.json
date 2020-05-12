@@ -13,6 +13,7 @@
     "watch:layout": "lerna exec --scope @antdp/basic-layouts -- tsbb watch --target react",
     "watch:loading": "lerna exec --scope @antdp/page-loading -- tsbb watch --target react",
     "watch:login": "lerna exec --scope @antdp/user-login -- tsbb watch --target react",
+    "watch:tab": "lerna exec --scope @antdp/layout-tabs -- tsbb watch --target react",
     "version": "lerna version --force-publish --no-push --no-git-tag-version",
     "publish": "lerna publish from-package",
     "start": "lerna exec npm run start",

@@ -1,8 +1,7 @@
 import React, { useEffect, useState, Fragment } from 'react';
-import Frame, { FrameContextConsumer } from 'react-frame-component';
 import { history } from 'umi';
 import { Tabs } from 'antd';
-import { initialContent } from './utils';
+import Iframe from './Iframe';
 import './index.css';
 
 export default (props = {}) => {
@@ -29,7 +28,7 @@ export default (props = {}) => {
         className="antdps-global-tabs"
         hideAdd={true}
         activeKey={props.activeKey}
-        onTabClick={(targetKey, dddd) => {
+        onTabClick={(targetKey) => {
           history.push(targetKey);
         }}
         onEdit={(targetKey, action) => {
@@ -58,36 +57,21 @@ export default (props = {}) => {
       </Tabs>
       {data.map((pane, index) => {
         if (!pane) return null;
+        const isShowView = pane.path === props.activeKey;
         const Comp = /(function|object)/.test(typeof pane.component)
           ? pane.component
           : null;
         if (!Comp) return null;
-        const isShowView = pane.path === props.activeKey;
         if (props.iframeRender) {
           return (
-            <Frame
-              // onLoad={() => {
-              //   console.log('~~::::')
-              // }}
+            <Iframe
+              pane={pane}
+              path={pane.path}
+              activePath={props.activeKey}
+              isShowView={isShowView}
+              child={<Comp />}
               key={index}
-              mountTarget="#mount-antdp"
-              initialContent={initialContent()}
-              className="antdps-global-frame"
-              style={{
-                display: isShowView ? 'block' : 'none',
-                height: 'calc(100% - 35px)',
-              }}
-            >
-              <FrameContextConsumer>
-                {({ document, window }) => {
-                  return (
-                    <div style={{ padding: props.bodyPadding || 14 }}>
-                      <Comp />
-                    </div>
-                  );
-                }}
-              </FrameContextConsumer>
-            </Frame>
+            />
           );
         }
         if (props.isReRender) {

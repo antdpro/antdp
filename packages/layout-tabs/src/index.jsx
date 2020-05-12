@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, Fragment } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 
 import { history } from 'umi';
 import { Tabs } from 'antd';
@@ -9,12 +9,18 @@ export default (props = {}) => {
   const [tabAllKey, setTabAllKey] = useState([props.activeKey]);
   useEffect(() => {
     if (!tabAllKey.includes(props.activeKey)) {
-      console.log('tabAllKey:2222:', tabAllKey);
       tabAllKey.push(props.activeKey);
       setTabAllKey([...tabAllKey]);
     }
   }, [props.activeKey]);
-  const data = dataSource.filter((item) => tabAllKey.includes(item.path));
+  let data = [];
+  dataSource.forEach((item, index) => {
+    if (tabAllKey.includes(item.path)) {
+      const idx = tabAllKey.indexOf(item.path);
+      data[idx] = item;
+    }
+  });
+  data = data.filter(Boolean);
   return (
     <Fragment>
       <Tabs
@@ -23,7 +29,6 @@ export default (props = {}) => {
         hideAdd={true}
         activeKey={props.activeKey}
         onTabClick={(targetKey, dddd) => {
-          console.log('targetKey:onTabClick:', dddd, targetKey);
           history.push(targetKey);
         }}
         onEdit={(targetKey, action) => {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Input, Button, Table, Form } from 'antd';
+import { Card, Input, Button, Table, Form, Space } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { connect } from 'umi';
 import 'antd/dist/antd.css';
@@ -56,7 +56,7 @@ class Workplace extends Component {
 
   render() {
     return (
-      <div>
+      <Space direction="vertical" style={{ display: 'block' }}>
         <Card title="消息查找" size="small">
           <Form layout="inline">
             <Form.Item label="消息对象" name="消息对象">
@@ -74,7 +74,7 @@ class Workplace extends Component {
         </Card>
 
         <Table bordered columns={this.columns} size="small" dataSource={data} />
-      </div>
+      </Space>
     );
   }
 }

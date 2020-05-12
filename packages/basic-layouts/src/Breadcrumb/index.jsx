@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import { HomeOutlined } from '@ant-design/icons';
 import { Link } from 'umi';
 import './index.css';
 
@@ -38,7 +37,6 @@ export default (props = {}) => {
   const Home = useMemo(() => (
     <span data-separator={routesDatas.length === 0 ? '' : '/'}>
       <Link to="/">
-        <HomeOutlined />
         <span>首页</span>
       </Link>
     </span>

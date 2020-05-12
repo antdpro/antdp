@@ -1,6 +1,6 @@
 {
   "name": "@antdp/user-login",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "用户登录页面",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.1.0",
-    "@antdp/document-title": "^1.2.2",
+    "@antdp/document-title": "^1.2.3",
     "@babel/runtime": "7.4.4",
     "umi": "3.1.2"
   },

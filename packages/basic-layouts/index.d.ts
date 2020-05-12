@@ -55,6 +55,10 @@ export interface BaseLayoutProps {
    * 设置内容区域补白，默认 14px
    */
   bodyPadding?: number;
+  /**
+   * 设置内容区域补白，默认 14px
+   */
+  isReRender?: boolean;
   location: Location;
   history: History;
   staticContext?: any;

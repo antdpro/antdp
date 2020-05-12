@@ -19,6 +19,7 @@ export default (props = {}) => {
     siderWidth = 260,
     topRightMenu,
     profile = {},
+    isReRender = false,
     bodyPadding = 14,
   } = props;
 
@@ -70,7 +71,7 @@ export default (props = {}) => {
         </Layout.Header>
         <Layout.Content>
           <LayoutTabs
-            isReRender
+            isReRender={isReRender}
             bodyPadding={bodyPadding}
             activeKey={location.pathname}
             dataSource={getTreeList(route.routes)}

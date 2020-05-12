@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface LayoutTabsRouter {
+export interface LayoutTabsRouter {
   component?: JSX.Element;
   exact?: boolean;
   icon: string;
@@ -11,7 +11,7 @@ interface LayoutTabsRouter {
 
 export interface LayoutTabsProps {
   /**
-   * 是否重新渲染页面，默认 true
+   * 是否重新渲染页面，默认 false
    */
   isReRender?: boolean;
   activeKey?: string[]

@@ -20,6 +20,7 @@ export default (props = {}) => {
     topRightMenu,
     profile = {},
     isReRender = false,
+    iframeRender = true,
     bodyPadding = 14,
   } = props;
 
@@ -72,6 +73,7 @@ export default (props = {}) => {
         <Layout.Content>
           <LayoutTabs
             isReRender={isReRender}
+            iframeRender={iframeRender}
             bodyPadding={bodyPadding}
             activeKey={location.pathname}
             dataSource={getTreeList(route.routes)}

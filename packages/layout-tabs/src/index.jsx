@@ -1,7 +1,8 @@
 import React, { useEffect, useState, Fragment } from 'react';
-
+import Frame, { FrameContextConsumer } from 'react-frame-component';
 import { history } from 'umi';
 import { Tabs } from 'antd';
+import { initialContent } from './utils';
 import './index.css';
 
 export default (props = {}) => {
@@ -62,6 +63,33 @@ export default (props = {}) => {
           : null;
         if (!Comp) return null;
         const isShowView = pane.path === props.activeKey;
+        if (props.iframeRender) {
+          return (
+            <Frame
+              // onLoad={() => {
+              //   console.log('~~::::')
+              // }}
+              key={index}
+              mountTarget="#mount-antdp"
+              initialContent={initialContent()}
+              className="antdps-global-frame"
+              style={{
+                display: isShowView ? 'block' : 'none',
+                height: 'calc(100% - 35px)',
+              }}
+            >
+              <FrameContextConsumer>
+                {({ document, window }) => {
+                  return (
+                    <div style={{ padding: props.bodyPadding || 14 }}>
+                      <Comp />
+                    </div>
+                  );
+                }}
+              </FrameContextConsumer>
+            </Frame>
+          );
+        }
         if (props.isReRender) {
           return (
             <div

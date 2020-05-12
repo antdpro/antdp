@@ -59,6 +59,10 @@ export interface BaseLayoutProps {
    * 设置内容区域补白，默认 14px
    */
   isReRender?: boolean;
+  /**
+   * 是否使用 iframe 来渲染页面
+   */
+  iframeRender?: boolean;
   location: Location;
   history: History;
   staticContext?: any;

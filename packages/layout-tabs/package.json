@@ -7,6 +7,9 @@
   "license": "MIT",
   "keywords": [
     "layout-tabs",
+    "layout",
+    "tabs",
+    "antdp",
     "antd"
   ],
   "author": "Kenny Wong <wcj@nihaosi.com>",

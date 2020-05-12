@@ -6,7 +6,8 @@
   "module": "lib/esm/index.js",
   "license": "MIT",
   "keywords": [
-    "authorized",
+    "loading",
+    "antdp",
     "antd"
   ],
   "author": "Kenny Wong <wcj@nihaosi.com>",

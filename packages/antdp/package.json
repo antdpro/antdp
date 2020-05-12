@@ -3,6 +3,10 @@
   "version": "1.2.3",
   "description": "Ant Design Project",
   "scripts": {},
+  "keywords": [
+    "antdp",
+    "antd"
+  ],
   "author": "jaywcjlove",
   "license": "MIT"
 }

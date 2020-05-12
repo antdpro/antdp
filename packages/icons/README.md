@@ -1,7 +1,7 @@
 @antdp/icons
 ---
 
-解决 antd 4.x Icon 组件不存在问题，解决部分图标问题，正常使用 [`@ant-design/icons`](https://github.com/ant-design/ant-design-icons/tree/master/packages/icons-react)，当前组件只是用于过渡。
+解决 antd 4.x Icon 组件不存在问题，通过老的方式调用新的图标组件，依赖 [`@ant-design/icons`](https://github.com/ant-design/ant-design-icons/tree/master/packages/icons-react)，当前组件用于过渡，解决老的工程报错问题，菜单传图标名称显示图标问题。
 
 > 从 4.0 开始，antd 不再内置 Icon 组件，请使用独立的包 @ant-design/icons。
 

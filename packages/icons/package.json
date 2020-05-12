@@ -1,11 +1,16 @@
 {
   "name": "@antdp/icons",
   "version": "1.2.3",
-  "description": "解决 antd 4.x Icon 组件不存在问题。",
+  "description": "解决 antd 4.x Icon 组件不存在问题，通过老的方式调用新的图标组件。",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "author": "Kenny Wong <wcj@nihaosi.com>",
   "license": "MIT",
+  "keywords": [
+    "icons",
+    "antdp",
+    "antd"
+  ],
   "files": [
     "lib",
     "index.d.ts"

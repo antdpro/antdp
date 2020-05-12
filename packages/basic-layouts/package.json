@@ -1,6 +1,6 @@
 {
   "name": "@antdp/basic-layouts",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "入口框架公共界面",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
@@ -37,8 +37,8 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.1.0",
-    "@antdp/icons": "^1.2.0",
-    "@antdp/layout-tabs": "^1.2.0",
+    "@antdp/icons": "^1.2.1",
+    "@antdp/layout-tabs": "^1.2.1",
     "@babel/runtime": "7.4.4",
     "umi": "3.1.2"
   },

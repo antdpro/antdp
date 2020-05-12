@@ -1,6 +1,6 @@
 {
   "name": "@antdp/user-login",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "用户登录页面",
   "sideEffects": false,
   "main": "lib/cjs/index.js",

@@ -2,6 +2,7 @@ import React, { useEffect, useState, Fragment } from 'react';
 import { history } from 'umi';
 import { Tabs } from 'antd';
 import Iframe from './Iframe';
+import RenderContent from './RenderContent';
 import './index.css';
 
 export default (props = {}) => {
@@ -65,26 +66,21 @@ export default (props = {}) => {
         if (props.iframeRender) {
           return (
             <Iframe
-              pane={pane}
-              path={pane.path}
-              activePath={props.activeKey}
+              bodyPadding={props.bodyPadding}
               isShowView={isShowView}
               child={<Comp />}
               key={index}
             />
           );
         }
-        if (props.isReRender) {
+        if (!props.isReRender) {
           return (
-            <div
+            <RenderContent
+              bodyPadding={props.bodyPadding}
+              isShowView={isShowView}
+              child={<Comp />}
               key={index}
-              style={{
-                display: isShowView ? 'block' : 'none',
-                padding: props.bodyPadding || 14,
-              }}
-            >
-              <Comp />
-            </div>
+            />
           );
         }
         if (isShowView) {

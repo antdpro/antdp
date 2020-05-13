@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Card, Input, Button, Table, Form, Space } from 'antd';
+import { Card, Input, Button, Table, Form, Space, DatePicker } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { connect } from 'umi';
+import moment from 'moment';
 import 'antd/dist/antd.css';
 
 const data = [];
@@ -59,6 +60,16 @@ class Workplace extends Component {
       <Space direction="vertical" style={{ display: 'block' }}>
         <Card title="消息查找" size="small">
           <Form layout="inline">
+            <Form.Item label="消息对象" name="消息对象">
+              <DatePicker.RangePicker
+                autoComplete={false}
+                initialValues={[
+                  moment('2015/01/01', 'YYYY/MM/DD'),
+                  moment('2015/01/01', 'YYYY/MM/DD'),
+                ]}
+                format="YYYY/MM/DD"
+              />
+            </Form.Item>
             <Form.Item label="消息对象" name="消息对象">
               <Input />
             </Form.Item>

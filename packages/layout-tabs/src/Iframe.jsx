@@ -12,7 +12,18 @@ export default class IFrameView extends Component {
   render() {
     const { isShowView, bodyPadding, child } = this.props;
     if (!child) return null;
-
+    // return (
+    //   <iframe
+    //     src="/users"
+    //     frameBorder="0"
+    //     style={{
+    //       display: isShowView ? 'block' : 'none',
+    //       height: 'calc(100% - 35px)',
+    //       width: '100%',
+    //       display: 'block'
+    //     }}
+    //   />
+    // )
     return (
       <Frame
         // onLoad={() => {

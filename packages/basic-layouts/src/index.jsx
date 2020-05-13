@@ -21,7 +21,7 @@ export default (props = {}) => {
     topRightMenu,
     profile = {},
     isReRender = false,
-    iframeRender = true,
+    iframeRender = false,
     bodyPadding = 14,
   } = props;
 

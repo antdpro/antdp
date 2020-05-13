@@ -1,6 +1,6 @@
 {
   "name": "@antdp/layout-tabs",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "用于主框架选项卡组件。",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

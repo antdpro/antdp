@@ -23,7 +23,7 @@ const Layout = (props) => {
         }}
         siderWidth={240}
         logo={logo}
-        // iframeRender={false}
+        iframeRender={false}
         topRightMenu={[
           {
             title: '个人中心',

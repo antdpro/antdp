@@ -12,7 +12,6 @@ export default class RenderContent extends Component {
     if (!child) return null;
     return (
       <div
-        key={index}
         style={{
           display: isShowView ? 'block' : 'none',
           padding: bodyPadding || 14,

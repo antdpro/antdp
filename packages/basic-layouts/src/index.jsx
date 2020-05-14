@@ -18,7 +18,7 @@ export default (props = {}) => {
     },
     projectName = 'Ant Design Pro',
     siderWidth = 260,
-    topRightMenu,
+    topRightMenu = [],
     profile = {},
     isReRender = false,
     iframeRender = false,

@@ -15,6 +15,8 @@ export default class RenderContent extends Component {
         style={{
           display: isShowView ? 'block' : 'none',
           padding: bodyPadding || 14,
+          height: 'calc(100% - 35px)',
+          overflow: 'auto',
         }}
       >
         {child}

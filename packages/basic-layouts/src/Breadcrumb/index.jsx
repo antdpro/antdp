@@ -52,7 +52,6 @@ export default (props = {}) => {
         return (
           <span data-separator="/">
             <Link to={item.path} key={index}>
-              {index === 0 && <HomeOutlined />}
               <span>{item.breadcrumbName}</span>
             </Link>
           </span>

@@ -20,8 +20,6 @@ export default (props = {}) => {
     siderWidth = 260,
     topRightMenu = [],
     profile = {},
-    isReRender = false,
-    iframeRender = false,
     bodyPadding = 14,
   } = props;
 
@@ -82,8 +80,6 @@ export default (props = {}) => {
           </Layout.Header>
           <Layout.Content>
             <LayoutTabs
-              isReRender={isReRender}
-              iframeRender={iframeRender}
               bodyPadding={bodyPadding}
               activeKey={location.pathname}
               dataSource={routeData}

@@ -24,38 +24,40 @@ export default (props = {}) => {
   data = data.filter(Boolean);
   return (
     <Fragment>
-      <Tabs
-        type="editable-card"
-        className="antdps-global-tabs"
-        hideAdd={true}
-        activeKey={props.activeKey}
-        onTabClick={(targetKey) => {
-          history.push(targetKey);
-        }}
-        onEdit={(targetKey, action) => {
-          let index = 0;
-          const dataKeys = tabAllKey.filter((path, idx) => {
-            if (path === targetKey) {
-              index = idx;
+      {ANTD_IS_TABS && (
+        <Tabs
+          type="editable-card"
+          className="antdps-global-tabs"
+          hideAdd={true}
+          activeKey={props.activeKey}
+          onTabClick={(targetKey) => {
+            history.push(targetKey);
+          }}
+          onEdit={(targetKey, action) => {
+            let index = 0;
+            const dataKeys = tabAllKey.filter((path, idx) => {
+              if (path === targetKey) {
+                index = idx;
+              }
+              return path !== targetKey;
+            });
+            let activeKey = '';
+            if (dataKeys && dataKeys.length > 0) {
+              activeKey = dataKeys[index === 0 ? 0 : index - 1];
             }
-            return path !== targetKey;
-          });
-          let activeKey = '';
-          if (dataKeys && dataKeys.length > 0) {
-            activeKey = dataKeys[index === 0 ? 0 : index - 1];
-          }
-          setTabAllKey([...dataKeys]);
-          history.push(activeKey);
-        }}
-      >
-        {data.map((pane, index) => (
-          <Tabs.TabPane
-            tab={pane.name}
-            key={pane.path}
-            closable={data.length !== 1}
-          />
-        ))}
-      </Tabs>
+            setTabAllKey([...dataKeys]);
+            history.push(activeKey);
+          }}
+        >
+          {data.map((pane, index) => (
+            <Tabs.TabPane
+              tab={pane.name}
+              key={pane.path}
+              closable={data.length !== 1}
+            />
+          ))}
+        </Tabs>
+      )}
       {data.map((pane, index) => {
         if (!pane) return null;
         const isShowView = pane.path === props.activeKey;
@@ -63,7 +65,7 @@ export default (props = {}) => {
           ? pane.component
           : null;
         if (!Comp) return null;
-        if (props.iframeRender) {
+        if (ANTD_IS_IFRAME_RENDER) {
           return (
             <Iframe
               bodyPadding={props.bodyPadding}
@@ -73,7 +75,7 @@ export default (props = {}) => {
             />
           );
         }
-        if (!props.isReRender) {
+        if (ANTD_IS_TABS) {
           return (
             <RenderContent
               bodyPadding={props.bodyPadding}

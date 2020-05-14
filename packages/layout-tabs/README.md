@@ -27,7 +27,6 @@ import React from 'react';
 import LayoutTabs from '@antdp/layout-tabs';
 
 <LayoutTabs
-  isReRender={true}
   activeKey={location.pathname}
   dataSource={[]}
 />
@@ -46,16 +45,10 @@ interface LayoutTabsRouter {
 }
 
 interface LayoutTabsProps {
-  /**
-   * 是否重新渲染页面，默认 false
-   */
-  isReRender?: boolean;
-  /**
-   * 是否使用 iframe 来渲染页面
-   */
-  iframeRender?: boolean;
   activeKey?: string[]
   dataSource?: LayoutTabsRouter[]
   children?: React.ReactNode;
 }
 ```
+
+通过配置 [`@antdp/config`](https://www.npmjs.com/package/@antdp/config)，来解决是否重新渲染或者 `iframe` 展示页面等功能

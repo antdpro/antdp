@@ -10,14 +10,6 @@ export interface LayoutTabsRouter {
 }
 
 export interface LayoutTabsProps {
-  /**
-   * 是否重新渲染页面，默认 false
-   */
-  isReRender?: boolean;
-  /**
-   * 是否使用 iframe 来渲染页面
-   */
-  iframeRender?: boolean;
   activeKey?: string[]
   dataSource?: LayoutTabsRouter[]
   children?: React.ReactNode;

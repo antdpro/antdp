@@ -37,3 +37,8 @@ export interface Config {
 declare var config: Config;
 export default config;
 ```
+
+## Define
+
+- `ANTD_IS_TABS` 是否显示 Tab 选项卡，默认显示 true
+- `ANTD_IS_IFRAME_RENDER` 是否显示 Tab 选项卡，默认显示 true

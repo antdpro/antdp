@@ -26,16 +26,26 @@ export default (routes = [], options = {}) => {
      * https://umijs.org/zh-CN/config#title
      */
     title: false,
-    ...options,
-    nodeModulesTransform: {
-      type: 'none',
-      exclude: [],
-    },
     /**
      * 是否启用按需加载，即是否把构建产物进行拆分，在需要的时候下载额外的 JS 再执行。
      */
     dynamicImport: {
       loading: '@/components/PageLoading/index',
+    },
+    nodeModulesTransform: {
+      type: 'none',
+    },
+    ...options,
+    define: {
+      /**
+       * 是否显示 Tab 选项卡
+       */
+      ANTD_IS_TABS: true,
+      /**
+       * 使用 iframe 展示页面
+       */
+      ANTD_IS_IFRAME_RENDER: false,
+      ...(options.define || {}),
     },
     // chunks: ['umi'],
     // chainWebpack: function (config, { webpack }) {

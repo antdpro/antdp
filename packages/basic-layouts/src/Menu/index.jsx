@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Menu } from 'antd';
-import { Link } from 'umi';
+import Link from './Link';
 import { getIcon } from '../utils';
 
 export default class MeunView extends Component {
@@ -15,18 +15,7 @@ export default class MeunView extends Component {
   };
   getMenuItemPath = (item) => {
     if (item.path) {
-      return (
-        <Link to={item.path}>
-          {item.icon ? (
-            <span>
-              {getIcon(item.icon)}
-              <span>{item.name}</span>
-            </span>
-          ) : (
-            item.name
-          )}
-        </Link>
-      );
+      return <Link path={item.path} name={item.name} icon={item.icon} />;
     }
     return null;
   };

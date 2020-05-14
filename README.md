@@ -33,6 +33,7 @@ Package | Version | Description
 [`@antdp/authorized`](https://www.npmjs.com/package/@antdp/authorized) | [![npm](https://img.shields.io/npm/v/@antdp/authorized.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/authorized) | - |
 [`@antdp/basic-layouts`](https://www.npmjs.com/package/@antdp/basic-layouts) | [![npm](https://img.shields.io/npm/v/@antdp/basic-layouts.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/basic-layouts) | - |
 [`@antdp/document-title`](https://www.npmjs.com/package/@antdp/document-title) | [![npm](https://img.shields.io/npm/v/@antdp/document-title.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/document-title) | - |
+[`@antdp/fullscreen`](https://www.npmjs.com/package/@antdp/fullscreen) | [![npm](https://img.shields.io/npm/v/@antdp/fullscreen.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/fullscreen) | - |
 [`@antdp/user-login`](https://www.npmjs.com/package/@antdp/user-login) | [![npm](https://img.shields.io/npm/v/@antdp/user-login.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/user-login) | - |
 [`@antdp/layout-tabs`](https://www.npmjs.com/package/@antdp/layout-tabs) | [![npm](https://img.shields.io/npm/v/@antdp/layout-tabs.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/layout-tabs) | - |
 [`@antdp/config`](https://www.npmjs.com/package/@antdp/config) | [![npm](https://img.shields.io/npm/v/@antdp/config.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/config) | - |

@@ -4,6 +4,7 @@ import { Redirect } from 'umi';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import LayoutTabs from '@antdp/layout-tabs';
 import DocumentTitle from '@antdp/document-title';
+import Fullscreen from '@antdp/fullscreen';
 import MeunView from './Menu';
 import Breadcrumb from './Breadcrumb';
 import TopRightMenu from './TopRightMenu';
@@ -41,6 +42,7 @@ export default (props = {}) => {
       <Fragment>
         <div style={{ flex: '1 1 0%' }}></div>
         <div className="antdp-global-header-right">
+          <Fullscreen />
           <TopRightMenu menu={topRightMenu} profile={profile} />
         </div>
       </Fragment>

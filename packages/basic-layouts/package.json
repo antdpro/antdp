@@ -39,6 +39,7 @@
   "dependencies": {
     "@ant-design/icons": "4.1.0",
     "@antdp/document-title": "^1.2.6",
+    "@antdp/fullscreen": "^1.2.6",
     "@antdp/icons": "^1.2.6",
     "@antdp/layout-tabs": "^1.2.6",
     "@babel/runtime": "7.4.4",

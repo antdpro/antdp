@@ -1,0 +1,33 @@
+{
+  "name": "@antdp/fullscreen",
+  "version": "1.2.6",
+  "description": "设置页面全屏",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "license": "MIT",
+  "keywords": [
+    "fullscreen",
+    "antdp",
+    "antd"
+  ],
+  "author": "Kenny Wong <wcj@nihaosi.com>",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "peerDependencies": {
+    "react": ">=16.7.0",
+    "react-dom": ">=16.7.0"
+  },
+  "dependencies": {
+    "@ant-design/icons": "4.1.0",
+    "@babel/runtime": "7.4.4"
+  },
+  "devDependencies": {
+    "react": "16.8.6",
+    "react-dom": "16.8.6"
+  }
+}

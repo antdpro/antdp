@@ -1,27 +1,37 @@
-import React, { useEffect, useState, Fragment } from 'react';
-import { history } from 'umi';
-import { Tabs } from 'antd';
+import React, { useEffect, useState, Fragment, useMemo } from 'react';
+import { history, matchPath } from 'umi';
+import { Tabs, Result } from 'antd';
 import Iframe from './Iframe';
 import RenderContent from './RenderContent';
 import './index.css';
 
 export default (props = {}) => {
   const dataSource = props.dataSource || [];
-  const [tabAllKey, setTabAllKey] = useState([props.activeKey]);
+  const [tabAll, setTabAll] = useState([]);
   useEffect(() => {
-    if (!tabAllKey.includes(props.activeKey)) {
-      tabAllKey.push(props.activeKey);
-      setTabAllKey([...tabAllKey]);
+    let urlData = null;
+    dataSource.forEach((item) => {
+      const match = matchPath(props.activeKey, item);
+      if (match) {
+        urlData = { ...item, path: props.activeKey, match };
+      }
+    });
+
+    if (
+      tabAll.length === 0 ||
+      !tabAll.find((item) => item.path === props.activeKey)
+    ) {
+      if (urlData) {
+        setTabAll([...tabAll, urlData]);
+      }
     }
   }, [props.activeKey]);
-  let data = [];
-  dataSource.forEach((item, index) => {
-    if (tabAllKey.includes(item.path)) {
-      const idx = tabAllKey.indexOf(item.path);
-      data[idx] = item;
-    }
-  });
-  data = data.filter(Boolean);
+  const NotFound = useMemo(
+    () => (
+      <Result status="404" title="404" subTitle="抱歉，你访问的页面不存在" />
+    ),
+    [],
+  );
   return (
     <Fragment>
       {ANTD_IS_TABS && (
@@ -35,42 +45,45 @@ export default (props = {}) => {
           }}
           onEdit={(targetKey, action) => {
             let index = 0;
-            const dataKeys = tabAllKey.filter((path, idx) => {
-              if (path === targetKey) {
+            const dataKeys = tabAll.filter((item, idx) => {
+              if (item.path === targetKey) {
                 index = idx;
               }
-              return path !== targetKey;
+              return item.path !== targetKey;
             });
-            let activeKey = '';
-            if (dataKeys && dataKeys.length > 0) {
-              activeKey = dataKeys[index === 0 ? 0 : index - 1];
+            if (props.activeKey === targetKey) {
+              let activeKey = '';
+              if (dataKeys && dataKeys.length > 0) {
+                activeKey = dataKeys[index === 0 ? 0 : index - 1].path;
+              }
+              history.push(activeKey);
             }
-            setTabAllKey([...dataKeys]);
-            history.push(activeKey);
+            setTabAll([...dataKeys]);
           }}
         >
-          {data.map((pane, index) => (
+          {tabAll.map((pane, index) => (
             <Tabs.TabPane
               tab={pane.name}
               key={pane.path}
-              closable={data.length !== 1}
+              closable={tabAll.length !== 1}
             />
           ))}
         </Tabs>
       )}
-      {data.map((pane, index) => {
+      {tabAll.map((pane, index) => {
         if (!pane) return null;
         const isShowView = pane.path === props.activeKey;
         const Comp = /(function|object)/.test(typeof pane.component)
           ? pane.component
-          : null;
-        if (!Comp) return null;
+          : () => NotFound;
+
         if (ANTD_IS_IFRAME_RENDER) {
           return (
             <Iframe
               bodyPadding={props.bodyPadding}
               isShowView={isShowView}
-              child={<Comp />}
+              match={pane.match}
+              child={Comp}
               key={index}
             />
           );
@@ -80,16 +93,21 @@ export default (props = {}) => {
             <RenderContent
               bodyPadding={props.bodyPadding}
               isShowView={isShowView}
-              child={<Comp />}
+              match={pane.match}
+              child={Comp}
               key={index}
             />
           );
         }
         if (isShowView) {
           return (
-            <div key={index} style={{ padding: props.bodyPadding || 14 }}>
-              <Comp />
-            </div>
+            <RenderContent
+              bodyPadding={props.bodyPadding}
+              match={pane.match}
+              isShowView={true}
+              child={Comp}
+              key={index}
+            />
           );
         }
         return null;

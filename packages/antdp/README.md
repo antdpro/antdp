@@ -2,6 +2,16 @@ Ant Design Project
 
 用于简化 [antd 4.x +](https://github.com/ant-design/ant-design) 的部分使用。
 
+### Features
+
+- 简化 [antd 4.x +](https://github.com/ant-design/ant-design) 和 [umi](https://github.com/umijs/umi) 框架配置使用；
+- 减少项目配置和依赖，将配置集成到包中开箱即用；
+- 更简单直观的配置权限和更改 Layout；
+- 支持配置路由参数 `/router/:id`；
+- 解决菜单配置 `icon` 问题；
+
+### Packages
+
 This git repository is a repo built using Lerna. It contains several packages:
 
 Package | Version | Description

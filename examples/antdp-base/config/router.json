@@ -18,7 +18,6 @@
         "path": "/dashboard",
         "name": "Dashboard",
         "icon": "dashboard",
-        "pinYin": "dashboard",
         "routes": [
           {
             "path": "/dashboard/workplace",
@@ -30,13 +29,37 @@
             "path": "/dashboard/analysis",
             "name": "分析页",
             "icon": "bar-chart",
-            "component": "@/pages/index"
+            "component": "@/pages/Setting/User"
           },
           {
             "path": "/dashboard/monitor",
             "name": "监控台",
             "icon": "radar-chart",
-            "component": "@/pages/index"
+            "component": "@/pages/Setting/User"
+          },
+          {
+            "path": "/dashboard/notfund",
+            "name": "测试不存在页面",
+            "icon": "radar-chart"
+          }
+        ]
+      },
+      {
+        "path": "/router",
+        "name": "测试路由参数",
+        "icon": "dashboard",
+        "routes": [
+          {
+            "path": "/router/list",
+            "name": "路由页面",
+            "icon": "pie-chart",
+            "component": "@/pages/Router/List"
+          },
+          {
+            "path": "/router/list/:id/detail",
+            "name": "路由详情页面",
+            "icon": "pie-chart",
+            "component": "@/pages/Router/Detail"
           }
         ]
       },
@@ -67,7 +90,7 @@
             "path": "/profile/advanced",
             "name": "高级详情页",
             "icon": "file-protect",
-            "component": "@/pages/index"
+            "component": "@/pages/Setting/User"
           }
         ]
       },

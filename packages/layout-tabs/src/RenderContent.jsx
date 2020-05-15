@@ -1,15 +1,16 @@
-import React, { Component } from 'react';
+import React, { useMemo } from 'react';
+import { history } from 'umi';
+import { useLocation } from 'react-router-dom';
 
-export default class RenderContent extends Component {
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.isShowView !== this.props.isShowView) {
-      return true;
-    }
-    return false;
-  }
-  render() {
-    const { isShowView, bodyPadding, child } = this.props;
-    if (!child) return null;
+export default (props = {}) => {
+  const { isShowView, bodyPadding, match, child: Child } = props;
+  let location = useLocation();
+  const child = useMemo(
+    () => <Child match={match} history={history} location={location} />,
+    [location.pathname],
+  );
+
+  return useMemo(() => {
     return (
       <div
         style={{
@@ -22,5 +23,5 @@ export default class RenderContent extends Component {
         {child}
       </div>
     );
-  }
-}
+  }, [isShowView]);
+};

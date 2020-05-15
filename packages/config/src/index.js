@@ -35,9 +35,9 @@ export default (routes = [], options = {}) => {
     dynamicImport: {
       loading: '@/components/PageLoading/index',
     },
-    // nodeModulesTransform: {
-    //   type: 'none',
-    // },
+    nodeModulesTransform: {
+      type: 'none',
+    },
     favicon,
     ...options,
     define: {

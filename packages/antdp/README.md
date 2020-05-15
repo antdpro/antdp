@@ -9,6 +9,7 @@ Ant Design Project
 - 更简单直观的配置权限和更改 Layout；
 - 支持配置路由参数 `/router/:id`；
 - 解决菜单配置 `icon` 问题；
+- 支持 tab 选项卡功能。
 
 ### Packages
 

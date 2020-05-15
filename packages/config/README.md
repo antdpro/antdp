@@ -41,4 +41,13 @@ export default config;
 ## Define
 
 - `ANTD_IS_TABS` 是否显示 Tab 选项卡，默认显示 true
-- `ANTD_IS_IFRAME_RENDER` 是否显示 Tab 选项卡，默认显示 true
+- `ANTD_IS_IFRAME_RENDER` 是否使用 iframe 展示内容
+
+## favicon
+
+```js
+export default {
+  // 配置 favicon 地址（href 属性）
+  favicon: '/assets/favicon.ico', 
+}
+```

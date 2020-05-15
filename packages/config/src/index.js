@@ -1,4 +1,5 @@
 import { defineConfig } from 'umi';
+import favicon from './favicon';
 
 /**
  * - options umi 参数配置
@@ -35,6 +36,7 @@ export default (routes = [], options = {}) => {
     nodeModulesTransform: {
       type: 'none',
     },
+    favicon,
     ...options,
     define: {
       /**
@@ -47,29 +49,6 @@ export default (routes = [], options = {}) => {
       ANTD_IS_IFRAME_RENDER: false,
       ...(options.define || {}),
     },
-    // chunks: ['umi'],
-    // chainWebpack: function (config, { webpack }) {
-    //   config.merge({
-    //     optimization: {
-    //       minimize: true,
-    //       splitChunks: {
-    //         chunks: 'all',
-    //         minSize: 30000,
-    //         minChunks: 3,
-    //         automaticNameDelimiter: '.',
-    //         cacheGroups: {
-    //           vendor: {
-    //             name: 'vendors',
-    //             test({ resource }) {
-    //               return /[\\/]node_modules[\\/]/.test(resource);
-    //             },
-    //             priority: 10,
-    //           },
-    //         },
-    //       },
-    //     }
-    //   });
-    // },
     routes: routes || [],
   });
 };

@@ -10,6 +10,7 @@
     "install:example": "lerna bootstrap --scope @example/*",
     "build": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb build --target react",
     "watch": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb watch --target react",
+    "w:config": "lerna exec --scope @antdp/config -- tsbb watch --target react",
     "watch:layout": "lerna exec --scope @antdp/basic-layouts -- tsbb watch --target react",
     "watch:loading": "lerna exec --scope @antdp/page-loading -- tsbb watch --target react",
     "watch:login": "lerna exec --scope @antdp/user-login -- tsbb watch --target react",

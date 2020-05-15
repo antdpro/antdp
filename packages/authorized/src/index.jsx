@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { history } from 'umi';
+import React, { useMemo } from 'react';
+import { Redirect } from 'umi';
 
 export default (props = {}) => {
   if (props.authority) {
@@ -8,10 +8,9 @@ export default (props = {}) => {
       return React.cloneElement(child, { ...child.props });
     });
   }
-  useEffect(() => {
-    if (props.redirectPath) {
-      history.push(props.redirectPath);
+  return useMemo(() => {
+    if (location.pathname) {
+      return <Redirect to={location.pathname} />;
     }
-  });
-  return null;
+  }, [location.pathname]);
 };

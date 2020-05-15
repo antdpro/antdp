@@ -80,13 +80,13 @@
             "path": "/setting/basic",
             "name": "用户设置",
             "icon": "file-jpg",
-            "component": "@/pages/Dashboard/Workplace"
+            "component": "@/pages/Setting/User"
           },
           {
             "path": "/setting/advanced",
             "name": "参数设置",
             "icon": "file-protect",
-            "component": "@/pages/index"
+            "component": "@/pages/Setting/Advanced"
           }
         ]
       }

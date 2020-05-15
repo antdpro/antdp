@@ -58,7 +58,7 @@ class Workplace extends Component {
   render() {
     return (
       <Space direction="vertical" style={{ display: 'block' }}>
-        <Card title="工作台" size="small">
+        <Card title="用户设置" size="small">
           <Form layout="inline">
             <Form.Item label="消息对象" name="消息对象">
               <DatePicker.RangePicker

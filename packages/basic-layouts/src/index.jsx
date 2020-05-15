@@ -23,10 +23,6 @@ export default (props = {}) => {
     profile = {},
     bodyPadding = 14,
   } = props;
-
-  if (location.pathname === '/') {
-    return <Redirect to="/welcome" />;
-  }
   const [collapsed, setCollapsed] = useState(!!props.collapsed);
   const collapsedView = useMemo(
     () =>
@@ -81,11 +77,18 @@ export default (props = {}) => {
             {headerRightView}
           </Layout.Header>
           <Layout.Content>
-            <LayoutTabs
-              bodyPadding={bodyPadding}
-              activeKey={location.pathname}
-              dataSource={routeData}
-            />
+            {(() => {
+              if (location.pathname === '/') {
+                return <Redirect to="/welcome" />;
+              }
+              return (
+                <LayoutTabs
+                  bodyPadding={bodyPadding}
+                  activeKey={location.pathname}
+                  dataSource={routeData}
+                />
+              );
+            })()}
           </Layout.Content>
         </Layout>
       </Layout>

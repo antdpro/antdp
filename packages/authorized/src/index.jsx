@@ -9,8 +9,8 @@ export default (props = {}) => {
     });
   }
   return useMemo(() => {
-    if (location.pathname) {
-      return <Redirect to={location.pathname} />;
+    if (props.redirectPath) {
+      return <Redirect to={props.redirectPath} />;
     }
-  }, [location.pathname]);
+  }, [location.redirectPath]);
 };

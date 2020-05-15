@@ -12,9 +12,11 @@ export default (routes = [], options = {}) => {
     : undefined;
 
   return defineConfig({
-    nodeModulesTransform: {
-      type: 'none',
+    hash: true,
+    targets: {
+      ie: 11,
     },
+    ignoreMomentLocale: true,
     /**
      * 整合 dva 数据流
      */
@@ -33,9 +35,9 @@ export default (routes = [], options = {}) => {
     dynamicImport: {
       loading: '@/components/PageLoading/index',
     },
-    nodeModulesTransform: {
-      type: 'none',
-    },
+    // nodeModulesTransform: {
+    //   type: 'none',
+    // },
     favicon,
     ...options,
     define: {

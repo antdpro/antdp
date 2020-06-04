@@ -62,7 +62,6 @@ class Workplace extends Component {
           <Form layout="inline">
             <Form.Item label="消息对象" name="消息对象">
               <DatePicker.RangePicker
-                autoComplete={false}
                 initialValues={[
                   moment('2015/01/01', 'YYYY/MM/DD'),
                   moment('2015/01/01', 'YYYY/MM/DD'),

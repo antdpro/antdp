@@ -13,12 +13,15 @@ export default class MeunView extends Component {
   static defaultProps = {
     route: [],
   };
-  getMenuItemPath = (item) => {
-    if (item.path) {
-      return <Link path={item.path} name={item.name} icon={item.icon} />;
+  shouldComponentUpdate(nextProps) {
+    if (
+      nextProps.selectedKey !== this.props.selectedKey ||
+      nextProps.route !== this.props.route
+    ) {
+      return true;
     }
-    return null;
-  };
+    return false;
+  }
   /**
    * 获得菜单子节点
    * @memberof SiderMenu
@@ -86,7 +89,11 @@ export default class MeunView extends Component {
         </Menu.SubMenu>
       );
     }
-    return <Menu.Item key={item.path}>{this.getMenuItemPath(item)}</Menu.Item>;
+    return (
+      <Menu.Item key={item.path}>
+        <Link path={item.path} name={item.name} icon={item.icon} />
+      </Menu.Item>
+    );
   };
   handleOpenChange() {}
   render() {

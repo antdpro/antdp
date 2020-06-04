@@ -4,6 +4,9 @@ import { getIcon } from '../utils';
 
 export default (item = {}) => {
   return useMemo(() => {
+    if (!item.path) {
+      return null;
+    }
     return (
       <Link to={item.path}>
         {item.icon ? (

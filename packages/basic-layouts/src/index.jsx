@@ -33,8 +33,8 @@ export default (props = {}) => {
     [collapsed],
   );
 
-  const headerRightView = useMemo(() => {
-    return (
+  const headerRightView = useMemo(
+    () => (
       <Fragment>
         <div style={{ flex: '1 1 0%' }}></div>
         <div className="antdp-global-header-right">
@@ -42,8 +42,9 @@ export default (props = {}) => {
           <TopRightMenu menu={topRightMenu} profile={profile} />
         </div>
       </Fragment>
-    );
-  }, [profile.avatar, profile.name]);
+    ),
+    [profile.avatar, profile.name],
+  );
   const routeData = getTreeList(route.routes);
   let title = '';
   routeData.forEach((item) => {
@@ -51,23 +52,37 @@ export default (props = {}) => {
       title = item.name;
     }
   });
+
+  const sider = useMemo(() => {
+    return (
+      <Layout.Sider
+        width={siderWidth}
+        collapsed={collapsed}
+        className="antdp-global-sider"
+      >
+        <LogoHeader
+          collapsed={collapsed}
+          projectName={projectName}
+          logo={props.logo}
+        />
+        <MeunView {...props} selectedKey={location.pathname} />
+      </Layout.Sider>
+    );
+  }, [
+    siderWidth,
+    collapsed,
+    props.logo,
+    projectName,
+    location.pathname,
+    props.selectedKey,
+    props.route,
+  ]);
   return (
     <DocumentTitle
       title={`${title || ''}${title ? ' - ' : ''}${projectName || ''}`}
     >
       <Layout>
-        <Layout.Sider
-          width={siderWidth}
-          collapsed={collapsed}
-          className="antdp-global-sider"
-        >
-          <LogoHeader
-            collapsed={collapsed}
-            projectName={projectName}
-            logo={props.logo}
-          />
-          <MeunView {...props} selectedKey={location.pathname} />
-        </Layout.Sider>
+        {sider}
         <Layout>
           <Layout.Header style={{ padding: 0 }} className="antdp-global-header">
             <div className="antdp-global-header-left">

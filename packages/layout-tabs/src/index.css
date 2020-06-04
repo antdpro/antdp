@@ -9,8 +9,8 @@
   margin-bottom: 0;
 }
 
-.antdps-global-tabs .ant-tabs-card > .ant-tabs-nav .ant-tabs-tab,
-.antdps-global-tabs .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab {
+.antdps-global-tabs.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab,
+.antdps-global-tabs.ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab {
   padding: 3px 8px !important;
 }
 

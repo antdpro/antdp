@@ -7,7 +7,7 @@ export default (props = {}) => {
   let location = useLocation();
   const child = useMemo(
     () => <Child match={match} history={history} location={location} />,
-    [location.pathname],
+    [],
   );
 
   return useMemo(() => {

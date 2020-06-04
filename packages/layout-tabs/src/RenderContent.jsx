@@ -16,7 +16,7 @@ export default (props = {}) => {
         style={{
           display: isShowView ? 'block' : 'none',
           padding: bodyPadding || 14,
-          height: 'calc(100% - 35px)',
+          height: 'calc(100% - 45px)',
           overflow: 'auto',
         }}
       >

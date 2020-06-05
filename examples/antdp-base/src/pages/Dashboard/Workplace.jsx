@@ -60,7 +60,7 @@ class Workplace extends Component {
       <Space direction="vertical" style={{ display: 'block' }}>
         <Card title="工作台" size="small">
           <Form layout="inline">
-            <Form.Item label="消息对象" name="消息对象">
+            <Form.Item label="消息对象" name="ap3">
               <DatePicker.RangePicker
                 initialValues={[
                   moment('2015/01/01', 'YYYY/MM/DD'),
@@ -69,10 +69,10 @@ class Workplace extends Component {
                 format="YYYY/MM/DD"
               />
             </Form.Item>
-            <Form.Item label="消息对象" name="消息对象">
+            <Form.Item label="消息对象" name="ap">
               <Input />
             </Form.Item>
-            <Form.Item label="消息关键字" name="消息关键字">
+            <Form.Item label="消息关键字" name="ap2">
               <Input />
             </Form.Item>
             <Form.Item>

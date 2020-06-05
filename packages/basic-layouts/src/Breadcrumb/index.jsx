@@ -34,13 +34,16 @@ export default (props = {}) => {
   const routesDatas = useMemo(() => getRoutes(props.location.pathname), [
     props.location.pathname,
   ]);
-  const Home = useMemo(() => (
-    <span data-separator={routesDatas.length === 0 ? '' : '/'}>
-      <Link to="/">
-        <span>首页</span>
-      </Link>
-    </span>
-  ));
+  const Home = useMemo(
+    () => (
+      <span data-separator={routesDatas.length === 0 ? '' : '/'}>
+        <Link to="/">
+          <span>首页</span>
+        </Link>
+      </span>
+    ),
+    [],
+  );
   return (
     <span className="antdp-global-breadcrumb">
       {Home}

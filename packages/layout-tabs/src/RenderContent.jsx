@@ -3,7 +3,7 @@ import { history } from 'umi';
 import { useLocation } from 'react-router-dom';
 
 export default (props = {}) => {
-  const { isShowView, bodyPadding, match, child: Child } = props;
+  const { isShowView, bodyPadding, match = {}, child: Child } = props;
   let location = useLocation();
   const child = useMemo(
     () => <Child match={match} history={history} location={location} />,

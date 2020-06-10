@@ -72,7 +72,8 @@ export default (props = {}) => {
       )}
       {tabAll.map((pane, index) => {
         if (!pane) return null;
-        const isShowView = pane.path === props.activeKey;
+        const match = matchPath(props.activeKey, pane);
+        const isShowView = !!match;
         const Comp = /(function|object)/.test(typeof pane.component)
           ? pane.component
           : () => NotFound;

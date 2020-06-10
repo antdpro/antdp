@@ -60,6 +60,18 @@
             "name": "路由详情页面",
             "icon": "pie-chart",
             "component": "@/pages/Router/Detail"
+          },
+          {
+            "path": "/router/state",
+            "name": "路由传递参数",
+            "icon": "pie-chart",
+            "component": "@/pages/Router/State"
+          },
+          {
+            "path": "/router/state/detail",
+            "name": "路由传递参数-详情",
+            "icon": "pie-chart",
+            "component": "@/pages/Router/State/Detail"
           }
         ]
       },

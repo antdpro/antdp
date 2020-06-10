@@ -1,6 +1,6 @@
 {
   "name": "@antdp/document-title",
-  "version": "1.3.10",
+  "version": "1.3.11",
   "description": "设置页面标题",
   "sideEffects": false,
   "main": "lib/cjs/index.js",

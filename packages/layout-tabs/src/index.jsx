@@ -1,12 +1,14 @@
 import React, { useEffect, useState, Fragment, useMemo } from 'react';
 import { history, matchPath } from 'umi';
 import { Tabs, Result } from 'antd';
+import { useLocation } from 'react-router-dom';
 import Iframe from './Iframe';
 import RenderContent from './RenderContent';
 import './index.css';
 
 export default (props = {}) => {
   const dataSource = props.dataSource || [];
+  let location = useLocation();
   const [tabAll, setTabAll] = useState([]);
   useEffect(() => {
     let urlData = null;
@@ -22,6 +24,9 @@ export default (props = {}) => {
       !tabAll.find((item) => item.path === props.activeKey)
     ) {
       if (urlData) {
+        if (location.search) {
+          urlData.location = location;
+        }
         setTabAll([...tabAll, urlData]);
       }
     }
@@ -40,8 +45,18 @@ export default (props = {}) => {
           className="antdps-global-tabs"
           hideAdd={true}
           activeKey={props.activeKey}
+          // onChange={(activeKey) => {
+          //   console.log('|||||activeKey:', activeKey);
+          // }}
           onTabClick={(targetKey) => {
-            history.push(targetKey);
+            console.log('tabAll:', tabAll);
+            const opts = { pathname: targetKey };
+            const tab = tabAll.find((item) => item.path === targetKey);
+            if (tab && tab.location) {
+              opts.query = tab.location.query;
+              opts.state = tab.location.state;
+            }
+            history.push(opts);
           }}
           onEdit={(targetKey, action) => {
             let index = 0;
@@ -52,11 +67,16 @@ export default (props = {}) => {
               return item.path !== targetKey;
             });
             if (props.activeKey === targetKey) {
-              let activeKey = '';
+              let opts = { exact: true };
               if (dataKeys && dataKeys.length > 0) {
-                activeKey = dataKeys[index === 0 ? 0 : index - 1].path;
+                const tab = dataKeys[index === 0 ? 0 : index - 1];
+                opts.pathname = tab.path;
+                if (tab && tab.location) {
+                  opts.query = tab.location.query;
+                  opts.state = tab.location.state;
+                }
+                history.push(opts);
               }
-              history.push(activeKey);
             }
             setTabAll([...dataKeys]);
           }}
@@ -74,9 +94,14 @@ export default (props = {}) => {
         if (!pane) return null;
         const match = matchPath(props.activeKey, pane);
         const isShowView = !!match;
-        const Comp = /(function|object)/.test(typeof pane.component)
-          ? pane.component
-          : () => NotFound;
+        const Comp =
+          pane.component ||
+          function () {
+            return NotFound;
+          };
+        // const Comp = (pane.component || /(function|object)/.test(typeof pane.component))
+        //   ? pane.component
+        //   : () => NotFound;
 
         if (ANTD_IS_IFRAME_RENDER) {
           return (

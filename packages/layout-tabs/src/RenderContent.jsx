@@ -5,11 +5,6 @@ import { useLocation } from 'react-router-dom';
 export default (props = {}) => {
   const { isShowView, bodyPadding, match = {}, child: Child } = props;
   let location = useLocation();
-  const child = useMemo(
-    () => <Child match={match} history={history} location={location} />,
-    [],
-  );
-
   return useMemo(() => {
     return (
       <div
@@ -20,7 +15,7 @@ export default (props = {}) => {
           overflow: 'auto',
         }}
       >
-        {child}
+        <Child match={match} history={history} location={location} />
       </div>
     );
   }, [isShowView]);

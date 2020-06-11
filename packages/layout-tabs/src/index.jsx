@@ -18,19 +18,42 @@ export default (props = {}) => {
         urlData = { ...item, path: props.activeKey, match };
       }
     });
+    if (location.search) {
+      urlData.location = location;
+    }
 
-    if (
-      tabAll.length === 0 ||
-      !tabAll.find((item) => item.path === props.activeKey)
-    ) {
+    const findActiveTab = tabAll.find((item) => item.path === props.activeKey);
+    if (tabAll.length === 0 || !findActiveTab) {
       if (urlData) {
-        if (location.search) {
-          urlData.location = location;
-        }
         setTabAll([...tabAll, urlData]);
       }
+    } else if (
+      findActiveTab &&
+      findActiveTab.location &&
+      findActiveTab.location.search !== location.search
+    ) {
+      const updataTabs = [...tabAll].map((item) => {
+        if (item.path === props.activeKey) {
+          item.location = location;
+        }
+        return item;
+      });
+      setTabAll([...updataTabs]);
     }
   }, [props.activeKey]);
+
+  useMemo(() => {
+    const tabData = [...tabAll].map((item) => {
+      const match = matchPath(props.activeKey, item);
+      if (match) {
+        item.location = location;
+      }
+      return item;
+    });
+
+    setTabAll([...tabData]);
+  }, [location.search]);
+
   const NotFound = useMemo(
     () => (
       <Result status="404" title="404" subTitle="抱歉，你访问的页面不存在" />
@@ -45,16 +68,15 @@ export default (props = {}) => {
           className="antdps-global-tabs"
           hideAdd={true}
           activeKey={props.activeKey}
-          // onChange={(activeKey) => {
-          //   console.log('|||||activeKey:', activeKey);
-          // }}
           onTabClick={(targetKey) => {
-            console.log('tabAll:', tabAll);
             const opts = { pathname: targetKey };
             const tab = tabAll.find((item) => item.path === targetKey);
             if (tab && tab.location) {
               opts.query = tab.location.query;
               opts.state = tab.location.state;
+            } else if (targetKey === location.pathname) {
+              opts.query = location.query;
+              opts.state = location.state;
             }
             history.push(opts);
           }}

@@ -1,6 +1,7 @@
 import React, { useState, useMemo, Fragment } from 'react';
 import { Layout } from 'antd';
 import { Redirect } from 'umi';
+import { useLocation } from 'react-router-dom';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import LayoutTabs from '@antdp/layout-tabs';
 import DocumentTitle from '@antdp/document-title';
@@ -23,6 +24,7 @@ export default (props = {}) => {
     profile = {},
     bodyPadding = 14,
   } = props;
+  let location = useLocation();
   const [collapsed, setCollapsed] = useState(!!props.collapsed);
   const collapsedView = useMemo(
     () =>

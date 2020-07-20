@@ -13,16 +13,18 @@ export default (props = {}) => {
   useEffect(() => {
     let urlData = null;
     dataSource.forEach((item) => {
-      const match = matchPath(props.activeKey, item);
+      const match = matchPath(location.pathname, item);
       if (match) {
-        urlData = { ...item, path: props.activeKey, match };
+        urlData = { ...item, path: location.pathname, match };
       }
     });
     if (location.search) {
       urlData.location = location;
     }
 
-    const findActiveTab = tabAll.find((item) => item.path === props.activeKey);
+    const findActiveTab = tabAll.find(
+      (item) => item.path === location.pathname,
+    );
     if (tabAll.length === 0 || !findActiveTab) {
       if (urlData) {
         setTabAll([...tabAll, urlData]);
@@ -33,18 +35,18 @@ export default (props = {}) => {
       findActiveTab.location.search !== location.search
     ) {
       const updataTabs = [...tabAll].map((item) => {
-        if (item.path === props.activeKey) {
+        if (item.path === location.pathname) {
           item.location = location;
         }
         return item;
       });
       setTabAll([...updataTabs]);
     }
-  }, [props.activeKey]);
+  }, [location.pathname]);
 
   useMemo(() => {
     const tabData = [...tabAll].map((item) => {
-      const match = matchPath(props.activeKey, item);
+      const match = matchPath(location.pathname, item);
       if (match) {
         item.location = location;
       }
@@ -67,7 +69,7 @@ export default (props = {}) => {
           type="editable-card"
           className="antdps-global-tabs"
           hideAdd={true}
-          activeKey={props.activeKey}
+          activeKey={location.pathname}
           onTabClick={(targetKey) => {
             const opts = { pathname: targetKey };
             const tab = tabAll.find((item) => item.path === targetKey);
@@ -88,7 +90,7 @@ export default (props = {}) => {
               }
               return item.path !== targetKey;
             });
-            if (props.activeKey === targetKey) {
+            if (location.pathname === targetKey) {
               let opts = { exact: true };
               if (dataKeys && dataKeys.length > 0) {
                 const tab = dataKeys[index === 0 ? 0 : index - 1];
@@ -114,7 +116,7 @@ export default (props = {}) => {
       )}
       {tabAll.map((pane, index) => {
         if (!pane) return null;
-        const match = matchPath(props.activeKey, pane);
+        const match = matchPath(location.pathname, pane);
         const isShowView = !!match;
         const Comp =
           pane.component ||

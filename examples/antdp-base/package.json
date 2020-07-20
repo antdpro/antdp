@@ -26,7 +26,7 @@
     "@antdp/page-loading": "^1.3.12",
     "@antdp/user-login": "^1.3.12",
     "antd": "4.3.1",
-    "umi": "3.1.2"
+    "umi": "3.2.10"
   },
   "devDependencies": {
     "@antdp/config": "^1.3.12",

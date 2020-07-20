@@ -16,6 +16,6 @@
     "umi"
   ],
   "dependencies": {
-    "umi": "3.1.2"
+    "umi": "3.2.10"
   }
 }

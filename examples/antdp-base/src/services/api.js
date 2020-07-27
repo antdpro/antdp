@@ -24,3 +24,9 @@ export async function fakeAccessGrant() {
     method: 'POST',
   });
 }
+
+export const loadingData = async () => {
+  return request('/api/loading/data', {
+    method: 'POST',
+  });
+};

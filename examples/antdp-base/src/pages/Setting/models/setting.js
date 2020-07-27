@@ -11,7 +11,7 @@ export default {
       let params = yield select(({ ParameterSetting }) => ({
         ...ParameterSetting,
       }));
-      console.log(params);
+      // console.log(params);
     },
   },
   reducers: {

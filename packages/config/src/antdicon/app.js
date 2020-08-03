@@ -38,7 +38,9 @@ function formatter(data) {
 
       var NewIcon =
         _icons.default[icon] ||
-        _icons.default[''.concat(v4IconName, 'Outlined')];
+        _icons.default[''.concat(v4IconName, 'Outlined')] ||
+        _icons.default[''.concat(v4IconName, 'Filled')] ||
+        _icons.default[''.concat(v4IconName, 'TwoTone')];
 
       if (NewIcon) {
         try {

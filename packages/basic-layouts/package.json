@@ -42,7 +42,6 @@
     "@ant-design/icons": "4.1.0",
     "@antdp/document-title": "^1.4.0",
     "@antdp/fullscreen": "^1.4.0",
-    "@antdp/icons": "^1.4.0",
     "@antdp/layout-tabs": "^1.4.0",
     "@babel/runtime": "7.4.4",
     "umi": "3.2.10"

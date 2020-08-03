@@ -52,5 +52,6 @@ export default (routes = [], options = {}) => {
       ...(options.define || {}),
     },
     routes: routes || [],
+    plugins: [`${__dirname}/antdicon/index.js`, ...(options.plugins || [])],
   });
 };

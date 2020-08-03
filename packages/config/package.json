@@ -16,6 +16,7 @@
     "umi"
   ],
   "dependencies": {
+    "@ant-design/icons": "4.1.0",
     "umi": "3.2.10"
   }
 }

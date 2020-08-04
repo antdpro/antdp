@@ -17,6 +17,11 @@ for (let i = 0; i < 20; i++) {
 }
 
 class Workplace extends Component {
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'LoadingData/getList',
+    });
+  }
   columns = [
     {
       title: '序号',
@@ -56,6 +61,7 @@ class Workplace extends Component {
   ];
 
   render() {
+    const { loading } = this.props;
     return (
       <Space direction="vertical" style={{ display: 'block' }}>
         <Card title="用户设置" size="small">
@@ -80,7 +86,13 @@ class Workplace extends Component {
           </Form>
         </Card>
 
-        <Table bordered columns={this.columns} size="small" dataSource={data} />
+        <Table
+          loading={loading}
+          bordered
+          columns={this.columns}
+          size="small"
+          dataSource={data}
+        />
       </Space>
     );
   }
@@ -88,6 +100,7 @@ class Workplace extends Component {
 
 export default connect(({ loading }) => {
   return {
-    loading: loading,
+    // loading: loading,
+    loading: loading.effects['LoadingData/getList'],
   };
 })(Workplace);

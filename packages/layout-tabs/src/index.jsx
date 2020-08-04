@@ -134,7 +134,7 @@ export default (props = {}) => {
               isShowView={isShowView}
               match={pane.match}
               child={Comp}
-              key={index}
+              key={pane.path}
             />
           );
         }
@@ -145,7 +145,7 @@ export default (props = {}) => {
               isShowView={isShowView}
               match={pane.match}
               child={Comp}
-              key={index}
+              key={pane.path}
             />
           );
         }
@@ -156,7 +156,7 @@ export default (props = {}) => {
               match={pane.match}
               isShowView={true}
               child={Comp}
-              key={index}
+              key={pane.path}
             />
           );
         }

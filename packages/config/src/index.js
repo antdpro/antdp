@@ -1,3 +1,4 @@
+import path from 'path';
 import { defineConfig } from 'umi';
 import favicon from './favicon';
 
@@ -52,6 +53,14 @@ export default (routes = [], options = {}) => {
       ...(options.define || {}),
     },
     routes: routes || [],
-    plugins: [`${__dirname}/antdicon/index.js`, ...(options.plugins || [])],
+    plugins: [
+      /**
+       * https://github.com/umijs/umi-plugin-antd-icon-config
+       * 由于 layout 支持在 config 中 icon:string 的配置，但是在 4.0 中不推荐这样的用法。
+       * 这个插件可以将其转化，不再引入全量的 icon。
+       */
+      path.join(__dirname, 'plugins', 'antdicon', 'index.js'),
+      ...(options.plugins || []),
+    ],
   });
 };

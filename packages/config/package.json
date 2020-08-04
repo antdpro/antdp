@@ -16,6 +16,7 @@
     "umi"
   ],
   "dependencies": {
+    "umi-plugin-antd-icon-config": "2.0.3",
     "@ant-design/icons": "4.1.0",
     "umi": "3.2.10"
   }

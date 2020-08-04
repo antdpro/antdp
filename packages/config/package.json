@@ -2,7 +2,7 @@
   "name": "@antdp/config",
   "version": "1.4.1",
   "description": "路由配置",
-  "author": "anneng",
+  "author": "antdp",
   "license": "ISC",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

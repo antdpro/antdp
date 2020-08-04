@@ -1,6 +1,6 @@
 {
   "name": "@antdp/config",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "路由配置",
   "author": "anneng",
   "license": "ISC",
@@ -16,8 +16,8 @@
     "umi"
   ],
   "dependencies": {
-    "umi-plugin-antd-icon-config": "2.0.3",
     "@ant-design/icons": "4.1.0",
-    "umi": "3.2.10"
+    "umi": "3.2.10",
+    "umi-plugin-antd-icon-config": "2.0.3"
   }
 }

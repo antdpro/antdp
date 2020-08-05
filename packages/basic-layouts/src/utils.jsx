@@ -1,6 +1,5 @@
 import React from 'react';
 import Icon from '@ant-design/icons';
-// import FixIcons from '@antdp/icons';
 
 /**
  * 递归获取树列表
@@ -35,7 +34,6 @@ export function getIcon(icon) {
     if (isUrl(icon)) {
       return <Icon component={() => <img src={icon} alt="icon" />} />;
     }
-    // return <FixIcons type={icon} />;
     return <></>;
   }
   return icon;

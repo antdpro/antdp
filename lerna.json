@@ -2,6 +2,9 @@
   "packages": ["examples/*", "packages/*"],
   "version": "independent",
   "command": {
+    "version": {
+      "ignoreChanges": ["packages/icons/**"]
+    },
     "create": {
       "license": "MIT"
     },

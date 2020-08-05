@@ -1,6 +1,6 @@
 {
   "name": "@antdp/basic-layouts",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "入口框架公共界面",
   "sideEffects": [
     "*.css"
@@ -40,9 +40,9 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.1.0",
-    "@antdp/document-title": "^1.4.1",
-    "@antdp/fullscreen": "^1.4.1",
-    "@antdp/layout-tabs": "^1.4.1",
+    "@antdp/document-title": "1.4.2",
+    "@antdp/fullscreen": "1.4.2",
+    "@antdp/layout-tabs": "1.4.2",
     "@babel/runtime": "7.4.4",
     "umi": "3.2.10"
   },

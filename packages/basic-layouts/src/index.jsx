@@ -23,6 +23,7 @@ export default (props = {}) => {
     topRightMenu = [],
     profile = {},
     bodyPadding = 14,
+    topRightLanguage = null,
   } = props;
   let location = useLocation();
   const [collapsed, setCollapsed] = useState(!!props.collapsed);
@@ -53,6 +54,7 @@ export default (props = {}) => {
       title = item.name;
     }
   });
+  console.log(routeData);
   return (
     <DocumentTitle
       title={`${title || ''}${title ? ' - ' : ''}${projectName || ''}`}
@@ -77,6 +79,7 @@ export default (props = {}) => {
               <Breadcrumb routeData={routeData} {...props} />
             </div>
             {headerRightView}
+            {topRightLanguage}
           </Layout.Header>
           <Layout.Content>
             {(() => {

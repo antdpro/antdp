@@ -24,6 +24,7 @@ const Layout = (props) => {
         siderWidth={240}
         logo={logo}
         iframeRender={false}
+        topRightLanguage={<div>设置语言</div>}
         topRightMenu={[
           {
             title: '个人中心',

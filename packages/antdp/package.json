@@ -2,11 +2,11 @@
   "name": "antdp",
   "version": "1.4.2",
   "description": "Ant Design Project",
+  "repository": "https://github.com/antdpro/antdp/tree/master/packages/antdp",
   "scripts": {},
   "keywords": [
     "antdp",
     "antd"
   ],
-  "author": "jaywcjlove",
   "license": "MIT"
 }

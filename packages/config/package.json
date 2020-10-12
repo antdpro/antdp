@@ -6,6 +6,7 @@
   "license": "ISC",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
+  "repository": "https://github.com/antdpro/antdp/tree/master/packages/config",
   "files": [
     "lib",
     "index.d.ts"

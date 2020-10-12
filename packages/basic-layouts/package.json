@@ -13,7 +13,7 @@
     "antdp",
     "antd"
   ],
-  "author": "Kenny Wong <wcj@nihaosi.com>",
+  "repository": "https://github.com/antdpro/antdp/tree/master/packages/basic-layouts",
   "publishConfig": {
     "access": "public"
   },

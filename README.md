@@ -1,7 +1,16 @@
 Ant Design Project
 ---
 
-一个基于 [antd](https://github.com/ant-design/ant-design/) 和 [umi](https://github.com/umijs/umi) 的初始级别项目，集成路由、Redux、选项卡等特性。
+一个基于 [antd](https://github.com/ant-design/ant-design/) 和 [umi](https://github.com/umijs/umi) 的初始级别项目，集成路由、Redux、选项卡等特性，用于简化 [antd 4.x +](https://github.com/ant-design/ant-design) 的部分使用。
+
+### Features
+
+- 简化 [antd 4.x +](https://github.com/ant-design/ant-design) 和 [umi](https://github.com/umijs/umi) 框架配置使用；
+- 减少项目配置和依赖，将配置集成到包中开箱即用；
+- 更简单直观的配置权限和更改 Layout；
+- 支持配置路由参数 `/router/:id`；
+- 解决菜单配置 `icon` 问题；
+- 支持 tab 选项卡功能。
 
 ### 发布版本
 

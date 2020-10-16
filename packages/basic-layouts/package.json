@@ -39,7 +39,7 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@ant-design/icons": "4.1.0",
+    "@ant-design/icons": "4.2.2",
     "@antdp/document-title": "1.4.3",
     "@antdp/fullscreen": "1.4.3",
     "@antdp/layout-tabs": "1.4.3",

@@ -38,7 +38,7 @@
   "author": "jaywcjlove",
   "license": "MIT",
   "dependencies": {
-    "husky": "4.2.5",
+    "husky": "4.3.6",
     "lerna": "3.22.1",
     "lint-staged": "10.2.2",
     "prettier": "2.1.2",

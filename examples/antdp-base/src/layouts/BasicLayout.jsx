@@ -25,6 +25,8 @@ const Layout = (props) => {
         logo={logo}
         iframeRender={false}
         topRightLanguage={<div>设置语言</div>}
+        // 是否进行权限判定
+        isAuthorized={true}
         topRightMenu={[
           {
             title: '个人中心',

@@ -11,6 +11,8 @@ import Breadcrumb from './Breadcrumb';
 import TopRightMenu from './TopRightMenu';
 import LogoHeader from './LogoHeader';
 import { getTreeList } from './utils';
+import { getAuthorizedPage } from "@antdp/authorized"
+
 import './index.css';
 
 export default (props = {}) => {
@@ -23,6 +25,8 @@ export default (props = {}) => {
     topRightMenu = [],
     profile = {},
     bodyPadding = 14,
+    topRightLanguage = null,
+    isAuthorized=false
   } = props;
   let location = useLocation();
   const [collapsed, setCollapsed] = useState(!!props.collapsed);
@@ -53,6 +57,7 @@ export default (props = {}) => {
       title = item.name;
     }
   });
+  const toPath = getAuthorizedPage(routeData, location.pathname)
   return (
     <DocumentTitle
       title={`${title || ''}${title ? ' - ' : ''}${projectName || ''}`}
@@ -68,7 +73,7 @@ export default (props = {}) => {
             projectName={projectName}
             logo={props.logo}
           />
-          <MeunView {...props} selectedKey={location.pathname} />
+          <MeunView {...props} selectedKey={location.pathname} isAuthorized={isAuthorized} />
         </Layout.Sider>
         <Layout>
           <Layout.Header style={{ padding: 0 }} className="antdp-global-header">
@@ -82,6 +87,9 @@ export default (props = {}) => {
             {(() => {
               if (location.pathname === '/') {
                 return <Redirect to="/welcome" />;
+              } 
+              if (isAuthorized&&(toPath === 404 || toPath === 403)) {
+                return <Redirect to={`/${toPath}`} />;
               }
               return (
                 <LayoutTabs

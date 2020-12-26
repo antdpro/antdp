@@ -7,7 +7,10 @@
     "path": "/",
     "component": "@/layouts/BasicLayout",
     "routes": [
-      { "path": "/", "redirect": "/welcome" },
+      {
+        "path": "/",
+        "redirect": "/welcome"
+      },
       {
         "path": "/welcome",
         "name": "首页",
@@ -124,6 +127,20 @@
             "component": "@/pages/Setting/Advanced"
           }
         ]
+      },
+      {
+        "path": "/404",
+        "name": "404",
+        "hideInMenu": true,
+        "icon": "file-protect",
+        "component": "@/pages/404"
+      },
+      {
+        "path": "/403",
+        "name": "403",
+        "hideInMenu": true,
+        "icon": "file-protect",
+        "component": "@/pages/403"
       }
     ]
   }

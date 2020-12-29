@@ -26,6 +26,7 @@
     "@antdp/page-loading": "1.4.2",
     "@antdp/user-login": "1.4.2",
     "@babel/runtime": "7.12.5",
+    "@umijs/plugin-locale": "^0.9.0",
     "antd": "4.3.1",
     "umi": "3.2.10"
   },

@@ -19,10 +19,13 @@ import { getBreadcrumbNameRouterMap } from './../utils';
 // ];
 
 export default (props = {}) => {
+  const { intlLanguage, isBreadcrumb = false } = props;
+  console.log(props);
   const breadcrumbNameMap = useMemo(
     () => getBreadcrumbNameRouterMap(props.route.routes),
     [props.route.routes],
   );
+
   const _breadcrumbRender = useMemo(() => {
     const list = breadcrumbNameMap.get(props.location.pathname) || [];
     return list.map((item, index) => {
@@ -62,34 +65,50 @@ export default (props = {}) => {
   const routesDatas = useMemo(() => getRoutes(props.location.pathname), [
     props.location.pathname,
   ]);
+
+  const Homes = useMemo(() => {
+    if (intlLanguage) {
+      return intlLanguage.formatMessage({
+        id: 'menu.home',
+        defaultMessage: '首页',
+      });
+    }
+    return <>首页</>;
+  }, [intlLanguage]);
+
   const Home = useMemo(
     () => (
       <span data-separator={routesDatas.length === 0 ? '' : '/'}>
         <Link to="/">
-          <span>首页</span>
+          <span>{Homes}</span>
         </Link>
       </span>
     ),
-    [],
+    [Homes],
   );
 
   return (
     <span className="antdp-global-breadcrumb">
-      {/* {_breadcrumbRender} */}
-      {Home}
-      {routesDatas.map((item, index) => {
-        if (!item.path || !item.breadcrumbName) return null;
-        if (index === routesDatas.length - 1) {
-          return <span key={index}>{item.breadcrumbName}</span>;
-        }
-        return (
-          <span data-separator="/">
-            <Link to={item.path} key={index}>
-              <span>{item.breadcrumbName}</span>
-            </Link>
-          </span>
-        );
-      })}
+      {isBreadcrumb ? (
+        <>{_breadcrumbRender}</>
+      ) : (
+        <>
+          {Home}
+          {routesDatas.map((item, index) => {
+            if (!item.path || !item.breadcrumbName) return null;
+            if (index === routesDatas.length - 1) {
+              return <span key={index}>{item.breadcrumbName}</span>;
+            }
+            return (
+              <span data-separator="/">
+                <Link to={item.path} key={index}>
+                  <span>{item.breadcrumbName}</span>
+                </Link>
+              </span>
+            );
+          })}
+        </>
+      )}
     </span>
   );
 };

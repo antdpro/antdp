@@ -10,7 +10,7 @@
     "antd"
   ],
   "dependencies": {
-    "@umijs/preset-react": "1.6.16",
+    "@umijs/preset-react": "1.7.9",
     "husky": "4.3.6",
     "react": "16.12.0",
     "react-dom": "16.12.0"

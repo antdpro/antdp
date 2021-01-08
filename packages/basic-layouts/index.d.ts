@@ -51,6 +51,12 @@ export interface BaseLayoutProps {
    * 顶部右方菜单设置
    */
   topRightMenu?: (MenuItemProps | { divider: boolean })[];
+  // 顶部右方
+  topRightLanguage?: any,
+  // 是否开启权限
+  isAuthorized?: boolean,
+  // 语言转换方法
+  intlLanguage?: any,
   /**
    * 设置内容区域补白，默认 14px
    */
@@ -69,7 +75,7 @@ export interface BaseLayoutProps {
 export default class BaseLayout extends React.Component<
   BaseLayoutProps,
   BaseLayoutState
-> {
+  > {
   static defaultProps: BaseLayoutProps;
   state: BaseLayoutState;
   constructor(props: BaseLayoutProps);

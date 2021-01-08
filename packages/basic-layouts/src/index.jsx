@@ -15,7 +15,7 @@ import {
   getMenuItemRouters,
   getBreadcrumbNameRouterMap,
 } from './utils';
-import { getAuthorizedPage, getMenuItems } from '@antdp/authorized';
+import { getAuthorizedPage } from '@antdp/authorized';
 
 import './index.css';
 
@@ -57,12 +57,23 @@ export default (props = {}) => {
     );
   }, [profile.avatar, profile.name]);
 
+  // 所有的 权限菜单
+  const authMenus =
+    (sessionStorage.getItem('authMenu') &&
+      JSON.parse(sessionStorage.getItem('authMenu'))) ||
+    [];
+
   const getRoutes = useMemo(() => {
-    if (intlLanguage) {
-      return getMenuItemRouters(route.routes, intlLanguage);
+    if (intlLanguage || isAuthorized) {
+      return getMenuItemRouters(
+        route.routes,
+        authMenus,
+        isAuthorized,
+        intlLanguage,
+      );
     }
     return route.routes || [];
-  }, [intlLanguage, route.routes]);
+  }, [intlLanguage, isAuthorized, authMenus, route.routes]);
 
   const routeData = getTreeList(getRoutes);
   let title = '';
@@ -94,7 +105,6 @@ export default (props = {}) => {
               routes: getRoutes,
             }}
             selectedKey={location.pathname}
-            isAuthorized={isAuthorized}
           />
         </Layout.Sider>
         <Layout>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Menu } from 'antd';
 import Link from './Link';
 import { getIcon } from '../utils';
-import { getMenuItems } from "@antdp/authorized"
 
 export default class MeunView extends Component {
   constructor(props) {
@@ -98,9 +97,8 @@ export default class MeunView extends Component {
   };
   handleOpenChange() {}
   render() {
-    const { route, selectedKey, isAuthorized } = this.props;
-    const _render = isAuthorized ? this.getNavMenuItems(getMenuItems(route.routes))
-      : this.getNavMenuItems(route.routes);
+    const { route, selectedKey } = this.props;
+    const _render = this.getNavMenuItems(route.routes);
     return (
       <Menu
         theme="dark"

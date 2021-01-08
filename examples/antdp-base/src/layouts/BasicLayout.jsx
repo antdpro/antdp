@@ -11,7 +11,6 @@ import 'antd/dist/antd.css';
 import logo from './logo.svg';
 
 const Layout = (props) => {
-  // const intl = useIntl()
   return (
     <Authorized authority={!!props.token} redirectPath="/login">
       <BasicLayout
@@ -25,10 +24,10 @@ const Layout = (props) => {
         siderWidth={240}
         logo={logo}
         iframeRender={false}
-        // topRightLanguage={<SelectLang/>}
+        // topRightLanguage={<SelectLang />}
         // 是否进行权限判定
-        // isAuthorized={true}
-        // intlLanguage={intl}
+        isAuthorized={true}
+        // intlLanguage={useIntl()}
         // isBreadcrumb={true} // 是否根据路由进行展示 面包屑
         topRightMenu={[
           {

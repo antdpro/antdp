@@ -14,44 +14,22 @@
       {
         "path": "/welcome",
         "name": "首页",
-        "icon": "menu.welcome",
-        "locale": "menu.welcome",
+        "icon": "welcome",
+        "locale": "welcome",
         "component": "@/pages/Home/index"
       },
       {
         "path": "/dashboard",
         "name": "Dashboard",
         "icon": "dashboard",
+        "locale": "dashboard",
         "routes": [
           {
             "path": "/dashboard/workplace",
             "name": "工作台",
+            "locale": "工作台",
             "icon": "pie-chart",
-            "routes": [
-              {
-                "path": "/dashboard/workplace/1",
-                "name": "工作台",
-                "icon": "pie-chart",
-                "component": "@/pages/Dashboard/Workplace"
-              },
-              {
-                "path": "/dashboard/workplace/2",
-                "name": "分析页",
-                "icon": "bar-chart",
-                "component": "@/pages/Setting/User"
-              },
-              {
-                "path": "/dashboard/workplace/3",
-                "name": "监控台",
-                "icon": "radar-chart",
-                "component": "@/pages/Setting/User"
-              },
-              {
-                "path": "/dashboard/workplace/4",
-                "name": "测试不存在页面",
-                "icon": "radar-chart"
-              }
-            ]
+            "component": "@/pages/Dashboard/Workplace"
           },
           {
             "path": "/dashboard/analysis",

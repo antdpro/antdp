@@ -16,32 +16,93 @@ export function getTreeList(data, treeList = []) {
   });
   return treeList;
 }
-export const getMenuItemRouters = (routes, intlLanguage, list = []) => {
+
+/**
+ * @description: 根据 menuUrl 判断是否存在权限
+ * @param {string} path 路径
+ * @param {Array} authMenus 权限路由
+ * @return {*}
+ */
+const checkRouter = (path, authMenus) => {
+  let fig = true;
+  const finx = authMenus.findIndex((item) => item.menuUrl === path);
+  if (finx === -1) {
+    fig = false;
+  }
+  if (path === '/404' || path === '/403' || path === '/welcome') {
+    fig = true;
+  }
+  return fig;
+};
+/**
+ * @description: 对路由进行语言转换和权限路由
+ * @param {*} routes
+ * @param {*} intlLanguage
+ * @param {*} list
+ * @return {*}
+ */
+export const getMenuItemRouters = (
+  routes,
+  authMenus,
+  isAuthorized,
+  intlLanguage,
+  parentLocale = 'menu',
+  list = [],
+) => {
   (routes || []).forEach((item) => {
+    let parentLocales = parentLocale;
     if (
       intlLanguage &&
       (Reflect.has(item, 'name') || Reflect.has(item, 'locale'))
     ) {
+      const locale = `${parentLocale}.${item.locale || item.name}`;
+      parentLocales = locale;
       const localeName = intlLanguage.formatMessage({
-        id: item.locale || item.name,
+        id: locale,
         defaultMessage: item.name || item.locale,
       });
       item.name = localeName;
       item.locale = localeName;
     }
-    if (item.children || item.routes) {
-      const children = getMenuItemRouters(
-        item.children || item.routes,
-        intlLanguage,
-      );
-      item.routes = children;
-      item.children = children;
+    if (isAuthorized) {
+      if (checkRouter(item.path, authMenus)) {
+        if (item.children || item.routes) {
+          const children = getMenuItemRouters(
+            item.children || item.routes,
+            authMenus,
+            isAuthorized,
+            intlLanguage,
+            parentLocales,
+          );
+          item.routes = children;
+          item.children = children;
+        }
+        list.push({ ...item });
+      }
+    } else {
+      if (item.children || item.routes) {
+        const children = getMenuItemRouters(
+          item.children || item.routes,
+          authMenus,
+          isAuthorized,
+          intlLanguage,
+          parentLocales,
+        );
+        item.routes = children;
+        item.children = children;
+      }
+      list.push({ ...item });
     }
-    list.push({ ...item });
   });
   return list;
 };
-
+/**
+ * @description: 为每一个子路由 保存父路由链
+ * @param {*} menuData
+ * @param {*} parent
+ * @param {*} routerMap
+ * @return {*}
+ */
 const getRouter = (menuData, parent, routerMap = new Map()) => {
   menuData.forEach((item) => {
     const { path, name } = item;
@@ -55,8 +116,13 @@ const getRouter = (menuData, parent, routerMap = new Map()) => {
   return routerMap;
 };
 
-// 再做处理生成父级关联
-// 循环找父级
+/**
+ * @description:再做处理生成父级关联  循环找父级
+ * @param {*} path
+ * @param {*} menuData
+ * @param {*} list
+ * @return {*}
+ */
 const loopFindParnent = (path, menuData, list = []) => {
   const item = menuData.get(path);
   list.unshift(item);
@@ -65,7 +131,11 @@ const loopFindParnent = (path, menuData, list = []) => {
   }
   return list;
 };
-
+/**
+ * @description: 获取路由面包屑
+ * @param {*} routers
+ * @return {*}
+ */
 export const getBreadcrumbNameRouterMap = (routers) => {
   const menuData = getRouter(routers);
   const routerMap = new Map();

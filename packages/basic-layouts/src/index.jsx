@@ -116,7 +116,7 @@ export default (props = {}) => {
               if (location.pathname === '/') {
                 return <Redirect to="/welcome" />;
               }
-              if (ANTD_IS_AUTHORIZED && (toPath === 404 || toPath === 403)) {
+              if (ANTD_AUTH_CONF && (toPath === 404 || toPath === 403)) {
                 return <Redirect to={`/${toPath}`} />;
               }
               return (

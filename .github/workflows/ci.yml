@@ -27,6 +27,8 @@ jobs:
     - run: npm run build
     - run: npm run install:example
     - run: npm run build:website
+    - run: npm run website:install
+    - run: npm run website:build
 
     - name: Create Tag
       id: create_tag

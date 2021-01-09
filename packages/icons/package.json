@@ -19,8 +19,5 @@
   "dependencies": {
     "@ant-design/icons": "4.3.0",
     "@babel/runtime": "7.4.4"
-  },
-  "devDependencies": {
-    "babel-plugin-import": "1.13.0"
   }
 }

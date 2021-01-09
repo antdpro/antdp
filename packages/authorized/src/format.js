@@ -20,6 +20,30 @@ export const FormatBtn = ({ path, children }) => {
   return children || null;
 };
 /**
+ * @description: 根据 menuUrl 判断是否存在权限
+ * @param {string} path 路径
+ * @param {Array} authMenus 权限路由
+ * @return {*}
+ */
+const checkRouter = (path, authMenus) => {
+  let fig = true;
+  const finx = authMenus.findIndex(
+    (item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
+  );
+  if (finx === -1) {
+    fig = false;
+  }
+  if (
+    path === '/404' ||
+    path === '/403' ||
+    path === '/' ||
+    path === '/welcome'
+  ) {
+    fig = true;
+  }
+  return fig;
+};
+/**
  * @description: 页面权限
  * authMenus 权限路由
  * @param {Array} allRouters 原始 routes.json 文件中路由
@@ -37,11 +61,7 @@ export const getFormatPage = (allRouters, pathname) => {
     : [];
   const check = mapRouterCheck(allRouters, pathname).length > 0 ? true : false;
   // 若不在权限路由中则提示无权限
-  const authCheck =
-    allMenu.findIndex((va) => va[ANTD_AUTH_CONF.auth_check_url] == pathname) >=
-    0
-      ? true
-      : false;
+  const authCheck = checkRouter(pathname, allMenu);
   if (check && !authCheck) {
     // 无权访问
     return 403;
@@ -63,7 +83,13 @@ export const getFormatPage = (allRouters, pathname) => {
 const mapRouterCheck = (data, pathName, list = []) => {
   (data || []).forEach((val) => {
     const { path, routes } = val;
-    if (path == pathName) {
+    if (
+      path == pathName ||
+      path === '/404' ||
+      path === '/403' ||
+      path === '/' ||
+      path === '/welcome'
+    ) {
       list.push(val);
     } else if (routes) {
       mapRouterCheck(routes, pathName, list);

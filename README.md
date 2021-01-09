@@ -49,3 +49,14 @@ Package | Version | Description
 [`@antdp/dependencies`](https://www.npmjs.com/package/@antdp/dependencies) | [![npm](https://img.shields.io/npm/v/@antdp/dependencies.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/dependencies) | - |
 [~~`@antdp/icons`~~](https://www.npmjs.com/package/@antdp/icons) | [![npm](https://img.shields.io/npm/v/@antdp/icons.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/icons) | - |
 [`@antdp/page-loading`](https://www.npmjs.com/package/@antdp/page-loading) | [![npm](https://img.shields.io/npm/v/@antdp/page-loading.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/page-loading) | - |
+
+
+### 开发
+
+```bash
+npm install
+npm run install:all
+
+npm run watch
+npm run start
+```

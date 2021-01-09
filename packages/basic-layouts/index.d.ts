@@ -53,8 +53,6 @@ export interface BaseLayoutProps {
   topRightMenu?: (MenuItemProps | { divider: boolean })[];
   // 顶部右方
   topRightLanguage?: any,
-  // 是否开启权限
-  isAuthorized?: boolean,
   // 语言转换方法
   intlLanguage?: any,
   /**

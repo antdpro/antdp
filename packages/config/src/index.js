@@ -13,9 +13,15 @@ export default (routes = [], options = {}) => {
     : undefined;
   const defineObj = options.define || {};
   const ANTD_IS_BREADCRUMB = !!defineObj.ANTD_IS_BREADCRUMB;
-  const ANTD_IS_AUTHORIZED = !!defineObj.ANTD_IS_AUTHORIZED;
-  const ANTD_AUTH_MENU = defineObj.ANTD_AUTH_MENU || 'anthMenu';
-  const ANTD_IS_AUTH_URL = defineObj.ANTD_IS_AUTH_URL || 'menuUrl';
+  let ANTD_AUTH_CONF = defineObj.ANTD_AUTH_CONF || undefined;
+  if (ANTD_AUTH_CONF) {
+    ANTD_AUTH_CONF = {
+      auth_menu: 'authMenu',
+      auth_btn: 'authBtn',
+      auth_check_url: 'menuUrl',
+      ...ANTD_AUTH_CONF,
+    };
+  }
   return defineConfig({
     hash: true,
     targets: {
@@ -57,11 +63,7 @@ export default (routes = [], options = {}) => {
       // 是否开启父子路由面包屑
       ANTD_IS_BREADCRUMB,
       // 是否开启权限验证
-      ANTD_IS_AUTHORIZED,
-      // 保存本地keys
-      ANTD_AUTH_MENU,
-      // 根据那个字段判断路由权限
-      ANTD_IS_AUTH_URL,
+      ANTD_AUTH_CONF,
       ...(options.define || {}),
     },
     routes: routes || [],

@@ -30,7 +30,6 @@ export default (props = {}) => {
     profile = {},
     bodyPadding = 14,
     topRightLanguage = null,
-    // isAuthorized = false,
     intlLanguage = null,
   } = props;
 
@@ -59,16 +58,16 @@ export default (props = {}) => {
 
   // 所有的 权限菜单
   const authMenus =
-    (sessionStorage.getItem(ANTD_AUTH_MENU) &&
-      JSON.parse(sessionStorage.getItem(ANTD_AUTH_MENU))) ||
+    (sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu) &&
+      JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu))) ||
     [];
 
   const getRoutes = useMemo(() => {
-    if (intlLanguage || ANTD_IS_AUTHORIZED) {
+    if (intlLanguage || ANTD_AUTH_CONF) {
       return getMenuItemRouters(route.routes, authMenus, intlLanguage);
     }
     return route.routes || [];
-  }, [intlLanguage, ANTD_IS_AUTHORIZED, authMenus, route.routes]);
+  }, [intlLanguage, ANTD_AUTH_CONF, authMenus, route.routes]);
 
   const routeData = getTreeList(getRoutes);
   let title = '';

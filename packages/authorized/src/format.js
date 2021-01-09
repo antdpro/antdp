@@ -8,10 +8,12 @@ export const FormatBtn = ({ path, children }) => {
     return children || null;
   }
   const authBtns =
-    (sessionStorage.getItem('authBtn') &&
-      JSON.parse(sessionStorage.getItem('authBtn'))) ||
+    (sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) &&
+      JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn))) ||
     [];
-  const finx = authBtns.findIndex((item) => item.menuUrl === path);
+  const finx = authBtns.findIndex(
+    (item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
+  );
   if (finx === -1) {
     return null;
   }
@@ -30,13 +32,16 @@ export const getFormatPage = (allRouters, pathname) => {
   // 3. 无权限 有页面 403
   // 4. 无权限 无页面 404
   // 5. 其他
-  const allMenu = !!sessionStorage.getItem('authMenu')
-    ? JSON.parse(sessionStorage.getItem('authMenu'))
+  const allMenu = !!sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu)
+    ? JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu))
     : [];
   const check = mapRouterCheck(allRouters, pathname).length > 0 ? true : false;
   // 若不在权限路由中则提示无权限
   const authCheck =
-    allMenu.findIndex((va) => va.menuUrl == pathname) >= 0 ? true : false;
+    allMenu.findIndex((va) => va[ANTD_AUTH_CONF.auth_check_url] == pathname) >=
+    0
+      ? true
+      : false;
   if (check && !authCheck) {
     // 无权访问
     return 403;

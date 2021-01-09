@@ -5,10 +5,11 @@ export default config(router, {
   proxy,
   define: {
     ANTD_IS_BREADCRUMB: true,
-
-    ANTD_IS_AUTHORIZED: true,
-    ANTD_AUTH_MENU: 'authMenu',
-    ANTD_IS_AUTH_URL: 'menuUrl',
+    ANTD_AUTH_CONF: {
+      auth_menu: 'authMenu',
+      auth_btn: 'authBtn',
+      auth_check_url: 'menuUrl',
+    },
   },
   // locale: {
   //   default: 'zh-CN',

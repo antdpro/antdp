@@ -25,7 +25,9 @@ export function getTreeList(data, treeList = []) {
  */
 const checkRouter = (path, authMenus) => {
   let fig = true;
-  const finx = authMenus.findIndex((item) => item[ANTD_IS_AUTH_URL] === path);
+  const finx = authMenus.findIndex(
+    (item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
+  );
   if (finx === -1) {
     fig = false;
   }
@@ -63,7 +65,7 @@ export const getMenuItemRouters = (
       item.name = localeName;
       item.locale = localeName;
     }
-    if (ANTD_IS_AUTHORIZED) {
+    if (ANTD_AUTH_CONF) {
       if (checkRouter(item.path, authMenus)) {
         if (item.children || item.routes) {
           const children = getMenuItemRouters(

@@ -1,7 +1,7 @@
 Ant Design Project
 ---
 
-[![Build](https://github.com/antdpro/antdp/workflows/Build/badge.svg)](https://github.com/antdpro/antdp/actions)
+[![Build & Deploy](https://github.com/antdpro/antdp/workflows/Build%20&%20Deploy/badge.svg)](https://github.com/antdpro/antdp/actions)
 
 一个基于 [antd](https://github.com/ant-design/ant-design/) 和 [umi](https://github.com/umijs/umi) 的初始级别项目，集成路由、Redux、选项卡等特性，用于简化 [antd 4.x +](https://github.com/ant-design/ant-design) 的部分使用。
 

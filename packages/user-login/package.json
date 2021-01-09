@@ -41,12 +41,12 @@
   "dependencies": {
     "@ant-design/icons": "4.3.0",
     "@antdp/document-title": "1.4.3",
-    "@babel/runtime": "7.4.4",
-    "umi": "3.2.10"
+    "@babel/runtime": "7.4.4"
   },
   "devDependencies": {
     "antd": "4.10.0",
     "react": "16.8.6",
-    "react-dom": "16.8.6"
+    "react-dom": "16.8.6",
+    "umi": "3.2.10"
   }
 }

@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.3.0",
-    "@antdp/authorized": "1.4.2",
+    "@antdp/authorized": "1.5.1",
     "@antdp/document-title": "1.5.1",
     "@antdp/fullscreen": "1.5.1",
     "@antdp/layout-tabs": "1.5.1",

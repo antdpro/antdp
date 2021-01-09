@@ -32,7 +32,7 @@
     "@babel/runtime": "7.4.4",
     "antd": "4.10.0",
     "react-frame-component": "4.1.2",
-    "umi": "3.2.10"
+    "umi": "3.3.4"
   },
   "devDependencies": {
     "react": "16.8.6",

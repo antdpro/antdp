@@ -42,7 +42,7 @@
     "@ant-design/icons": "4.3.0",
     "@antdp/document-title": "1.4.3",
     "@babel/runtime": "7.4.4",
-    "umi": "3.2.10"
+    "umi": "3.3.4"
   },
   "devDependencies": {
     "antd": "4.10.0",

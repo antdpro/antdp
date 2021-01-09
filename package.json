@@ -14,7 +14,7 @@
     "bootstrap": "lerna bootstrap",
     "install:all": "npm run install:pkg && npm run build && npm run install:example",
     "install:pkg": "lerna bootstrap --scope @antdp/* --hoist",
-    "install:example": "lerna bootstrap --scope @example/antdp-base",
+    "install:example": "lerna bootstrap --scope @example/antdp-base --hoist",
     "build:website": "lerna exec --scope @example/antdp-base -- npm run build",
     "build": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb build --target react",
     "watch": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb watch --target react",

@@ -1,6 +1,6 @@
 {
   "name": "@antdp/document-title",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "设置页面标题",
   "sideEffects": false,
   "main": "lib/cjs/index.js",
@@ -12,7 +12,7 @@
     "antdp",
     "antd"
   ],
-  "author": "Kenny Wong <wcj@nihaosi.com>",
+  "repository": "https://github.com/antdpro/antdp/tree/master/packages/document-title",
   "publishConfig": {
     "access": "public"
   },

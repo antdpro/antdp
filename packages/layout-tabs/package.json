@@ -1,6 +1,6 @@
 {
   "name": "@antdp/layout-tabs",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "用于主框架选项卡组件。",
   "sideEffects": [
     "*.css"
@@ -15,7 +15,7 @@
     "antdp",
     "antd"
   ],
-  "author": "Kenny Wong <wcj@nihaosi.com>",
+  "repository": "https://github.com/antdpro/antdp/tree/master/packages/layout-tabs",
   "publishConfig": {
     "access": "public"
   },
@@ -29,8 +29,8 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.12.5",
-    "antd": "4.3.1",
+    "@babel/runtime": "7.4.4",
+    "antd": "4.10.0",
     "react-frame-component": "4.1.2",
     "umi": "3.2.10"
   },

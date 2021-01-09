@@ -1,11 +1,12 @@
 {
   "name": "@antdp/config",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "路由配置",
   "author": "antdp",
   "license": "ISC",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
+  "repository": "https://github.com/antdpro/antdp/tree/master/packages/config",
   "files": [
     "lib",
     "index.d.ts"
@@ -16,8 +17,7 @@
     "umi"
   ],
   "dependencies": {
-    "@ant-design/icons": "4.1.0",
-    "@babel/runtime": "7.12.5",
+    "@ant-design/icons": "4.3.0",
     "umi": "3.2.10",
     "umi-plugin-antd-icon-config": "2.0.3"
   }

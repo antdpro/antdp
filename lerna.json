@@ -9,7 +9,6 @@
       "license": "MIT"
     },
     "bootstrap": {
-      "npmClient": "yarn",
       "yarnClientArgs": ["--no-yarn-lock", "--no-package-lock"],
       "forceLocal": true
     }

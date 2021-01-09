@@ -16,6 +16,18 @@ export default {
       const data = yield call(userLogin, { password, phone });
       if (data.code === 1) {
         yield sessionStorage.setItem('token', data.token);
+        const li = [
+          {  menuUrl:"/",id:1,  },
+          {  menuUrl:"/welcome",id:2, },
+          { menuUrl:"/dashboard",id:3,  },
+          { menuUrl:"/dashboard/workplace",id:4,  },
+          { menuUrl:"/dashboard/analysis",id:5,  },
+          { menuUrl:"/dashboard/monitor",id:6,  },
+          { menuUrl:"/dashboard/notfund",id:7,  },
+          { menuUrl:"/404",id:99, },
+          { menuUrl:"/403",id:100,  },
+        ]
+        yield sessionStorage.setItem('authMenu',JSON.stringify(li) );
         yield put({ type: 'update', payload: { token: data.token } });
         history.push('/');
       } else if (data && data.message) {

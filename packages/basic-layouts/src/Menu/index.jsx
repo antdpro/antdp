@@ -98,6 +98,7 @@ export default class MeunView extends Component {
   handleOpenChange() {}
   render() {
     const { route, selectedKey } = this.props;
+    const _render = this.getNavMenuItems(route.routes);
     return (
       <Menu
         theme="dark"
@@ -107,7 +108,7 @@ export default class MeunView extends Component {
         defaultOpenKeys={this.state.defaultOpenKeys}
         style={{ width: '100%' }}
       >
-        {this.getNavMenuItems(route.routes)}
+        {_render}
       </Menu>
     );
   }

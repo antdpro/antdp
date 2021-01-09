@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { Link } from 'umi';
 import './index.css';
+import { getBreadcrumbNameRouterMap } from './../utils';
 
 // const routes = [
 //   {
@@ -18,6 +19,35 @@ import './index.css';
 // ];
 
 export default (props = {}) => {
+  const { intlLanguage, isBreadcrumb = false } = props;
+  console.log(props);
+  const breadcrumbNameMap = useMemo(
+    () => getBreadcrumbNameRouterMap(props.route.routes),
+    [props.route.routes],
+  );
+
+  const _breadcrumbRender = useMemo(() => {
+    const list = breadcrumbNameMap.get(props.location.pathname) || [];
+    return list.map((item, index) => {
+      let attr = { 'data-separator': '/' };
+      if (index === list.length - 1) {
+        delete attr['data-separator'];
+        return (
+          <span key={index} {...attr}>
+            <Link to={item.path || '/'}>
+              <span>{item.name || null}</span>
+            </Link>
+          </span>
+        );
+      }
+      return (
+        <span key={index} {...attr}>
+          {item.name || null}
+        </span>
+      );
+    });
+  }, [props.location.pathname, breadcrumbNameMap]);
+
   function getRoutes(name) {
     let routes = [];
     if (!/^(\/|\/welcome)$/.test(name)) {
@@ -31,35 +61,54 @@ export default (props = {}) => {
     }
     return routes;
   }
+
   const routesDatas = useMemo(() => getRoutes(props.location.pathname), [
     props.location.pathname,
   ]);
+
+  const Homes = useMemo(() => {
+    if (intlLanguage) {
+      return intlLanguage.formatMessage({
+        id: 'menu.home',
+        defaultMessage: '首页',
+      });
+    }
+    return <>首页</>;
+  }, [intlLanguage]);
+
   const Home = useMemo(
     () => (
       <span data-separator={routesDatas.length === 0 ? '' : '/'}>
         <Link to="/">
-          <span>首页</span>
+          <span>{Homes}</span>
         </Link>
       </span>
     ),
-    [],
+    [Homes],
   );
+
   return (
     <span className="antdp-global-breadcrumb">
-      {Home}
-      {routesDatas.map((item, index) => {
-        if (!item.path || !item.breadcrumbName) return null;
-        if (index === routesDatas.length - 1) {
-          return <span key={index}>{item.breadcrumbName}</span>;
-        }
-        return (
-          <span data-separator="/">
-            <Link to={item.path} key={index}>
-              <span>{item.breadcrumbName}</span>
-            </Link>
-          </span>
-        );
-      })}
+      {isBreadcrumb ? (
+        <>{_breadcrumbRender}</>
+      ) : (
+        <>
+          {Home}
+          {routesDatas.map((item, index) => {
+            if (!item.path || !item.breadcrumbName) return null;
+            if (index === routesDatas.length - 1) {
+              return <span key={index}>{item.breadcrumbName}</span>;
+            }
+            return (
+              <span data-separator="/">
+                <Link to={item.path} key={index}>
+                  <span>{item.breadcrumbName}</span>
+                </Link>
+              </span>
+            );
+          })}
+        </>
+      )}
     </span>
   );
 };

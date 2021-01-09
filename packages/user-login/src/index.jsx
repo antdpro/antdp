@@ -29,6 +29,15 @@ export default class BaseLayout extends Component {
         },
       },
     ],
+    formBtns: [
+      {
+        label: '登录',
+        attr: {
+          type: 'primary',
+          htmlType: 'submit',
+        },
+      },
+    ],
   };
   render() {
     const {
@@ -37,6 +46,7 @@ export default class BaseLayout extends Component {
       loading,
       projectName,
       className,
+      formBtns,
       ...otherProps
     } = this.props;
     return (
@@ -61,9 +71,18 @@ export default class BaseLayout extends Component {
                 );
               })}
             <Form.Item>
-              <Button type="primary" loading={loading} htmlType="submit">
-                登录
-              </Button>
+              {Array.isArray(formBtns) &&
+                formBtns.map((item, index) => {
+                  const { label, attr } = item;
+                  if (attr && attr.htmlType === 'submit') {
+                    attr.loading = loading;
+                  }
+                  return (
+                    <Button key={index} {...attr}>
+                      {label}
+                    </Button>
+                  );
+                })}
             </Form.Item>
           </Form>
         </div>

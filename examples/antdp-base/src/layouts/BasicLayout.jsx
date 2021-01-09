@@ -1,7 +1,7 @@
 import React from 'react';
 import BasicLayout from '@antdp/basic-layouts';
 import Authorized from '@antdp/authorized';
-import { connect } from 'umi';
+import { connect, useIntl, SelectLang } from 'umi';
 import {
   LogoutOutlined,
   SettingOutlined,
@@ -24,6 +24,11 @@ const Layout = (props) => {
         siderWidth={240}
         logo={logo}
         iframeRender={false}
+        // topRightLanguage={<SelectLang />}
+        // 是否进行权限判定
+        // isAuthorized={true}
+        // intlLanguage={useIntl()}
+        // isBreadcrumb={true} // 是否根据路由进行展示 面包屑
         topRightMenu={[
           {
             title: '个人中心',

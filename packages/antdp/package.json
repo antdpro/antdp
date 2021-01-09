@@ -8,5 +8,9 @@
     "antdp",
     "antd"
   ],
-  "license": "MIT"
+  "author": "jaywcjlove",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "7.12.5"
+  }
 }

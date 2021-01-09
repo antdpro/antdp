@@ -18,6 +18,24 @@ const UserLayout = (props) => {
             payload: { password: values.password, phone: values.username },
           });
         }}
+        formBtns={[
+          {
+            label: '登录',
+            attr: {
+              type: 'primary',
+              htmlType: 'submit',
+              style: {
+                marginRight: 20,
+              },
+            },
+          },
+          {
+            label: '重置',
+            attr: {
+              type: 'primary',
+            },
+          },
+        ]}
       />
     </Authorized>
   );

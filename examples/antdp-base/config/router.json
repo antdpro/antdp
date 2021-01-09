@@ -7,21 +7,27 @@
     "path": "/",
     "component": "@/layouts/BasicLayout",
     "routes": [
-      { "path": "/", "redirect": "/welcome" },
+      {
+        "path": "/",
+        "redirect": "/welcome"
+      },
       {
         "path": "/welcome",
         "name": "首页",
-        "icon": "home",
+        "icon": "welcome",
+        "locale": "welcome",
         "component": "@/pages/Home/index"
       },
       {
         "path": "/dashboard",
         "name": "Dashboard",
         "icon": "dashboard",
+        "locale": "dashboard",
         "routes": [
           {
             "path": "/dashboard/workplace",
             "name": "工作台",
+            "locale": "工作台",
             "icon": "pie-chart",
             "component": "@/pages/Dashboard/Workplace"
           },
@@ -124,6 +130,20 @@
             "component": "@/pages/Setting/Advanced"
           }
         ]
+      },
+      {
+        "path": "/404",
+        "name": "404",
+        "hideInMenu": true,
+        "icon": "file-protect",
+        "component": "@/pages/404"
+      },
+      {
+        "path": "/403",
+        "name": "403",
+        "hideInMenu": true,
+        "icon": "file-protect",
+        "component": "@/pages/403"
       }
     ]
   }

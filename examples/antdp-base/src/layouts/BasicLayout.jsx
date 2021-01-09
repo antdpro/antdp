@@ -26,7 +26,7 @@ const Layout = (props) => {
         iframeRender={false}
         // topRightLanguage={<SelectLang />}
         // 是否进行权限判定
-        isAuthorized={true}
+        // isAuthorized={true}
         // intlLanguage={useIntl()}
         // isBreadcrumb={true} // 是否根据路由进行展示 面包屑
         topRightMenu={[

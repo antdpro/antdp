@@ -30,7 +30,7 @@ export default (props = {}) => {
     profile = {},
     bodyPadding = 14,
     topRightLanguage = null,
-    isAuthorized = false,
+    // isAuthorized = false,
     intlLanguage = null,
   } = props;
 
@@ -59,21 +59,16 @@ export default (props = {}) => {
 
   // 所有的 权限菜单
   const authMenus =
-    (sessionStorage.getItem('authMenu') &&
-      JSON.parse(sessionStorage.getItem('authMenu'))) ||
+    (sessionStorage.getItem(ANTD_AUTH_MENU) &&
+      JSON.parse(sessionStorage.getItem(ANTD_AUTH_MENU))) ||
     [];
 
   const getRoutes = useMemo(() => {
-    if (intlLanguage || isAuthorized) {
-      return getMenuItemRouters(
-        route.routes,
-        authMenus,
-        isAuthorized,
-        intlLanguage,
-      );
+    if (intlLanguage || ANTD_IS_AUTHORIZED) {
+      return getMenuItemRouters(route.routes, authMenus, intlLanguage);
     }
     return route.routes || [];
-  }, [intlLanguage, isAuthorized, authMenus, route.routes]);
+  }, [intlLanguage, ANTD_IS_AUTHORIZED, authMenus, route.routes]);
 
   const routeData = getTreeList(getRoutes);
   let title = '';
@@ -82,6 +77,7 @@ export default (props = {}) => {
       title = item.name;
     }
   });
+
   const toPath = getAuthorizedPage(routeData, location.pathname);
 
   return (
@@ -121,7 +117,7 @@ export default (props = {}) => {
               if (location.pathname === '/') {
                 return <Redirect to="/welcome" />;
               }
-              if (isAuthorized && (toPath === 404 || toPath === 403)) {
+              if (ANTD_IS_AUTHORIZED && (toPath === 404 || toPath === 403)) {
                 return <Redirect to={`/${toPath}`} />;
               }
               return (

@@ -11,7 +11,11 @@ export default (routes = [], options = {}) => {
   options.proxy = options.proxy
     ? options.proxy[REACT_APP_ENV || 'dev']
     : undefined;
-
+  const defineObj = options.define || {};
+  const ANTD_IS_BREADCRUMB = !!defineObj.ANTD_IS_BREADCRUMB;
+  const ANTD_IS_AUTHORIZED = !!defineObj.ANTD_IS_AUTHORIZED;
+  const ANTD_AUTH_MENU = defineObj.ANTD_AUTH_MENU || 'anthMenu';
+  const ANTD_IS_AUTH_URL = defineObj.ANTD_IS_AUTH_URL || 'menuUrl';
   return defineConfig({
     hash: true,
     targets: {
@@ -50,6 +54,14 @@ export default (routes = [], options = {}) => {
        * 使用 iframe 展示页面
        */
       ANTD_IS_IFRAME_RENDER: false,
+      // 是否开启父子路由面包屑
+      ANTD_IS_BREADCRUMB,
+      // 是否开启权限验证
+      ANTD_IS_AUTHORIZED,
+      // 保存本地keys
+      ANTD_AUTH_MENU,
+      // 根据那个字段判断路由权限
+      ANTD_IS_AUTH_URL,
       ...(options.define || {}),
     },
     routes: routes || [],

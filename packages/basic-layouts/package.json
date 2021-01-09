@@ -43,8 +43,8 @@
     "@antdp/document-title": "1.4.3",
     "@antdp/fullscreen": "1.4.3",
     "@antdp/layout-tabs": "1.4.3",
-    "@babel/runtime": "7.4.4",
-    "@antdp/authorized": "1.4.2"
+    "@antdp/authorized": "1.4.2",
+    "@babel/runtime": "7.12.5"
   },
   "devDependencies": {
     "antd": "4.10.0",

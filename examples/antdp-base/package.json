@@ -25,7 +25,7 @@
     "@antdp/basic-layouts": "1.4.3",
     "@antdp/page-loading": "1.4.3",
     "@antdp/user-login": "1.4.3",
-    "antd": "4.3.1"
+    "antd": "4.10.0"
   },
   "devDependencies": {
     "@antdp/config": "1.4.3",

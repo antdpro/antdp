@@ -26,9 +26,9 @@ export interface Options extends Omit<IConfig, 'routes'> {
      */
     ANTD_IS_IFRAME_RENDER?: boolean,
     // 是否开启父子路由面包屑
-    ANTD_IS_BREADCRUMB: boolean,
+    ANTD_IS_BREADCRUMB?: boolean,
     // 是否开启权限验证
-    ANTD_AUTH_CONF: AuthConf | undefined,
+    ANTD_AUTH_CONF?: AuthConf | undefined,
   }
 }
 

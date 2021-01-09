@@ -31,7 +31,12 @@ const checkRouter = (path, authMenus) => {
   if (finx === -1) {
     fig = false;
   }
-  if (path === '/404' || path === '/403' || path === '/welcome') {
+  if (
+    path === '/404' ||
+    path === '/403' ||
+    path === '/' ||
+    path === '/welcome'
+  ) {
     fig = true;
   }
   return fig;
@@ -51,6 +56,7 @@ export const getMenuItemRouters = (
   list = [],
 ) => {
   (routes || []).forEach((item) => {
+    const itemClone = { ...item };
     let parentLocales = parentLocale;
     if (
       intlLanguage &&
@@ -62,8 +68,8 @@ export const getMenuItemRouters = (
         id: locale,
         defaultMessage: item.name || item.locale,
       });
-      item.name = localeName;
-      item.locale = localeName;
+      itemClone.name = localeName;
+      itemClone.locale = localeName;
     }
     if (ANTD_AUTH_CONF) {
       if (checkRouter(item.path, authMenus)) {
@@ -74,10 +80,10 @@ export const getMenuItemRouters = (
             intlLanguage,
             parentLocales,
           );
-          item.routes = children;
-          item.children = children;
+          itemClone.routes = children;
+          itemClone.children = children;
         }
-        list.push({ ...item });
+        list.push({ ...itemClone });
       }
     } else {
       if (item.children || item.routes) {
@@ -87,10 +93,10 @@ export const getMenuItemRouters = (
           intlLanguage,
           parentLocales,
         );
-        item.routes = children;
-        item.children = children;
+        itemClone.routes = children;
+        itemClone.children = children;
       }
-      list.push({ ...item });
+      list.push({ ...itemClone });
     }
   });
   return list;

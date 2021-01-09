@@ -60,11 +60,11 @@ export default (routes = [], options = {}) => {
        * 使用 iframe 展示页面
        */
       ANTD_IS_IFRAME_RENDER: false,
+      ...(options.define || {}),
       // 是否开启父子路由面包屑
       ANTD_IS_BREADCRUMB,
       // 是否开启权限验证
       ANTD_AUTH_CONF,
-      ...(options.define || {}),
     },
     routes: routes || [],
     plugins: [

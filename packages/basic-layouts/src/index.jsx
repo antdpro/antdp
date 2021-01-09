@@ -77,7 +77,7 @@ export default (props = {}) => {
     }
   });
 
-  const toPath = getAuthorizedPage(routeData, location.pathname);
+  const toPath = getAuthorizedPage(route.routes || [], location.pathname);
 
   return (
     <DocumentTitle

@@ -19,8 +19,7 @@ import { getBreadcrumbNameRouterMap } from './../utils';
 // ];
 
 export default (props = {}) => {
-  const { intlLanguage, isBreadcrumb = false } = props;
-  console.log(props);
+  const { intlLanguage } = props;
   const breadcrumbNameMap = useMemo(
     () => getBreadcrumbNameRouterMap(props.route.routes),
     [props.route.routes],
@@ -89,7 +88,7 @@ export default (props = {}) => {
 
   return (
     <span className="antdp-global-breadcrumb">
-      {isBreadcrumb ? (
+      {ANTD_IS_BREADCRUMB ? (
         <>{_breadcrumbRender}</>
       ) : (
         <>

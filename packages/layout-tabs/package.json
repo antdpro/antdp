@@ -30,11 +30,11 @@
   },
   "dependencies": {
     "@babel/runtime": "7.4.4",
-    "antd": "4.10.0",
-    "react-frame-component": "4.1.2",
-    "umi": "3.2.10"
+    "react-frame-component": "4.1.2"
   },
   "devDependencies": {
+    "antd": "4.10.0",
+    "umi": "3.2.10",
     "react": "16.8.6",
     "react-dom": "16.8.6"
   }

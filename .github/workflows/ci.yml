@@ -10,13 +10,13 @@ jobs:
     - uses: actions/checkout@master
 
     - name: Setup Node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: 12
         registry-url: https://registry.npmjs.org/
 
     - name: Look Changelog
-      uses: jaywcjlove/changelog-generator@v1.3.3
+      uses: jaywcjlove/changelog-generator@v1.3.8
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)

@@ -27,8 +27,8 @@
     "@babel/runtime": "7.12.5"
   },
   "devDependencies": {
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
     "umi": "3.3.4"
   }
 }

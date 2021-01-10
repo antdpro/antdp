@@ -11,11 +11,11 @@ export default config(router, {
       auth_check_url: 'menuUrl',
     },
   },
-  // locale: {
-  //   default: 'zh-CN',
-  //   antd: true,
-  //   title: true,
-  //   baseNavigator: true,
-  //   baseSeparator: '-',
-  // },
+  locale: {
+    default: 'zh-CN',
+    antd: true,
+    title: true,
+    baseNavigator: true,
+    baseSeparator: '-',
+  },
 });

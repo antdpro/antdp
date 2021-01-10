@@ -24,10 +24,10 @@ const Layout = (props) => {
         siderWidth={240}
         logo={logo}
         iframeRender={false}
-        // topRightLanguage={<SelectLang />}
+        topRightLanguage={<SelectLang />}
         // 是否进行权限判定
         // isAuthorized={true}
-        // intlLanguage={useIntl()}
+        intlLanguage={useIntl()}
         // isBreadcrumb={true} // 是否根据路由进行展示 面包屑
         topRightMenu={[
           {

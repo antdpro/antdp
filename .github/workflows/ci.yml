@@ -1,8 +1,12 @@
-name: Build
+name: Build & Deploy
 on:
   push:
     branches:
       - master
+
+env:
+  SKIP_PREFLIGHT_CHECK: true
+
 jobs:
   build-deploy:
     runs-on: ubuntu-18.04
@@ -27,6 +31,8 @@ jobs:
     - run: npm run build
     - run: npm run install:example
     - run: npm run build:website
+    - run: npm run website:install
+    - run: npm run website:build
 
     - name: Create Tag
       id: create_tag
@@ -59,3 +65,9 @@ jobs:
           ${{ steps.changelog.outputs.changelog }}
         draft: false
         prerelease: false
+
+    - name: Deploy Website
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./examples/website/build

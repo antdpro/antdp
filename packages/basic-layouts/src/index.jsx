@@ -56,18 +56,17 @@ export default (props = {}) => {
     );
   }, [profile.avatar, profile.name]);
 
-  // 所有的 权限菜单
-  const authMenus =
-    (sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu) &&
-      JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu))) ||
-    [];
-
   const getRoutes = useMemo(() => {
+    // 所有的 权限菜单
+    const authMenus =
+      (sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu) &&
+        JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu))) ||
+      [];
     if (intlLanguage || ANTD_AUTH_CONF) {
       return getMenuItemRouters(route.routes, authMenus, intlLanguage);
     }
     return route.routes || [];
-  }, [intlLanguage, ANTD_AUTH_CONF, authMenus, route.routes]);
+  }, [route.routes]);
 
   const routeData = getTreeList(getRoutes);
   let title = '';

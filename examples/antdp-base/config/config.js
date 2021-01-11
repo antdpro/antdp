@@ -4,12 +4,12 @@ import proxy from './proxy';
 export default config(router, {
   proxy,
   define: {
-    ANTD_IS_BREADCRUMB: true,
-    ANTD_AUTH_CONF: {
-      auth_menu: 'authMenu',
-      auth_btn: 'authBtn',
-      auth_check_url: 'menuUrl',
-    },
+    // ANTD_IS_BREADCRUMB: true,
+    // ANTD_AUTH_CONF: {
+    //   auth_menu: 'authMenu',
+    //   auth_btn: 'authBtn',
+    //   auth_check_url: 'menuUrl',
+    // },
   },
   locale: {
     default: 'zh-CN',

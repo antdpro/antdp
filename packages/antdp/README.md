@@ -11,12 +11,13 @@ Ant Design Project
 - 减少项目配置和依赖，将配置集成到包中开箱即用；
 - 更简单直观的配置权限和更改 Layout；
 - 支持配置路由参数 `/router/:id`；
-- 解决菜单配置 `icon` 问题；
 - 支持 tab 选项卡功能。
 
 ### Open in CodeSandbox
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/s/github/antdpro/antdp/tree/master/examples/antdp-base)
+
+用户名密码： admin/admin
 
 ### 发布版本
 
@@ -61,7 +62,9 @@ Package | Version | Description
 
 ```bash
 npm install
-npm run install:all
+npm run install:pkg
+npm run build
+npm run install:example
 
 npm run watch
 npm run start

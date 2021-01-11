@@ -17,6 +17,8 @@ Ant Design Project
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/s/github/antdpro/antdp/tree/master/examples/antdp-base)
 
+用户名密码： admin/admin
+
 ### 发布版本
 
 ```shell
@@ -60,7 +62,9 @@ Package | Version | Description
 
 ```bash
 npm install
-npm run install:all
+npm run install:pkg
+npm run build
+npm run install:example
 
 npm run watch
 npm run start

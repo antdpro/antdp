@@ -58,14 +58,14 @@ export default (props = {}) => {
 
   const getRoutes = useMemo(() => {
     let authMenus = [];
-    if (ANTD_AUTH_CONF) {
+    if (!!ANTD_AUTH_CONF) {
       // 所有的 权限菜单
-      const authMenus =
+      authMenus =
         (sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu) &&
           JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu))) ||
         [];
     }
-    if (intlLanguage || ANTD_AUTH_CONF) {
+    if (intlLanguage || !!ANTD_AUTH_CONF) {
       return getMenuItemRouters(route.routes, authMenus, intlLanguage);
     }
     return route.routes || [];
@@ -118,7 +118,7 @@ export default (props = {}) => {
               if (location.pathname === '/') {
                 return <Redirect to="/welcome" />;
               }
-              if (ANTD_AUTH_CONF && (toPath === 404 || toPath === 403)) {
+              if (!!ANTD_AUTH_CONF && (toPath === 404 || toPath === 403)) {
                 return <Redirect to={`/${toPath}`} />;
               }
               return (

@@ -41,7 +41,7 @@
     "@babel/runtime": "7.12.5"
   },
   "devDependencies": {
-    "antd": "4.10.0",
+    "antd": "4.10.1",
     "react": "16.14.0",
     "react-dom": "16.14.0"
   }

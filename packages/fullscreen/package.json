@@ -1,6 +1,6 @@
 {
   "name": "@antdp/fullscreen",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "设置页面全屏",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

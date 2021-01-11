@@ -7,7 +7,7 @@ export const FormatBtn = ({ path, children }) => {
   if (!path) {
     return children || null;
   }
-  if (ANTD_AUTH_CONF) {
+  if (!!ANTD_AUTH_CONF) {
     const authBtns =
       (sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) &&
         JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn))) ||
@@ -58,7 +58,7 @@ export const getFormatPage = (allRouters, pathname) => {
   // 3. 无权限 有页面 403
   // 4. 无权限 无页面 404
   // 5. 其他
-  if (ANTD_AUTH_CONF) {
+  if (!!ANTD_AUTH_CONF) {
     const allMenu = !!sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu)
       ? JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu))
       : [];

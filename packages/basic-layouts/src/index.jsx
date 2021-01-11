@@ -57,11 +57,14 @@ export default (props = {}) => {
   }, [profile.avatar, profile.name]);
 
   const getRoutes = useMemo(() => {
-    // 所有的 权限菜单
-    const authMenus =
-      (sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu) &&
-        JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu))) ||
-      [];
+    let authMenus = [];
+    if (ANTD_AUTH_CONF) {
+      // 所有的 权限菜单
+      const authMenus =
+        (sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu) &&
+          JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu))) ||
+        [];
+    }
     if (intlLanguage || ANTD_AUTH_CONF) {
       return getMenuItemRouters(route.routes, authMenus, intlLanguage);
     }

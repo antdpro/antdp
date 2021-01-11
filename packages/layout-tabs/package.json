@@ -1,6 +1,6 @@
 {
   "name": "@antdp/layout-tabs",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "用于主框架选项卡组件。",
   "sideEffects": [
     "*.css"

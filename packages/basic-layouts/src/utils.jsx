@@ -71,7 +71,7 @@ export const getMenuItemRouters = (
       itemClone.name = localeName;
       itemClone.locale = localeName;
     }
-    if (ANTD_AUTH_CONF) {
+    if (!!ANTD_AUTH_CONF) {
       if (checkRouter(item.path, authMenus)) {
         if (item.children || item.routes) {
           const children = getMenuItemRouters(

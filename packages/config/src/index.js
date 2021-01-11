@@ -12,14 +12,16 @@ export default (routes = [], options = {}) => {
     ? options.proxy[REACT_APP_ENV || 'dev']
     : undefined;
   const defineObj = options.define || {};
+  // 是否开启路由面包屑
   const ANTD_IS_BREADCRUMB = !!defineObj.ANTD_IS_BREADCRUMB;
-  let ANTD_AUTH_CONF = defineObj.ANTD_AUTH_CONF || undefined;
-  if (ANTD_AUTH_CONF) {
+  // 权限配置参数
+  let ANTD_AUTH_CONF = defineObj.ANTD_AUTH_CONF || false;
+  if (!!ANTD_AUTH_CONF) {
     ANTD_AUTH_CONF = {
       auth_menu: 'authMenu',
       auth_btn: 'authBtn',
       auth_check_url: 'menuUrl',
-      ...ANTD_AUTH_CONF,
+      ...(ANTD_AUTH_CONF || {}),
     };
   }
   return defineConfig({

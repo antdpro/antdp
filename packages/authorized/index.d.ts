@@ -17,14 +17,22 @@ export interface AuthorizedProps {
  * @param {string} path 当前路径
  * @return {*}
  */
-export type getAuthorizedPage = (menuRouter: Array<any>, path: string) => boolean
+export type GetAuthorizedPageProps = (menuRouter: Array<any>, path: string) => boolean
 
-export interface AuthorizedBtn {
+export interface AuthorizedBtnProps {
   // 权限路径
   path?: string,
   // 展示内容
   children?: React.ReactNode
 }
+declare const AuthorizedBtn: AuthorizedBtnProps;
+declare const getAuthorizedPage: GetAuthorizedPageProps;
+
+export {
+  AuthorizedBtn,
+  getAuthorizedPage
+}
+
 
 
 declare const _default: (props?: AuthorizedProps) => React.ReactNode;

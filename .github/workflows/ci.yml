@@ -20,7 +20,7 @@ jobs:
         registry-url: https://registry.npmjs.org/
 
     - name: Look Changelog
-      uses: jaywcjlove/changelog-generator@v1.3.10
+      uses: jaywcjlove/changelog-generator@v1.4.2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|Renovate Bot)
@@ -41,7 +41,7 @@ jobs:
 
     - name: Generate changelog
       id: changelog
-      uses: jaywcjlove/changelog-generator@v1.3.10
+      uses: jaywcjlove/changelog-generator@v1.4.2
       if: steps.create_tag.outputs.successful
       with:
         token: ${{ secrets.GITHUB_TOKEN }}

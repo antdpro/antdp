@@ -39,7 +39,7 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@ant-design/icons": "4.3.0",
+    "@ant-design/icons": "4.6.2",
     "@antdp/document-title": "1.5.4",
     "@babel/runtime": "7.12.5"
   },

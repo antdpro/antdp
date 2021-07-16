@@ -29,6 +29,6 @@
   "devDependencies": {
     "react": "16.14.0",
     "react-dom": "16.14.0",
-    "umi": "3.3.4"
+    "umi": "3.5.13"
   }
 }

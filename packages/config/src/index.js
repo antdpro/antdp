@@ -62,6 +62,10 @@ export default (routes = [], options = {}) => {
        * 使用 iframe 展示页面
        */
       ANTD_IS_IFRAME_RENDER: false,
+      /**  是否显示 左侧菜单 */
+      ANTD_MENU_IS_SHOW: true,
+      /**  是否显示 head头部 */
+      ANTD_HEAD_IS_SHOW: true,
       ...(options.define || {}),
       // 是否开启父子路由面包屑
       ANTD_IS_BREADCRUMB,

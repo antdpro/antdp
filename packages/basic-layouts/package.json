@@ -1,6 +1,6 @@
 {
   "name": "@antdp/basic-layouts",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "入口框架公共界面",
   "sideEffects": [
     "*.css"
@@ -40,10 +40,10 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.3.0",
-    "@antdp/authorized": "^1.6.0",
-    "@antdp/document-title": "^1.6.0",
-    "@antdp/fullscreen": "^1.6.0",
-    "@antdp/layout-tabs": "^1.6.0",
+    "@antdp/authorized": "^1.6.1",
+    "@antdp/document-title": "^1.6.1",
+    "@antdp/fullscreen": "^1.6.1",
+    "@antdp/layout-tabs": "^1.6.1",
     "@babel/runtime": "7.12.5"
   },
   "devDependencies": {

@@ -23,8 +23,8 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@ant-design/icons": "4.3.0",
-    "@babel/runtime": "7.12.5"
+    "@ant-design/icons": "4.6.3",
+    "@babel/runtime": "7.15.3"
   },
   "devDependencies": {
     "react": "17.0.2",

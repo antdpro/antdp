@@ -11,13 +11,10 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@master
-
-    - name: Setup Node
-      uses: actions/setup-node@v2
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
       with:
-        node-version: 12
-        registry-url: https://registry.npmjs.org/
+        node-version: 14
 
     - name: Look Changelog
       uses: jaywcjlove/changelog-generator@v1.4.3
@@ -50,22 +47,43 @@ jobs:
         filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
 
     - name: Create Release
-      id: create_release
-      uses: actions/create-release@latest
+      uses: ncipollo/release-action@v1
       if: steps.create_tag.outputs.successful
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.create_tag.outputs.version }}
-        release_name: ${{ steps.create_tag.outputs.version }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        name: ${{ steps.changelog.outputs.tag }}
+        tag: ${{ steps.changelog.outputs.tag }}
         body: |
+          ```bash
+          npm i antdp@${{steps.changelog.outputs.version}}
+          npm i @antdp/authorized@${{steps.changelog.outputs.version}}
+          npm i @antdp/basic-layouts@${{steps.changelog.outputs.version}}
+          npm i @antdp/document-title@${{steps.changelog.outputs.version}}
+          npm i @antdp/fullscreen@${{steps.changelog.outputs.version}}
+          npm i @antdp/user-login@${{steps.changelog.outputs.version}}
+          npm i @antdp/layout-tabs@${{steps.changelog.outputs.version}}
+          npm i @antdp/config@${{steps.changelog.outputs.version}}
+          npm i @antdp/dependencies@${{steps.changelog.outputs.version}}
+          npm i @antdp/page-loading@${{steps.changelog.outputs.version}}
+          ```
+
           ${{ steps.changelog.outputs.compareurl }}
           ${{ steps.changelog.outputs.changelog }}
-        draft: false
-        prerelease: false
 
     - run: npm run website:install
     - run: npm run website:build
+    - run: npm install @jsdevtools/npm-publish -g
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/antdp/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/authorized/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/basic-layouts/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/config/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/dependencies/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/document-title/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/fullscreen/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/icons/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/layout-tabs/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/page-loading/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/user-login/package.json
 
     - name: Deploy Website
       uses: peaceiris/actions-gh-pages@v3

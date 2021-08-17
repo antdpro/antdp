@@ -42,6 +42,10 @@ export default config;
 
 - `ANTD_IS_TABS` 是否显示 Tab 选项卡，默认显示 true
 - `ANTD_IS_IFRAME_RENDER` 是否使用 iframe 展示内容
+- `ANTD_IS_BREADCRUMB` 是否开启父子路由面包屑
+- `ANTD_AUTH_CONF` 是否开启权限验证
+- `ANTD_MENU_IS_SHOW` 是否显示 左侧菜单
+- `ANTD_HEAD_IS_SHOW` 是否显示 head头部 
 
 ## favicon
 

@@ -39,17 +39,17 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@ant-design/icons": "4.3.0",
+    "@ant-design/icons": "4.6.3",
     "@antdp/authorized": "^1.6.2",
     "@antdp/document-title": "^1.6.2",
     "@antdp/fullscreen": "^1.6.2",
     "@antdp/layout-tabs": "^1.6.2",
-    "@babel/runtime": "7.12.5"
+    "@babel/runtime": "7.15.3"
   },
   "devDependencies": {
     "antd": "4.16.8",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "umi": "3.3.4"
+    "umi": "3.5.17"
   }
 }

@@ -10,7 +10,7 @@
     "antd"
   ],
   "dependencies": {
-    "@babel/runtime": "7.12.5"
+    "@babel/runtime": "7.15.3"
   },
   "devDependencies": {
     "react": "17.0.2",

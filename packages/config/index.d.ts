@@ -29,6 +29,10 @@ export interface Options extends Omit<IConfig, 'routes'> {
     ANTD_IS_BREADCRUMB?: boolean,
     // 是否开启权限验证
     ANTD_AUTH_CONF?: AuthConf | undefined,
+    /**  是否显示 左侧菜单 */
+    ANTD_MENU_IS_SHOW: boolean,
+    /**  是否显示 head头部 */
+    ANTD_HEAD_IS_SHOW: boolean,
   }
 }
 

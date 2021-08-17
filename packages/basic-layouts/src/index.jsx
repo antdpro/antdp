@@ -80,39 +80,49 @@ export default (props = {}) => {
   });
 
   const toPath = getAuthorizedPage(route.routes || [], location.pathname);
-
+  // /**  是否显示 左侧菜单 */
+  // ANTD_MENU_IS_SHOW: false,
+  //   /**  是否显示 head头部 */
+  //   ANTD_HEAD_IS_SHOW: false,
   return (
     <DocumentTitle
       title={`${title || ''}${title ? ' - ' : ''}${projectName || ''}`}
     >
       <Layout>
-        <Layout.Sider
-          width={siderWidth}
-          collapsed={collapsed}
-          className="antdp-global-sider"
-        >
-          <LogoHeader
+        {ANTD_MENU_IS_SHOW && (
+          <Layout.Sider
+            width={siderWidth}
             collapsed={collapsed}
-            projectName={projectName}
-            logo={props.logo}
-          />
-          <MeunView
-            {...props}
-            route={{
-              routes: getRoutes,
-            }}
-            selectedKey={location.pathname}
-          />
-        </Layout.Sider>
+            className="antdp-global-sider"
+          >
+            <LogoHeader
+              collapsed={collapsed}
+              projectName={projectName}
+              logo={props.logo}
+            />
+            <MeunView
+              {...props}
+              route={{
+                routes: getRoutes,
+              }}
+              selectedKey={location.pathname}
+            />
+          </Layout.Sider>
+        )}
         <Layout>
-          <Layout.Header style={{ padding: 0 }} className="antdp-global-header">
-            <div className="antdp-global-header-left">
-              {collapsedView}
-              <Breadcrumb routeData={routeData} {...props} />
-            </div>
-            {headerRightView}
-            {topRightLanguage}
-          </Layout.Header>
+          {ANTD_HEAD_IS_SHOW && (
+            <Layout.Header
+              style={{ padding: 0 }}
+              className="antdp-global-header"
+            >
+              <div className="antdp-global-header-left">
+                {ANTD_MENU_IS_SHOW && collapsedView}
+                <Breadcrumb routeData={routeData} {...props} />
+              </div>
+              {headerRightView}
+              {topRightLanguage}
+            </Layout.Header>
+          )}
           <Layout.Content>
             {(() => {
               if (location.pathname === '/') {

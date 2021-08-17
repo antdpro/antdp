@@ -1,6 +1,6 @@
 {
   "name": "@example/website",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "The react base application.",
   "homepage": "https://antdpro.github.io/antdp/",
   "private": true,

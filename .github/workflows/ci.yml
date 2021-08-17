@@ -80,7 +80,6 @@ jobs:
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/dependencies/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/document-title/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/fullscreen/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/icons/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/layout-tabs/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/page-loading/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/user-login/package.json

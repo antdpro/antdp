@@ -58,14 +58,6 @@ Package | Version | Description
 [`@antdp/page-loading`](https://www.npmjs.com/package/@antdp/page-loading) | [![npm](https://img.shields.io/npm/v/@antdp/page-loading.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/page-loading) | - |
 
 
-### 开发
+### License
 
-```bash
-npm install
-npm run install:pkg
-npm run build
-npm run install:example
-
-npm run watch
-npm run start
-```
+Licensed under the MIT License.

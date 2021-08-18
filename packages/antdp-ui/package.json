@@ -1,6 +1,6 @@
 {
   "name": "@antdp/antdp-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "基于antd封装的组件",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",

@@ -1,0 +1,18 @@
+.and-KCardPro.ant-card{
+  margin: 12px 16px;
+}
+.and-KCardPro.ant-card .ant-card-body{
+  padding: 0;
+}
+
+.and-KCardPro.ant-card  .ant-card-head-title{
+  padding: 13px 0;
+}
+.and-KCardPro.ant-card  .ant-card-extra{
+  padding: 0;
+  margin: -12px;
+}
+
+.and-KCardPro.ant-card-bordered{
+  border: 0 !important
+}

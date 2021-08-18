@@ -1,0 +1,31 @@
+.antdp-mb10.ant-collapse {
+  margin-bottom: 10px;
+}
+.antdp-FormItem.ant-form-item {
+  margin-bottom: 0px;
+}
+.antdp-FormTitle {
+  font-weight: bold;
+}
+.antdp-FormDivider.ant-divider-horizontal {
+  margin: 12px 0;
+}
+.antdp-FormBox {
+  padding: 12px 0 5px 0;
+}
+.antdp-upload-images {
+  display: block;
+}
+.antdp-upload-images .ant-upload-list-picture-card .ant-upload-list-item,
+.ant-upload.ant-upload-select-picture-card {
+  width: 82px !important;
+  height: 82px !important;
+}
+.antdp-upload-images .ant-upload-select-picture-card i {
+  font-size: 32px;
+}
+
+.antdp-FormCol .ant-form-item-label {
+  line-height: 20px !important;
+  padding-bottom: 4px !important;
+}

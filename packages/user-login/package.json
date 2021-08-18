@@ -1,6 +1,6 @@
 {
   "name": "@antdp/user-login",
-  "version": "1.6.4",
+  "version": "1.6.5",
   "description": "用户登录页面",
   "sideEffects": [
     "*.css"
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.6.3",
-    "@antdp/document-title": "1.6.4",
+    "@antdp/document-title": "1.6.5",
     "@babel/runtime": "7.15.3"
   },
   "devDependencies": {

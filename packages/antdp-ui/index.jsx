@@ -1,2 +1,2 @@
-export { default as QuickForm } from './QuickForm';
-export { default as CardPro } from './CardPro';
+export { default as QuickForm } from './src/QuickForm';
+export { default as CardPro } from './src/CardPro';

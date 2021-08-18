@@ -20,7 +20,6 @@ import {
   ConfigProvider,
   DatePicker,
   TimePicker,
-  Card,
 } from 'antd';
 import CardPro from '../CardPro';
 import PropTypes from 'prop-types';

@@ -7,7 +7,7 @@ export default class CardPro extends Component {
   render() {
     const { children, className, ...otherProps } = this.props;
     return (
-      <Card className={classNames(className, 'and-KCardPro')} {...otherProps}>
+      <Card className={classNames(className, 'antdp-KCardPro')} {...otherProps}>
         {children}
       </Card>
     );

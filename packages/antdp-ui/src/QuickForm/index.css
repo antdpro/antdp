@@ -1,31 +1,31 @@
-.and-mb10.ant-collapse {
+.antdp-mb10.ant-collapse {
   margin-bottom: 10px;
 }
-.and-FormItem.ant-form-item {
+.antdp-FormItem.ant-form-item {
   margin-bottom: 0px;
 }
-.and-FormTitle {
+.antdp-FormTitle {
   font-weight: bold;
 }
-.and-FormDivider.ant-divider-horizontal {
+.antdp-FormDivider.ant-divider-horizontal {
   margin: 12px 0;
 }
-.and-FormBox {
+.antdp-FormBox {
   padding: 12px 0 5px 0;
 }
-.and-upload-images {
+.antdp-upload-images {
   display: block;
 }
-.and-upload-images .ant-upload-list-picture-card .ant-upload-list-item,
+.antdp-upload-images .ant-upload-list-picture-card .ant-upload-list-item,
 .ant-upload.ant-upload-select-picture-card {
   width: 82px !important;
   height: 82px !important;
 }
-.and-upload-images .ant-upload-select-picture-card i {
+.antdp-upload-images .ant-upload-select-picture-card i {
   font-size: 32px;
 }
 
-.and-FormCol .ant-form-item-label {
+.antdp-FormCol .ant-form-item-label {
   line-height: 20px !important;
   padding-bottom: 4px !important;
 }

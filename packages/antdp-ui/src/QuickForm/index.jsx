@@ -258,13 +258,13 @@ const QuickForm = forwardRef((props, ref) => {
         }}
         className={
           defaultFormLayout && defaultFormLayout === 'vertical'
-            ? 'and-FormCol'
+            ? 'antdp-FormCol'
             : ''
         }
         {...rowcolspan}
       >
         <FormItem
-          className="and-FormItem"
+          className="antdp-FormItem"
           colon={false}
           label={label}
           name={name}
@@ -427,7 +427,7 @@ const QuickForm = forwardRef((props, ref) => {
               } else if (type === 'upload') {
                 return (
                   <Fragment>
-                    <Upload {...attributes} className="and-upload-images">
+                    <Upload {...attributes} className="antdp-upload-images">
                       {uploadButtonDom()}
                     </Upload>
                     {attributes.listType === 'picture-card' ? (
@@ -568,7 +568,7 @@ const QuickForm = forwardRef((props, ref) => {
   if (type === 'CardPro') {
     return (
       <CardPro title={header}>
-        <div className="and-FormBox">{AneFormDom}</div>
+        <div className="antdp-FormBox">{AneFormDom}</div>
       </CardPro>
     );
   }
@@ -576,9 +576,9 @@ const QuickForm = forwardRef((props, ref) => {
   if (type === 'cardform') {
     return (
       <div>
-        <h3 className="and-FormTitle">{header}</h3>
+        <h3 className="antdp-FormTitle">{header}</h3>
         {AneFormDom}
-        <Divider type="horizontal" className="and-FormDivider" />
+        <Divider type="horizontal" className="antdp-FormDivider" />
       </div>
     );
   }
@@ -586,7 +586,7 @@ const QuickForm = forwardRef((props, ref) => {
     <Collapse
       defaultActiveKey={!visible ? ['1'] : ''}
       {...collapseAttributes}
-      className="and-mb10"
+      className="antdp-mb10"
     >
       <Panel header={header} key="1" {...panelAttributes} extra={extra}>
         {AneFormDom}

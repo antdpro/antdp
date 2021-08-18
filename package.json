@@ -22,7 +22,7 @@
     "build:website": "lerna exec --scope @example/antdp-base -- npm run build",
     "build": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb build --target react",
     "watch": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb watch --target react",
-    "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
+    "version": "lerna version 1.6.5 --no-changelog --no-push",
     "publish": "lerna publish from-package",
     "start": "lerna exec --scope @example/antdp-base npm run start",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",

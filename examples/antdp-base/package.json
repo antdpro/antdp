@@ -21,6 +21,7 @@
     ]
   },
   "dependencies": {
+    "@antdp/antdp-ui": "^1.0.1",
     "@antdp/authorized": "1.6.4",
     "@antdp/basic-layouts": "1.6.4",
     "@antdp/page-loading": "1.6.4",

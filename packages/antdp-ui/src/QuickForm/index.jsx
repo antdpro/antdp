@@ -609,6 +609,7 @@ QuickForm.propTypes = {
 };
 
 QuickForm.defaultProps = {
+  type: 'cardform',
   visible: false,
   colspan: 2,
   size: 'default',

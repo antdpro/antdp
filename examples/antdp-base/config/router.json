@@ -25,6 +25,13 @@
         "locale": "dashboard",
         "routes": [
           {
+            "path": "/dashboard/demo",
+            "name": "组件demo",
+            "locale": "组件demo",
+            "icon": "pie-chart",
+            "component": "@/pages/Demo"
+          },
+          {
             "path": "/dashboard/workplace",
             "name": "工作台",
             "locale": "工作台",

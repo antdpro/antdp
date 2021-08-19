@@ -1,0 +1,7 @@
+.antdp-ButtonGroup{
+  padding: 0 12px;
+  background: #fff;
+}
+.antdp-ButtonGroup .ant-btn{
+  margin: 12px 0 12px 12px;
+}

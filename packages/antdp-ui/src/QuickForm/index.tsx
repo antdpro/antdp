@@ -25,6 +25,7 @@ import {
 } from 'antd';
 import CardPro from '../CardPro';
 import zhCN from 'antd/es/locale/zh_CN';
+import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import {
   LoadingOutlined,
@@ -361,9 +362,6 @@ const QuickForm: QuickFormComponent = (props, ref) => {
                   <RangePicker
                     locale={locale}
                     style={{ width: '100%' }}
-                    placeholder={
-                      attributes && attributes.disabled ? '' : `请选择${label} `
-                    }
                     {...componentprams}
                   />
                 );

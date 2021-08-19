@@ -2,6 +2,7 @@ export default {
   'menu.welcome': '欢迎1',
   'menu.home': '首页',
   'menu.dashboard': '首页1',
+  'menu.dashboard.组件demo': '组件demo',
   'menu.dashboard.工作台': '工作台',
   'menu.dashboard.分析页': '分析页',
   'menu.dashboard.监控台': '监控台',

@@ -17,6 +17,7 @@ import BasicLayouts from './pages/basic-layouts';
 import Authorized from './pages/authorized';
 import DocumentTitle from './pages/document-title';
 import Config from './pages/config';
+import Fullscreen from './pages/fullscreen';
 import LayoutTabs from './pages/layout-tabs';
 
 const { Sider, Content } = Layout;
@@ -42,6 +43,9 @@ function MenuContent() {
       </Menu.Item>
       <Menu.Item key="/layout-tabs" icon={<AppstoreAddOutlined />}>
         <NavLink to="/layout-tabs">Layout Tabs</NavLink>
+      </Menu.Item>
+      <Menu.Item key="/fullscreen" icon={<AppstoreAddOutlined />}>
+        <NavLink to="/fullscreen">Fullscreen</NavLink>
       </Menu.Item>
     </Menu>
   );
@@ -80,6 +84,9 @@ ReactDOM.render(
               </Route>
               <Route path="/layout-tabs">
                 <LayoutTabs />
+              </Route>
+              <Route path="/fullscreen">
+                <Fullscreen />
               </Route>
             </Switch>
           </Content>

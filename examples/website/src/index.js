@@ -43,7 +43,7 @@ ReactDOM.render(
   <React.StrictMode>
     <GitHubCorners
       fixed
-      href="https://github.com/kktjs/kkt"
+      href="https://github.com/antdpro/antdp"
       size={60}
       target="__blank"
     />

@@ -65,8 +65,6 @@ ReactDOM.render(
               <Switch>
                 <Fragment>
                   {data.map(({ name, icon, ...item }, key) => {
-                    const { path, component: Comps } = item;
-                    console.log('Comps:', item, path, Comps, data);
                     return <Route key={key} {...item} />;
                   })}
                 </Fragment>

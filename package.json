@@ -1,6 +1,5 @@
 {
   "name": "antdp-project",
-  "version": "1.1.0",
   "private": true,
   "description": "Ant Design Project",
   "scripts": {

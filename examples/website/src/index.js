@@ -41,7 +41,10 @@ ReactDOM.render(
     />
     <Router>
       <Layout style={{ height: '100%' }}>
-        <Sider width={230}>
+        <Sider
+          width={230}
+          style={{ boxShadow: '2px 0 8px 0 rgb(29 35 41 / 5%)' }}
+        >
           <div className="logo">antdp</div>
           <MenuContent />
         </Sider>

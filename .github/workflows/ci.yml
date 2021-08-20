@@ -28,6 +28,7 @@ jobs:
     - run: npm run build
     - run: npm run install:example
     - run: npm run build:website
+    - run: npm run website:build
 
     - name: Create Tag
       id: create_tag
@@ -56,6 +57,7 @@ jobs:
         body: |
           ```bash
           npm i antdp@${{steps.changelog.outputs.version}}
+          npm i @antdp/antdp-ui@${{steps.changelog.outputs.version}}
           npm i @antdp/authorized@${{steps.changelog.outputs.version}}
           npm i @antdp/basic-layouts@${{steps.changelog.outputs.version}}
           npm i @antdp/document-title@${{steps.changelog.outputs.version}}
@@ -68,12 +70,14 @@ jobs:
           ```
 
           ${{ steps.changelog.outputs.compareurl }}
+
           ${{ steps.changelog.outputs.changelog }}
 
     - run: npm run website:install
     - run: npm run website:build
     - run: npm install @jsdevtools/npm-publish -g
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/antdp/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/antdp-ui/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/authorized/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/basic-layouts/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/config/package.json

@@ -1,21 +1,10 @@
 import React, { Component } from 'react';
-import { QuickForm } from '@antdp/antdp-ui';
 export default class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.ref = React.createRef();
+  }
   render() {
-    return (
-      <div>
-        这里是首页，欢迎您！
-        <QuickForm
-          header="标题"
-          formDatas={[
-            {
-              type: 'input',
-              label: '测试',
-              name: 'ane',
-            },
-          ]}
-        />
-      </div>
-    );
+    return <div>欢迎来到antdp</div>;
   }
 }

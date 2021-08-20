@@ -15,7 +15,9 @@ import './index.css';
 import Example from './pages/example';
 import BasicLayouts from './pages/basic-layouts';
 import Authorized from './pages/authorized';
+import DocumentTitle from './pages/document-title';
 import Config from './pages/config';
+import LayoutTabs from './pages/layout-tabs';
 
 const { Sider, Content } = Layout;
 
@@ -34,6 +36,12 @@ function MenuContent() {
       </Menu.Item>
       <Menu.Item key="/config" icon={<AppstoreAddOutlined />}>
         <NavLink to="/config">Config</NavLink>
+      </Menu.Item>
+      <Menu.Item key="/document-title" icon={<AppstoreAddOutlined />}>
+        <NavLink to="/document-title">Document Title</NavLink>
+      </Menu.Item>
+      <Menu.Item key="/layout-tabs" icon={<AppstoreAddOutlined />}>
+        <NavLink to="/layout-tabs">Layout Tabs</NavLink>
       </Menu.Item>
     </Menu>
   );
@@ -66,6 +74,12 @@ ReactDOM.render(
               </Route>
               <Route path="/config">
                 <Config />
+              </Route>
+              <Route path="/document-title">
+                <DocumentTitle />
+              </Route>
+              <Route path="/layout-tabs">
+                <LayoutTabs />
               </Route>
             </Switch>
           </Content>

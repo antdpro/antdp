@@ -41,7 +41,7 @@ ReactDOM.render(
     />
     <Router>
       <Layout style={{ height: '100%' }}>
-        <Sider style={{ overflow: 'auto' }}>
+        <Sider width={230}>
           <div className="logo">antdp</div>
           <MenuContent />
         </Sider>

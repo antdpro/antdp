@@ -21,6 +21,7 @@ import Fullscreen from './pages/fullscreen';
 import Antdp from './pages/antdp';
 import LayoutTabs from './pages/layout-tabs';
 import UserLogin from './pages/user-login';
+import PageLoading from './pages/page-loading';
 
 const { Sider, Content } = Layout;
 
@@ -54,6 +55,9 @@ function MenuContent() {
       </Menu.Item>
       <Menu.Item key="/user-login" icon={<AppstoreAddOutlined />}>
         <NavLink to="/user-login">User Login</NavLink>
+      </Menu.Item>
+      <Menu.Item key="/page-loading" icon={<AppstoreAddOutlined />}>
+        <NavLink to="/page-loading">User Login</NavLink>
       </Menu.Item>
     </Menu>
   );
@@ -101,6 +105,9 @@ ReactDOM.render(
               </Route>
               <Route path="/user-login">
                 <UserLogin />
+              </Route>
+              <Route path="/page-loading">
+                <PageLoading />
               </Route>
             </Switch>
           </Content>

@@ -16,3 +16,12 @@ body, html, #root {
   background-color: #191d1f;
   height: 100%;
 }
+
+.wmde-markdown {
+  padding: 50px 50px 150px 50px;
+}
+.wmde-markdown >:first-child {
+  font-size: 41px !important;
+  text-align: center;
+  font-weight: bold;
+}

@@ -18,7 +18,9 @@ import Authorized from './pages/authorized';
 import DocumentTitle from './pages/document-title';
 import Config from './pages/config';
 import Fullscreen from './pages/fullscreen';
+import Antdp from './pages/antdp';
 import LayoutTabs from './pages/layout-tabs';
+import UserLogin from './pages/user-login';
 
 const { Sider, Content } = Layout;
 
@@ -26,8 +28,11 @@ function MenuContent() {
   let location = useLocation();
   return (
     <Menu theme="dark" mode="inline" defaultSelectedKeys={[location.pathname]}>
-      <Menu.Item key="/" icon={<GlobalOutlined />}>
-        <NavLink to="/">示例</NavLink>
+      <Menu.Item key="/" icon={<AppstoreAddOutlined />}>
+        <NavLink to="/">Home</NavLink>
+      </Menu.Item>
+      <Menu.Item key="/example" icon={<GlobalOutlined />}>
+        <NavLink to="/example">示例</NavLink>
       </Menu.Item>
       <Menu.Item key="/basic-layouts" icon={<AppstoreAddOutlined />}>
         <NavLink to="/basic-layouts">BasicLayouts</NavLink>
@@ -46,6 +51,9 @@ function MenuContent() {
       </Menu.Item>
       <Menu.Item key="/fullscreen" icon={<AppstoreAddOutlined />}>
         <NavLink to="/fullscreen">Fullscreen</NavLink>
+      </Menu.Item>
+      <Menu.Item key="/user-login" icon={<AppstoreAddOutlined />}>
+        <NavLink to="/user-login">User Login</NavLink>
       </Menu.Item>
     </Menu>
   );
@@ -68,13 +76,16 @@ ReactDOM.render(
           <Content style={{ height: '100%', overflow: 'auto' }}>
             <Switch>
               <Route exact path="/">
-                <Example />
+                <Antdp />
               </Route>
               <Route path="/basic-layouts">
                 <BasicLayouts />
               </Route>
               <Route path="/authorized">
                 <Authorized />
+              </Route>
+              <Route path="/antdp">
+                <Example />
               </Route>
               <Route path="/config">
                 <Config />
@@ -87,6 +98,9 @@ ReactDOM.render(
               </Route>
               <Route path="/fullscreen">
                 <Fullscreen />
+              </Route>
+              <Route path="/user-login">
+                <UserLogin />
               </Route>
             </Switch>
           </Content>

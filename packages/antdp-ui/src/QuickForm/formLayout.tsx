@@ -144,3 +144,7 @@ export const fromItemLayout_two_row = {
     xl: { span: 22 },
   },
 };
+
+export const formDefaultFormItemLayout = {
+  xs: 12, sm: 12, md: 12, lg: 12, xl: 8
+}

@@ -1,8 +1,7 @@
 {
   "name": "@example/website",
-  "version": "1.6.4",
+  "version": "1.6.7",
   "description": "The react base application.",
-  "homepage": "https://antdpro.github.io/antdp/",
   "private": true,
   "scripts": {
     "start": "kkt start",
@@ -16,9 +15,22 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@uiw/react-markdown-preview": "3.2.2",
     "@uiw/react-github-corners": "1.2.0",
+    "@antdp/antdp-ui": "1.6.7",
+    "@antdp/authorized": "1.6.7",
+    "@antdp/basic-layouts": "1.6.7",
+    "@antdp/config": "1.6.7",
+    "@antdp/dependencies": "1.6.7",
+    "@antdp/document-title": "1.6.7",
+    "@antdp/layout-tabs": "1.6.7",
+    "@antdp/fullscreen": "1.6.7",
+    "@antdp/page-loading": "1.6.7",
+    "@antdp/user-login": "1.6.7",
+    "antdp": "1.6.7",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-router-dom": "5.2.0",
     "web-vitals": "1.0.1"
   },
   "devDependencies": {

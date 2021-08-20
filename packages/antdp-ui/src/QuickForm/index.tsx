@@ -20,10 +20,12 @@ import {
   ConfigProvider,
   DatePicker,
   TimePicker,
+  FormProps,
+  FormInstance
 } from 'antd';
 import CardPro from '../CardPro';
-import PropTypes from 'prop-types';
 import zhCN from 'antd/es/locale/zh_CN';
+import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
 import {
   LoadingOutlined,
@@ -42,6 +44,7 @@ import {
   fromItemLayout_conspan_fourth,
   fromItemLayout_third_row,
   fromItemLayout_conspan_one,
+  formDefaultFormItemLayout
 } from './formLayout';
 import './index.css';
 
@@ -51,27 +54,73 @@ const Option = Select.Option;
 const { Search } = Input;
 const { RangePicker, MonthPicker } = DatePicker;
 
-const QuickForm = forwardRef((props, ref) => {
+declare type FormLayout = 'horizontal' | 'inline' | 'vertical';
+
+interface itemsProps<T> {
+  /** 表单元素标题 */
+  label: string,
+  /** 表单名称 antd from 组件 getFieldDecorator 第一个参数 */
+  name: string,
+  /** 表单初始值 */
+  initialValue: string | any,
+  /** 表单是否独占一行  */
+  full: boolean,
+  /** 表单隐藏  */
+  hideInForm: boolean,
+  /** input select 等表单组件属性集合 具体参考 antd  */
+  attributes: T | any
+}
+
+interface QuickFormProps<Values> extends FormProps<Values> {
+  /** 表单集合 */
+  formDatas: Array<itemsProps<object>>,
+  /** antd collapse 组件属性集合 */
+  collapseAttributes?: Object;
+  /** antd collapse.panel 组件属性集合 */
+  panelAttributes?: Object;
+  /** 折叠表单下是否初始化选中面板 */
+  visible?: boolean;
+  /** 表单单行排列 */
+  colspan?: number;
+  /** 组件头部标题 */
+  header?: React.ReactNode | any;
+  /** 自定义表单栅格宽度占比,参照 antd 栅格布局 */
+  defaultFormItemLayout?: Object,
+  /** 自定义表单排列方式 */
+  defaultFormLayout?: FormLayout,
+  /** 尺寸,参照 antd */
+  size?: any,
+  /** 表单类型:modal&cardform&CardPro */
+  type?: string,
+  /** antd collapse.panel 自定义渲染每个面板右上角的内容 */
+  extra?: any
+}
+
+export type QuickFormComponent<Values = any> = (
+  props: QuickFormProps<Values>,
+  ref?: ((instance: FormInstance<Values> | null) => void) | React.RefObject<FormInstance<Values>> | null | undefined
+) => React.ReactElement
+
+const QuickForm: QuickFormComponent = (props, ref) => {
   const {
-    collapseAttributes, // antd collapse 组件属性集合
-    panelAttributes, // antd collapse.panel 组件属性集合
-    visible, // 折叠表单下是否初始化选中面板
-    type, // 表单类型（弹框，显示分割线或折叠)modal,cardform, CardPro
-    extra, // antd collapse.panel 自定义渲染每个面板右上角的内容
-    formDatas, // 表单集合
-    colspan, // 表单单行排列
-    header, // 组件头部标题
-    defaultFormLayout, // 自定义表单排列方式
-    // eslint-disable-next-line no-unused-vars
-    defaultFormItemLayout, // 自定义表单栅格宽度占比,参照 antd 栅格布局
-    size, // 表单大小
+    collapseAttributes,
+    panelAttributes,
+    visible = false,
+    type = "cardform",
+    extra,
+    formDatas,
+    colspan = 3,
+    header,
+    defaultFormLayout = "vertical",
+    defaultFormItemLayout = formDefaultFormItemLayout,
+    size = "default",
     ...otherProps
   } = props;
 
   const HideFormItemDoM = []; // 隐藏的表单
   const FormItemDoM = [];
-  let rowcolspan = ''; // col 里的布局
-  let formitemlayout = ''; // formitem 的布局
+  let rowcolspan: string | any; // col 里的布局
+  let formitemlayout: string | any; // formitem 的布局
 
   for (var i = 0; i < formDatas.length; i++) {
     if (formDatas[i].hideInForm) {
@@ -91,20 +140,15 @@ const QuickForm = forwardRef((props, ref) => {
       options,
       option,
       onlyimg,
-      // eslint-disable-next-line no-unused-vars
       defaultFormItemLayout,
       dispatchOption,
       full,
-      // eslint-disable-next-line no-unused-vars
       defaultRowColspan,
-      // eslint-disable-next-line no-unused-vars
       hideInForm,
-      // eslint-disable-next-line no-unused-vars
       descItem,
       ...otherts
     } = item;
     // 渲染下拉条件, 同时兼容option || options || radioOptions
-    // eslint-disable-next-line max-len
     const dataList =
       option ||
       options ||
@@ -116,7 +160,6 @@ const QuickForm = forwardRef((props, ref) => {
     const optionDatas =
       dataList &&
       dataList.length > 0 &&
-      // eslint-disable-next-line array-callback-return
       dataList.map(({ value, label, ...others }, _idx) => {
         if (type === 'select' || type === 'Select') {
           return (
@@ -170,9 +213,6 @@ const QuickForm = forwardRef((props, ref) => {
       } else {
         formitemlayout = fromItemLayout_two_row;
       }
-      // if (defaultFormLayout && defaultFormLayout === "vertical") {
-      //   formitemlayout = null;
-      // }
     } else {
       rowcolspan = rowcolspan_num[colspan - 1];
       if (props.defaultFormItemLayout) {
@@ -189,9 +229,6 @@ const QuickForm = forwardRef((props, ref) => {
       } else {
         formitemlayout = formitemlayout_num[colspan - 1];
       }
-      // if (defaultFormLayout && defaultFormLayout === "vertical") {
-      //   formitemlayout = null;
-      // }
     }
 
     // 上传图片的按钮展示
@@ -292,34 +329,11 @@ const QuickForm = forwardRef((props, ref) => {
                     {selectOption}
                   </Select>
                 );
-              } else if (type === 'selectRange' || type === 'SelectRange') {
-                return (
-                  <SelectRange
-                    label={label}
-                    onChange={props.onChange}
-                    rules={item.rules}
-                    optionfirst={item.optionfirst}
-                    optionlast={item.optionlast}
-                    {...attributes}
-                  />
-                );
               } else if (type === 'radio' || type === 'Radio') {
                 return (
                   <Radio.Group size={size ? size : 'small'} {...attributes}>
                     {selectOption}
                   </Radio.Group>
-                );
-              } else if (type === 'checkradio' || type === 'CheckRadio') {
-                return (
-                  <CheckRadio
-                    option={item.options || item.option}
-                    placeholder={
-                      attributes && attributes.disabled ? '' : `请输入${label} `
-                    }
-                    {...componentprams}
-                    onChange={props.onChange}
-                    rules={item.rules}
-                  />
                 );
               } else if (type === 'datePicker' || type === 'DatePicker') {
                 return (
@@ -348,9 +362,6 @@ const QuickForm = forwardRef((props, ref) => {
                   <RangePicker
                     locale={locale}
                     style={{ width: '100%' }}
-                    placeholder={
-                      attributes && attributes.disabled ? '' : `请选择${label} `
-                    }
                     {...componentprams}
                   />
                 );
@@ -592,24 +603,6 @@ const QuickForm = forwardRef((props, ref) => {
       </Panel>
     </Collapse>
   );
-});
-
-export default QuickForm;
-
-QuickForm.propTypes = {
-  formDatas: PropTypes.array.isRequired,
-  collapseAttributes: PropTypes.object,
-  panelAttributes: PropTypes.object,
-  visible: PropTypes.bool,
-  colspan: PropTypes.number,
-  header: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  defaultFormItemLayout: PropTypes.object,
-  defaultFormLayout: PropTypes.string,
-  size: PropTypes.string,
 };
 
-QuickForm.defaultProps = {
-  visible: false,
-  colspan: 2,
-  size: 'default',
-};
+export default forwardRef(QuickForm);

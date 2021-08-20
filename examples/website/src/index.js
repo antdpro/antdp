@@ -57,7 +57,7 @@ function MenuContent() {
         <NavLink to="/user-login">User Login</NavLink>
       </Menu.Item>
       <Menu.Item key="/page-loading" icon={<AppstoreAddOutlined />}>
-        <NavLink to="/page-loading">User Login</NavLink>
+        <NavLink to="/page-loading">Page Loading</NavLink>
       </Menu.Item>
     </Menu>
   );

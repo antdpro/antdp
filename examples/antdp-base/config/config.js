@@ -9,12 +9,12 @@ export default config(router, {
     // /**  是否显示 head头部 */
     // ANTD_HEAD_IS_SHOW: false,
     // ANTD_IS_TABS: false,
-    // ANTD_IS_BREADCRUMB: true,
-    // ANTD_AUTH_CONF: {
-    //   auth_menu: 'authMenu',
-    //   auth_btn: 'authBtn',
-    //   auth_check_url: 'menuUrl',
-    // },
+    ANTD_IS_BREADCRUMB: true,
+    ANTD_AUTH_CONF: {
+      auth_menu: 'authMenu',
+      auth_btn: 'authBtn',
+      auth_check_url: undefined,
+    },
   },
   locale: {
     default: 'zh-CN',

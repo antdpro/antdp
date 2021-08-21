@@ -1,32 +1,56 @@
-@antdp/basic-layouts
+@antdp/user-login
 ---
 
-入口公共界面
+登录界面
 
 ## Installation
 
 ```bash
-npm i @antdp/basic-layouts --save
+npm i @antdp/user-login --save
 ```
 
 ## Basic Usage
 
 ```jsx
-import BasicLayout from '@antdp/basic-layouts';
+import UserLogin from '@antdp/user-login';
 import logo from './logo.svg';
 
 export default (props) => {
   return (
-    <BasicLayout
-      {...props}
-      projectName="Ant Design Pro2"
+    <UserLogin
       logo={logo}
+      projectName="Ant Design"
+      loading={props.loading}
+      onFinish={(values) => {
+        props.dispatch({
+          type: 'global/login',
+          payload: { password: values.password, phone: values.username },
+        });
+      }}
+      formBtns={[
+        {
+          label: '登录',
+          attr: {
+            type: 'primary',
+            htmlType: 'submit',
+            style: {
+              marginRight: 20,
+            },
+          },
+        },
+        {
+          label: '重置',
+          attr: {
+            type: 'primary',
+          },
+        },
+      ]}
     />
   )
 };
 ```
 
-## Component Interface
+## Props
 
 ```typescript
 import React from 'react';

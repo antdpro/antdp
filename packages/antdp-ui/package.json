@@ -1,6 +1,6 @@
 {
   "name": "@antdp/antdp-ui",
-  "version": "1.6.7",
+  "version": "1.6.9",
   "description": "基于antd封装的组件",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
@@ -30,8 +30,9 @@
     "classnames": "2.3.1"
   },
   "devDependencies": {
+    "babel-plugin-import": "1.13.3",
     "@types/classnames": "2.3.1",
-    "antd": "4.16.8",
+    "antd": "4.16.12",
     "@types/react": "17.0.15",
     "@types/react-dom": "17.0.9",
     "react": "17.0.2",

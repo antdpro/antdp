@@ -1,6 +1,6 @@
 {
   "name": "@antdp/layout-tabs",
-  "version": "1.6.7",
+  "version": "1.6.9",
   "description": "用于主框架选项卡组件。",
   "sideEffects": [
     "*.css"
@@ -33,7 +33,7 @@
     "react-frame-component": "5.1.0"
   },
   "devDependencies": {
-    "antd": "4.16.8",
+    "antd": "4.16.12",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "umi": "3.5.17"

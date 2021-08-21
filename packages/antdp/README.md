@@ -11,7 +11,7 @@ Ant Design Project
 - 减少项目配置和依赖，将配置集成到包中开箱即用；
 - 更简单直观的配置权限和更改 Layout；
 - 支持配置路由参数 `/router/:id`；
-- 支持 tab 选项卡功能。
+- 支持 `tab` 选项卡功能。
 
 ### Open in CodeSandbox
 
@@ -71,3 +71,7 @@ npm run install:example
 npm run watch
 npm run start
 ```
+
+### License
+
+Licensed under the MIT License.

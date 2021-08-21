@@ -27,7 +27,7 @@ jobs:
     - run: npm run install:pkg
     - run: npm run build
     - run: npm run install:example
-    - run: npm run build:website
+    - run: npm run website:build:antdp-base
     - run: npm run website:build
 
     - name: Create Tag

@@ -460,12 +460,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
               } else if (type === 'UploadGrid' || type === 'uploadGrid') {
                 return (
                   <UploadGrid {...attributes}>
-                    {attributes.fileList.length >= 9 ? null : (
-                      <div>
-                        <PlusOutlined />
-                        <div className="ant-upload-text">上传</div>
-                      </div>
-                    )}
+                    {uploadButtonDom()}
                   </UploadGrid>
                 )
               } else if (type === 'autoComplete' || type === 'AutoComplete') {

@@ -15,44 +15,50 @@ const itemStyle: CSSProperties = {
   margin: 4,
   cursor: 'grab'
 };
-const SortableItem = SortableElement((params: SortableItemParams) => (
-  <div style={itemStyle}>
-    <UploadList
-      locale={{ previewFile: '预览图片', removeFile: '删除图片' }}
-      showDownloadIcon={false}
-      listType={params.props.listType}
-      onPreview={params.onPreview}
-      onRemove={params.onRemove}
-      items={[params.item]}
-    />
-  </div>
-));
-
 
 const listStyle: CSSProperties = {
   display: 'flex',
   flexWrap: 'wrap',
   maxWidth: '100%',
 };
+// 照片墙
+const SortableItem = SortableElement((params: SortableItemParams) => {
+  const { onPreview, onRemove, item, props: attrubites } = params
+  return (
+    <div style={itemStyle}>
+      <UploadList
+        {...attrubites}
+        locale={{ previewFile: '预览图片', removeFile: '删除图片' }}
+        showDownloadIcon={false}
+        listType={attrubites.listType}
+        onPreview={onPreview}
+        onRemove={onRemove}
+        items={[item]}
+      />
+    </div>
+  )
+})
+// 照片墙+上传组件
 const SortableList = SortableContainer((params: SortableListParams) => {
+  const { items, props, onPreview, onRemove, onChange } = params
   return (
     <div style={listStyle}>
-      {params.items.map((item, index) => (
+      {items.map((item, index) => (
         <SortableItem
           key={`${item.uid}`}
           index={index}
           item={item}
-          props={params.props}
-          onPreview={params.onPreview}
-          onRemove={params.onRemove}
+          props={props}
+          onPreview={onPreview}
+          onRemove={onRemove}
         />
       ))}
       <Upload
-        {...params.props}
+        {...props}
         showUploadList={false}
-        onChange={params.onChange}
+        onChange={onChange}
       >
-        {params.props.children}
+        {props.children}
       </Upload>
     </div>
   );
@@ -81,8 +87,6 @@ const UploadGrid: React.FC<Props> = memo(({ onChange: onFileChange, ...props }) 
       setPreviewImage(image);
     });
   };
-
-
   return (
     <>
       <SortableList

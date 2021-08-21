@@ -1,6 +1,6 @@
 {
   "name": "@antdp/basic-layouts",
-  "version": "1.6.7",
+  "version": "1.6.9",
   "description": "入口框架公共界面",
   "sideEffects": [
     "*.css"
@@ -40,14 +40,14 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.6.3",
-    "@antdp/authorized": "1.6.7",
-    "@antdp/document-title": "1.6.7",
-    "@antdp/fullscreen": "1.6.7",
-    "@antdp/layout-tabs": "1.6.7",
+    "@antdp/authorized": "1.6.9",
+    "@antdp/document-title": "1.6.9",
+    "@antdp/fullscreen": "1.6.9",
+    "@antdp/layout-tabs": "1.6.9",
     "@babel/runtime": "7.15.3"
   },
   "devDependencies": {
-    "antd": "4.16.8",
+    "antd": "4.16.12",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "umi": "3.5.17"

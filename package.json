@@ -1,6 +1,5 @@
 {
   "name": "antdp-project",
-  "version": "1.0.0",
   "private": true,
   "description": "Ant Design Project",
   "scripts": {
@@ -65,7 +64,7 @@
     "kkt": "^6.11.0",
     "lerna": "4.0.0",
     "lint-staged": "11.1.2",
-    "prettier": "2.3.0",
+    "prettier": "2.3.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-frame-component": "5.1.0",

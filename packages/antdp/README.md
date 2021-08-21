@@ -19,6 +19,8 @@ Ant Design Project
 
 用户名密码： admin/admin
 
+示例下载: [`antdp-base.zip`](https://antdpro.github.io/antdp/zip/antdp-base.zip)
+
 ### 发布版本
 
 ```shell

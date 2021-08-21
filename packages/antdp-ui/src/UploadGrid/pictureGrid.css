@@ -1,0 +1,5 @@
+/* 拖动的时候的样式 */
+.SortableHelper {
+  box-shadow: rgba(0, 0, 0, 0.075) 0 1px 6px, rgba(0, 0, 0, 0.075) 0 1px 4px;
+  background-color: lightgreen;
+}

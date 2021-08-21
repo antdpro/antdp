@@ -14,7 +14,7 @@ import {
 import 'antd/dist/antd.css';
 import './index.css';
 import { data } from './route';
-import { ReactComponent as Logo } from './assets/logo.svg';
+import ReactLogo from './assets/logo.svg';
 
 const { Sider, Content } = Layout;
 
@@ -52,7 +52,7 @@ ReactDOM.render(
           }}
         >
           <Link to="/" className="logo">
-            <Logo width={28} height={28} />
+            <img src={ReactLogo} width={28} height={28} alt="logo" />
             <span>Antd Project</span>
           </Link>
           <MenuContent />

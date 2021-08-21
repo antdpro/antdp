@@ -39,6 +39,7 @@ ReactDOM.render(
       fixed
       href="https://github.com/antdpro/antdp"
       size={60}
+      zIndex={9999}
       target="__blank"
     />
     <Router>
@@ -73,7 +74,7 @@ ReactDOM.render(
               <Switch>
                 <Fragment>
                   {data.map(({ name, icon, ...item }, key) => {
-                    return <Route key={key} {...item} />;
+                    return <Route key={key} exact {...item} />;
                   })}
                 </Fragment>
               </Switch>

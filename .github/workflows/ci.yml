@@ -88,12 +88,6 @@ jobs:
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/page-loading/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/user-login/package.json
 
-    - name: Deploy Website
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./examples/website/build
-
     - run: echo ${{ steps.changelog.outputs.tag }}
     - run: mkdir -p examples/website/build/zip
     - name: Compress antdp-base Example.
@@ -101,3 +95,9 @@ jobs:
       working-directory: examples/antdp-base
 
     - run: cp -rp examples/antdp-base/antdp-base.zip examples/website/build/zip
+
+    - name: Deploy Website
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./examples/website/build

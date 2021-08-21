@@ -57,6 +57,7 @@ const { RangePicker, MonthPicker } = DatePicker;
 declare type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
 interface itemsProps<T> {
+  defaultcolspan: any;
   /** 表单元素标题 */
   label: string,
   /** 表单名称 antd from 组件 getFieldDecorator 第一个参数 */
@@ -130,7 +131,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
     }
   }
   // 渲染成表单；
-  const CollapseFormDoM = (item, idx) => {
+  const CollapseFormDoM = (item: any, idx: React.Key | null | undefined) => {
     const {
       label,
       name,
@@ -160,7 +161,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
     const optionDatas =
       dataList &&
       dataList.length > 0 &&
-      dataList.map(({ value, label, ...others }, _idx) => {
+      dataList.map(({ value, label, ...others }: any, _idx: React.Key | null | undefined) => {
         if (type === 'select' || type === 'Select') {
           return (
             <Option value={value} key={_idx} {...others}>

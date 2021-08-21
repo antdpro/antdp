@@ -88,12 +88,12 @@ const Demo = () => {
             {
               type: 'primary',
               label: '新增',
-              onClick: () => {},
+              onClick: () => { },
             },
             {
               type: 'primary',
               label: '导出',
-              onClick: () => {},
+              onClick: () => { },
             },
           ]}
         />

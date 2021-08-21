@@ -138,7 +138,7 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                 {item.option &&
                   item.option.length > 0 &&
                   item.option.map((it: MenusOptionProps, index: number) => {
-                    const buttonGroupprops: Omit<MenusOptionProps, "type"> = {
+                    const buttonGroupprops = {
                       size: 'middle',
                       type: it.type || 'default',
                       onClick: it.onClick,
@@ -148,7 +148,7 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                         margin: item.ButtonandDropdown ? '0 0 0 -2px' : '12px 0 12px 12px',
                       },
                       ...it,
-                    };
+                    } as ButtonProps;
                     if (it.path) {
                       return (
                         <div key={index}>

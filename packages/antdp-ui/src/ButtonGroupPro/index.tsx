@@ -26,7 +26,7 @@ export interface MenusProps extends Omit<MenuInfo, "item"> {
 export interface MenusOptionProps extends Omit<ButtonProps, "type">, ButtonGroupProps {
   path?: string;
   label?: string | React.ReactNode;
-  option: Array<MenusOptionProps>;
+  option?: Array<MenusOptionProps>;
   menu?: Array<MenusProps>;
   key?: number;
   ButtonandDropdown?: string | number;

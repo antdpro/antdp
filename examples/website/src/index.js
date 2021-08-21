@@ -8,11 +8,13 @@ import {
   Switch,
   Route,
   NavLink,
+  Link,
   useLocation,
 } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './index.css';
 import { data } from './route';
+import { ReactComponent as Logo } from './assets/logo.svg';
 
 const { Sider, Content } = Layout;
 
@@ -43,9 +45,15 @@ ReactDOM.render(
       <Layout style={{ height: '100%' }}>
         <Sider
           width={230}
-          style={{ boxShadow: '2px 0 8px 0 rgb(29 35 41 / 5%)' }}
+          style={{
+            boxShadow: '2px 0 8px 0 rgb(29 35 41 / 5%)',
+            overflow: 'auto',
+          }}
         >
-          <div className="logo">antdp</div>
+          <Link to="/" className="logo">
+            <Logo width={28} height={28} />
+            <span>Antd Project</span>
+          </Link>
           <MenuContent />
         </Sider>
         <Layout>

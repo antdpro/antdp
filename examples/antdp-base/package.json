@@ -28,8 +28,8 @@
     "@antdp/user-login": "1.6.9",
     "@umijs/plugin-locale": "0.10.5",
     "antd": "4.10.0",
-    "react": "16.14.0",
-    "react-dom": "16.14.0"
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@antdp/config": "1.6.9",

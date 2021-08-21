@@ -91,7 +91,7 @@ jobs:
     - run: echo ${{ steps.changelog.outputs.tag }}
     - run: mkdir -p examples/website/build/zip
     - name: Compress antdp-base Example.
-      run: zip -r -y antdp-base.zip . -x "node_modules/*" -x "build/*" -x "coverage/*" -x ".eslintcache" -x "sandbox.config.json" -x "package-lock.json"
+      run: zip -r -y antdp-base.zip . -x "node_modules/*" -x "dist/*" -x "coverage/*" -x ".eslintcache" -x "sandbox.config.json" -x "package-lock.json"
       working-directory: examples/antdp-base
 
     - run: cp -rp examples/antdp-base/antdp-base.zip examples/website/build/zip

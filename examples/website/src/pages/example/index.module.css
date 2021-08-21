@@ -1,0 +1,12 @@
+
+.loading {
+  position: absolute;
+  z-index: 9999;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: saturate(180%) blur(.4rem);
+  background-color: hsla(0,0%,100%,.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

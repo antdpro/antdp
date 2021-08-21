@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Dropdown, Menu, Badge } from 'antd';
+import { Button, Dropdown, Menu, Badge, ButtonProps, } from 'antd';
+import { ButtonGroupProps, ButtonType } from 'antd/lib/button';
+
 import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import './index.css';
+import { MenuInfo } from "rc-menu/lib/interface"
 
 const ButtonGroup = Button.Group;
 
@@ -10,16 +13,37 @@ export interface ButtonGroupProProps {
   button: Array<any>;
   className?: string
 }
+export interface MenusProps extends Omit<MenuInfo, "item"> {
+  /** 禁用 */
+  disabled?: boolean;
+  /**   */
+  label?: string | React.ReactNode;
+  /** 权限路径 */
+  path?: string;
+  item: any;
+  [k: string]: any
+}
+export interface MenusOptionProps extends Omit<ButtonProps, "type">, ButtonGroupProps {
+  path?: string;
+  label?: string | React.ReactNode;
+  option: Array<MenusOptionProps>;
+  menu?: Array<MenusProps>;
+  key?: number;
+  ButtonandDropdown?: string | number;
+  type?: ButtonType | "buttonGroup";
+  render?: (...arg: any) => React.ReactNode;
+  badge?: number | string
+}
 
-export default function ButtonGroupPro(props: ButtonGroupProProps) {
+const ButtonGroupPro = (props: ButtonGroupProProps) => {
   const {
     button,
     className
   } = props
   const clsString = classNames('antdp-ButtonGroup', className);
-  const [menuDropdownLabel, setmenuDropdownLabel] = useState({ label: '', key: null })
+  const [menuDropdownLabel, setmenuDropdownLabel] = useState<{ label: string | React.ReactNode, key?: number | undefined }>({ label: '', key: undefined })
   const [ButtonandDropdown, setButtonandDropdown] = useState(false)
-  const handleMenuClick = (menus, idx, e) => {
+  const handleMenuClick = (menus: any, idx: number | undefined, e: MenusProps) => {
     for (let i = 0; i < menus.length; i++) {
       if (i === e.item.props.index && menus[i].onClick) {
         setmenuDropdownLabel({ label: menus[i].label, key: idx })
@@ -27,12 +51,12 @@ export default function ButtonGroupPro(props: ButtonGroupProProps) {
       }
     }
   };
-  const renderMenu = (menus, idx) => {
+  const renderMenu = (menus: Array<MenusProps> | undefined, idx: number | undefined) => {
     return (
-      <Menu onClick={handleMenuClick.bind(this, menus, idx)}>
+      <Menu onClick={(e: MenuInfo) => handleMenuClick(menus, idx, e)}>
         {menus &&
           menus.length > 0 &&
-          menus.map((items, keys) => {
+          menus.map((items: MenusProps, keys: number) => {
             // 权限
             if (items.path) {
               const accessStr = sessionStorage.getItem('access');
@@ -68,21 +92,21 @@ export default function ButtonGroupPro(props: ButtonGroupProProps) {
     <div className={clsString}>
       {button &&
         button.length > 0 &&
-        button.map((item, idx) => {
+        button.map((item: MenusOptionProps, idx) => {
           const props = {
             key: idx,
-            size: 'default',
+            size: 'middle',
             type: item.type || 'default',
             onClick: item.onClick,
             disabled: item.disabled,
             ...item,
-          };
+          } as ButtonProps;
           const buttondom = <Button {...props}>{item.label}</Button>;
           if (item.menu && item.menu.length > 0) {
             const DropdownButtonDom = (
               <Button
                 size="small"
-                type={item.type || 'default'}
+                type={props.type || 'default'}
                 style={{
                   margin: ButtonandDropdown ? '0 0 0 -3px' : '12px 0 12px 12px',
                   borderRadius: ButtonandDropdown ? '0 4px 4px 0' : '4px',
@@ -95,14 +119,14 @@ export default function ButtonGroupPro(props: ButtonGroupProProps) {
             if (item.path) {
               return (
                 <div key={idx}>
-                  <Dropdown overlay={renderMenu.bind(this, item.menu, idx)}>
+                  <Dropdown overlay={() => renderMenu(item.menu, idx)}>
                     {DropdownButtonDom}
                   </Dropdown>
                 </div>
               );
             } else {
               return (
-                <Dropdown overlay={renderMenu.bind(this, item.menu, idx)} key={idx}>
+                <Dropdown overlay={() => renderMenu(item.menu, idx)} key={idx}>
                   {DropdownButtonDom}
                 </Dropdown>
               );
@@ -113,9 +137,9 @@ export default function ButtonGroupPro(props: ButtonGroupProProps) {
               <ButtonGroup key={idx}>
                 {item.option &&
                   item.option.length > 0 &&
-                  item.option.map((it, index) => {
-                    const buttonGroupprops = {
-                      size: 'default',
+                  item.option.map((it: MenusOptionProps, index: number) => {
+                    const buttonGroupprops: Omit<MenusOptionProps, "type"> = {
+                      size: 'middle',
                       type: it.type || 'default',
                       onClick: it.onClick,
                       disabled: it.disabled,
@@ -189,3 +213,4 @@ export default function ButtonGroupPro(props: ButtonGroupProProps) {
     </div>
   );
 }
+export default ButtonGroupPro

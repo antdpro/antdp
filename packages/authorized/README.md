@@ -50,4 +50,18 @@ interface AuthorizedProps {
   redirectPath?: string;
   children?: React.ReactNode;
 }
+/**
+ * @description: 页面权限
+ * @param {Array} menuRouter 原始 routes.json 文件中路由
+ * @param {string} path 当前路径
+ * @return {*}
+ */
+type GetAuthorizedPageProps = (menuRouter: Array<any>, path: string) => boolean
+// 按钮权限
+interface AuthorizedBtnProps {
+  // 权限路径
+  path?: string,
+  // 展示内容
+  children?: React.ReactNode
+}
 ```

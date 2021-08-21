@@ -26,17 +26,15 @@
   },
   "dependencies": {
     "@babel/runtime": "7.15.3",
+    "@ant-design/icons": "4.6.3",
     "classnames": "2.3.1"
   },
   "devDependencies": {
-    "@ant-design/icons": "4.2.1",
-    "@babel/runtime": "7.11.2",
-    "antd": "4.11.2",
-    "babel-plugin-import": "1.13.0",
-    "dayjs": "1.10.4",
-    "lodash": "4.17.15",
-    "lodash-decorators": "6.0.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "@types/classnames": "2.3.1",
+    "antd": "4.16.8",
+    "@types/react": "17.0.15",
+    "@types/react-dom": "17.0.9",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   }
 }

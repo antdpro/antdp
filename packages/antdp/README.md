@@ -5,6 +5,8 @@ Ant Design Project
 
 一个基于 [antd](https://github.com/ant-design/ant-design/) 和 [umi](https://github.com/umijs/umi) 的初始级别项目，集成路由、[`dva`](https://github.com/dvajs/dva)(Redux)、选项卡等特性，用于简化 [antd 4.x +](https://github.com/ant-design/ant-design) 的部分使用。
 
+![Ant Design Project](https://user-images.githubusercontent.com/1680273/130326687-2ea20748-a7f0-41df-bbbd-662e8e3c9dfe.png)
+
 ### Features
 
 - 🪖 简化 [antd 4.x +](https://github.com/ant-design/ant-design) 和 [umi](https://github.com/umijs/umi) 框架配置使用；

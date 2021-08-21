@@ -58,7 +58,9 @@ ReactDOM.render(
           <MenuContent />
         </Sider>
         <Layout>
-          <Content style={{ height: '100%', overflow: 'auto' }}>
+          <Content
+            style={{ height: '100%', overflow: 'auto', position: 'relative' }}
+          >
             <Suspense
               fallback={
                 <Spin

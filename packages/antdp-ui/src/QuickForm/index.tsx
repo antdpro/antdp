@@ -24,6 +24,7 @@ import {
   FormInstance
 } from 'antd';
 import CardPro from '../CardPro';
+import UploadGrid from '../UploadGrid'
 import zhCN from 'antd/es/locale/zh_CN';
 import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
@@ -57,6 +58,7 @@ const { RangePicker, MonthPicker } = DatePicker;
 declare type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
 interface itemsProps<T> {
+  defaultcolspan: any;
   /** 表单元素标题 */
   label: string,
   /** 表单名称 antd from 组件 getFieldDecorator 第一个参数 */
@@ -130,7 +132,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
     }
   }
   // 渲染成表单；
-  const CollapseFormDoM = (item, idx) => {
+  const CollapseFormDoM = (item: any, idx: React.Key | null | undefined) => {
     const {
       label,
       name,
@@ -160,7 +162,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
     const optionDatas =
       dataList &&
       dataList.length > 0 &&
-      dataList.map(({ value, label, ...others }, _idx) => {
+      dataList.map(({ value, label, ...others }: any, _idx: React.Key | null | undefined) => {
         if (type === 'select' || type === 'Select') {
           return (
             <Option value={value} key={_idx} {...others}>
@@ -455,6 +457,12 @@ const QuickForm: QuickFormComponent = (props, ref) => {
                     ) : null}
                   </Fragment>
                 );
+              } else if (type === 'UploadGrid' || type === 'uploadGrid') {
+                return (
+                  <UploadGrid {...attributes}>
+                    {uploadButtonDom()}
+                  </UploadGrid>
+                )
               } else if (type === 'autoComplete' || type === 'AutoComplete') {
                 return (
                   <AutoComplete

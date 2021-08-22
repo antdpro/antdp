@@ -12,7 +12,7 @@ interface AuthConf {
   /**
    * 判断路径是否有权限的字段
    */
-  auth_check_url?: string,
+  auth_check_url?: string | undefined,
 }
 export interface Options extends Omit<IConfig, 'routes'> {
   routes: IRoute;

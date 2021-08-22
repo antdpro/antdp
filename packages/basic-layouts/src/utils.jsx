@@ -25,9 +25,14 @@ export function getTreeList(data, treeList = []) {
  */
 const checkRouter = (path, authMenus) => {
   let fig = true;
-  const finx = authMenus.findIndex(
-    (item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
-  );
+  let finx = -1;
+  if (ANTD_AUTH_CONF.auth_check_url) {
+    finx = authMenus.findIndex(
+      (item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
+    );
+  } else {
+    finx = authMenus.findIndex((item) => item === path);
+  }
   if (finx === -1) {
     fig = false;
   }

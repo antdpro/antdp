@@ -7,10 +7,11 @@ QuickForm 快速表单
 
 <!--DemoStart--> 
 ```jsx
-import React, { useRef } from 'react';
+import React, { useRef , useState } from 'react';
 import { QuickForm } from '@antdp/antdp-ui'
 
 const QuickFormDemo = (props) => {
+  const [ fileList , setFileList ] =useState([])
   const baseRef = useRef();
   return (
       <QuickForm
@@ -26,6 +27,18 @@ const QuickFormDemo = (props) => {
             name: "fruit",
             type: "select",
             options: [{ label: "apple", value: 1 }]
+          },
+          {
+            label: "照片",
+            name: "picture",
+            type: "UploadGrid",
+            full:true,
+            attributes:{
+              fileList:fileList,
+              onChange:({ fileList }) =>setFileList(fileList) ,
+              action:"",
+              listType:"picture-card"
+            }
           }
         ]}
       />

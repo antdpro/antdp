@@ -12,7 +12,7 @@ export const baseItems = () => [
     ],
     attributes: {
       allowClear: true,
-      showTime: true,
+      // showTime: true,
       format: 'YYYY/MM/DD',
     },
     rules: [

@@ -53,7 +53,7 @@
     "@kkt/less-modules": "6.11.0",
     "@kkt/react-library": "6.11.0",
     "@types/jest": "26.0.24",
-    "@types/react": "17.0.15",
+    "@types/react": "17.0.19",
     "@types/react-dom": "17.0.9",
     "@types/react-test-renderer": "17.0.1",
     "@umijs/preset-react": "1.8.22",

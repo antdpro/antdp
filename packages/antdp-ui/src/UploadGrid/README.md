@@ -39,16 +39,10 @@ export default class Home extends Component {
 <!--End-->
 
 ### Props
-
+组件继承 [`Upload`](https:ant.design/components/upload-cn/#header)
 ```ts
 export type Props = {
   onChange: (params: { fileList: UploadFile[] }) => void;
   children?: ReactNode;
 } & UploadProps
-
-type SortableParams = {
-  props: Omit<Props, 'onChange'>;
-  onPreview: (file: UploadFile) => void;
-  onRemove: (file: UploadFile) => void | boolean;
-}
 ```

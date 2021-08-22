@@ -29,7 +29,7 @@
     "watch:ui": "lerna exec  --scope@antdp/antdp-ui -- tsbb watch --target react",
     "//------": "//--------",
     "watch": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb watch --target react",
-    "version": "lerna version 1.6.5 --no-changelog --no-push",
+    "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
     "publish": "lerna publish from-package",
     "start": "lerna exec --scope @example/antdp-base npm run start",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",

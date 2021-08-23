@@ -1,7 +1,10 @@
 import React, { useMemo } from 'react';
 import { Redirect } from 'umi';
-import { FormatBtn, getFormatPage } from './format';
-export { FormatBtn as AuthorizedBtn, getFormatPage as getAuthorizedPage };
+import {
+  FormatBtn as AuthorizedBtn,
+  getFormatPage as getAuthorizedPage,
+} from './format';
+export { AuthorizedBtn, getAuthorizedPage };
 
 export default (props = {}) => {
   if (props.authority) {

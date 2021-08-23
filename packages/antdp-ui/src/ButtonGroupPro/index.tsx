@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Dropdown, Menu, Badge, ButtonProps, } from 'antd';
 import { ButtonGroupProps, ButtonType } from 'antd/lib/button';
-
+import { AuthorizedBtn } from '@antdp/authorized'
 import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import './index.css';
@@ -59,11 +59,10 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
           menus.map((items: MenusProps, keys: number) => {
             // 权限
             if (items.path) {
-              const accessStr = sessionStorage.getItem('access');
-              const access = accessStr ? JSON.parse(accessStr) : { permissions: [] };
-              const { permissions } = access;
-              if (!permissions) return null;
-              return permissions.includes(`${items.path}`) ? (
+              const accessStr = sessionStorage.getItem('authBtn');
+              const access = accessStr ? JSON.parse(accessStr) : [];
+              if (!access) return null;
+              return access.includes(`${items.path}`) ? (
                 <Menu.Item key={keys} disabled={items.disabled}>
                   {items.label}
                 </Menu.Item>
@@ -105,7 +104,7 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
           if (item.menu && item.menu.length > 0) {
             const DropdownButtonDom = (
               <Button
-                size="small"
+                size="middle"
                 type={props.type || 'default'}
                 style={{
                   margin: ButtonandDropdown ? '0 0 0 -3px' : '12px 0 12px 12px',
@@ -151,9 +150,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                     } as ButtonProps;
                     if (it.path) {
                       return (
-                        <div key={index}>
+                        <AuthorizedBtn key={idx} path={item.path}>
                           <Button {...buttonGroupprops}>{it.label}</Button>
-                        </div>
+                        </AuthorizedBtn>
                       );
                     } else {
                       return (
@@ -169,9 +168,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
           if (item.render) {
             if (item.path) {
               return (
-                <div key={idx}>
+                <AuthorizedBtn key={idx} path={item.path}>
                   {item.render(item.label)}
-                </div>
+                </AuthorizedBtn>
               );
             }
             return <span key={idx}>{item.render(item.label)}</span>;
@@ -181,17 +180,17 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
               const badgeaParams =
                 item.badge && item.badge === 'dot' ? { dot: true } : { count: item.badge };
               return (
-                <div key={idx}>
+                <AuthorizedBtn key={idx} path={item.path}>
                   <Badge {...badgeaParams} style={{ marginTop: '15px' }}>
                     {buttondom}
                   </Badge>
-                </div>
+                </AuthorizedBtn>
               );
             } else {
               return (
-                <div key={idx}>
+                <AuthorizedBtn key={idx} path={item.path}>
                   {buttondom}
-                </div>
+                </AuthorizedBtn>
               );
             }
           } else {

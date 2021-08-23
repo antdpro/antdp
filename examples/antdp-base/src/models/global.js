@@ -31,6 +31,7 @@ export default {
           '/',
           '/welcome',
           '/dashboard',
+          '/dashboard/demo',
           '/dashboard/workplace',
           '/dashboard/analysis',
           '/dashboard/monitor',
@@ -38,6 +39,8 @@ export default {
           '/404',
           '/403',
         ];
+        const btns = ['/demo/add1', '/demo/add2', '/demo/add3'];
+        yield sessionStorage.setItem('authBtn', JSON.stringify(btns));
         yield sessionStorage.setItem('authMenu', JSON.stringify(li2));
         yield put({ type: 'update', payload: { token: data.token } });
         history.push('/');

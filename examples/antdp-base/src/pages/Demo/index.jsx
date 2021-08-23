@@ -87,13 +87,28 @@ const Demo = () => {
           button={[
             {
               type: 'primary',
-              label: '新增',
+              label: 'Button',
               onClick: () => {},
+              path: '/demo/add1',
             },
             {
+              label: 'Menu',
               type: 'primary',
-              label: '导出',
-              onClick: () => {},
+              menu: [
+                {
+                  key: '1',
+                  label: '新增内部业务',
+                  onClick: () => {},
+                  path: '/demo/add2',
+                },
+                {
+                  key: '2',
+                  label: '新增外部业务',
+                  onClick: () => {},
+                  disabled: true,
+                  path: '/demo/add3',
+                },
+              ],
             },
           ]}
         />

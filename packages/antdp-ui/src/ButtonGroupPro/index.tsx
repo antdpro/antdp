@@ -40,17 +40,26 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
     button,
     className
   } = props
-  const clsString = classNames('antdp-ButtonGroup', className);
   const [menuDropdownLabel, setmenuDropdownLabel] = useState<{ label: string | React.ReactNode, key?: number | undefined }>({ label: '', key: undefined })
   const [ButtonandDropdown, setButtonandDropdown] = useState(false)
-  const handleMenuClick = (menus: any, idx: number | undefined, e: MenusProps) => {
-    for (let i = 0; i < menus.length; i++) {
-      if (i === e.item.props.index && menus[i].onClick) {
-        setmenuDropdownLabel({ label: menus[i].label, key: idx })
-        menus[i].onClick();
+
+  useEffect(() => {
+    button && button.length > 0 && button.map((item) => {
+      if (item.ButtonandDropdown) {
+        setButtonandDropdown(true)
       }
-    }
+    });
+  }, [])
+
+  const handleMenuClick = (menus: any, idx: number | undefined, e: MenusProps) => {
+    menus.forEach((menu: any, index: number | undefined) => {
+      if (index === Number(e?.key) && menu.onClick) {
+        setmenuDropdownLabel({ label: menu.label, key: idx })
+        menu.onClick();
+      }
+    })
   };
+
   const renderMenu = (menus: Array<MenusProps> | undefined, idx: number | undefined) => {
     return (
       <Menu onClick={(e: MenuInfo) => handleMenuClick(menus, idx, e)}>
@@ -78,17 +87,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
       </Menu>
     );
   };
-  useEffect(() => {
-    button &&
-      button.length > 0 &&
-      button.map((item) => {
-        if (item.ButtonandDropdown) {
-          setButtonandDropdown(true)
-        }
-      });
-  }, [])
+
   return (
-    <div className={clsString}>
+    <div className={classNames('antdp-ButtonGroup', className)}>
       {button &&
         button.length > 0 &&
         button.map((item: MenusOptionProps, idx) => {
@@ -101,41 +102,39 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
             ...item,
           } as ButtonProps;
           const buttondom = <Button {...props}>{item.label}</Button>;
+          const badgeaParams = item.badge && item.badge === 'dot' ? { dot: true } : { count: item.badge };
+          // Menu多选菜单
           if (item.menu && item.menu.length > 0) {
             const DropdownButtonDom = (
               <Button
                 size="middle"
                 type={props.type || 'default'}
                 style={{
-                  margin: ButtonandDropdown ? '0 0 0 -3px' : '12px 0 12px 12px',
-                  borderRadius: ButtonandDropdown ? '0 4px 4px 0' : '4px',
+                  margin: ButtonandDropdown ? '0 0 0 -3px' : '12px 0 12px 12px'
                 }}
               >
                 {menuDropdownLabel.key === idx ? menuDropdownLabel.label : item.label}{' '}
                 <DownOutlined />
               </Button>
             );
-            if (item.path) {
-              return (
-                <div key={idx}>
-                  <Dropdown overlay={() => renderMenu(item.menu, idx)}>
-                    {DropdownButtonDom}
-                  </Dropdown>
-                </div>
-              );
-            } else {
-              return (
-                <Dropdown overlay={() => renderMenu(item.menu, idx)} key={idx}>
+            return item.path ? (
+              <div key={idx}>
+                <Dropdown overlay={() => renderMenu(item.menu, idx)}>
                   {DropdownButtonDom}
                 </Dropdown>
-              );
-            }
+              </div>
+            ) : (
+              <Dropdown overlay={() => renderMenu(item.menu, idx)} key={idx}>
+                {DropdownButtonDom}
+              </Dropdown>
+            )
           }
+          // ButtonGroup按钮组
           if (item.type === 'buttonGroup') {
             return (
               <ButtonGroup key={idx}>
                 {item.option &&
-                  item.option.length > 0 &&
+                  item.option?.length > 0 &&
                   item.option.map((it: MenusOptionProps, index: number) => {
                     const buttonGroupprops = {
                       size: 'middle',
@@ -148,65 +147,46 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                       },
                       ...it,
                     } as ButtonProps;
-                    if (it.path) {
-                      return (
-                        <AuthorizedBtn key={idx} path={item.path}>
-                          <Button {...buttonGroupprops}>{it.label}</Button>
-                        </AuthorizedBtn>
-                      );
-                    } else {
-                      return (
-                        <Button {...buttonGroupprops} key={index}>
-                          {it.label}
-                        </Button>
-                      );
-                    }
+                    it.path ? (
+                      <AuthorizedBtn key={idx} path={item.path}>
+                        <Button {...buttonGroupprops}>{it.label}</Button>
+                      </AuthorizedBtn>
+                    ) : (
+                      <Button {...buttonGroupprops} key={index}>
+                        {it.label}
+                      </Button>
+                    )
                   })}
               </ButtonGroup>
             );
           }
+          // 自定义render
           if (item.render) {
-            if (item.path) {
-              return (
-                <AuthorizedBtn key={idx} path={item.path}>
-                  {item.render(item.label)}
-                </AuthorizedBtn>
-              );
-            }
-            return <span key={idx}>{item.render(item.label)}</span>;
+            return item.path ? <AuthorizedBtn key={idx} path={item.path}>{item.render(item.label)}</AuthorizedBtn> : <span key={idx}>{item.render(item.label)}</span>;
           }
+          // 单独Button
           if (item.path) {
-            if (item.badge) {
-              const badgeaParams =
-                item.badge && item.badge === 'dot' ? { dot: true } : { count: item.badge };
-              return (
-                <AuthorizedBtn key={idx} path={item.path}>
-                  <Badge {...badgeaParams} style={{ marginTop: '15px' }}>
-                    {buttondom}
-                  </Badge>
-                </AuthorizedBtn>
-              );
-            } else {
-              return (
-                <AuthorizedBtn key={idx} path={item.path}>
+            return item.badge ? (
+              <AuthorizedBtn key={idx} path={item.path}>
+                <Badge {...badgeaParams} style={{ marginTop: '15px' }}>
                   {buttondom}
-                </AuthorizedBtn>
-              );
-            }
+                </Badge>
+              </AuthorizedBtn>
+            ) : (
+              <AuthorizedBtn key={idx} path={item.path}>
+                {buttondom}
+              </AuthorizedBtn>
+            )
           } else {
-            if (item.badge) {
-              const badgeaParams =
-                item.badge && item.badge === 'dot' ? { dot: true } : { count: item.badge };
-              return (
-                <span key={idx}>
-                  <Badge {...badgeaParams} style={{ marginTop: '15px' }}>
-                    {buttondom}
-                  </Badge>
-                </span>
-              );
-            } else {
-              return <Button {...props}>{item.label}</Button>;
-            }
+            return item.badge ? (
+              <span key={idx}>
+                <Badge {...badgeaParams} style={{ marginTop: '15px' }}>
+                  {buttondom}
+                </Badge>
+              </span>
+            ) : (
+              <Button {...props}>{item.label}</Button>
+            )
           }
         })}
     </div>

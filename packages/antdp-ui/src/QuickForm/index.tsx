@@ -131,7 +131,24 @@ const QuickForm: QuickFormComponent = (props, ref) => {
       FormItemDoM.push(formDatas[i]);
     }
   }
-  // 渲染成表单；
+  // 计算一个row里排几个表单；
+  const result = [];
+  for (let i = 0, j = FormItemDoM.length; i < j; i++) {
+    if (FormItemDoM[i].full) {
+      result.push(FormItemDoM.slice(i, i + 1));
+    } else {
+      if (FormItemDoM[i + 1] && FormItemDoM[i + 1].full) {
+        result.push(FormItemDoM.slice(i, i + 1));
+      } else if (FormItemDoM[i].defaultcolspan) {
+        result.push(FormItemDoM.slice(i, i + FormItemDoM[i].defaultcolspan));
+        i = i + FormItemDoM[i].defaultcolspan - 1;
+      } else {
+        result.push(FormItemDoM.slice(i, i + colspan));
+        i = i + colspan - 1;
+      }
+    }
+  }
+  // 渲染成表单;
   const CollapseFormDoM = (item: any, idx: React.Key | null | undefined) => {
     const {
       label,
@@ -143,7 +160,6 @@ const QuickForm: QuickFormComponent = (props, ref) => {
       option,
       onlyimg,
       defaultFormItemLayout,
-      dispatchOption,
       full,
       defaultRowColspan,
       hideInForm,
@@ -177,10 +193,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
           );
         }
       });
-    const selectOption = optionDatas
-      ? optionDatas
-      : dispatchOption || attributes?.dispatchOption;
-
+    const selectOption = optionDatas ? optionDatas : []
     const rowcolspan_num = [
       colLayout_one,
       colLayout_two,
@@ -529,29 +542,9 @@ const QuickForm: QuickFormComponent = (props, ref) => {
       </Col>
     );
   };
-
-  // 隐藏的表单
-  const hideCollapseForm = HideFormItemDoM.map((item, idx) =>
-    CollapseFormDoM(item, idx),
-  );
-
-  // 计算一个row里排几个表单；
-  const result = [];
-  for (let i = 0, j = FormItemDoM.length; i < j; i++) {
-    if (FormItemDoM[i].full) {
-      result.push(FormItemDoM.slice(i, i + 1));
-    } else {
-      if (FormItemDoM[i + 1] && FormItemDoM[i + 1].full) {
-        result.push(FormItemDoM.slice(i, i + 1));
-      } else if (FormItemDoM[i].defaultcolspan) {
-        result.push(FormItemDoM.slice(i, i + FormItemDoM[i].defaultcolspan));
-        i = i + FormItemDoM[i].defaultcolspan - 1;
-      } else {
-        result.push(FormItemDoM.slice(i, i + colspan));
-        i = i + colspan - 1;
-      }
-    }
-  }
+  // 隐藏的表单集合
+  const hideCollapseForm = HideFormItemDoM.map((item, idx) => CollapseFormDoM(item, idx));
+  // 表单集合
   const CollapseForm = result.map((it, indix) => {
     return (
       <Row key={indix}>
@@ -561,9 +554,8 @@ const QuickForm: QuickFormComponent = (props, ref) => {
       </Row>
     );
   });
-
-  // 渲染表单
-  const AneFormDom = (
+  // Form+表单集合
+  const FormDom = (
     <ConfigProvider locale={zhCN}>
       <Form
         layout={defaultFormLayout ? defaultFormLayout : 'horizontal'}
@@ -580,13 +572,13 @@ const QuickForm: QuickFormComponent = (props, ref) => {
   );
   // type 为 modal时没有折叠，没有标题，直接显示form表单内容
   if (type === 'modal') {
-    return <div style={{ margin: -10 }}>{AneFormDom}</div>;
+    return <div style={{ margin: -10 }}>{FormDom}</div>;
   }
   // type 为CardPro  带标题
   if (type === 'CardPro') {
     return (
       <CardPro title={header}>
-        <div className="antdp-FormBox">{AneFormDom}</div>
+        <div className="antdp-FormBox">{FormDom}</div>
       </CardPro>
     );
   }
@@ -595,7 +587,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
     return (
       <div>
         <h3 className="antdp-FormTitle">{header}</h3>
-        {AneFormDom}
+        {FormDom}
         <Divider type="horizontal" className="antdp-FormDivider" />
       </div>
     );
@@ -607,7 +599,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
       className="antdp-mb10"
     >
       <Panel header={header} key="1" {...panelAttributes} extra={extra}>
-        {AneFormDom}
+        {FormDom}
       </Panel>
     </Collapse>
   );

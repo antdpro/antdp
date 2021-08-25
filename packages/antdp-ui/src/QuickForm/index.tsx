@@ -70,10 +70,13 @@ interface itemsProps<T> {
   /** 表单隐藏  */
   hideInForm: boolean,
   /** input select 等表单组件属性集合 具体参考 antd  */
-  attributes: T | any
+  attributes: T | any,
+  type?: string | undefined,
+  options?: Array<{ label: string, value: string | number }> | [] | undefined,
+  span?: number
 }
 
-interface QuickFormProps<Values> extends FormProps<Values> {
+export interface QuickFormProps<Values> extends FormProps<Values> {
   /** 表单集合 */
   formDatas: Array<itemsProps<object>>,
   /** antd collapse 组件属性集合 */
@@ -155,9 +158,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
       name,
       attributes,
       type,
-      radioOptions,
       options,
-      option,
       onlyimg,
       defaultFormItemLayout,
       full,
@@ -166,15 +167,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
       descItem,
       ...otherts
     } = item;
-    // 渲染下拉条件, 同时兼容option || options || radioOptions
-    const dataList =
-      option ||
-      options ||
-      radioOptions ||
-      attributes?.option ||
-      attributes?.options ||
-      attributes?.radioOptions ||
-      [];
+    const dataList = options || [];
     const optionDatas =
       dataList &&
       dataList.length > 0 &&

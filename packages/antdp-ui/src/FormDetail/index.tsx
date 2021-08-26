@@ -1,15 +1,16 @@
 import React, { forwardRef } from 'react';
-import { Descriptions, Tooltip,DescriptionsProps } from 'antd';
+import { Descriptions, Tooltip, DescriptionsProps } from 'antd';
 import { QuickFormProps } from '../QuickForm'
 import QucikFrom from '../QuickForm'
+import UploadContent from './uploadContent'
 import moment from 'moment';
 
 interface FormDetailProps extends QuickFormProps<any> {
   isView: boolean;
   bordered: boolean | undefined;
   layout?: 'horizontal' | 'vertical';
-  style?:object
-  otherDescriptions?:DescriptionsProps
+  style?: object
+  otherDescriptions?: DescriptionsProps
 }
 
 type FormDetailComponent = (
@@ -30,6 +31,7 @@ const FormDetail: FormDetailComponent = (props, ref) => {
     otherDescriptions = {},
     ...others
   } = props
+
   return (
     <div style={style}>
       {' '}
@@ -45,11 +47,13 @@ const FormDetail: FormDetailComponent = (props, ref) => {
         >
           {formDatas.map((item, idx) => {
             let newOptions = item?.options || []
-            let content = '';
-            if (item.type === 'radio') {
+            let content: any;
+            if (item.type === 'UploadGrid' || type === 'uploadGrid') {
+              content = <UploadContent item={item} />
+            } else if (item.type === 'radio') {
               let value = newOptions.filter((itm: { value: any; }) => itm.value === item.initialValue);
               content = value && value.length > 0 && value[0].label || '';
-            } else if ( typeof item.initialValue === 'object' && moment.isMoment(item.initialValue) ) {
+            } else if (typeof item.initialValue === 'object' && moment.isMoment(item.initialValue)) {
               content = item.initialValue.format('YYYY-MM-DD');
             } else if (item.type === 'rangePicker') {
               if (item.initialValue) {

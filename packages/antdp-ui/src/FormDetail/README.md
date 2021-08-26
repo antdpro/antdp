@@ -49,12 +49,18 @@ const FormDetailDemo = () => {
               full: true,
               attributes: {
                 fileList: this.state.fileList,
-                onChange: ({ fileList }) =>setFileList(fileList)),
+                onChange: ({ fileList }) =>setFileList(fileList),
                 action: "",
                 listType: "picture-card",
+                // 新增编辑时是否展示下载&查看&删除按钮
+                showDownloadIcon:false
+                showPreviewIcon:true
+                showRemoveIcon:true
+                // 查看模式时是否展示下载&查看&删除按钮
                 showUploadList:{
                   showRemoveIcon: false,
-                  showDownloadIcon: true
+                  showDownloadIcon: true,
+                  showPreviewIcon:true
                 }
               }
             }

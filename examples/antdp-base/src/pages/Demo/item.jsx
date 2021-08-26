@@ -73,3 +73,50 @@ export const columns = () => [
     ),
   },
 ];
+
+export const detailItems = (fileList, setFileList) => [
+  {
+    label: '备注',
+    name: 'remark',
+    type: 'input',
+    initialValue: 'zz爱ff',
+  },
+  {
+    label: '水果',
+    name: 'fruit',
+    type: 'select',
+    options: [{ label: '苹果', value: 1 }],
+    initialValue: 1,
+  },
+  {
+    label: '蔬菜',
+    name: 'fruits',
+    type: 'radio',
+    options: [
+      { label: '青菜', value: 1 },
+      { label: '黄瓜', value: 2 },
+    ],
+    initialValue: 2,
+  },
+  {
+    label: '上报时间',
+    name: 'time',
+    type: 'datePicker',
+    initialValue: moment(),
+  },
+  {
+    label: '照片',
+    name: 'picture',
+    type: 'UploadGrid',
+    full: true,
+    attributes: {
+      fileList: fileList,
+      onChange: ({ fileList }) => setFileList(fileList),
+      action: '',
+      listType: 'picture-card',
+      showUploadList: {
+        showRemoveIcon: false,
+      },
+    },
+  },
+];

@@ -37,7 +37,11 @@ const QuickFormDemo = (props) => {
               fileList:fileList,
               onChange:({ fileList }) =>setFileList(fileList) ,
               action:"",
-              listType:"picture-card"
+              listType:"picture-card",
+              // 是否展示下载&查看&删除按钮
+              showDownloadIcon:false
+              showPreviewIcon:true
+              showRemoveIcon:true
             }
           }
         ]}

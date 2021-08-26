@@ -2,7 +2,7 @@ ButtonGroupPro
 权限按钮组
 ---
 
-Button权限按钮组
+ButtonGroupPro权限按钮组
 
 ### 基础示例
 

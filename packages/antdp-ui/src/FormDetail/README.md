@@ -11,39 +11,55 @@ import React, { useRef , useState } from 'react';
 import { FormDetail } from '@antdp/antdp-ui'
 
 const FormDetailDemo = () => {
+  const [ fileList , setFileList ] =useState([])
   return (
-       <FormDetail
-        isView={true}
-        formDatas={[
-          {
-            label: "备注",
-            name: "remark",
-            type: "input",
-            initialValue: 'zz爱ff'
-          },
-          {
-            label: "水果",
-            name: "fruit",
-            type: "select",
-            options: [{ label: "苹果", value: 1 }],
-            initialValue: 1
-          },
-          {
-            label: "蔬菜",
-            name: "fruit",
-            type: "radio",
-            options: [{ label: "青菜", value: 1 }, { label: "黄瓜", value: 2 }],
-            initialValue: 2
-          },
-          {
-            label: "蔬菜",
-            name: "fruit",
-            type: "datePicker",
-            initialValue: moment()
-          }
-        ]}
-      />
-  );
+        <FormDetail
+          isView={true}
+          formDatas={[
+            {
+              label: "备注",
+              name: "remark",
+              type: "input",
+              initialValue: 'zz爱ff'
+            },
+            {
+              label: "水果",
+              name: "fruit",
+              type: "select",
+              options: [{ label: "苹果", value: 1 }],
+              initialValue: 1
+            },
+            {
+              label: "蔬菜",
+              name: "fruits",
+              type: "radio",
+              options: [{ label: "青菜", value: 1 }, { label: "黄瓜", value: 2 }],
+              initialValue: 2
+            },
+            {
+              label: "上报时间",
+              name: "time",
+              type: "datePicker",
+              initialValue: moment()
+            },
+            {
+              label: "照片",
+              name: "picture",
+              type: "UploadGrid",
+              full: true,
+              attributes: {
+                fileList: this.state.fileList,
+                onChange: ({ fileList }) =>setFileList(fileList)),
+                action: "",
+                listType: "picture-card",
+                showUploadList:{
+                  showRemoveIcon: false,
+                  showDownloadIcon: true
+                }
+              }
+            }
+          ]}
+        />
 }
 export default FormDetailDemo
 ```

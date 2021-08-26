@@ -6,6 +6,7 @@ import { ReactNode } from 'react';
 export type Props = {
   onChange: (params: { fileList: UploadFile[] }) => void;
   children?: ReactNode;
+  useDragHandle?:boolean | undefined
 } & UploadProps
 
 type SortableParams = {

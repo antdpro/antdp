@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { Descriptions, Tooltip, DescriptionsProps } from 'antd';
 import { QuickFormProps } from '../QuickForm'
 import QucikFrom from '../QuickForm'
-import UploadContent from './uploadContent'
+import UploadGrid from '../UploadGrid'
 import moment from 'moment';
 
 interface FormDetailProps extends QuickFormProps<any> {
@@ -49,7 +49,12 @@ const FormDetail: FormDetailComponent = (props, ref) => {
             let newOptions = item?.options || []
             let content: any;
             if (item.type === 'UploadGrid' || type === 'uploadGrid') {
-              content = <UploadContent item={item} />
+              content = (
+                <UploadGrid
+                  useDragHandle={true}
+                  {...item.attributes}
+                />
+              )
             } else if (item.type === 'radio') {
               let value = newOptions.filter((itm: { value: any; }) => itm.value === item.initialValue);
               content = value && value.length > 0 && value[0].label || '';

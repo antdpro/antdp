@@ -1,19 +1,7 @@
 import React, { useRef, useState } from 'react';
-import {
-  Card,
-  Input,
-  Button,
-  Table,
-  Form,
-  Space,
-  DatePicker,
-  Row,
-  Col,
-  Drawer,
-} from 'antd';
+import { Card, Table, Space, Row, Col, Drawer } from 'antd';
 import 'antd/dist/antd.css';
 import { QuickForm, ButtonGroupPro, FormDetail } from '@antdp/antdp-ui';
-import { SearchOutlined } from '@ant-design/icons';
 import { connect } from 'umi';
 import { baseItems, columns, detailItems } from './item';
 

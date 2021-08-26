@@ -126,7 +126,7 @@ const Demo = () => {
       >
         <FormDetail
           isView={isView}
-          formDatas={detailItems(fileList, setFileList)}
+          formDatas={detailItems(fileList, setFileList, isView)}
         />
       </Drawer>
     </Space>

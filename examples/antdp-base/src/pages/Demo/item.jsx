@@ -74,7 +74,7 @@ export const columns = () => [
   },
 ];
 
-export const detailItems = (fileList, setFileList) => [
+export const detailItems = (fileList, setFileList, isView) => [
   {
     label: '备注',
     name: 'remark',
@@ -112,11 +112,14 @@ export const detailItems = (fileList, setFileList) => [
     attributes: {
       fileList: fileList,
       onChange: ({ fileList }) => setFileList(fileList),
+      onDownload: (file) => {
+        console.log('file', file);
+      },
       action: '',
       listType: 'picture-card',
-      showUploadList: {
-        showRemoveIcon: false,
-      },
+      showDownloadIcon: isView,
+      showRemoveIcon: !isView,
+      showPreviewIcon: true,
     },
   },
 ];

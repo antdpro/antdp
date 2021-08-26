@@ -43,9 +43,14 @@ export default class Home extends Component {
 ```ts
 export type Props = {
   onChange: (params: { fileList: UploadFile[] }) => void;
+  /**是否展示下载按钮*/
   showDownloadIcon?: boolean 
+  /**是否展示查看按钮*/
   showPreviewIcon?: boolean 
+  /**是否展示删除按钮*/
   showRemoveIcon?: boolean 
+  /**是否可以拖拽*/
+  useDragHandle?:boolean
   children?: ReactNode;
 } & UploadProps
 ```

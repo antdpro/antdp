@@ -29,7 +29,6 @@ const SortableItem = SortableElement((params: SortableItemParams) => {
       <UploadList
         {...attrubites}
         locale={{ previewFile: '预览图片', removeFile: '删除图片' }}
-        showDownloadIcon={false}
         listType={attrubites.listType}
         onPreview={onPreview}
         onRemove={onRemove}
@@ -64,7 +63,7 @@ const SortableList = SortableContainer((params: SortableListParams) => {
   );
 });
 
-const UploadGrid: React.FC<Props> = memo(({ onChange: onFileChange, ...props }) => {
+const UploadGrid: React.FC<Props> = memo(({ onChange: onFileChange, useDragHandle = false, ...props }) => {
   const [previewImage, setPreviewImage] = useState('');
   const fileList = props.fileList || [];
   const onSortEnd = ({ oldIndex, newIndex }: SortEnd) => {
@@ -90,6 +89,7 @@ const UploadGrid: React.FC<Props> = memo(({ onChange: onFileChange, ...props }) 
   return (
     <>
       <SortableList
+        useDragHandle={useDragHandle}
         // 当移动 1 之后再触发排序事件，默认是0，会导致无法触发图片的预览和删除事件
         distance={1}
         items={fileList}

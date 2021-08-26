@@ -39,7 +39,7 @@ const SortableItem = SortableElement((params: SortableItemParams) => {
 })
 // 照片墙+上传组件
 const SortableList = SortableContainer((params: SortableListParams) => {
-  const { items, props, onPreview, onRemove, onChange } = params
+  const { items, onPreview, onRemove, onChange, props } = params
   return (
     <div style={listStyle}>
       {items.map((item, index) => (
@@ -50,6 +50,7 @@ const SortableList = SortableContainer((params: SortableListParams) => {
           props={props}
           onPreview={onPreview}
           onRemove={onRemove}
+          {...props}
         />
       ))}
       <Upload

@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React, { forwardRef, Fragment } from 'react';
+import React, { forwardRef } from 'react';
 import {
   Form,
   Input,
@@ -12,8 +12,6 @@ import {
   Radio,
   Divider,
   AutoComplete,
-  Upload,
-  Modal,
   Button,
   Checkbox,
   TreeSelect,
@@ -441,27 +439,6 @@ const QuickForm: QuickFormComponent = (props, ref) => {
                   <Checkbox {...attributes}>
                     {label || item.checkboxLable}
                   </Checkbox>
-                );
-              } else if (type === 'upload') {
-                return (
-                  <Fragment>
-                    <Upload {...attributes} className="antdp-upload-images">
-                      {uploadButtonDom()}
-                    </Upload>
-                    {attributes.listType === 'picture-card' ? (
-                      <Modal
-                        visible={attributes.previewVisible}
-                        footer={null}
-                        onCancel={attributes.onCancel}
-                      >
-                        <img
-                          alt="example"
-                          style={{ width: '100%' }}
-                          src={attributes.previewImage}
-                        />
-                      </Modal>
-                    ) : null}
-                  </Fragment>
                 );
               } else if (type === 'UploadGrid' || type === 'uploadGrid') {
                 return (

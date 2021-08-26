@@ -55,12 +55,12 @@ const FormDetail: FormDetailComponent = (props, ref) => {
                   {...item.attributes}
                 />
               )
-            } else if (item.type === 'radio') {
+            } else if (item.type === 'radio' || item.type === 'Radio') {
               let value = newOptions.filter((itm: { value: any; }) => itm.value === item.initialValue);
               content = value && value.length > 0 && value[0].label || '';
             } else if (typeof item.initialValue === 'object' && moment.isMoment(item.initialValue)) {
               content = item.initialValue.format('YYYY-MM-DD');
-            } else if (item.type === 'rangePicker') {
+            } else if (item.type === 'rangePicker' || item.type === 'RangePicker') {
               if (item.initialValue) {
                 item.initialValue.forEach((date: { format: (arg0: string) => string; }) => {
                   if (date) {
@@ -68,20 +68,17 @@ const FormDetail: FormDetailComponent = (props, ref) => {
                   }
                 })
               }
-            } else if (item.type === 'checkbox') {
+            } else if (item.type === 'checkbox' || item.type === 'Checkbox') {
               const values = item.initialValue;
               for (const itm of newOptions) {
                 if (values.includes(itm.value)) {
                   content += `${itm.label} `;
                 }
               }
-            } else if (item.type === 'cascader') {
+            } else if (item.type === 'cascader' || item.type === 'Cascader') {
               const values = item.initialValue;
               content = values ? values.join('') : '';
-            } else if (item.type === 'selectRange') {
-              const values = item.initialValue;
-              content = values && values.length === 2 ? `${values[0]}头${values[1]}挂` : '';
-            } else if (item.type === 'select') {
+            } else if (item.type === 'select' || item.type === 'Select') {
               if (item.attributes && item.attributes.labelInValue) {
                 content = item.initialValue && item.initialValue.label;
               } else {

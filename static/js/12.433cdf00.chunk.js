@@ -1,2 +1,2 @@
 (this["webpackJsonp@example/website"]=this["webpackJsonp@example/website"]||[]).push([[12],{598:function(n,a,t){"use strict";t.r(a),t.d(a,"default",(function(){return o}));var e=t(211),i=t(7);function o(){return Object(i.jsx)(e.a,{source:"@antdp/page-loading\n---\n\n\u9875\u9762\u8fc7\u6e21\u52a8\u753b\u7ec4\u4ef6\u3002\n\n## Installation\n\n```bash\nnpm i @antdp/page-loading --save\n```\n\n## Basic Usage\n\n```jsx\nimport React from 'react';\nimport PageLoading from '@antdp/page-loading';\n\n// loading components from code split\n// https://umijs.org/plugin/umi-plugin-react.html#dynamicimport\nexport default () => <PageLoading />;\n```\n"})}}}]);
-//# sourceMappingURL=12.db81fab0.chunk.js.map
+//# sourceMappingURL=12.433cdf00.chunk.js.map

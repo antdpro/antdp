@@ -43,6 +43,9 @@ export default class Home extends Component {
 ```ts
 export type Props = {
   onChange: (params: { fileList: UploadFile[] }) => void;
+  showDownloadIcon?: boolean 
+  showPreviewIcon?: boolean 
+  showRemoveIcon?: boolean 
   children?: ReactNode;
 } & UploadProps
 ```

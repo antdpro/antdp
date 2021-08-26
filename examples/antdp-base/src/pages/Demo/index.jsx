@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   Card,
   Input,
@@ -9,12 +9,13 @@ import {
   DatePicker,
   Row,
   Col,
+  Drawer,
 } from 'antd';
 import 'antd/dist/antd.css';
-import { QuickForm, ButtonGroupPro } from '@antdp/antdp-ui';
+import { QuickForm, ButtonGroupPro, FormDetail } from '@antdp/antdp-ui';
 import { SearchOutlined } from '@ant-design/icons';
 import { connect } from 'umi';
-import { baseItems, columns } from './item';
+import { baseItems, columns, detailItems } from './item';
 
 const data = [];
 for (let i = 0; i < 20; i++) {
@@ -29,6 +30,9 @@ for (let i = 0; i < 20; i++) {
 
 const Demo = () => {
   const baseRef = useRef();
+  const [visible, setVisible] = useState(false);
+  const [isView, setIsView] = useState(false);
+  const [fileList, setFileList] = useState([]);
   //处理表单ref异步
   const asyncAwaitForm = async (form) => {
     return (
@@ -87,9 +91,20 @@ const Demo = () => {
           button={[
             {
               type: 'primary',
-              label: 'Button',
-              onClick: () => {},
+              label: '新增',
+              onClick: () => {
+                setVisible(true);
+                setIsView(false);
+              },
               path: '/demo/add1',
+            },
+            {
+              type: 'primary',
+              label: '详情',
+              onClick: () => {
+                setVisible(true);
+                setIsView(true);
+              },
             },
             {
               label: 'Menu',
@@ -114,6 +129,18 @@ const Demo = () => {
         />
         <Table bordered columns={columns()} size="small" dataSource={data} />
       </Card>
+      <Drawer
+        title="详情"
+        width={800}
+        closable={true}
+        onClose={() => setVisible(false)}
+        visible={visible}
+      >
+        <FormDetail
+          isView={isView}
+          formDatas={detailItems(fileList, setFileList)}
+        />
+      </Drawer>
     </Space>
   );
 };

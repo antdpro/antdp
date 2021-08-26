@@ -60,7 +60,7 @@ export default class Home extends Component {
 <!--End-->
 
 ### Props
-组件继承 [`ButtonGroupPro`](https://ant.design/components/button-cn/#header)
+组件继承antd [`Button`](https://ant.design/components/button-cn/#header)
 ```ts
 interface MenusOptionProps extends Omit<ButtonProps, "type">, ButtonGroupProps {
   path?: string;

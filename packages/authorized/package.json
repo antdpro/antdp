@@ -1,6 +1,6 @@
 {
   "name": "@antdp/authorized",
-  "version": "1.6.16",
+  "version": "1.6.17",
   "description": "通过判断是否进入主界面还是登录界面。",
   "main": "lib/index.js",
   "module": "esm/index.js",

@@ -2,6 +2,7 @@
   "name": "@antdp/basic-layouts",
   "version": "1.6.17",
   "description": "入口框架公共界面",
+  "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": [
     "*.css"
   ],

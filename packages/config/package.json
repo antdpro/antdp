@@ -2,6 +2,7 @@
   "name": "@antdp/config",
   "version": "1.6.17",
   "description": "路由配置",
+  "homepage": "https://antdpro.github.io/antdp",
   "author": "antdp",
   "license": "ISC",
   "main": "lib/index.js",

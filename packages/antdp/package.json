@@ -3,6 +3,7 @@
   "version": "1.6.17",
   "description": "Ant Design Project",
   "repository": "https://github.com/antdpro/antdp/tree/master/packages/antdp",
+  "homepage": "https://antdpro.github.io/antdp",
   "keywords": [
     "antdp",
     "antd"

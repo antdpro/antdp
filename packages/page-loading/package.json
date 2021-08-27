@@ -1,6 +1,6 @@
 {
   "name": "@antdp/page-loading",
-  "version": "1.6.16",
+  "version": "1.6.17",
   "description": "页面过渡动画组件。",
   "main": "lib/index.js",
   "module": "esm/index.js",

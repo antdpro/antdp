@@ -1,6 +1,8 @@
 @antdp/basic-layouts
 ---
 
+[![npm](https://img.shields.io/npm/v/@antdp/basic-layouts.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/basic-layouts)
+
 入口公共界面
 
 ## Installation

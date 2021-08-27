@@ -1,6 +1,8 @@
 @antdp/authorized
 ---
 
+[![npm](https://img.shields.io/npm/v/@antdp/authorized.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/authorized)
+
 通过判断是否进入主界面还是登录界面。
 
 ## Installation

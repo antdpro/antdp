@@ -1,8 +1,9 @@
 @antdp/fullscreen
 ---
 
-设置页面全屏。
+[![npm](https://img.shields.io/npm/v/@antdp/fullscreen.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/fullscreen)
 
+设置页面全屏。
 
 ## Installation
 

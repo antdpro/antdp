@@ -1,6 +1,8 @@
 ~~@antdp/icons~~
 ---
 
+[![npm](https://img.shields.io/npm/v/@antdp/icons.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/icons)
+
 > ⚠️ 包已经过时，有更优秀的解决方案 [umi-plugin-antd-icon-config](https://github.com/umijs/umi-plugin-antd-icon-config)
 
 解决 antd 4.x Icon 组件不存在问题，通过老的方式调用新的图标组件，依赖 [`@ant-design/icons`](https://github.com/ant-design/ant-design-icons/tree/master/packages/icons-react)，当前组件用于过渡，解决老的工程报错问题，菜单传图标名称显示图标问题。

@@ -1,6 +1,8 @@
 @antdp/document-title
 ---
 
+[![npm](https://img.shields.io/npm/v/@antdp/document-title.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/document-title)
+
 设置页面标题。
 
 如果需要通过当前组件方式渲染 title，配 `title: false` 可禁用内置的 `title` 渲染机制，`@antdp/config` 默认配置 `title: false`。

@@ -1,6 +1,8 @@
 @antdp/layout-tabs
 ---
 
+[![npm](https://img.shields.io/npm/v/@antdp/layout-tabs.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/layout-tabs)
+
 用于主框架选项卡组件。解决 `antd` 组件 `Tabs` 切换性能慢的问题。
 
 ## Tab 选项卡技术实现

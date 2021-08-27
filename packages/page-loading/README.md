@@ -1,6 +1,8 @@
 @antdp/page-loading
 ---
 
+[![npm](https://img.shields.io/npm/v/@antdp/page-loading.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/page-loading)
+
 页面过渡动画组件。
 
 ## Installation

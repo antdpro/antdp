@@ -25,7 +25,6 @@ jobs:
 
     - run: npm install
     - run: npm run install
-    - run: npm run build
     - run: npm run build:antdp-base
     - run: npm run build:website
 
@@ -72,8 +71,14 @@ jobs:
 
           ${{ steps.changelog.outputs.changelog }}
 
-    - run: npm run website:install
-    - run: npm run website:build
+    - run: echo ${{ steps.changelog.outputs.tag }}
+    - run: mkdir -p examples/website/build/zip
+    - name: Compress antdp-base Example.
+      run: zip -r -y antdp-base.zip . -x "node_modules/*" -x "dist/*" -x "coverage/*" -x ".eslintcache" -x "sandbox.config.json" -x "package-lock.json"
+      working-directory: examples/antdp-base
+
+    - run: cp -rp examples/antdp-base/antdp-base.zip examples/website/build/zip
+
     - run: npm install @jsdevtools/npm-publish -g
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/antdp/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/antdp-ui/package.json
@@ -86,14 +91,6 @@ jobs:
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/layout-tabs/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/page-loading/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/user-login/package.json
-
-    - run: echo ${{ steps.changelog.outputs.tag }}
-    - run: mkdir -p examples/website/build/zip
-    - name: Compress antdp-base Example.
-      run: zip -r -y antdp-base.zip . -x "node_modules/*" -x "dist/*" -x "coverage/*" -x ".eslintcache" -x "sandbox.config.json" -x "package-lock.json"
-      working-directory: examples/antdp-base
-
-    - run: cp -rp examples/antdp-base/antdp-base.zip examples/website/build/zip
 
     - name: Deploy Website
       uses: peaceiris/actions-gh-pages@v3

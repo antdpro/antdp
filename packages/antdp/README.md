@@ -31,6 +31,7 @@ Package | Version | Description
 ---- | ---- | ----
 [`@antdp/authorized`](https://www.npmjs.com/package/@antdp/authorized) | [![npm](https://img.shields.io/npm/v/@antdp/authorized.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/authorized) | - |
 [`@antdp/basic-layouts`](https://www.npmjs.com/package/@antdp/basic-layouts) | [![npm](https://img.shields.io/npm/v/@antdp/basic-layouts.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/basic-layouts) | - |
+[`@antdp/antdp-ui`](https://www.npmjs.com/package/@antdp/antdp-ui) | [![npm](https://img.shields.io/npm/v/@antdp/antdp-ui.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/antdp-ui) | - |
 [`@antdp/document-title`](https://www.npmjs.com/package/@antdp/document-title) | [![npm](https://img.shields.io/npm/v/@antdp/document-title.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/document-title) | - |
 [`@antdp/fullscreen`](https://www.npmjs.com/package/@antdp/fullscreen) | [![npm](https://img.shields.io/npm/v/@antdp/fullscreen.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/fullscreen) | - |
 [`@antdp/user-login`](https://www.npmjs.com/package/@antdp/user-login) | [![npm](https://img.shields.io/npm/v/@antdp/user-login.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/user-login) | - |
@@ -64,13 +65,13 @@ lerna version [major | minor | patch | premajor | preminor | prepatch | prerelea
 ### 开发
 
 ```bash
-npm install
-npm run install:pkg
-npm run build
-npm run install:example
+npm install               # 按照项目依赖
+npm run install           # 按照【子包】和【实例】依赖
 
-npm run watch
-npm run start
+npm run watch:config      # 实时监听包输出 JS
+
+npm run start:website     # 运行文档网站
+npm run build:antdp-base  # 运行实例
 ```
 
 ### License

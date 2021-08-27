@@ -2,15 +2,16 @@
   "name": "@antdp/antdp-ui",
   "version": "1.6.17",
   "description": "基于antd封装的组件",
+  "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
   "module": "esm/index.js",
+  "repository": "https://github.com/antdpro/antdp/tree/master/packages/antdp-ui",
   "license": "MIT",
   "keywords": [
     "antdp-ui",
     "antdp",
     "antd"
   ],
-  "repository": "https://github.com/antdpro/antdp/tree/master/packages/antdp-ui",
   "publishConfig": {
     "access": "public"
   },

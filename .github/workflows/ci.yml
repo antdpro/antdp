@@ -24,12 +24,10 @@ jobs:
         filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
 
     - run: npm install
-    - run: npm run install:pkg
+    - run: npm run install
+    - run: npm run build:antdp-base
+    - run: npm run build:website
     - run: npm run build
-    - run: npm run build:ui
-    - run: npm run install:example
-    - run: npm run website:build:antdp-base
-    - run: npm run website:build
 
     - name: Create Tag
       id: create_tag

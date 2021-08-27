@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Dropdown, Menu, Badge, ButtonProps, } from 'antd';
+import { Button, Dropdown, Menu, Badge } from 'antd';
+import { ButtonProps } from 'antd/es/button';
 import { ButtonGroupProps, ButtonType } from 'antd/lib/button';
 import { AuthorizedBtn } from '@antdp/authorized'
 import { DownOutlined } from '@ant-design/icons';

@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
-import { Descriptions, Tooltip, DescriptionsProps } from 'antd';
+import { Descriptions, Tooltip } from 'antd';
+import { DescriptionsProps } from 'antd/es/descriptions';
 import { QuickFormProps } from '../QuickForm'
 import QucikFrom from '../QuickForm'
 import UploadGrid from '../UploadGrid'

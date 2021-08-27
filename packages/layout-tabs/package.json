@@ -5,8 +5,8 @@
   "sideEffects": [
     "*.css"
   ],
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
   "license": "MIT",
   "keywords": [
     "layout-tabs",
@@ -21,6 +21,7 @@
   },
   "files": [
     "lib",
+    "esm",
     "index.d.ts"
   ],
   "peerDependencies": {

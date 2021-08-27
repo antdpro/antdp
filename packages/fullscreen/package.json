@@ -2,8 +2,8 @@
   "name": "@antdp/fullscreen",
   "version": "1.6.16",
   "description": "设置页面全屏",
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
   "license": "MIT",
   "keywords": [
     "fullscreen",
@@ -16,6 +16,7 @@
   },
   "files": [
     "lib",
+    "esm",
     "index.d.ts"
   ],
   "peerDependencies": {

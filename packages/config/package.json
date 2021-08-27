@@ -4,11 +4,12 @@
   "description": "路由配置",
   "author": "antdp",
   "license": "ISC",
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
   "repository": "https://github.com/antdpro/antdp/tree/master/packages/config",
   "files": [
     "lib",
+    "esm",
     "index.d.ts"
   ],
   "keywords": [

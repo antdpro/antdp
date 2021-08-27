@@ -13,6 +13,7 @@
     "antd"
   ],
   "files": [
+    "esm",
     "lib",
     "index.d.ts"
   ],

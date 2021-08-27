@@ -17,10 +17,9 @@ import {
   TreeSelect,
   ConfigProvider,
   DatePicker,
-  TimePicker,
-  FormProps,
-  FormInstance
+  TimePicker
 } from 'antd';
+import { FormProps, FormInstance } from 'antd/es/form';
 import CardPro from '../CardPro';
 import UploadGrid from '../UploadGrid'
 import zhCN from 'antd/es/locale/zh_CN';

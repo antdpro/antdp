@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { Card, CardProps } from 'antd';
+import { Card } from 'antd';
+import { CardProps } from 'antd/es/card';
 import './index.css';
 
 export interface CarProProps extends CardProps {

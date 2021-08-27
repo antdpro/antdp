@@ -25,9 +25,9 @@ jobs:
 
     - run: npm install
     - run: npm run install
+    - run: npm run build
     - run: npm run build:antdp-base
     - run: npm run build:website
-    - run: npm run build
 
     - name: Create Tag
       id: create_tag

@@ -41,7 +41,7 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@ant-design/icons": "4.6.3",
+    "@ant-design/icons": "4.6.4",
     "@antdp/authorized": "1.6.18",
     "@antdp/document-title": "1.6.18",
     "@antdp/fullscreen": "1.6.18",

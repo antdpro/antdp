@@ -58,7 +58,7 @@ export default QuickFormDemo
 
 interface QuickFormProps<Values> extends FormProps<Values> {
   /** 表单集合 */
-  formDatas: Array<itemsProps | any>,
+  formDatas: Array<ItemsProps | any>,
   /** antd collapse 组件属性集合 */
   collapseAttributes?: Object;
   /** antd collapse.panel 组件属性集合 */
@@ -81,7 +81,7 @@ interface QuickFormProps<Values> extends FormProps<Values> {
   extra?: any
 }
 
-interface itemsProps {
+interface ItemsProps {
   /** 表单元素标题 */
   label: string,
   /** 表单名称 antd from 组件 getFieldDecorator 第一个参数 */

@@ -54,7 +54,7 @@ const { RangePicker, MonthPicker } = DatePicker;
 
 declare type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
-interface itemsProps<T> {
+interface ItemsProps<T> {
   defaultcolspan: any;
   /** 表单元素标题 */
   label: string,
@@ -75,7 +75,7 @@ interface itemsProps<T> {
 
 export interface QuickFormProps<Values> extends FormProps<Values> {
   /** 表单集合 */
-  formDatas: Array<itemsProps<object>>,
+  formDatas: Array<ItemsProps<object>>,
   /** antd collapse 组件属性集合 */
   collapseAttributes?: Object;
   /** antd collapse.panel 组件属性集合 */

@@ -6,6 +6,25 @@ import QucikFrom from '../QuickForm'
 import UploadGrid from '../UploadGrid'
 import moment from 'moment';
 
+type treeDataProps = {
+  label?: string | number | undefined,
+  title?: string | number | undefined,
+  value: number | string,
+  children?: Array<treeDataProps>
+}
+// 处理TreeSelect数据
+const getTreeDataParent = (list: Array<treeDataProps> = [], current: Array<string | number> = [], objList: Array<string | number> = []) => {
+  (list || []).forEach((item) => {
+    if ((current || []).indexOf(item.value) >= 0) {
+      objList.push(item.label || item.title || '');
+    }
+    if (item.children) {
+      getTreeDataParent(item.children, current, objList);
+    }
+  });
+  return objList;
+};
+
 interface FormDetailProps extends QuickFormProps<any> {
   isView: boolean;
   bordered: boolean | undefined;
@@ -32,7 +51,6 @@ const FormDetail: FormDetailComponent = (props, ref) => {
     otherDescriptions = {},
     ...others
   } = props
-
   return (
     <div style={style}>
       {' '}
@@ -48,7 +66,7 @@ const FormDetail: FormDetailComponent = (props, ref) => {
         >
           {formDatas.map((item, idx) => {
             let newOptions = item?.options || []
-            let content: any;
+            let content: string | any;
             if (item.type === 'UploadGrid' || type === 'uploadGrid') {
               content = (
                 <UploadGrid
@@ -70,12 +88,14 @@ const FormDetail: FormDetailComponent = (props, ref) => {
                 })
               }
             } else if (item.type === 'checkbox' || item.type === 'Checkbox') {
-              const values = item.initialValue;
-              for (const itm of newOptions) {
+              const values = item.initialValue || [];
+              const arr: Array<string | number | undefined> = []
+              newOptions.forEach(itm => {
                 if (values.includes(itm.value)) {
-                  content += `${itm.label} `;
+                  arr.push(itm.label)
                 }
-              }
+              })
+              content = arr.join(',')
             } else if (item.type === 'cascader' || item.type === 'Cascader') {
               const values = item.initialValue;
               content = values ? values.join('') : '';
@@ -93,11 +113,30 @@ const FormDetail: FormDetailComponent = (props, ref) => {
                   content = (item.initialValue && item.initialValue.join(' ')) || '';
                 }
               }
+            } else if (item.type === 'treeSelect' || type === 'TreeSelect') {
+              const { attributes, initialValue } = item;
+              const { treeData, multiple, labelInValue } = attributes || {};
+              // 对象 多选
+              if (labelInValue && multiple) {
+                content = (initialValue || []).map((item: { label: any; }) => item.label).toString();
+                // 多选
+              } else if (multiple) {
+                const selObj = getTreeDataParent(treeData, [initialValue] || []);
+                content = (selObj || []).toString();
+                // 单选对象
+              } else if (labelInValue) {
+                content = (initialValue || {}).label || '';
+                // 单选
+              } else {
+                const treeData = item?.attributes?.treeData || []
+                const initialValue = item.initialValue
+                if (treeData.length > 0) {
+                  const selObj = getTreeDataParent(treeData, [initialValue] || [])
+                  content = (selObj || []).toString();
+                }
+              }
             } else {
-              content =
-                typeof item.initialValue === 'object'
-                  ? item.initialValue && item.initialValue.label
-                  : item.initialValue;
+              content = typeof item.initialValue === 'object' ? item.initialValue && item.initialValue.label : item.initialValue;
             }
             return (
               !item.hideInForm && (

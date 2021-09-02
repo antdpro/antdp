@@ -89,6 +89,20 @@ export const detailItems = (fileList, setFileList, isView) => [
     initialValue: 1,
   },
   {
+    label: '城市',
+    name: 'citys',
+    type: 'treeSelect',
+    attributes: {
+      treeData: [
+        { label: '上海', value: 1, children: [{ label: '黄浦区', value: 11 }] },
+        { label: '北京', value: 2, children: [{ label: '西城区', value: 21 }] },
+      ],
+      allowClear:true,
+      dropdownStyle:{ maxHeight: 400, overflow: 'auto' }
+    },
+    initialValue: 21,
+  },
+  {
     label: '蔬菜',
     name: 'fruits',
     type: 'radio',
@@ -97,6 +111,16 @@ export const detailItems = (fileList, setFileList, isView) => [
       { label: '黄瓜', value: 2 },
     ],
     initialValue: 2,
+  },
+  {
+    label: '蔬菜',
+    name: 'id',
+    type: 'checkbox',
+    options: [
+      { label: '黄瓜', value: 2 },
+      { label: '番茄', value: 3 },
+    ],
+    initialValue: [2,3],
   },
   {
     label: '上报时间',

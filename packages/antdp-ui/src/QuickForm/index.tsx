@@ -420,7 +420,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
                       attributes && attributes.disabled ? '' : `请选择${label} `
                     }
                     {...componentprams}
-                  ></TreeSelect>
+                  />
                 );
               } else if (type === 'checkbox' || type === 'Checkbox') {
                 if (

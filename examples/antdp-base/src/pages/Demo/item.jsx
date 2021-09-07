@@ -74,7 +74,7 @@ export const columns = () => [
   },
 ];
 
-export const detailItems = (fileList, setFileList, isView) => [
+export const detailItems = (fileList, setFileList, isView, queryInfo, setInfo) => [
   {
     label: '备注',
     name: 'remark',
@@ -97,8 +97,8 @@ export const detailItems = (fileList, setFileList, isView) => [
         { label: '上海', value: 1, children: [{ label: '黄浦区', value: 11 }] },
         { label: '北京', value: 2, children: [{ label: '西城区', value: 21 }] },
       ],
-      allowClear:true,
-      dropdownStyle:{ maxHeight: 400, overflow: 'auto' }
+      allowClear: true,
+      dropdownStyle: { maxHeight: 400, overflow: 'auto' }
     },
     initialValue: 21,
   },
@@ -120,7 +120,7 @@ export const detailItems = (fileList, setFileList, isView) => [
       { label: '黄瓜', value: 2 },
       { label: '番茄', value: 3 },
     ],
-    initialValue: [2,3],
+    initialValue: [2, 3],
   },
   {
     label: '上报时间',
@@ -145,5 +145,17 @@ export const detailItems = (fileList, setFileList, isView) => [
       showRemoveIcon: !isView,
       showPreviewIcon: true,
     },
+  },
+  {
+    label: '验证码',
+    name: 'time2',
+    type: 'inputCount',
+    attributes: {
+      onChange: (e) => {
+        const info = { ...queryInfo, time2: e }
+        setInfo(info)
+      }
+    },
+    initialValue: queryInfo && queryInfo?.time2,
   },
 ];

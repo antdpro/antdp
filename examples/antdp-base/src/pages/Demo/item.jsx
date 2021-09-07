@@ -74,7 +74,13 @@ export const columns = () => [
   },
 ];
 
-export const detailItems = (fileList, setFileList, isView, queryInfo, setInfo) => [
+export const detailItems = (
+  fileList,
+  setFileList,
+  isView,
+  queryInfo,
+  setInfo,
+) => [
   {
     label: '备注',
     name: 'remark',
@@ -98,7 +104,7 @@ export const detailItems = (fileList, setFileList, isView, queryInfo, setInfo) =
         { label: '北京', value: 2, children: [{ label: '西城区', value: 21 }] },
       ],
       allowClear: true,
-      dropdownStyle: { maxHeight: 400, overflow: 'auto' }
+      dropdownStyle: { maxHeight: 400, overflow: 'auto' },
     },
     initialValue: 21,
   },
@@ -152,9 +158,9 @@ export const detailItems = (fileList, setFileList, isView, queryInfo, setInfo) =
     type: 'inputCount',
     attributes: {
       onChange: (e) => {
-        const info = { ...queryInfo, time2: e }
-        setInfo(info)
-      }
+        const info = { ...queryInfo, time2: e };
+        setInfo(info);
+      },
     },
     initialValue: queryInfo && queryInfo?.time2,
   },

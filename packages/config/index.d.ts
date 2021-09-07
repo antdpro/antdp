@@ -4,15 +4,15 @@ interface AuthConf {
   /**
    * 储存菜单路由权限---本地keys
    */
-  auth_menu?: string,
+  auth_menu?: string;
   /**
    * 储存按钮路径权限---本地keys
    */
-  auth_btn?: string,
+  auth_btn?: string;
   /**
    * 判断路径是否有权限的字段
    */
-  auth_check_url?: string | undefined,
+  auth_check_url?: string | undefined;
 }
 export interface Options extends Omit<IConfig, 'routes'> {
   routes: IRoute;
@@ -24,16 +24,16 @@ export interface Options extends Omit<IConfig, 'routes'> {
     /**
      * 使用 iframe 展示页面，默认值 `false`
      */
-    ANTD_IS_IFRAME_RENDER?: boolean,
+    ANTD_IS_IFRAME_RENDER?: boolean;
     // 是否开启父子路由面包屑
-    ANTD_IS_BREADCRUMB?: boolean,
+    ANTD_IS_BREADCRUMB?: boolean;
     // 是否开启权限验证
-    ANTD_AUTH_CONF?: AuthConf | undefined,
+    ANTD_AUTH_CONF?: AuthConf | undefined;
     /**  是否显示 左侧菜单 */
-    ANTD_MENU_IS_SHOW: boolean,
+    ANTD_MENU_IS_SHOW: boolean;
     /**  是否显示 head头部 */
-    ANTD_HEAD_IS_SHOW: boolean,
-  }
+    ANTD_HEAD_IS_SHOW: boolean;
+  };
 }
 
 export interface Config {

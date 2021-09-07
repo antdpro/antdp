@@ -17,12 +17,12 @@ import {
   TreeSelect,
   ConfigProvider,
   DatePicker,
-  TimePicker
+  TimePicker,
 } from 'antd';
 import { FormProps, FormInstance } from 'antd/es/form';
 import CardPro from '../CardPro';
-import UploadGrid from '../UploadGrid'
-import InputCount from '../InputCount'
+import UploadGrid from '../UploadGrid';
+import InputCount from '../InputCount';
 import zhCN from 'antd/es/locale/zh_CN';
 import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
@@ -43,7 +43,7 @@ import {
   fromItemLayout_conspan_fourth,
   fromItemLayout_third_row,
   fromItemLayout_conspan_one,
-  formDefaultFormItemLayout
+  formDefaultFormItemLayout,
 } from './formLayout';
 import './index.css';
 
@@ -58,25 +58,25 @@ declare type FormLayout = 'horizontal' | 'inline' | 'vertical';
 interface ItemsProps<T> {
   defaultcolspan?: any;
   /** 表单元素标题 */
-  label: string,
+  label: string;
   /** 表单名称 antd from 组件 getFieldDecorator 第一个参数 */
-  name: string,
+  name: string;
   /** 表单初始值 */
-  initialValue?: string | any,
+  initialValue?: string | any;
   /** 表单是否独占一行  */
-  full?: boolean,
+  full?: boolean;
   /** 表单隐藏  */
-  hideInForm?: boolean,
+  hideInForm?: boolean;
   /** input select 等表单组件属性集合 具体参考 antd  */
-  attributes?: T | any,
-  type?: string | undefined,
-  options?: Array<{ label: string, value: string | number }> | [] | undefined,
-  span?: number
+  attributes?: T | any;
+  type?: string | undefined;
+  options?: Array<{ label: string; value: string | number }> | [] | undefined;
+  span?: number;
 }
 
 export interface QuickFormProps<Values> extends FormProps<Values> {
   /** 表单集合 */
-  formDatas: Array<ItemsProps<object>>,
+  formDatas: Array<ItemsProps<object>>;
   /** antd collapse 组件属性集合 */
   collapseAttributes?: Object;
   /** antd collapse.panel 组件属性集合 */
@@ -88,35 +88,39 @@ export interface QuickFormProps<Values> extends FormProps<Values> {
   /** 组件头部标题 */
   header?: React.ReactNode | any;
   /** 自定义表单栅格宽度占比,参照 antd 栅格布局 */
-  defaultFormItemLayout?: Object,
+  defaultFormItemLayout?: Object;
   /** 自定义表单排列方式 */
-  defaultFormLayout?: FormLayout,
+  defaultFormLayout?: FormLayout;
   /** 尺寸,参照 antd */
-  size?: any,
+  size?: any;
   /** 表单类型:modal&cardform&CardPro */
-  type?: string,
+  type?: string;
   /** antd collapse.panel 自定义渲染每个面板右上角的内容 */
-  extra?: any
+  extra?: any;
 }
 
 export type QuickFormComponent<Values = any> = (
   props: QuickFormProps<Values>,
-  ref?: ((instance: FormInstance<Values> | null) => void) | React.RefObject<FormInstance<Values>> | null | undefined
-) => React.ReactElement
+  ref?:
+    | ((instance: FormInstance<Values> | null) => void)
+    | React.RefObject<FormInstance<Values>>
+    | null
+    | undefined,
+) => React.ReactElement;
 
 const QuickForm: QuickFormComponent = (props, ref) => {
   const {
     collapseAttributes,
     panelAttributes,
     visible = false,
-    type = "cardform",
+    type = 'cardform',
     extra,
     formDatas,
     colspan = 3,
     header,
-    defaultFormLayout = "vertical",
+    defaultFormLayout = 'vertical',
     defaultFormItemLayout = formDefaultFormItemLayout,
-    size = "default",
+    size = 'default',
     ...otherProps
   } = props;
 
@@ -169,22 +173,27 @@ const QuickForm: QuickFormComponent = (props, ref) => {
     const optionDatas =
       dataList &&
       dataList.length > 0 &&
-      dataList.map(({ value, label, ...others }: any, _idx: React.Key | null | undefined) => {
-        if (type === 'select' || type === 'Select') {
-          return (
-            <Option value={value} key={_idx} {...others}>
-              {label}
-            </Option>
-          );
-        } else if (type === 'radio' || type === 'Radio') {
-          return (
-            <Radio.Button value={value} key={_idx} {...others}>
-              {label}
-            </Radio.Button>
-          );
-        }
-      });
-    const selectOption = optionDatas ? optionDatas : []
+      dataList.map(
+        (
+          { value, label, ...others }: any,
+          _idx: React.Key | null | undefined,
+        ) => {
+          if (type === 'select' || type === 'Select') {
+            return (
+              <Option value={value} key={_idx} {...others}>
+                {label}
+              </Option>
+            );
+          } else if (type === 'radio' || type === 'Radio') {
+            return (
+              <Radio.Button value={value} key={_idx} {...others}>
+                {label}
+              </Radio.Button>
+            );
+          }
+        },
+      );
+    const selectOption = optionDatas ? optionDatas : [];
     const rowcolspan_num = [
       colLayout_one,
       colLayout_two,
@@ -442,10 +451,8 @@ const QuickForm: QuickFormComponent = (props, ref) => {
                 );
               } else if (type === 'UploadGrid' || type === 'uploadGrid') {
                 return (
-                  <UploadGrid {...attributes}>
-                    {uploadButtonDom()}
-                  </UploadGrid>
-                )
+                  <UploadGrid {...attributes}>{uploadButtonDom()}</UploadGrid>
+                );
               } else if (type === 'autoComplete' || type === 'AutoComplete') {
                 return (
                   <AutoComplete
@@ -467,10 +474,12 @@ const QuickForm: QuickFormComponent = (props, ref) => {
               } else if (type === 'inputCount' || type === 'InputCount') {
                 return (
                   <InputCount
-                    placeholder={attributes && attributes.disabled ? '' : `请输入${label} `}
+                    placeholder={
+                      attributes && attributes.disabled ? '' : `请输入${label} `
+                    }
                     {...attributes}
                   />
-                )
+                );
               } else {
                 if (
                   (attributes && attributes.type === 'Search') ||
@@ -520,7 +529,9 @@ const QuickForm: QuickFormComponent = (props, ref) => {
     );
   };
   // 隐藏的表单集合
-  const hideCollapseForm = HideFormItemDoM.map((item, idx) => CollapseFormDoM(item, idx));
+  const hideCollapseForm = HideFormItemDoM.map((item, idx) =>
+    CollapseFormDoM(item, idx),
+  );
   // 表单集合
   const CollapseForm = result.map((it, indix) => {
     return (

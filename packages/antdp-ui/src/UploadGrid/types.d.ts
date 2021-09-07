@@ -6,21 +6,21 @@ import { ReactNode } from 'react';
 export type Props = {
   onChange: (params: { fileList: UploadFile[] }) => void;
   children?: ReactNode;
-  useDragHandle?: boolean | undefined
-} & UploadProps & UploadListProps
+  useDragHandle?: boolean | undefined;
+} & UploadProps &
+  UploadListProps;
 
 type SortableParams = {
   props: Omit<Props, 'onChange'>;
   onPreview: (file: UploadFile) => void;
   onRemove: (file: UploadFile) => void | boolean;
-}
+};
 
 export type SortableItemParams = {
   item: UploadFile;
-} & SortableParams
+} & SortableParams;
 
 export type SortableListParams = {
   onChange: (info: UploadChangeParam) => void;
   items: UploadFile[];
-} & SortableParams
-
+} & SortableParams;

@@ -28,7 +28,7 @@
   "dependencies": {
     "@ant-design/icons": "4.6.4",
     "@antdp/authorized": "1.6.19",
-    "@babel/runtime": "7.15.3",
+    "@babel/runtime": "7.15.4",
     "classnames": "2.3.1"
   },
   "devDependencies": {

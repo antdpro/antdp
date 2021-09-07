@@ -1,6 +1,6 @@
 {
   "name": "@antdp/user-login",
-  "version": "1.6.18",
+  "version": "1.6.19",
   "description": "用户登录页面",
   "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": [
@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.6.4",
-    "@antdp/document-title": "1.6.18",
+    "@antdp/document-title": "1.6.19",
     "@babel/runtime": "7.15.3"
   },
   "devDependencies": {

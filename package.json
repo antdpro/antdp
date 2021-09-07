@@ -3,6 +3,7 @@
   "private": true,
   "description": "Ant Design Project",
   "scripts": {
+    "prepare": "husky install",
     "website:install": "lerna bootstrap --scope @example/website --hoist",
     "start:antdp-base": "lerna exec --scope @example/antdp-base -- npm run start",
     "start:website": "lerna exec --scope @example/website -- npm run start",

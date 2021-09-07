@@ -29,7 +29,7 @@ export const data = [
   },
   {
     path: '/example',
-    name: '示例 Example',
+    name: '基础实例 Example',
     icon: <CodeSandboxOutlined />,
     component: lazy(() => import('./pages/example')),
   },

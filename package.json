@@ -67,5 +67,6 @@
     "tsbb": "3.0.3",
     "umi": "3.5.17",
     "umi-plugin-antd-icon-config": "2.0.4"
-  }
+  },
+  "version": "1.6.19"
 }

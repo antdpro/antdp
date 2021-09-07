@@ -31,7 +31,7 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.15.3",
+    "@babel/runtime": "7.15.4",
     "react-frame-component": "5.1.0"
   },
   "devDependencies": {

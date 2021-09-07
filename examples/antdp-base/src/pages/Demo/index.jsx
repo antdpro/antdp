@@ -21,6 +21,7 @@ const Demo = () => {
   const [visible, setVisible] = useState(false);
   const [isView, setIsView] = useState(false);
   const [fileList, setFileList] = useState([]);
+  const [queryInfo, setInfo] = useState({ time2: 123456 })
   //处理表单ref异步
   const asyncAwaitForm = async (form) => {
     return (
@@ -101,13 +102,13 @@ const Demo = () => {
                 {
                   key: '1',
                   label: '新增内部业务',
-                  onClick: () => {},
+                  onClick: () => { },
                   path: '/demo/add2',
                 },
                 {
                   key: '2',
                   label: '新增外部业务',
-                  onClick: () => {},
+                  onClick: () => { },
                   disabled: true,
                   path: '/demo/add3',
                 },
@@ -126,7 +127,7 @@ const Demo = () => {
       >
         <FormDetail
           isView={isView}
-          formDatas={detailItems(fileList, setFileList, isView)}
+          formDatas={detailItems(fileList, setFileList, isView, queryInfo, setInfo)}
         />
       </Drawer>
     </Space>

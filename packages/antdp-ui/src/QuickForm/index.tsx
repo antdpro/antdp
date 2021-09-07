@@ -22,6 +22,7 @@ import {
 import { FormProps, FormInstance } from 'antd/es/form';
 import CardPro from '../CardPro';
 import UploadGrid from '../UploadGrid'
+import InputCount from '../InputCount'
 import zhCN from 'antd/es/locale/zh_CN';
 import 'moment/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
@@ -463,6 +464,13 @@ const QuickForm: QuickFormComponent = (props, ref) => {
                     {...componentprams}
                   />
                 );
+              } else if (type === 'inputCount' || type === 'InputCount') {
+                return (
+                  <InputCount
+                    placeholder={attributes && attributes.disabled ? '' : `请输入${label} `}
+                    {...attributes}
+                  />
+                )
               } else {
                 if (
                   (attributes && attributes.type === 'Search') ||

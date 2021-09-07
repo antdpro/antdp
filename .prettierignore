@@ -2,9 +2,13 @@
 **/*.svg
 **/*.ejs
 **/*.html
+
 package.json
 dist
+build
 lib
+esm
+
 .umi
 .umi-production
 .umi-test

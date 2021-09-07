@@ -10,7 +10,7 @@ export interface LayoutTabsRouter {
 }
 
 export interface LayoutTabsProps {
-  dataSource?: LayoutTabsRouter[]
+  dataSource?: LayoutTabsRouter[];
   children?: React.ReactNode;
 }
 

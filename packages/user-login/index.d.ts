@@ -1,16 +1,16 @@
 import React from 'react';
-import { FormProps, FormItemProps, } from 'antd/lib/form';
+import { FormProps, FormItemProps } from 'antd/lib/form';
 import { ButtonProps } from 'antd/lib/button';
 import { InputProps } from 'antd/lib/input';
 export interface formItem extends FormItemProps {
   inputProps?: InputProps;
 }
 
-export interface UserLoginState { }
+export interface UserLoginState {}
 
 export interface formBtnsProps {
-  label?: JSX.Element,
-  attr?: ButtonProps
+  label?: JSX.Element;
+  attr?: ButtonProps;
 }
 
 export interface UserLoginProps extends FormProps {
@@ -25,13 +25,13 @@ export interface UserLoginProps extends FormProps {
   className?: string;
   loading?: boolean;
   formItems?: formItem[];
-  formBtns?: formBtnsProps[]
+  formBtns?: formBtnsProps[];
 }
 
 export default class UserLogin extends React.Component<
   UserLoginProps,
   UserLoginState
-  > {
+> {
   static defaultProps: UserLoginProps;
   state: UserLoginState;
   constructor(props: UserLoginProps);

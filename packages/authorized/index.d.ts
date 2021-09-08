@@ -17,12 +17,15 @@ export interface AuthorizedProps {
  * @param {string} path 当前路径
  * @return {*}
  */
-export type GetAuthorizedPageProps = (menuRouter: Array<any>, path: string) => boolean
+export type GetAuthorizedPageProps = (
+  menuRouter: Array<any>,
+  path: string,
+) => boolean;
 export interface AuthorizedBtnProps {
   // 权限路径
-  path?: string,
+  path?: string;
   // 展示内容
-  children?: React.ReactNode
+  children?: React.ReactNode;
 }
 
 export declare const AuthorizedBtn: React.FC<AuthorizedBtnProps>;

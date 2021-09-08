@@ -10,7 +10,10 @@ const getBase64 = (file: File | Blob | undefined): Promise<string> => {
   });
 };
 
-const imagePreview = async (file: UploadFile, callback: (params: { image: string }) => void) => {
+const imagePreview = async (
+  file: UploadFile,
+  callback: (params: { image: string }) => void,
+) => {
   const newFile = file;
   if (!newFile.url && !newFile.preview) {
     newFile.preview = await getBase64(file.originFileObj);

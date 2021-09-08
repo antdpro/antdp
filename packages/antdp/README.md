@@ -1,7 +1,7 @@
 Ant Design Project
 ---
 
-[![Build & Deploy](https://github.com/antdpro/antdp/workflows/Build%20&%20Deploy/badge.svg)](https://github.com/antdpro/antdp/actions)
+[![Build & Deploy](https://github.com/antdpro/antdp/actions/workflows/ci.yml/badge.svg)](https://github.com/antdpro/antdp/actions/workflows/ci.yml)
 
 一个基于 [antd](https://github.com/ant-design/ant-design/) 和 [umi](https://github.com/umijs/umi) 的初始级别项目，集成路由、[`dva`](https://github.com/dvajs/dva)(Redux)、选项卡等特性，用于简化 [antd 4.x +](https://github.com/ant-design/ant-design) 的部分使用。
 
@@ -15,13 +15,32 @@ Ant Design Project
 - 💋 支持配置路由参数 `/router/:id`；
 - 🤡 支持 `tab` 选项卡功能。
 
+### Quick start
+
+从示例之一初始化项目，让我们快速创建一个 React 应用程序：
+
+```shell
+# npm 6.x
+$ npm init antdp my-app --example antdp-base
+# npm 7+, extra double-dash is needed:
+$ npm init antdp my-app -- --example antdp-base
+
+$ yarn create antdp [appName]
+# or npm
+$ npm create antdp my-app
+# or npx
+$ npx create-antdp my-app
+```
+
+或者直接下载: [`antdp-base.zip`](https://antdpro.github.io/antdp/zip/antdp-base.zip)
+
 ### Open in CodeSandbox
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/s/github/antdpro/antdp/tree/master/examples/antdp-base)
 
 用户名密码： admin/admin
 
-开始基础实例下载: [`antdp-base.zip`](https://antdpro.github.io/antdp/zip/antdp-base.zip)
+直接下载实例下载本地预览: [`antdp-base.zip`](https://antdpro.github.io/antdp/zip/antdp-base.zip)
 
 ### Packages
 

@@ -51,24 +51,30 @@ const InputCount = (props: InputCountProps) => {
   }
   return (
     <Fragment>
-      <div style={{ whiteSpace: 'nowrap', display: 'flex' }}>
-        <div>
-          <Input
-            style={{ width: '100%' }}
-            {...others}
-          />
-        </div>
-        <div>
-          <Button
-            size="middle"
-            type="primary"
-            loading={loading}
-            onClick={send.bind(this)}
-            {...buttonProps}
-          >
-            {loading ? time + '秒' : '发送验证'}
-          </Button>
-        </div>
+      <div style={{
+        display: 'flex',
+        alignItems: 'center'
+      }}>
+        <Input
+          style={{
+            flex: 1,
+            transition: 'width .3s',
+            marginRight: 8,
+          }}
+          {...others}
+        />
+        <Button
+          style={{
+            display: 'block'
+          }}
+          size="middle"
+          type="primary"
+          loading={loading}
+          onClick={send.bind(this)}
+          {...buttonProps}
+        >
+          {loading ? time + '秒' : '发送验证'}
+        </Button>
       </div>
     </Fragment>
   )

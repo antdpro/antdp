@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { Button, Dropdown, Menu, Badge } from 'antd';
 import { ButtonProps } from 'antd/es/button';
 import { ButtonGroupProps, ButtonType } from 'antd/lib/button';
-import { AuthorizedBtn } from '@antdp/authorized'
+import { AuthorizedBtn } from '@antdp/authorized';
 import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import './index.css';
-import { MenuInfo } from "rc-menu/lib/interface"
+import { MenuInfo } from 'rc-menu/lib/interface';
 
 const ButtonGroup = Button.Group;
 
 export interface ButtonGroupProProps {
   button: Array<any>;
-  className?: string
+  className?: string;
 }
-export interface MenusProps extends Omit<MenuInfo, "item"> {
+export interface MenusProps extends Omit<MenuInfo, 'item'> {
   /** 禁用 */
   disabled?: boolean;
   /**   */
@@ -22,46 +22,57 @@ export interface MenusProps extends Omit<MenuInfo, "item"> {
   /** 权限路径 */
   path?: string;
   item: any;
-  [k: string]: any
+  [k: string]: any;
 }
-export interface MenusOptionProps extends Omit<ButtonProps, "type">, ButtonGroupProps {
+export interface MenusOptionProps
+  extends Omit<ButtonProps, 'type'>,
+    ButtonGroupProps {
   path?: string;
   label?: string | React.ReactNode;
   option?: Array<MenusOptionProps>;
   menu?: Array<MenusProps>;
   key?: number;
   ButtonandDropdown?: string | number;
-  type?: ButtonType | "buttonGroup";
+  type?: ButtonType | 'buttonGroup';
   render?: (...arg: any) => React.ReactNode;
-  badge?: number | string
+  badge?: number | string;
 }
 
 const ButtonGroupPro = (props: ButtonGroupProProps) => {
-  const {
-    button,
-    className
-  } = props
-  const [menuDropdownLabel, setmenuDropdownLabel] = useState<{ label: string | React.ReactNode, key?: number | undefined }>({ label: '', key: undefined })
-  const [ButtonandDropdown, setButtonandDropdown] = useState(false)
+  const { button, className } = props;
+  const [menuDropdownLabel, setmenuDropdownLabel] = useState<{
+    label: string | React.ReactNode;
+    key?: number | undefined;
+  }>({ label: '', key: undefined });
+  const [ButtonandDropdown, setButtonandDropdown] = useState(false);
 
   useEffect(() => {
-    button && button.length > 0 && button.map((item) => {
-      if (item.ButtonandDropdown) {
-        setButtonandDropdown(true)
-      }
-    });
-  }, [])
+    button &&
+      button.length > 0 &&
+      button.map((item) => {
+        if (item.ButtonandDropdown) {
+          setButtonandDropdown(true);
+        }
+      });
+  }, []);
 
-  const handleMenuClick = (menus: any, idx: number | undefined, e: MenusProps) => {
+  const handleMenuClick = (
+    menus: any,
+    idx: number | undefined,
+    e: MenusProps,
+  ) => {
     menus.forEach((menu: any, index: number | undefined) => {
       if (index === Number(e?.key) && menu.onClick) {
-        setmenuDropdownLabel({ label: menu.label, key: idx })
+        setmenuDropdownLabel({ label: menu.label, key: idx });
         menu.onClick();
       }
-    })
+    });
   };
 
-  const renderMenu = (menus: Array<MenusProps> | undefined, idx: number | undefined) => {
+  const renderMenu = (
+    menus: Array<MenusProps> | undefined,
+    idx: number | undefined,
+  ) => {
     return (
       <Menu onClick={(e: MenuInfo) => handleMenuClick(menus, idx, e)}>
         {menus &&
@@ -103,7 +114,10 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
             ...item,
           } as ButtonProps;
           const buttondom = <Button {...props}>{item.label}</Button>;
-          const badgeaParams = item.badge && item.badge === 'dot' ? { dot: true } : { count: item.badge };
+          const badgeaParams =
+            item.badge && item.badge === 'dot'
+              ? { dot: true }
+              : { count: item.badge };
           // Menu多选菜单
           if (item.menu && item.menu.length > 0) {
             const DropdownButtonDom = (
@@ -111,10 +125,12 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                 size="middle"
                 type={props.type || 'default'}
                 style={{
-                  margin: ButtonandDropdown ? '0 0 0 -3px' : '12px 0 12px 12px'
+                  margin: ButtonandDropdown ? '0 0 0 -3px' : '12px 0 12px 12px',
                 }}
               >
-                {menuDropdownLabel.key === idx ? menuDropdownLabel.label : item.label}{' '}
+                {menuDropdownLabel.key === idx
+                  ? menuDropdownLabel.label
+                  : item.label}{' '}
                 <DownOutlined />
               </Button>
             );
@@ -128,7 +144,7 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
               <Dropdown overlay={() => renderMenu(item.menu, idx)} key={idx}>
                 {DropdownButtonDom}
               </Dropdown>
-            )
+            );
           }
           // ButtonGroup按钮组
           if (item.type === 'buttonGroup') {
@@ -144,7 +160,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                       disabled: it.disabled,
                       icon: item.icon,
                       style: {
-                        margin: item.ButtonandDropdown ? '0 0 0 -2px' : '12px 0 12px 12px',
+                        margin: item.ButtonandDropdown
+                          ? '0 0 0 -2px'
+                          : '12px 0 12px 12px',
                       },
                       ...it,
                     } as ButtonProps;
@@ -156,14 +174,20 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                       <Button {...buttonGroupprops} key={index}>
                         {it.label}
                       </Button>
-                    )
+                    );
                   })}
               </ButtonGroup>
             );
           }
           // 自定义render
           if (item.render) {
-            return item.path ? <AuthorizedBtn key={idx} path={item.path}>{item.render(item.label)}</AuthorizedBtn> : <span key={idx}>{item.render(item.label)}</span>;
+            return item.path ? (
+              <AuthorizedBtn key={idx} path={item.path}>
+                {item.render(item.label)}
+              </AuthorizedBtn>
+            ) : (
+              <span key={idx}>{item.render(item.label)}</span>
+            );
           }
           // 单独Button
           if (item.path) {
@@ -177,7 +201,7 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
               <AuthorizedBtn key={idx} path={item.path}>
                 {buttondom}
               </AuthorizedBtn>
-            )
+            );
           } else {
             return item.badge ? (
               <span key={idx}>
@@ -187,10 +211,10 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
               </span>
             ) : (
               <Button {...props}>{item.label}</Button>
-            )
+            );
           }
         })}
     </div>
   );
-}
-export default ButtonGroupPro
+};
+export default ButtonGroupPro;

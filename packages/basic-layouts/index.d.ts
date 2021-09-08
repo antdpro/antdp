@@ -41,20 +41,20 @@ export interface BaseLayoutProps {
     /**
      * 用户头像
      */
-    avatar?: string,
+    avatar?: string;
     /**
      * 用户名称/昵称
      */
-    name?: string,
+    name?: string;
   };
   /**
    * 顶部右方菜单设置
    */
   topRightMenu?: (MenuItemProps | { divider: boolean })[];
   // 顶部右方
-  topRightLanguage?: any,
+  topRightLanguage?: any;
   // 语言转换方法
-  intlLanguage?: any,
+  intlLanguage?: any;
   /**
    * 设置内容区域补白，默认 14px
    */
@@ -73,7 +73,7 @@ export interface BaseLayoutProps {
 export default class BaseLayout extends React.Component<
   BaseLayoutProps,
   BaseLayoutState
-  > {
+> {
   static defaultProps: BaseLayoutProps;
   state: BaseLayoutState;
   constructor(props: BaseLayoutProps);

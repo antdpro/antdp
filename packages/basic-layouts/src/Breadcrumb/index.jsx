@@ -61,9 +61,10 @@ export default (props = {}) => {
     return routes;
   }
 
-  const routesDatas = useMemo(() => getRoutes(props.location.pathname), [
-    props.location.pathname,
-  ]);
+  const routesDatas = useMemo(
+    () => getRoutes(props.location.pathname),
+    [props.location.pathname],
+  );
 
   const Homes = useMemo(() => {
     if (intlLanguage) {

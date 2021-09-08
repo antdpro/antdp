@@ -146,5 +146,9 @@ export const fromItemLayout_two_row = {
 };
 
 export const formDefaultFormItemLayout = {
-  xs: 12, sm: 12, md: 12, lg: 12, xl: 8
-}
+  xs: 12,
+  sm: 12,
+  md: 12,
+  lg: 12,
+  xl: 8,
+};

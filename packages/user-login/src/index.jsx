@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, Row } from 'antd';
 import DocumentTitle from '@antdp/document-title';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import './index.css';
@@ -71,18 +71,20 @@ export default class BaseLayout extends Component {
                 );
               })}
             <Form.Item>
-              {Array.isArray(formBtns) &&
-                formBtns.map((item, index) => {
-                  const { label, attr } = item;
-                  if (attr && attr.htmlType === 'submit') {
-                    attr.loading = loading;
-                  }
-                  return (
-                    <Button key={index} {...attr}>
-                      {label}
-                    </Button>
-                  );
-                })}
+              <Row align="middle" justify="center">
+                {Array.isArray(formBtns) &&
+                  formBtns.map((item, index) => {
+                    const { label, attr } = item;
+                    if (attr && attr.htmlType === 'submit') {
+                      attr.loading = loading;
+                    }
+                    return (
+                      <Button key={index} {...attr}>
+                        {label}
+                      </Button>
+                    );
+                  })}
+              </Row>
             </Form.Item>
           </Form>
         </div>

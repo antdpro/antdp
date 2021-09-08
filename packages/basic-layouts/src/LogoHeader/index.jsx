@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { Link } from 'umi';
 
 export default (props = {}) => {
+  const { logoJumpTo = '/' } = props;
   const logo = useMemo(
     () => props.logo && <img src={props.logo} alt="logo" />,
     [props.logo],
@@ -14,7 +15,7 @@ export default (props = {}) => {
   return useMemo(
     () => (
       <div className="antdp-global-title">
-        <Link to="/">
+        <Link to={logoJumpTo}>
           {logo}
           {!props.collapsed && name}
         </Link>

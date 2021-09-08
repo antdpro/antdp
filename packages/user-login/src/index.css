@@ -1,11 +1,11 @@
 
 .antdp-login {
-  margin-left: 20vw;
+  /* margin-left: 20vw; */
   /* min-height: calc(100vh - 0px); */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: baseline;
+  align-items:center;
   justify-content: center;
 }
 

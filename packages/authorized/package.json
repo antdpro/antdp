@@ -1,6 +1,6 @@
 {
   "name": "@antdp/authorized",
-  "version": "1.6.19",
+  "version": "1.7.0",
   "description": "通过判断是否进入主界面还是登录界面。",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",

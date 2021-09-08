@@ -1,6 +1,6 @@
 {
   "name": "@antdp/layout-tabs",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "用于主框架选项卡组件。",
   "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": [

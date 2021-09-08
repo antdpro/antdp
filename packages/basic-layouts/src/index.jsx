@@ -31,6 +31,7 @@ export default (props = {}) => {
     bodyPadding = 14,
     topRightLanguage = null,
     intlLanguage = null,
+    logoJumpTo = null,
   } = props;
 
   let location = useLocation();
@@ -126,7 +127,11 @@ export default (props = {}) => {
           <Layout.Content>
             {(() => {
               if (location.pathname === '/') {
-                return <Redirect to="/welcome" />;
+                if (logoJumpTo) {
+                  return <Redirect to={logoJumpTo} />;
+                } else {
+                  return <Redirect to="/welcome" />;
+                }
               }
               if (!!ANTD_AUTH_CONF && (toPath === 404 || toPath === 403)) {
                 return <Redirect to={`/${toPath}`} />;

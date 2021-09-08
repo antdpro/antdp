@@ -23,6 +23,7 @@ const Layout = (props) => {
         }}
         siderWidth={240}
         logo={logo}
+        // logoJumpTo="/dashboard/demo"  // 点击logo图标跳转的路径，默认 /welcome
         iframeRender={false}
         topRightLanguage={<SelectLang />}
         // 是否进行权限判定

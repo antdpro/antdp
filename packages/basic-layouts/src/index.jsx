@@ -31,6 +31,7 @@ export default (props = {}) => {
     bodyPadding = 14,
     topRightLanguage = null,
     intlLanguage = null,
+    logoJumpTo,
   } = props;
 
   let location = useLocation();
@@ -99,6 +100,7 @@ export default (props = {}) => {
               collapsed={collapsed}
               projectName={projectName}
               logo={props.logo}
+              logoJumpTo={logoJumpTo}
             />
             <MeunView
               {...props}

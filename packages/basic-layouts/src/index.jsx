@@ -31,7 +31,7 @@ export default (props = {}) => {
     bodyPadding = 14,
     topRightLanguage = null,
     intlLanguage = null,
-    logoJumpTo = null,
+    logoJumpTo,
   } = props;
 
   let location = useLocation();
@@ -100,6 +100,7 @@ export default (props = {}) => {
               collapsed={collapsed}
               projectName={projectName}
               logo={props.logo}
+              logoJumpTo={logoJumpTo}
             />
             <MeunView
               {...props}
@@ -127,11 +128,7 @@ export default (props = {}) => {
           <Layout.Content>
             {(() => {
               if (location.pathname === '/') {
-                if (logoJumpTo) {
-                  return <Redirect to={logoJumpTo} />;
-                } else {
-                  return <Redirect to="/welcome" />;
-                }
+                return <Redirect to="/welcome" />;
               }
               if (!!ANTD_AUTH_CONF && (toPath === 404 || toPath === 403)) {
                 return <Redirect to={`/${toPath}`} />;

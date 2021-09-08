@@ -1,5 +1,6 @@
 import React, { lazy } from 'react';
 import Icon, {
+  AntDesignOutlined,
   HomeFilled,
   CodeSandboxOutlined,
   LockFilled,
@@ -28,8 +29,14 @@ export const data = [
     component: lazy(() => import('./pages/antdp')),
   },
   {
+    path: '/create-antdp',
+    name: '快速开始',
+    icon: <AntDesignOutlined />,
+    component: lazy(() => import('./pages/create-antdp')),
+  },
+  {
     path: '/example',
-    name: '基础实例 Example',
+    name: '实例预览',
     icon: <CodeSandboxOutlined />,
     component: lazy(() => import('./pages/example')),
   },

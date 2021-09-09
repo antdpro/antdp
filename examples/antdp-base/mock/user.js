@@ -1,7 +1,7 @@
 export default {
   'POST /api/users/login': (req, res) => {
-    const { password, phone, type } = req.body;
-    if (password === 'admin' && phone === 'admin') {
+    const { username, password, phone, code, type } = req.body;
+    if ((username === 'admin' && password === 'admin') || (code && phone)) {
       res.send({
         code: 1,
         message: '登录成功！',

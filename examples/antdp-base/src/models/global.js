@@ -12,8 +12,8 @@ export default {
   },
   effects: {
     // 登录
-    *login({ payload: { password, phone } }, { call, put }) {
-      const data = yield call(userLogin, { password, phone });
+    *login({ payload }, { call, put }) {
+      const data = yield call(userLogin, payload);
       if (data.code === 1) {
         yield sessionStorage.setItem('token', data.token);
         // const li = [

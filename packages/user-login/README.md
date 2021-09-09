@@ -76,5 +76,15 @@ export interface UserLoginProps extends FormProps{
   className?: string;
   loading?: boolean;
   formItems?: formItem[];
+  // 短信登陆 表单
+  phoneFormItems?:formItem[];
+  // 短信验证form.item属性
+  phoneCodeProps?:formItemProps
+  // 验证短信回调
+  onSend ?: () => void
+  // 展示账号登陆
+  showAccount ?: boolean;
+  // 展示手机登陆
+  showPhone ?: boolean;
 }
 ```

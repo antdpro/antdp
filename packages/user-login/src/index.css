@@ -1,16 +1,19 @@
-
 .antdp-login {
   /* margin-left: 20vw; */
   /* min-height: calc(100vh - 0px); */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   justify-content: center;
+  background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
+  background-repeat: no-repeat;
+  background-position: center 110px;
+  background-size: 100%;
 }
 
 .antdp-login-form {
-  width: 230px;
+  width: 250px;
 }
 
 
@@ -20,7 +23,7 @@
 
 .antdp-login-title img {
   display: inline-block;
-  height: 32px;
+  height: 44px;
   vertical-align: middle;
   margin-right: 10px;
 }

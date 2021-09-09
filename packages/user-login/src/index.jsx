@@ -92,7 +92,6 @@ export default class BaseLayout extends Component {
             centered
             defaultActiveKey={this.state.key}
             onChange={(key) => this.setState({ key })}
-            tabBarGutter={0}
           >
             {showAccount && (
               <TabPane tab="账号登陆" key="1">

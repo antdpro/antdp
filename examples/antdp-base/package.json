@@ -1,6 +1,6 @@
 {
   "name": "@example/antdp-base",
-  "version": "1.8.2",
+  "version": "1.8.21",
   "private": true,
   "scripts": {
     "start": "umi dev",

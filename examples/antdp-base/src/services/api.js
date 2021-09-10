@@ -1,7 +1,6 @@
 import { request } from 'umi';
 
 export async function userLogin(params) {
-  window.console.log('params', params);
   return request('/api/users/login', {
     method: 'POST',
     data: params,

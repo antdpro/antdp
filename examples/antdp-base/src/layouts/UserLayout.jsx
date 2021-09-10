@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'umi';
 import UserLogin from '@antdp/user-login';
 import Authorized from '@antdp/authorized';

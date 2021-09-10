@@ -82,9 +82,11 @@ export interface UserLoginProps extends FormProps{
   phoneCodeProps?:formItemProps
   // 验证短信回调
   onSend ?: () => void
-  // 展示账号登陆
-  showAccount ?: boolean;
-  // 展示手机登陆
-  showPhone ?: boolean;
+  // 手机登陆｜账号登陆｜账号手机登陆
+  type?:'phone' | 'account' | 'both',
+  // 登陆组件额外jsx.element
+  children?:JSX.Element;
+  // 表单内部额外jsx.element
+  formChildren?:JSX.Element;
 }
 ```

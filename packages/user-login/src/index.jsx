@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { Form, Input, Button, Row, Tabs } from 'antd';
 import DocumentTitle from '@antdp/document-title';
 import { UserOutlined, LockOutlined, PhoneOutlined } from '@ant-design/icons';
-import { InputCount } from '@antdp/antdp-ui';
+import { ThemeContext } from './themContext';
+import AccountLogin from './component/accountLogin';
+import PhoneLogin from './component/phoneLogin';
 import './index.css';
 
 const { TabPane } = Tabs;
+
 export default class BaseLayout extends Component {
   static defaultProps = {
     projectName: '项目管理后台',
@@ -56,10 +59,14 @@ export default class BaseLayout extends Component {
       name: 'code',
       rules: [{ required: true, message: '请输入验证码!' }],
     },
+    type: 'account',
   };
-  state = {
-    key: '1',
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      key: '1',
+    };
+  }
   render() {
     const {
       formItems,
@@ -67,6 +74,7 @@ export default class BaseLayout extends Component {
       loading,
       projectName,
       className,
+      onFinish,
       formBtns,
       // 短信登陆 表单
       phoneFormItems,
@@ -74,11 +82,11 @@ export default class BaseLayout extends Component {
       phoneCodeProps,
       // 验证短信回调
       onSend,
-      // 展示账号登陆
-      showAccount = true,
-      // 展示手机登陆
-      showPhone = false,
-      ...otherProps
+      // 表单内嵌的jsx.element
+      formChildren,
+      children,
+      // 登陆页面类型
+      type,
     } = this.props;
     return (
       <DocumentTitle title={`用户登录 - ${projectName || ''}`}>
@@ -87,95 +95,47 @@ export default class BaseLayout extends Component {
             {logo && <img src={logo} alt="logo" />}
             {projectName && <h1>{projectName}</h1>}
           </div>
-          <Tabs
-            type="card"
-            centered
-            defaultActiveKey={this.state.key}
-            onChange={(key) => this.setState({ key })}
-          >
-            {showAccount && (
-              <TabPane tab="账号登陆" key="1">
-                <Form
-                  className="antdp-login-form"
-                  initialValues={{ remember: true }}
-                  {...otherProps}
-                >
-                  {Array.isArray(formItems) &&
-                    formItems.map((item, index) => {
-                      const { inputProps, ...formItemProps } = item;
-                      return (
-                        <Form.Item key={index} {...formItemProps}>
-                          {inputProps && (
-                            <Input disabled={loading} {...inputProps} />
-                          )}
-                        </Form.Item>
-                      );
-                    })}
-                  <Form.Item>
-                    <Row align="middle" justify="center">
-                      {Array.isArray(formBtns) &&
-                        formBtns.map((item, index) => {
-                          const { label, attr } = item;
-                          if (attr && attr.htmlType === 'submit') {
-                            attr.loading = loading;
-                          }
-                          return (
-                            <Button key={index} {...attr}>
-                              {label}
-                            </Button>
-                          );
-                        })}
-                    </Row>
-                  </Form.Item>
-                </Form>
-              </TabPane>
-            )}
-            {showPhone && (
-              <TabPane tab="手机登陆" key="2">
-                <Form
-                  className="antdp-login-form"
-                  initialValues={{ remember: true }}
-                  {...otherProps}
-                >
-                  {Array.isArray(phoneFormItems) &&
-                    phoneFormItems.map((item, index) => {
-                      const { inputProps, ...formItemProps } = item;
-                      return (
-                        <Form.Item key={index} {...formItemProps}>
-                          {inputProps && (
-                            <Input disabled={loading} {...inputProps} />
-                          )}
-                        </Form.Item>
-                      );
-                    })}
-                  <Form.Item {...phoneCodeProps}>
-                    <InputCount
-                      onSend={onSend && onSend}
-                      prefix={<LockOutlined className="site-form-item-icon" />}
-                      placeholder="请输入验证码"
-                      autoComplete="true"
-                    />
-                  </Form.Item>
-                  <Form.Item>
-                    <Row align="middle" justify="center">
-                      {Array.isArray(formBtns) &&
-                        formBtns.map((item, index) => {
-                          const { label, attr } = item;
-                          if (attr && attr.htmlType === 'submit') {
-                            attr.loading = loading;
-                          }
-                          return (
-                            <Button key={index} {...attr}>
-                              {label}
-                            </Button>
-                          );
-                        })}
-                    </Row>
-                  </Form.Item>
-                </Form>
-              </TabPane>
-            )}
-          </Tabs>
+          <ThemeContext.Provider value={this.props}>
+            <ThemeContext.Consumer>
+              {(value) => {
+                const accountProps = {
+                  formItems: value?.formItems,
+                  formBtns: value?.formBtns,
+                  loading: value?.loading,
+                  onFinish: value?.onFinish,
+                  formChildren: value?.formChildren,
+                };
+                const phoneProps = {
+                  phoneFormItems: value?.phoneFormItems,
+                  phoneCodeProps: value?.phoneCodeProps,
+                  onSend: value?.onSend,
+                  formBtns: value?.formBtns,
+                  loading: value?.loading,
+                  onFinish: value?.onFinish,
+                  formChildren: value?.formChildren,
+                };
+                return type === 'account' ? (
+                  <AccountLogin value={accountProps} />
+                ) : type === 'phone' ? (
+                  <PhoneLogin value={phoneProps} />
+                ) : (
+                  <Tabs
+                    centered
+                    defaultActiveKey={this.state.key}
+                    onChange={(key) => this.setState({ key })}
+                  >
+                    <TabPane tab="账号登陆" key="1">
+                      <AccountLogin value={accountProps} />
+                    </TabPane>
+                    <TabPane tab="手机登陆" key="2">
+                      <PhoneLogin value={phoneProps} />
+                    </TabPane>
+                  </Tabs>
+                );
+              }}
+            </ThemeContext.Consumer>
+          </ThemeContext.Provider>
+          {children}
         </div>
       </DocumentTitle>
     );

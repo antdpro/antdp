@@ -1,6 +1,6 @@
 {
   "name": "@antdp/authorized",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "description": "通过判断是否进入主界面还是登录界面。",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
@@ -31,6 +31,6 @@
   "devDependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "umi": "3.5.18"
+    "umi": "3.5.17"
   }
 }

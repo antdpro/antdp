@@ -2,7 +2,7 @@ Ant Design Project
 ---
 
 [![Build & Deploy](https://github.com/antdpro/antdp/actions/workflows/ci.yml/badge.svg)](https://github.com/antdpro/antdp/actions/workflows/ci.yml)
-[![NPM Downloads](https://img.shields.io/npm/dm/@uiw/react-md-editor.svg?style=flat)](https://www.npmjs.com/package/@uiw/react-md-editor)
+[![NPM Downloads](https://img.shields.io/npm/dm/antdp.svg?style=flat)](https://www.npmjs.com/package/antdp)
 
 一个基于 [antd](https://github.com/ant-design/ant-design/) 和 [umi](https://github.com/umijs/umi) 的初始级别项目，集成路由、[`dva`](https://github.com/dvajs/dva)(Redux)、选项卡等特性，用于简化 [antd 4.x +](https://github.com/ant-design/ant-design) 的部分使用。
 

@@ -17,7 +17,7 @@ jobs:
         node-version: 14
 
     - name: Look Changelog
-      uses: jaywcjlove/changelog-generator@v1.4.3
+      uses: jaywcjlove/changelog-generator@v1.4.6
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         filter-author: (jaywcjlove|小弟调调™|dependabot\[bot\]|renovate\[bot\]|Renovate Bot)
@@ -37,7 +37,7 @@ jobs:
 
     - name: Generate changelog
       id: changelog
-      uses: jaywcjlove/changelog-generator@v1.4.3
+      uses: jaywcjlove/changelog-generator@v1.4.6
       if: steps.create_tag.outputs.successful
       with:
         token: ${{ secrets.GITHUB_TOKEN }}

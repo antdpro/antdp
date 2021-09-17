@@ -10,5 +10,8 @@ npm i @antdp/antdp-ui
 ## 组件
 
 - [QuickForm 快速表单](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/QuickForm/README.md)
-- [CardPro](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/CardPro/README.md)
-- [ButtonGroupPro](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/ButtonGroupPro/README.md)
+- [FormDetail 详情表单](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/FormDetail/README.md)
+- [CardPro 卡片](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/CardPro/README.md)
+- [ButtonGroupPro 按钮组](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/ButtonGroupPro/README.md)
+- [InputCount 按钮倒计时](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/InputCount/README.md)
+- [UploadGrid 可拖拽上传照片墙](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/UploadGrid/README.md)

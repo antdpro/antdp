@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Form, Input, Button, Row, Tabs } from 'antd';
+import React, { Component, Fragment } from 'react';
+import { Form, Input, Button, Row, Tabs, Radio } from 'antd';
 import DocumentTitle from '@antdp/document-title';
 import { UserOutlined, LockOutlined, PhoneOutlined } from '@ant-design/icons';
 import { ThemeContext } from './themContext';
@@ -64,7 +64,7 @@ export default class BaseLayout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      key: '1',
+      key: 1,
     };
   }
   render() {
@@ -88,6 +88,7 @@ export default class BaseLayout extends Component {
       // 登陆页面类型
       type,
     } = this.props;
+    const { key } = this.state;
     return (
       <DocumentTitle title={`用户登录 - ${projectName || ''}`}>
         <div className={`antdp-login ${className || ''}`}>
@@ -119,18 +120,22 @@ export default class BaseLayout extends Component {
                 ) : type === 'phone' ? (
                   <PhoneLogin value={phoneProps} />
                 ) : (
-                  <Tabs
-                    centered
-                    defaultActiveKey={this.state.key}
-                    onChange={(key) => this.setState({ key })}
-                  >
-                    <TabPane tab="账号登陆" key="1">
+                  <Fragment>
+                    <Radio.Group
+                      style={{ marginBottom: 24 }}
+                      name="radiogroup"
+                      defaultValue={key}
+                      onChange={(e) => this.setState({ key: e.target.value })}
+                    >
+                      <Radio value={1}>账号登陆</Radio>
+                      <Radio value={2}>手机登陆</Radio>
+                    </Radio.Group>
+                    {key === 1 ? (
                       <AccountLogin value={accountProps} />
-                    </TabPane>
-                    <TabPane tab="手机登陆" key="2">
+                    ) : (
                       <PhoneLogin value={phoneProps} />
-                    </TabPane>
-                  </Tabs>
+                    )}
+                  </Fragment>
                 );
               }}
             </ThemeContext.Consumer>

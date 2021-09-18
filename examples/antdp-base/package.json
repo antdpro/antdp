@@ -38,8 +38,8 @@
     "@umijs/plugin-request": "2.3.2",
     "@umijs/test": "3.1.3",
     "lint-staged": "11.1.2",
-    "prettier": "2.0.5",
+    "prettier": "2.4.1",
     "react-sortable-hoc": "2.0.0",
-    "umi": "3.5.18"
+    "umi": "3.5.19"
   }
 }

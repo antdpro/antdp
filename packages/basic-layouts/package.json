@@ -1,6 +1,6 @@
 {
   "name": "@antdp/basic-layouts",
-  "version": "1.8.7",
+  "version": "1.8.8",
   "description": "入口框架公共界面",
   "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": [
@@ -42,10 +42,10 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.6.4",
-    "@antdp/authorized": "1.8.7",
-    "@antdp/document-title": "1.8.7",
-    "@antdp/fullscreen": "1.8.7",
-    "@antdp/layout-tabs": "1.8.7",
+    "@antdp/authorized": "1.8.8",
+    "@antdp/document-title": "1.8.8",
+    "@antdp/fullscreen": "1.8.8",
+    "@antdp/layout-tabs": "1.8.8",
     "@babel/runtime": "7.15.4"
   },
   "devDependencies": {

@@ -1,2 +1,2 @@
 (this["webpackJsonp@example/website"]=this["webpackJsonp@example/website"]||[]).push([[11],{640:function(n,e,s){"use strict";s.r(e),s.d(e,"default",(function(){return l}));var t=s(253),a=s(5);function l(){return Object(a.jsx)(t.a,{source:"@antdp/fullscreen\n---\n\n[![npm](https://img.shields.io/npm/v/@antdp/fullscreen.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/fullscreen)\n\n\u8bbe\u7f6e\u9875\u9762\u5168\u5c4f\u3002\n\n## Installation\n\n```bash\nnpm i @antdp/fullscreen --save\n```\n\n## Basic Usage\n\n```jsx\nimport Fullscreen from '@antdp/fullscreen';\n\n<Fullscreen />\n```\n"})}}}]);
-//# sourceMappingURL=11.12f4f6be.chunk.js.map
+//# sourceMappingURL=11.ef7f4d26.chunk.js.map

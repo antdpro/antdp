@@ -23,7 +23,7 @@
     "watch:basic-layouts": "lerna exec  --scope @antdp/basic-layouts -- tsbb watch",
     "watch:config": "lerna exec  --scope @antdp/config -- tsbb watch",
     "watch:document-title": "lerna exec  --scope @antdp/document-title -- tsbb watch",
-    "watch:fullscreen": "lerna exec  --scope @antdp/fullscreen -- tsbb watch",
+    "watch:fullscreen": "lerna exec --scope @antdp/fullscreen -- tsbb watch --entry src/index.js",
     "watch:icons": "lerna exec  --scope @antdp/icons -- tsbb watch",
     "watch:layout-tabs": "lerna exec  --scope @antdp/layout-tabs -- tsbb watch",
     "watch:page-loading": "lerna exec  --scope @antdp/page-loading -- tsbb watch",

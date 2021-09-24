@@ -72,6 +72,7 @@ interface ItemsProps<T> {
   type?: string | undefined,
   options?: Array<{ label: string, value: string | number }> | [] | undefined,
   span?: number
+  render?: JSX.Element;
 }
 
 interface QuickFormProps<Values> extends FormProps<Values> {

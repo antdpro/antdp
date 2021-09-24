@@ -72,6 +72,7 @@ interface ItemsProps<T> {
   type?: string | undefined;
   options?: Array<{ label: string; value: string | number }> | [] | undefined;
   span?: number;
+  render?: JSX.Element;
 }
 
 export interface QuickFormProps<Values> extends FormProps<Values> {
@@ -167,6 +168,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
       defaultRowColspan,
       hideInForm,
       descItem,
+      render,
       ...otherts
     } = item;
     const dataList = options || [];
@@ -480,6 +482,8 @@ const QuickForm: QuickFormComponent = (props, ref) => {
                     {...attributes}
                   />
                 );
+              } else if (type === 'render') {
+                return render && render
               } else {
                 if (
                   (attributes && attributes.type === 'Search') ||

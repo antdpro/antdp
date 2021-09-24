@@ -18,11 +18,17 @@ npm i @antdp/document-title --save
 
 ## Basic Usage
 
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
-import React from 'react';
+import ReactDOM from 'react-dom';
 import DocumentTitle from '@antdp/document-title';
 
-<DocumentTitle title="首页">
-  <h1>Home, sweet home.</h1>
-</DocumentTitle>
+
+const Demo = () => (
+  <DocumentTitle title="展示浏览器标题 - 首页">
+    <h1>Home, sweet home.</h1>
+  </DocumentTitle>
+);
+
+ReactDOM.render(<Demo />, _mount_);
 ```

@@ -5,16 +5,24 @@
 
 设置页面全屏。
 
-## Installation
+## 安装使用
 
 ```bash
 npm i @antdp/fullscreen --save
 ```
 
-## Basic Usage
+## 基础示例预览
 
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
+import ReactDOM from 'react-dom';
 import Fullscreen from '@antdp/fullscreen';
 
-<Fullscreen />
+const Demo = () => (
+  <div style={{ }}>
+    <Fullscreen />
+  </div>
+);
+
+ReactDOM.render(<Demo />, _mount_);
 ```

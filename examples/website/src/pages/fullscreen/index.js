@@ -1,6 +1,7 @@
 import str from '@antdp/fullscreen/README.md';
-import MarkdownPreview from '@uiw/react-markdown-preview';
+import Fullscreen from '@antdp/fullscreen';
+import Markdown from '../../components/markdown';
 
 export default function Pages() {
-  return <MarkdownPreview source={str} />;
+  return <Markdown source={str} dependencies={{ Fullscreen }} />;
 }

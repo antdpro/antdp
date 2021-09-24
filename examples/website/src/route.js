@@ -10,6 +10,7 @@ import Icon, {
   FontSizeOutlined,
   FullscreenOutlined,
   UserOutlined,
+  SelectOutlined,
 } from '@ant-design/icons';
 
 const TabSvg = () => (
@@ -87,5 +88,48 @@ export const data = [
     name: 'Page Loading',
     icon: <LoadingOutlined />,
     component: lazy(() => import('./pages/page-loading')),
+  },
+  {
+    path: '/antdp-ui',
+    name: 'Antdp Ui',
+    icon: <SelectOutlined />,
+    childs: [
+      {
+        path: '/antdp-ui/buttongrouppro',
+        name: 'ButtonGroupPro',
+        icon: <SelectOutlined />,
+        component: lazy(() => import('./pages/antdp-ui/buttongrouppro')),
+      },
+      {
+        path: '/antdp-ui/quickform',
+        name: 'QuickForm',
+        icon: <SelectOutlined />,
+        component: lazy(() => import('./pages/antdp-ui/quickform')),
+      },
+      {
+        path: '/antdp-ui/cardpro',
+        name: 'CardPro',
+        icon: <SelectOutlined />,
+        component: lazy(() => import('./pages/antdp-ui/cardpro')),
+      },
+      {
+        path: '/antdp-ui/formdetail',
+        name: 'FormDetail',
+        icon: <SelectOutlined />,
+        component: lazy(() => import('./pages/antdp-ui/formdetail')),
+      },
+      {
+        path: '/antdp-ui/inputcount',
+        name: 'InputCount',
+        icon: <SelectOutlined />,
+        component: lazy(() => import('./pages/antdp-ui/inputcount')),
+      },
+      {
+        path: '/antdp-ui/uploadgrid',
+        name: 'UploadGrid',
+        icon: <SelectOutlined />,
+        component: lazy(() => import('./pages/antdp-ui/uploadgrid')),
+      },
+    ],
   },
 ];

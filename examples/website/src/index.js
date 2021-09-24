@@ -18,26 +18,38 @@ import ReactLogo from './assets/logo.svg';
 
 const { Sider, Content } = Layout;
 
+// 递归实现----菜单渲染
+function renderMenu(data) {
+  return data.map(({ path, name, icon, childs }) => {
+    if (childs) {
+      return (
+        <Menu.SubMenu key={path} title={name} icon={icon}>
+          {renderMenu(childs)}
+        </Menu.SubMenu>
+      );
+    }
+    return (
+      <Menu.Item key={path} icon={icon}>
+        <NavLink to={path}>{name}</NavLink>
+      </Menu.Item>
+    );
+  });
+}
+// 递归实现----内容渲染
+function renderContent(data) {
+  return data.map(({ childs, ...item }, key) => {
+    if (childs) {
+      return renderContent(childs);
+    }
+    return <Route key={key} exact {...item} />;
+  });
+}
+
 function MenuContent() {
   let location = useLocation();
   return (
     <Menu theme="dark" mode="inline" defaultSelectedKeys={[location?.pathname]}>
-      {data.map(({ path, name, icon, childs }) => {
-        return childs ? (
-          <Menu.SubMenu key={path} title={name} icon={icon}>
-            {childs &&
-              childs.map(({ path, icon, name }) => (
-                <Menu.Item key={path} icon={icon}>
-                  <NavLink to={path}>{name}</NavLink>
-                </Menu.Item>
-              ))}
-          </Menu.SubMenu>
-        ) : (
-          <Menu.Item key={path} icon={icon}>
-            <NavLink to={path}>{name}</NavLink>
-          </Menu.Item>
-        );
-      })}
+      {renderMenu(data)}
     </Menu>
   );
 }
@@ -83,17 +95,7 @@ ReactDOM.render(
               }
             >
               <Switch>
-                <Fragment>
-                  {data.map(({ name, icon, childs, ...item }, key) => {
-                    return childs ? (
-                      childs.map(({ name, icon, childs, ...item }, key) => (
-                        <Route key={key} exact {...item} />
-                      ))
-                    ) : (
-                      <Route key={key} exact {...item} />
-                    );
-                  })}
-                </Fragment>
+                <Fragment>{renderContent(data)}</Fragment>
               </Switch>
             </Suspense>
           </Content>

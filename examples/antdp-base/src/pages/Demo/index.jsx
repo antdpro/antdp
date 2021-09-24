@@ -1,80 +1,18 @@
 import React, { useRef, useState } from 'react';
-import { Card, Table, Space, Row, Col, Drawer } from 'antd';
+import { Card, Space, Row, Col, Drawer } from 'antd';
 import 'antd/dist/antd.css';
 import { QuickForm, ButtonGroupPro, FormDetail } from '@antdp/antdp-ui';
-import { connect } from 'umi';
-import { baseItems, columns, detailItems } from './item';
-
-const data = [];
-for (let i = 0; i < 20; i++) {
-  data[i] = {
-    key: i,
-    order: i,
-    messageType: '系统消息',
-    messageObj: '用户注册',
-    messageName: '首次注册，欢迎登录',
-  };
-}
+import { detailItems } from './item';
+import SearchTable from './SearchTable';
 
 const Demo = () => {
-  const baseRef = useRef();
   const [visible, setVisible] = useState(false);
   const [isView, setIsView] = useState(false);
   const [fileList, setFileList] = useState([]);
   const [queryInfo, setInfo] = useState({ time2: 123456 });
-  //处理表单ref异步
-  const asyncAwaitForm = async (form) => {
-    return (
-      (form &&
-        form.validateFields &&
-        form
-          .validateFields()
-          .then(async (vals) => {
-            return vals;
-          })
-          .catch((errorInfo) => {
-            return errorInfo;
-          })) ||
-      {}
-    );
-  };
 
-  const handleOk = async () => {
-    const info = await asyncAwaitForm(baseRef.current);
-    console.log('info', info);
-  };
   return (
     <Space direction="vertical" style={{ display: 'block' }}>
-      <Card size="small">
-        <QuickForm
-          ref={baseRef}
-          type="CardPro"
-          colspan={4}
-          formDatas={baseItems()}
-        />
-        <Row>
-          <Col
-            span={24}
-            style={{
-              textAlign: 'right',
-            }}
-          >
-            <ButtonGroupPro
-              button={[
-                {
-                  type: 'primary',
-                  label: '搜索',
-                  onClick: handleOk.bind(this),
-                },
-                {
-                  type: 'primary',
-                  label: '重制',
-                },
-              ]}
-            />
-          </Col>
-        </Row>
-      </Card>
       <Card size="small">
         <ButtonGroupPro
           button={[
@@ -116,8 +54,8 @@ const Demo = () => {
             },
           ]}
         />
-        <Table bordered columns={columns()} size="small" dataSource={data} />
       </Card>
+      <SearchTable />
       <Drawer
         title="详情"
         width={800}
@@ -139,7 +77,4 @@ const Demo = () => {
     </Space>
   );
 };
-
-export default connect(({ loading }) => ({
-  loading: loading,
-}))(Demo);
+export default Demo;

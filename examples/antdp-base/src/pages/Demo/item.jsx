@@ -27,12 +27,6 @@ export const baseItems = () => [
     label: '消息对象',
     name: 'name2',
     type: 'input',
-    rules: [
-      {
-        required: true,
-        message: '消息对象不能为空',
-      },
-    ],
   },
   {
     label: '消息名称',
@@ -41,36 +35,34 @@ export const baseItems = () => [
   },
 ];
 
-export const columns = () => [
+export const columns = [
   {
     title: '序号',
-    dataIndex: 'order',
+    dataIndex: 'number',
+    fixed: 'left',
+    width: 90,
     align: 'center',
+    render: (text, record, index) => {
+      return index + 1;
+    },
   },
   {
-    title: '消息类型',
-    dataIndex: 'messageType',
+    title: '姓名',
+    dataIndex: 'name',
     align: 'center',
+    width: 90,
   },
   {
-    title: '消息对象',
-    dataIndex: 'messageObj',
+    title: '年龄',
+    dataIndex: 'title',
     align: 'center',
+    width: 90,
   },
   {
-    title: '消息名称',
-    dataIndex: 'messageName',
+    title: '地址',
+    dataIndex: 'address',
     align: 'center',
-  },
-  {
-    title: '操作',
-    align: 'center',
-    render: (tag) => (
-      <React.Fragment>
-        <Button type="link">是否发送</Button>
-        <Button type="link">编辑消息</Button>
-      </React.Fragment>
-    ),
+    width: 90,
   },
 ];
 

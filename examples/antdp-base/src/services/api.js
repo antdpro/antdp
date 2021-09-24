@@ -30,3 +30,10 @@ export const loadingData = async () => {
     method: 'POST',
   });
 };
+
+export const selectPage = async (params) => {
+  return request('/api/demo/selectPage', {
+    method: 'POST',
+    data: params,
+  });
+};

@@ -11,6 +11,7 @@ import Icon, {
   FullscreenOutlined,
   UserOutlined,
   SelectOutlined,
+  OneToOneOutlined,
 } from '@ant-design/icons';
 
 const TabSvg = () => (
@@ -97,37 +98,37 @@ export const data = [
       {
         path: '/antdp-ui/buttongrouppro',
         name: 'ButtonGroupPro',
-        icon: <SelectOutlined />,
+        icon: <OneToOneOutlined />,
         component: lazy(() => import('./pages/antdp-ui/buttongrouppro')),
       },
       {
         path: '/antdp-ui/quickform',
         name: 'QuickForm',
-        icon: <SelectOutlined />,
+        icon: <OneToOneOutlined />,
         component: lazy(() => import('./pages/antdp-ui/quickform')),
       },
       {
         path: '/antdp-ui/cardpro',
         name: 'CardPro',
-        icon: <SelectOutlined />,
+        icon: <OneToOneOutlined />,
         component: lazy(() => import('./pages/antdp-ui/cardpro')),
       },
       {
         path: '/antdp-ui/formdetail',
         name: 'FormDetail',
-        icon: <SelectOutlined />,
+        icon: <OneToOneOutlined />,
         component: lazy(() => import('./pages/antdp-ui/formdetail')),
       },
       {
         path: '/antdp-ui/inputcount',
         name: 'InputCount',
-        icon: <SelectOutlined />,
+        icon: <OneToOneOutlined />,
         component: lazy(() => import('./pages/antdp-ui/inputcount')),
       },
       {
         path: '/antdp-ui/uploadgrid',
         name: 'UploadGrid',
-        icon: <SelectOutlined />,
+        icon: <OneToOneOutlined />,
         component: lazy(() => import('./pages/antdp-ui/uploadgrid')),
       },
     ],

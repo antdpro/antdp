@@ -56,7 +56,7 @@ const SearchTable = () => {
                 },
                 {
                   type: 'primary',
-                  label: '重制',
+                  label: '重置',
                 },
               ]}
             />

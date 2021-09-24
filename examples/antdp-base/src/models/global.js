@@ -33,8 +33,6 @@ export default {
           '/dashboard',
           '/dashboard/demo',
           '/dashboard/workplace',
-          '/dashboard/analysis',
-          '/dashboard/monitor',
           '/dashboard/notfund',
           '/404',
           '/403',

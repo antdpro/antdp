@@ -20,7 +20,7 @@
       },
       {
         "path": "/dashboard",
-        "name": "Dashboard",
+        "name": "实例展示",
         "icon": "dashboard",
         "locale": "dashboard",
         "routes": [
@@ -36,105 +36,12 @@
             "name": "工作台",
             "locale": "工作台",
             "icon": "pie-chart",
-            "component": "@/pages/Dashboard/Workplace"
-          },
-          {
-            "path": "/dashboard/analysis",
-            "name": "分析页",
-            "icon": "bar-chart",
-            "component": "@/pages/Setting/User"
-          },
-          {
-            "path": "/dashboard/monitor",
-            "name": "监控台",
-            "icon": "radar-chart",
-            "component": "@/pages/Setting/User"
+            "component": "@/pages/Dashboard"
           },
           {
             "path": "/dashboard/notfund",
             "name": "测试不存在页面",
             "icon": "radar-chart"
-          }
-        ]
-      },
-      {
-        "path": "/router",
-        "name": "测试路由参数",
-        "icon": "dashboard",
-        "routes": [
-          {
-            "path": "/router/list",
-            "name": "路由页面",
-            "icon": "pie-chart",
-            "component": "@/pages/Router/List"
-          },
-          {
-            "path": "/router/list/:id/detail",
-            "name": "路由详情页面",
-            "icon": "pie-chart",
-            "component": "@/pages/Router/Detail"
-          },
-          {
-            "path": "/router/state",
-            "name": "路由传递参数",
-            "icon": "pie-chart",
-            "component": "@/pages/Router/State"
-          },
-          {
-            "path": "/router/state/detail",
-            "name": "路由传递参数-详情",
-            "icon": "pie-chart",
-            "component": "@/pages/Router/State/Detail"
-          }
-        ]
-      },
-      {
-        "path": "/profile",
-        "name": "详情页",
-        "icon": "profile",
-        "routes": [
-          {
-            "name": "基础",
-            "icon": "file-jpg",
-            "routes": [
-              {
-                "path": "/profile/demo1",
-                "name": "详情页1",
-                "icon": "file-zip",
-                "component": "@/pages/Dashboard/Workplace"
-              },
-              {
-                "path": "/profile/demo2",
-                "name": "详情页2",
-                "icon": "file-sync",
-                "component": "@/pages/Dashboard/Workplace"
-              }
-            ]
-          },
-          {
-            "path": "/profile/advanced",
-            "name": "高级详情页",
-            "icon": "file-protect",
-            "component": "@/pages/Setting/User"
-          }
-        ]
-      },
-      {
-        "path": "/setting",
-        "name": "设置页面",
-        "icon": "setting",
-        "routes": [
-          {
-            "path": "/setting/basic",
-            "name": "用户设置",
-            "icon": "file-jpg",
-            "component": "@/pages/Setting/User"
-          },
-          {
-            "path": "/setting/advanced",
-            "name": "参数设置",
-            "icon": "file-protect",
-            "component": "@/pages/Setting/Advanced"
           }
         ]
       },

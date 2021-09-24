@@ -21,9 +21,18 @@ const { Sider, Content } = Layout;
 function MenuContent() {
   let location = useLocation();
   return (
-    <Menu theme="dark" mode="inline" defaultSelectedKeys={[location.pathname]}>
-      {data.map(({ path, name, icon }) => {
-        return (
+    <Menu theme="dark" mode="inline" defaultSelectedKeys={[location?.pathname]}>
+      {data.map(({ path, name, icon, childs }) => {
+        return childs ? (
+          <Menu.SubMenu key={path} title={name} icon={icon}>
+            {childs &&
+              childs.map(({ path, icon, name }) => (
+                <Menu.Item key={path} icon={icon}>
+                  <NavLink to={path}>{name}</NavLink>
+                </Menu.Item>
+              ))}
+          </Menu.SubMenu>
+        ) : (
           <Menu.Item key={path} icon={icon}>
             <NavLink to={path}>{name}</NavLink>
           </Menu.Item>
@@ -34,7 +43,7 @@ function MenuContent() {
 }
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Fragment>
     <GitHubCorners
       fixed
       href="https://github.com/antdpro/antdp"
@@ -75,8 +84,14 @@ ReactDOM.render(
             >
               <Switch>
                 <Fragment>
-                  {data.map(({ name, icon, ...item }, key) => {
-                    return <Route key={key} exact {...item} />;
+                  {data.map(({ name, icon, childs, ...item }, key) => {
+                    return childs ? (
+                      childs.map(({ name, icon, childs, ...item }, key) => (
+                        <Route key={key} exact {...item} />
+                      ))
+                    ) : (
+                      <Route key={key} exact {...item} />
+                    );
                   })}
                 </Fragment>
               </Switch>
@@ -85,6 +100,6 @@ ReactDOM.render(
         </Layout>
       </Layout>
     </Router>
-  </React.StrictMode>,
+  </Fragment>,
   document.getElementById('root'),
 );

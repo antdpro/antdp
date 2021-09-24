@@ -26,8 +26,8 @@
         "routes": [
           {
             "path": "/dashboard/demo",
-            "name": "组件demo",
-            "locale": "组件demo",
+            "name": "实例展示",
+            "locale": "实例展示",
             "icon": "pie-chart",
             "component": "@/pages/Demo"
           },

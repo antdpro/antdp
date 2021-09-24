@@ -2,6 +2,8 @@ export default {
   'menu.welcome': 'Welcome',
   'menu.home': 'home',
   'menu.dashboard': 'dashboard',
+  'menu.dashboard': 'welcome',
+  'menu.dashboard.实例展示': 'Demo Page',
   'menu.dashboard.工作台': 'workbench',
   'menu.dashboard.分析页': 'Analysis page',
   'menu.dashboard.监控台': 'Monitoring station',

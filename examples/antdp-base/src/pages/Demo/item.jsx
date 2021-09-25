@@ -131,6 +131,7 @@ export const detailItems = (
     name: 'picture',
     type: 'UploadGrid',
     full: true,
+    onlyimg: true,
     attributes: {
       fileList: fileList,
       onChange: ({ fileList }) => setFileList(fileList),
@@ -142,6 +143,7 @@ export const detailItems = (
       showDownloadIcon: isView,
       showRemoveIcon: !isView,
       showPreviewIcon: true,
+      maxCount: 1,
     },
   },
   {

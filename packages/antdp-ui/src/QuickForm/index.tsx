@@ -272,8 +272,8 @@ const QuickForm: QuickFormComponent = (props, ref) => {
                 <div className="ant-upload-text">上传</div>
               </div>
             );
-            // 上传的图片大于或等于1张时 并且 有onlyimg参数，不显示上传按钮
-          } else if (item.attributes.fileList.length >= 1 && onlyimg) {
+            // 上传的图片大于或等于maxCount张时 并且 有onlyimg参数，不显示上传按钮
+          } else if (item.attributes.maxCount && item.attributes.fileList.length >= item.attributes.maxCount && onlyimg) {
             return null;
           }
           return (

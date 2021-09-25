@@ -47,7 +47,6 @@ const Demo = () => {
                   key: '2',
                   label: '新增外部业务',
                   onClick: () => {},
-                  disabled: true,
                   path: '/demo/add3',
                 },
               ],

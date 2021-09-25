@@ -1,6 +1,6 @@
 {
   "name": "@antdp/user-login",
-  "version": "1.8.11",
+  "version": "1.8.12",
   "description": "用户登录页面",
   "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": [
@@ -43,7 +43,7 @@
   "dependencies": {
     "@ant-design/icons": "4.7.0",
     "@antdp/antdp-ui": "1.6.19",
-    "@antdp/document-title": "1.8.11",
+    "@antdp/document-title": "1.8.12",
     "@babel/runtime": "7.15.4"
   },
   "devDependencies": {

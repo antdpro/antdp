@@ -1,6 +1,6 @@
 {
   "name": "@example/antdp-base",
-  "version": "1.8.12",
+  "version": "1.8.13",
   "private": true,
   "scripts": {
     "start": "umi dev",
@@ -21,12 +21,12 @@
     ]
   },
   "dependencies": {
-    "@antdp/antdp-ui": "1.8.12",
-    "@antdp/authorized": "1.8.12",
-    "@antdp/basic-layouts": "1.8.12",
-    "@antdp/page-loading": "1.8.12",
-    "@antdp/user-login": "1.8.12",
-    "@antdp/request": "1.8.12",
+    "@antdp/antdp-ui": "1.8.13",
+    "@antdp/authorized": "1.8.13",
+    "@antdp/basic-layouts": "1.8.13",
+    "@antdp/page-loading": "1.8.13",
+    "@antdp/request": "1.8.13",
+    "@antdp/user-login": "1.8.13",
     "@umijs/plugin-locale": "0.10.5",
     "ahooks": "2.10.9",
     "antd": "4.10.0",
@@ -34,8 +34,8 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@antdp/config": "1.8.12",
-    "@antdp/dependencies": "1.8.12",
+    "@antdp/config": "1.8.13",
+    "@antdp/dependencies": "1.8.13",
     "@umijs/plugin-dva": "0.6.5",
     "@umijs/plugin-request": "2.3.2",
     "@umijs/test": "3.1.3",

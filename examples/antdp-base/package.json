@@ -26,6 +26,7 @@
     "@antdp/basic-layouts": "1.8.12",
     "@antdp/page-loading": "1.8.12",
     "@antdp/user-login": "1.8.12",
+    "@antdp/request": "1.8.12",
     "@umijs/plugin-locale": "0.10.5",
     "ahooks": "2.10.9",
     "antd": "4.10.0",

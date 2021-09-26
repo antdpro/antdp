@@ -1,4 +1,4 @@
-import { request } from 'umi';
+import request from '@antdp/request';
 
 export async function userLogin(params) {
   return request('/api/users/login', {

@@ -29,12 +29,12 @@ export default function Code({ dependencies, codeSandbox, codePen, ...other }) {
         },
         'package.json': {
           content: {
-            name: 'react-baidu-map-demo',
-            description: `百度地图 React 组件 - demo`,
+            name: 'antdp',
+            description: `antdp react component - demo`,
             dependencies: {
+              antdp: 'latest',
               react: 'latest',
               'react-dom': 'latest',
-              '@uiw/react-baidu-map': 'latest',
             },
             devDependencies: {
               '@kkt/less-modules': '6.11.0',

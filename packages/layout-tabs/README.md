@@ -1,7 +1,8 @@
 @antdp/layout-tabs
 ---
 
-[![npm](https://img.shields.io/npm/v/@antdp/layout-tabs.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/layout-tabs)
+[![npm version](https://img.shields.io/npm/v/@antdp/layout-tabs.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/layout-tabs)
+[![npm download](https://img.shields.io/npm/dm/@antdp/layout-tabs.svg?style=flat)](https://www.npmjs.com/package/@antdp/layout-tabs)
 
 用于主框架选项卡组件。解决 `antd` 组件 `Tabs` 切换性能慢的问题。
 

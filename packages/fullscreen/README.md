@@ -1,7 +1,8 @@
 @antdp/fullscreen
 ---
 
-[![npm](https://img.shields.io/npm/v/@antdp/fullscreen.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/fullscreen)
+[![npm version](https://img.shields.io/npm/v/@antdp/fullscreen.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/fullscreen)
+[![npm download](https://img.shields.io/npm/dm/@antdp/fullscreen.svg?style=flat)](https://www.npmjs.com/package/@antdp/fullscreen)
 
 设置页面全屏。
 

@@ -2,6 +2,7 @@
 ---
 
 [![npm](https://img.shields.io/npm/v/@antdp/user-login.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/user-login)
+[![npm download](https://img.shields.io/npm/dm/@antdp/user-login.svg?style=flat)](https://www.npmjs.com/package/@antdp/user-login)
 
 登录界面
 

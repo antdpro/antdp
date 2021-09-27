@@ -2,6 +2,7 @@
 ---
 
 [![npm](https://img.shields.io/npm/v/@antdp/document-title.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/document-title)
+[![npm download](https://img.shields.io/npm/dm/@antdp/document-title.svg?style=flat)](https://www.npmjs.com/package/@antdp/document-title)
 
 设置页面标题。
 

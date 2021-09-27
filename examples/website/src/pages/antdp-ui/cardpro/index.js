@@ -1,10 +1,11 @@
 import str from '@antdp/antdp-ui/lib/CardPro/README.md';
-import MarkdownPreview from '@uiw/react-markdown-preview';
+// import { CardPro } from '@antdp/antdp-ui';
+import Markdown from '../../../components/markdown';
 
 export default function Pages() {
   return (
     <div>
-      <MarkdownPreview source={str} />
+      <Markdown source={str} dependencies={{}} />
     </div>
   );
 }

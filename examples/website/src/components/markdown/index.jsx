@@ -1,7 +1,9 @@
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import rehypeAttr from 'rehype-attr';
+import rehypeRewrite from 'rehype-rewrite';
 import { Component } from 'react';
 import Code from './Code';
+import styles from './index.module.css';
 
 const getCodeStr = (data = [], code = '') => {
   data.forEach((node) => {
@@ -20,7 +22,21 @@ export default class Markdown extends Component {
       <MarkdownPreview
         style={{ padding: '20px 26px 60px 26px' }}
         source={this.props.source}
-        rehypePlugins={[[rehypeAttr, { properties: 'attr' }]]}
+        rehypePlugins={[
+          [rehypeAttr, { properties: 'attr' }],
+          [
+            rehypeRewrite,
+            (node) => {
+              if (
+                node.type === 'element' &&
+                node.tagName === 'pre' &&
+                node.properties['data-type'] === 'rehyp'
+              ) {
+                node.properties['className'].push(styles.rehyp);
+              }
+            },
+          ],
+        ]}
         components={{
           /**
            * bgWhite 设置代码预览背景白色，否则为格子背景。

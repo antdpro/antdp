@@ -1,6 +1,7 @@
 import str from '@antdp/page-loading/README.md';
-import MarkdownPreview from '@uiw/react-markdown-preview';
+import PageLoading from '@antdp/page-loading';
+import Markdown from '../../components/markdown';
 
 export default function Pages() {
-  return <MarkdownPreview source={str} />;
+  return <Markdown source={str} dependencies={{ PageLoading }} />;
 }

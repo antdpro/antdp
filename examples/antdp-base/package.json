@@ -28,8 +28,9 @@
     "@antdp/request": "1.8.13",
     "@antdp/user-login": "1.8.13",
     "@umijs/plugin-locale": "0.10.5",
-    "ahooks": "2.10.9",
-    "antd": "4.10.0",
+    "ahooks": "2.10.11",
+    "antd": "4.16.13",
+    "@ant-design/pro-form":"1.42.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },

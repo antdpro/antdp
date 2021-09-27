@@ -17,7 +17,8 @@
   },
   "files": [
     "lib",
-    "esm"
+    "esm",
+    "src"
   ],
   "peerDependencies": {
     "antd": ">=4.3.0",

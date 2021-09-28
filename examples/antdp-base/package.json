@@ -29,6 +29,7 @@
     "@antdp/request": "1.8.14",
     "@antdp/user-login": "1.8.14",
     "@umijs/plugin-locale": "0.10.5",
+    "@umijs/plugin-model": "^2.6.1",
     "ahooks": "2.10.11",
     "antd": "4.16.13",
     "react": "17.0.2",

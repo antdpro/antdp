@@ -1,15 +1,23 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { Card, Space, Row, Col, Drawer } from 'antd';
 import 'antd/dist/antd.css';
 import { QuickForm, ButtonGroupPro, FormDetail } from '@antdp/antdp-ui';
 import { detailItems } from './item';
 import SearchTable from './SearchTable';
+import { useModel } from 'umi';
 
 const Demo = () => {
-  const [visible, setVisible] = useState(false);
-  const [isView, setIsView] = useState(false);
-  const [fileList, setFileList] = useState([]);
-  const [queryInfo, setInfo] = useState({ time2: 123456 });
+  const {
+    drawerVisible,
+    setTrue,
+    setFalse,
+    queryInfo,
+    setInfo,
+    isView,
+    setIsView,
+  } = useModel('demo', (model) => ({
+    ...model,
+  }));
 
   return (
     <Space direction="vertical" style={{ display: 'block' }}>
@@ -20,7 +28,7 @@ const Demo = () => {
               type: 'primary',
               label: '新增',
               onClick: () => {
-                setVisible(true);
+                setTrue();
                 setIsView(false);
               },
               path: '/demo/add1',
@@ -29,7 +37,7 @@ const Demo = () => {
               type: 'primary',
               label: '详情',
               onClick: () => {
-                setVisible(true);
+                setTrue();
                 setIsView(true);
               },
             },
@@ -59,18 +67,16 @@ const Demo = () => {
         title="详情"
         width={800}
         closable={true}
-        onClose={() => setVisible(false)}
-        visible={visible}
+        onClose={() => setFalse()}
+        visible={drawerVisible}
       >
         <FormDetail
           isView={isView}
-          formDatas={detailItems(
-            fileList,
-            setFileList,
+          formDatas={detailItems({
             isView,
             queryInfo,
             setInfo,
-          )}
+          })}
         />
       </Drawer>
     </Space>

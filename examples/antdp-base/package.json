@@ -24,13 +24,14 @@
     "@antdp/antdp-ui": "1.8.10",
     "@antdp/authorized": "1.8.10",
     "@antdp/basic-layouts": "1.8.10",
+    "@antdp/hooks": "1.8.10",
     "@antdp/page-loading": "1.8.10",
     "@antdp/user-login": "1.8.10",
     "@umijs/plugin-locale": "0.10.5",
+    "ahooks": "2.10.9",
     "antd": "4.10.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "ahooks": "2.10.9"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@antdp/config": "1.8.10",

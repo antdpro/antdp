@@ -31,9 +31,11 @@ export const loadingData = async () => {
   });
 };
 // 模拟分页请求
-export const selectPage = async (params) => {
+export const selectPage = async (params, formData) => {
+  console.log('params--->', params);
+  console.log('formData--->', formData);
   return request('/api/demo/selectPage', {
     method: 'POST',
-    data: params,
+    data: { ...params, ...formData },
   });
 };

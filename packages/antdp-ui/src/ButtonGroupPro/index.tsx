@@ -26,7 +26,7 @@ export interface MenusProps extends Omit<MenuInfo, 'item'> {
 }
 export interface MenusOptionProps
   extends Omit<ButtonProps, 'type'>,
-    ButtonGroupProps {
+  ButtonGroupProps {
   path?: string;
   label?: string | React.ReactNode;
   option?: Array<MenusOptionProps>;
@@ -59,10 +59,10 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
   const handleMenuClick = (
     menus: any,
     idx: number | undefined,
-    e: MenusProps,
+    e: MenuInfo,
   ) => {
     menus.forEach((menu: any, index: number | undefined) => {
-      if (index === Number(e?.key) && menu.onClick) {
+      if (String(index) === e?.key && menu.onClick) {
         setmenuDropdownLabel({ label: menu.label, key: idx });
         menu.onClick();
       }
@@ -74,7 +74,7 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
     idx: number | undefined,
   ) => {
     return (
-      <Menu onClick={(e: MenuInfo) => handleMenuClick(menus, idx, e)}>
+      <Menu onClick={(e: any) => handleMenuClick(menus, idx, e)}>
         {menus &&
           menus.length > 0 &&
           menus.map((items: MenusProps, keys: number) => {
@@ -111,6 +111,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
             type: item.type || 'default',
             onClick: item.onClick,
             disabled: item.disabled,
+            style: {
+              margin: ButtonandDropdown ? '0 0 0 -3px' : '12px 0 12px 12px',
+            },
             ...item,
           } as ButtonProps;
           const buttondom = <Button {...props}>{item.label}</Button>;

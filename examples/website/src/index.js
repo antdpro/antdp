@@ -18,23 +18,44 @@ import ReactLogo from './assets/logo.svg';
 
 const { Sider, Content } = Layout;
 
+// 递归实现----菜单渲染
+function renderMenu(data) {
+  return data.map(({ path, name, icon, childs }) => {
+    if (childs) {
+      return (
+        <Menu.SubMenu key={path} title={name} icon={icon}>
+          {renderMenu(childs)}
+        </Menu.SubMenu>
+      );
+    }
+    return (
+      <Menu.Item key={path} icon={icon}>
+        <NavLink to={path}>{name}</NavLink>
+      </Menu.Item>
+    );
+  });
+}
+// 递归实现----内容渲染
+function renderContent(data) {
+  return data.map(({ childs, ...item }, key) => {
+    if (childs) {
+      return renderContent(childs);
+    }
+    return <Route key={key} exact {...item} />;
+  });
+}
+
 function MenuContent() {
   let location = useLocation();
   return (
-    <Menu theme="dark" mode="inline" defaultSelectedKeys={[location.pathname]}>
-      {data.map(({ path, name, icon }) => {
-        return (
-          <Menu.Item key={path} icon={icon}>
-            <NavLink to={path}>{name}</NavLink>
-          </Menu.Item>
-        );
-      })}
+    <Menu theme="dark" mode="inline" defaultSelectedKeys={[location?.pathname]}>
+      {renderMenu(data)}
     </Menu>
   );
 }
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Fragment>
     <GitHubCorners
       fixed
       href="https://github.com/antdpro/antdp"
@@ -74,17 +95,13 @@ ReactDOM.render(
               }
             >
               <Switch>
-                <Fragment>
-                  {data.map(({ name, icon, ...item }, key) => {
-                    return <Route key={key} exact {...item} />;
-                  })}
-                </Fragment>
+                <Fragment>{renderContent(data)}</Fragment>
               </Switch>
             </Suspense>
           </Content>
         </Layout>
       </Layout>
     </Router>
-  </React.StrictMode>,
+  </Fragment>,
   document.getElementById('root'),
 );

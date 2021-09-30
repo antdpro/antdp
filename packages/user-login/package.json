@@ -1,6 +1,6 @@
 {
   "name": "@antdp/user-login",
-  "version": "1.8.10",
+  "version": "1.8.14",
   "description": "用户登录页面",
   "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": [
@@ -41,15 +41,15 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@ant-design/icons": "4.6.4",
+    "@ant-design/icons": "4.7.0",
     "@antdp/antdp-ui": "1.6.19",
-    "@antdp/document-title": "1.8.10",
+    "@antdp/document-title": "1.8.14",
     "@babel/runtime": "7.15.4"
   },
   "devDependencies": {
     "antd": "4.16.13",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "umi": "3.5.19"
+    "umi": "3.5.20"
   }
 }

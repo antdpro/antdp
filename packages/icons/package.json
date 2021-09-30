@@ -1,6 +1,6 @@
 {
   "name": "@antdp/icons",
-  "version": "1.8.10",
+  "version": "1.8.14",
   "private": true,
   "description": "解决 antd 4.x Icon 组件不存在问题，通过老的方式调用新的图标组件。",
   "main": "lib/cjs/index.js",
@@ -18,7 +18,7 @@
     "index.d.ts"
   ],
   "dependencies": {
-    "@ant-design/icons": "4.6.4",
+    "@ant-design/icons": "4.7.0",
     "@babel/runtime": "7.15.4"
   }
 }

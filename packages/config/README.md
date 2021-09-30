@@ -2,6 +2,7 @@
 ---
 
 [![npm](https://img.shields.io/npm/v/@antdp/config.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/config)
+[![npm download](https://img.shields.io/npm/dm/@antdp/config.svg?style=flat)](https://www.npmjs.com/package/@antdp/config)
 
 将 umi 配置包裹一层
 

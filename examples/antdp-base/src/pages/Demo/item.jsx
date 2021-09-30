@@ -66,13 +66,7 @@ export const columns = [
   },
 ];
 
-export const detailItems = (
-  fileList,
-  setFileList,
-  isView,
-  queryInfo,
-  setInfo,
-) => [
+export const detailItems = ({ isView, queryInfo, setInfo }) => [
   {
     label: '备注',
     name: 'remark',
@@ -131,9 +125,10 @@ export const detailItems = (
     name: 'picture',
     type: 'UploadGrid',
     full: true,
+    onlyimg: true,
     attributes: {
-      fileList: fileList,
-      onChange: ({ fileList }) => setFileList(fileList),
+      fileList: queryInfo?.fileList,
+      onChange: ({ fileList }) => setInfo({ ...queryInfo, fileList: fileList }),
       onDownload: (file) => {
         console.log('file', file);
       },
@@ -142,6 +137,7 @@ export const detailItems = (
       showDownloadIcon: isView,
       showRemoveIcon: !isView,
       showPreviewIcon: true,
+      maxCount: 1,
     },
   },
   {
@@ -149,11 +145,8 @@ export const detailItems = (
     name: 'time2',
     type: 'inputCount',
     attributes: {
-      onChange: (e) => {
-        const info = { ...queryInfo, time2: e };
-        setInfo(info);
-      },
+      onChange: (e) => setInfo({ ...queryInfo, time2: e }),
     },
-    initialValue: queryInfo && queryInfo?.time2,
+    initialValue: queryInfo?.time2,
   },
 ];

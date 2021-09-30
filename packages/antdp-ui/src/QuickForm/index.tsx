@@ -72,6 +72,7 @@ interface ItemsProps<T> {
   type?: string | undefined;
   options?: Array<{ label: string; value: string | number }> | [] | undefined;
   span?: number;
+  render?: JSX.Element;
 }
 
 export interface QuickFormProps<Values> extends FormProps<Values> {
@@ -167,6 +168,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
       defaultRowColspan,
       hideInForm,
       descItem,
+      render,
       ...otherts
     } = item;
     const dataList = options || [];
@@ -270,8 +272,8 @@ const QuickForm: QuickFormComponent = (props, ref) => {
                 <div className="ant-upload-text">上传</div>
               </div>
             );
-            // 上传的图片大于或等于1张时 并且 有onlyimg参数，不显示上传按钮
-          } else if (item.attributes.fileList.length >= 1 && onlyimg) {
+            // 上传的图片大于或等于maxCount张时 并且 有onlyimg参数，不显示上传按钮
+          } else if (item.attributes.maxCount && item.attributes.fileList.length >= item.attributes.maxCount && onlyimg) {
             return null;
           }
           return (
@@ -480,6 +482,8 @@ const QuickForm: QuickFormComponent = (props, ref) => {
                     {...attributes}
                   />
                 );
+              } else if (type === 'render') {
+                return render && render
               } else {
                 if (
                   (attributes && attributes.type === 'Search') ||

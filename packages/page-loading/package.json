@@ -1,9 +1,9 @@
 {
   "name": "@antdp/page-loading",
-  "version": "1.8.10",
+  "version": "1.8.14",
   "description": "页面过渡动画组件。",
   "homepage": "https://antdpro.github.io/antdp",
-  "main": "lib/index.js",
+  "main": "cjs/index.js",
   "module": "esm/index.js",
   "sideEffects": [
     "*.css"
@@ -21,7 +21,7 @@
   "files": [
     "lib",
     "esm",
-    "index.d.ts"
+    "src"
   ],
   "babel": {
     "plugins": [

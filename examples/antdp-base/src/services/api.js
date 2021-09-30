@@ -1,4 +1,4 @@
-import { request } from 'umi';
+import request from '@antdp/request';
 
 export async function userLogin(params) {
   return request('/api/users/login', {
@@ -32,8 +32,6 @@ export const loadingData = async () => {
 };
 // 模拟分页请求
 export const selectPage = async (params, formData) => {
-  console.log('params--->', params);
-  console.log('formData--->', formData);
   return request('/api/demo/selectPage', {
     method: 'POST',
     data: { ...params, ...formData },

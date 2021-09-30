@@ -1,6 +1,6 @@
 {
   "name": "@antdp/config",
-  "version": "1.8.10",
+  "version": "1.8.14",
   "description": "路由配置",
   "homepage": "https://antdpro.github.io/antdp",
   "author": "antdp",
@@ -19,9 +19,9 @@
     "umi"
   ],
   "dependencies": {
-    "@ant-design/icons": "4.6.4",
+    "@ant-design/icons": "4.7.0",
     "@babel/runtime": "7.15.4",
-    "umi": "3.5.19",
+    "umi": "3.5.20",
     "umi-plugin-antd-icon-config": "2.0.4"
   }
 }

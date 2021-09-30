@@ -1,0 +1,35 @@
+{
+  "name": "@antdp/request",
+  "version": "1.8.14",
+  "description": "@/antdp-request",
+  "homepage": "https://antdpro.github.io/antdp",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "license": "MIT",
+  "keywords": [
+    "fullscreen",
+    "antdp",
+    "antd"
+  ],
+  "repository": "https://github.com/antdpro/antdp/tree/master/packages/request",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib",
+    "esm",
+    "index.d.ts"
+  ],
+  "peerDependencies": {
+    "react": ">=16.7.0",
+    "react-dom": ">=16.7.0"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.15.4",
+    "umi-request": "1.4.0"
+  },
+  "devDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  }
+}

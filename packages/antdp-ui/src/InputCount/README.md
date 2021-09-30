@@ -30,8 +30,7 @@ export default class Home extends Component {
 <!--End-->
 
 ### Props
-组件继承 [`Input`](https://ant.design/components/input-cn/#header)
-组件继承 [`Button`](https://ant.design/components/button-cn/#header)
+组件继承 [`Input`](https://ant.design/components/input-cn/#header)[`Button`](https://ant.design/components/button-cn/#header)
 ```ts
 export interface InputCountProps extends InputProps {
   /** 点击短信发送回调 */

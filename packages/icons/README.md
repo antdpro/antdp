@@ -2,6 +2,7 @@
 ---
 
 [![npm](https://img.shields.io/npm/v/@antdp/icons.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/icons)
+[![npm download](https://img.shields.io/npm/dm/@antdp/icons.svg?style=flat)](https://www.npmjs.com/package/@antdp/icons)
 
 > ⚠️ 包已经过时，有更优秀的解决方案 [umi-plugin-antd-icon-config](https://github.com/umijs/umi-plugin-antd-icon-config)
 

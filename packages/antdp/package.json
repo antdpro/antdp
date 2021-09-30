@@ -18,6 +18,7 @@
     "@antdp/dependencies": "1.8.10",
     "@antdp/document-title": "1.8.10",
     "@antdp/fullscreen": "1.8.10",
+    "@antdp/hooks": "1.8.10",
     "@antdp/layout-tabs": "1.8.10",
     "@antdp/page-loading": "1.8.10",
     "@antdp/user-login": "1.8.10"

@@ -1,41 +1,40 @@
 import React, { useRef, useState } from 'react';
 import { useTableResizable } from '@/hooks';
-import { Card, Table, Space, Row, Col } from 'antd';
+import { Card, Table, Space, Row, Col, Form } from 'antd';
 import 'antd/dist/antd.css';
 import { QuickForm, ButtonGroupPro } from '@antdp/antdp-ui';
 import { baseItems, columns } from './item';
 import { asyncAwaitForm } from '@/utils/utils';
 import { selectPage } from '@/services/api';
+import { useTable } from '@antdp/hooks';
 
 const SearchTable = () => {
   const baseRef = useRef();
-  const [filter, setFilter] = useState(null);
+  const [form] = Form.useForm();
 
-  const { submit, loading, dataSource, ...otherTableProps } = useTableResizable(
-    selectPage,
-    (query) => {
-      return {
-        queryData: {
-          ...query,
-        },
-      };
+  const { tableProps, search } = useTable(selectPage, {
+    form,
+    formatResult: (req) => {
+      if (req.code === 1) {
+        return {
+          list: req.data.rows,
+          total: req.data.total,
+        };
+      }
     },
-  );
+    defaultParams: [
+      { current: 1, pageSize: 20 },
+      { name2: '123', name3: '' },
+    ],
+  });
 
-  const handleOk = async () => {
-    const info = await asyncAwaitForm(baseRef.current);
-    if (info?.errorFields) {
-      return;
-    }
-    submit(info);
-    setFilter(info);
-  };
+  const { submit, reset } = search;
 
   return (
     <Space direction="vertical" style={{ display: 'block' }}>
       <Card size="small">
         <QuickForm
-          ref={baseRef}
+          form={form}
           type="CardPro"
           colspan={4}
           formDatas={baseItems()}
@@ -52,11 +51,12 @@ const SearchTable = () => {
                 {
                   type: 'primary',
                   label: '搜索',
-                  onClick: handleOk.bind(this),
+                  onClick: submit,
                 },
                 {
                   type: 'primary',
-                  label: '重制',
+                  label: '重置',
+                  onClick: reset,
                 },
               ]}
             />
@@ -64,14 +64,7 @@ const SearchTable = () => {
         </Row>
       </Card>
       <Card size="small">
-        <Table
-          {...otherTableProps}
-          rowSelection={null}
-          bordered
-          columns={columns}
-          dataSource={dataSource}
-          loading={loading}
-        />
+        <Table {...tableProps} bordered rowKey="id" columns={columns} />
       </Card>
     </Space>
   );

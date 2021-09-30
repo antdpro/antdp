@@ -28,6 +28,7 @@
     "watch:layout-tabs": "lerna exec  --scope @antdp/layout-tabs -- tsbb watch",
     "watch:page-loading": "lerna exec  --scope @antdp/page-loading -- tsbb watch",
     "watch:user-login": "lerna exec  --scope @antdp/user-login -- tsbb watch",
+    "watch:hooks": "lerna exec  --scope @antdp/hooks -- tsbb watch",
     "⬆️⬆️⬆️⬆️⬆️ watch::package ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
     "remove": "lerna exec --scope @antdp/* --scope @example/*  --  rm -rf package-lock.json",
     "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { Card, Space, Row, Col, Drawer } from 'antd';
 import 'antd/dist/antd.css';
 import { QuickForm, ButtonGroupPro, FormDetail } from '@antdp/antdp-ui';
@@ -18,6 +18,14 @@ const Demo = () => {
   } = useModel('demo', (model) => ({
     ...model,
   }));
+
+  const data = useMemo(() => {
+    return detailItems({
+      isView,
+      queryInfo,
+      setInfo,
+    });
+  }, [isView, queryInfo, setInfo]);
 
   return (
     <Space direction="vertical" style={{ display: 'block' }}>
@@ -41,24 +49,6 @@ const Demo = () => {
                 setIsView(true);
               },
             },
-            {
-              label: 'Menu',
-              type: 'primary',
-              menu: [
-                {
-                  key: '1',
-                  label: '新增内部业务',
-                  onClick: () => {},
-                  path: '/demo/add2',
-                },
-                {
-                  key: '2',
-                  label: '新增外部业务',
-                  onClick: () => {},
-                  path: '/demo/add3',
-                },
-              ],
-            },
           ]}
         />
       </Card>
@@ -70,14 +60,7 @@ const Demo = () => {
         onClose={() => setFalse()}
         visible={drawerVisible}
       >
-        <FormDetail
-          isView={isView}
-          formDatas={detailItems({
-            isView,
-            queryInfo,
-            setInfo,
-          })}
-        />
+        <FormDetail isView={isView} formDatas={data} />
       </Drawer>
     </Space>
   );

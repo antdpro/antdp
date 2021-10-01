@@ -25,7 +25,7 @@
     "@antdp/layout-tabs": "1.8.14",
     "@antdp/page-loading": "1.8.14",
     "@antdp/user-login": "1.8.14",
-    "@uiw/react-code-preview": "2.1.2",
+    "@uiw/react-code-preview": "2.1.4",
     "@uiw/react-github-corners": "1.2.0",
     "@uiw/react-markdown-preview": "3.2.2",
     "antdp": "1.8.14",

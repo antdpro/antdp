@@ -1,3 +1,7 @@
 .rehyp {
   overflow: initial !important;
 }
+
+.footer {
+  padding: 0 0 30px 26px;
+}

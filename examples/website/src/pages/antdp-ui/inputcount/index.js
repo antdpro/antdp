@@ -1,10 +1,13 @@
 import str from '@antdp/antdp-ui/lib/InputCount/README.md';
-import MarkdownPreview from '@uiw/react-markdown-preview';
+import Markdown from '../../../components/markdown';
 
 export default function Pages() {
   return (
     <div>
-      <MarkdownPreview source={str} />
+      <Markdown
+        source={str}
+        editePath="https://github.com/antdpro/antdp/edit/master/packages/antdp-ui/src/InputCount/README.md"
+      />
     </div>
   );
 }

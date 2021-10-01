@@ -140,6 +140,7 @@ jobs:
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/page-loading/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/user-login/package.json
     - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/request/package.json
+    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/hooks/package.json
 
     - name: Deploy Website
       uses: peaceiris/actions-gh-pages@v3

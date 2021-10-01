@@ -1,4 +1,4 @@
-useTable Form 与 Table 联动
+useTable 用于antd Form 与 Table 联动
 
 ---
 

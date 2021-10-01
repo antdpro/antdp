@@ -1,35 +1,35 @@
 {
   "name": "@antdp/hooks",
   "version": "1.8.15",
-  "description": "react hooks",
-  "keywords": [
-    "hooks"
-  ],
-  "author": "xingyuefeng <15262870437@163.com>",
-  "homepage": "https://github.com/antdpro/antdp#readme",
-  "license": "MIT",
-  "main": "lib/hooks.js",
+  "description": "@/antdp-hooks",
+  "homepage": "https://antdpro.github.io/antdp",
+  "main": "lib/index.js",
   "module": "esm/index.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
+  "license": "MIT",
+  "keywords": [
+    "fullscreen",
+    "antdp",
+    "antd"
+  ],
+  "repository": "https://github.com/antdpro/antdp/tree/master/packages/hooks",
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "lib",
     "esm",
     "index.d.ts"
   ],
-  "publishConfig": {
-    "registry": "http://registry.npmjs.org/"
+  "peerDependencies": {
+    "react": ">=16.7.0",
+    "react-dom": ">=16.7.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/antdpro/antdp.git"
+  "dependencies": {
+    "@babel/runtime": "7.15.4",
+    "ahooks": "2.10.9"
   },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  },
-  "bugs": {
-    "url": "https://github.com/antdpro/antdp/issues"
+  "devDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   }
 }

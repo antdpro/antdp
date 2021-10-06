@@ -18,7 +18,7 @@ Ant Design Project
 
 ### Quick start
 
-从示例之一初始化项目，让我们快速创建一个 React 应用程序：
+使用 [`create-antdp`](https://antdpro.github.io/create-antdp) 工具，将示例 [`antdp-base`](https://antdpro.github.io/antdp/zip/antdp-base.zip) 初始化，让我们快速创建这个 React 应用程序：
 
 ```shell
 # npm 6.x

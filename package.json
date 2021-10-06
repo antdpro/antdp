@@ -66,7 +66,7 @@
     "react-dom": "17.0.2",
     "react-frame-component": "5.1.0",
     "react-test-renderer": "17.0.2",
-    "tsbb": "3.4.0",
+    "tsbb": "3.4.1",
     "umi": "3.5.20",
     "umi-plugin-antd-icon-config": "2.0.4"
   },

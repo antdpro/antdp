@@ -57,7 +57,7 @@
     "babel-plugin-import": "1.13.3",
     "compile-less-cli": "1.8.9",
     "husky": "7.0.2",
-    "jest-environment-jsdom": "27.2.4",
+    "jest-environment-jsdom": "27.2.5",
     "kkt": "6.11.0",
     "lerna": "4.0.0",
     "lint-staged": "11.2.0",

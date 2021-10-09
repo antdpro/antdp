@@ -20,7 +20,6 @@ const getCodeStr = (data = [], code = '') => {
 export default class Markdown extends Component {
   render() {
     const { editePath } = this.props;
-    console.log('editePath:', editePath);
     return (
       <Fragment>
         <MarkdownPreview
@@ -29,14 +28,16 @@ export default class Markdown extends Component {
           rehypePlugins={[
             [
               rehypeRewrite,
-              (node) => {
-                if (
-                  node.type === 'element' &&
-                  node.tagName === 'pre' &&
-                  node.properties['data-type'] === 'rehyp'
-                ) {
-                  node.properties['className'].push(styles.rehyp);
-                }
+              {
+                rewrite: (node) => {
+                  if (
+                    node.type === 'element' &&
+                    node.tagName === 'pre' &&
+                    node.properties['data-type'] === 'rehyp'
+                  ) {
+                    node.properties['className'].push(styles.rehyp);
+                  }
+                },
               },
             ],
           ]}

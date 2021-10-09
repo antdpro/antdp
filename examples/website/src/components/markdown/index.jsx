@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
-import rehypeAttr from 'rehype-attr';
 import rehypeRewrite from 'rehype-rewrite';
 import { Component } from 'react';
 import Code from './Code';
@@ -28,7 +27,6 @@ export default class Markdown extends Component {
           style={{ padding: '20px 26px 40px 26px' }}
           source={this.props.source}
           rehypePlugins={[
-            [rehypeAttr, { properties: 'attr' }],
             [
               rehypeRewrite,
               (node) => {

@@ -47,6 +47,13 @@ import {
 } from './formLayout';
 import './index.css';
 
+import { HideContext, useHideContext } from "./Hide/context"
+import { GetStoreProps } from "./Hide/interface"
+import useFormItemHide from "./Hide/store"
+import Hide from "./Hide"
+
+export { getChildItemFun as getChildFormItemFun } from "./utils"
+
 const Panel = Collapse.Panel;
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -98,6 +105,11 @@ export interface QuickFormProps<Values> extends FormProps<Values> {
   type?: string;
   /** antd collapse.panel 自定义渲染每个面板右上角的内容 */
   extra?: any;
+
+  /** Form.useFormItemHide 返回值  */
+  formHide?: GetStoreProps;
+  /** 初始值 隐藏显示 字段对应的值 */
+  initialHide?: { [x: string]: boolean };
 }
 
 export type QuickFormComponent<Values = any> = (
@@ -122,8 +134,13 @@ const QuickForm: QuickFormComponent = (props, ref) => {
     defaultFormLayout = 'vertical',
     defaultFormItemLayout = formDefaultFormItemLayout,
     size = 'default',
+    formHide,
+    initialHide,
     ...otherProps
   } = props;
+
+  const [hide] = useFormItemHide(formHide)
+  hide.setInitialValues(initialHide || {}, true)
 
   const HideFormItemDoM = []; // 隐藏的表单
   const FormItemDoM = [];
@@ -169,6 +186,8 @@ const QuickForm: QuickFormComponent = (props, ref) => {
       hideInForm,
       descItem,
       render,
+      // 用于判断是否需要进行隐藏显示 (在组件外层包裹一层组件用于控制item显示和隐藏)
+      isHide,
       ...otherts
     } = item;
     const dataList = options || [];
@@ -298,8 +317,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
         );
       }
     };
-
-    return (
+    let renderItem = (
       <Col
         key={idx}
         style={{
@@ -530,7 +548,18 @@ const QuickForm: QuickFormComponent = (props, ref) => {
           )}
         </FormItem>
       </Col>
-    );
+    )
+
+    if (isHide && name) {
+      return (
+        <Hide key={idx} name={name}>
+          {renderItem}
+        </Hide>
+      );
+    }
+
+
+    return renderItem;
   };
   // 隐藏的表单集合
   const hideCollapseForm = HideFormItemDoM.map((item, idx) =>
@@ -548,23 +577,25 @@ const QuickForm: QuickFormComponent = (props, ref) => {
   });
   // Form+表单集合
   const FormDom = (
-    <ConfigProvider locale={zhCN}>
-      <Form
-        layout={defaultFormLayout ? defaultFormLayout : 'horizontal'}
-        ref={ref}
-        {...(defaultFormLayout && defaultFormLayout === 'vertical'
-          ? null
-          : formitemlayout)}
-        {...otherProps}
-      >
-        <Row>{hideCollapseForm}</Row>
-        <div>{CollapseForm}</div>
-      </Form>
-    </ConfigProvider>
+    <HideContext.Provider value={hide} >
+      <ConfigProvider locale={zhCN}>
+        <Form
+          layout={defaultFormLayout ? defaultFormLayout : 'horizontal'}
+          ref={ref}
+          {...(defaultFormLayout && defaultFormLayout === 'vertical'
+            ? null
+            : formitemlayout)}
+          {...otherProps}
+        >
+          <Row>{hideCollapseForm}</Row>
+          <div>{CollapseForm}</div>
+        </Form>
+      </ConfigProvider>
+    </HideContext.Provider>
   );
   // type 为 modal时没有折叠，没有标题，直接显示form表单内容
   if (type === 'modal') {
-    return <div style={{ margin: -10 }}>{FormDom}</div>;
+    return <div style={{ margin: -10 }}>{FormDom}</div>
   }
   // type 为CardPro  带标题
   if (type === 'CardPro') {
@@ -597,4 +628,19 @@ const QuickForm: QuickFormComponent = (props, ref) => {
   );
 };
 
-export default forwardRef(QuickForm);
+const FormForward = forwardRef(QuickForm)
+
+type initFormProps = typeof FormForward
+
+interface QFormProps extends initFormProps {
+  useHideContext: typeof useHideContext;
+  useFormItemHide: typeof useFormItemHide
+}
+
+const QForm = FormForward as QFormProps
+
+QForm.useHideContext = useHideContext
+
+QForm.useFormItemHide = useFormItemHide
+
+export default QForm

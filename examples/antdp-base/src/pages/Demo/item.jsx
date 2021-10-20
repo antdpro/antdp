@@ -32,6 +32,7 @@ export const baseItems = () => [
     label: '消息名称',
     name: 'name3',
     type: 'input',
+    isHide: true,
   },
 ];
 

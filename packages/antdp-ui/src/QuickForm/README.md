@@ -98,6 +98,11 @@ interface QuickFormProps<Values> extends FormProps<Values> {
   type?: string,
   /** antd collapse.panel 自定义渲染每个面板右上角的内容 */
   extra?: any
+  
+   /** Form.useFormItemHide 返回值  */
+  formHide?: GetStoreProps;
+  /** 初始值 隐藏显示 字段对应的值 */
+  initialHide?: { [x: string]: boolean };
 }
 
 export type QuickFormComponent<Values = any> = (

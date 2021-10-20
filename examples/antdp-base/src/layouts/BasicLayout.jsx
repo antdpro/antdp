@@ -1,7 +1,7 @@
 import React from 'react';
 import BasicLayout from '@antdp/basic-layouts';
 import Authorized from '@antdp/authorized';
-import { useIntl, SelectLang } from 'umi';
+import { useModel, useIntl, SelectLang } from 'umi';
 import {
   LogoutOutlined,
   SettingOutlined,
@@ -9,7 +9,6 @@ import {
 } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import logo from './logo.svg';
-import { useModel } from 'umi';
 
 const Layout = (props) => {
   const { token, logout } = useModel('user', (model) => ({ ...model }));

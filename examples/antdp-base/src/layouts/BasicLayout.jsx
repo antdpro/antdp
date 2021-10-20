@@ -1,7 +1,7 @@
 import React from 'react';
 import BasicLayout from '@antdp/basic-layouts';
 import Authorized from '@antdp/authorized';
-import { connect, useIntl, SelectLang } from 'umi';
+import { useIntl, SelectLang } from 'umi';
 import {
   LogoutOutlined,
   SettingOutlined,
@@ -9,10 +9,12 @@ import {
 } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import logo from './logo.svg';
+import { useModel } from 'umi';
 
 const Layout = (props) => {
+  const { token, logout } = useModel('user', (model) => ({ ...model }));
   return (
-    <Authorized authority={!!props.token} redirectPath="/login">
+    <Authorized authority={!!token} redirectPath="/login">
       <BasicLayout
         {...props}
         projectName="Ant Design"
@@ -48,7 +50,7 @@ const Layout = (props) => {
             title: '退出登录',
             icon: <LogoutOutlined />,
             onClick: () => {
-              props.dispatch({ type: 'global/logout' });
+              logout();
             },
           },
         ]}
@@ -57,6 +59,4 @@ const Layout = (props) => {
   );
 };
 
-export default connect(({ global, loading }) => ({
-  token: global.token,
-}))(Layout);
+export default Layout;

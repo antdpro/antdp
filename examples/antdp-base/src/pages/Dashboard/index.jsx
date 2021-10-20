@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Input, Button, Table, Form, Space, DatePicker } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { connect } from 'umi';
 import moment from 'moment';
 import 'antd/dist/antd.css';
 
@@ -89,8 +88,4 @@ class Workplace extends Component {
   }
 }
 
-export default connect(({ loading }) => {
-  return {
-    loading: loading,
-  };
-})(Workplace);
+export default Workplace;

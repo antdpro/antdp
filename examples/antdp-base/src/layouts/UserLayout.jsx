@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { connect } from 'umi';
 import UserLogin from '@antdp/user-login';
 import Authorized from '@antdp/authorized';
 import {
@@ -9,12 +8,14 @@ import {
 } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import logo from './logo.svg';
+import { useModel } from 'umi';
 
 const UserLayout = (props) => {
   const baseRef = useRef();
   const TYPE = 'both';
+  const { token, login } = useModel('user', (model) => ({ ...model }));
   return (
-    <Authorized authority={!props.token} redirectPath="/">
+    <Authorized authority={!token} redirectPath="/">
       <UserLogin
         ref={baseRef}
         logo={logo}
@@ -30,10 +31,7 @@ const UserLayout = (props) => {
           } else {
             params = values;
           }
-          props.dispatch({
-            type: 'global/login',
-            payload: params,
-          });
+          login(params);
         }}
         type={TYPE}
         onSend={() => console.log('短信验证回调')}
@@ -71,9 +69,4 @@ const UserLayout = (props) => {
   );
 };
 
-export default connect(({ global, loading }) => {
-  return {
-    token: global.token,
-    loading: loading.effects['global/login'],
-  };
-})(UserLayout);
+export default UserLayout;

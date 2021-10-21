@@ -8,10 +8,12 @@ import { getChildFormItemFun } from '@antdp/antdp-ui/lib/QuickForm';
 const SearchTable = () => {
   const baseRef = useRef();
   const [form] = Form.useForm();
+  // 获取form表单隐藏方法
   const [hide] = QuickForm.useFormItemHide();
   // 获取form表单内部 状态更新方法
   const { updateValue } = getChildFormItemFun(form);
 
+  // 分页接口
   const { tableProps, search } = useTable(selectPage, {
     form,
     formatResult: (req) => {
@@ -29,6 +31,8 @@ const SearchTable = () => {
   });
 
   const { submit, reset } = search;
+
+  // 表单变更
   const onValuesChange = (value) => {
     if (value && value.name2 === '1234') {
       // 组件显示
@@ -45,13 +49,13 @@ const SearchTable = () => {
     <Space direction="vertical" style={{ display: 'block' }}>
       <Card size="small">
         <QuickForm
+          type="CardPro"
+          colspan={4}
+          form={form}
           // 与 form 参数类似
           formHide={hide}
           // 组件显示隐藏初始值
           initialHide={{ name3: true }}
-          form={form}
-          type="CardPro"
-          colspan={4}
           formDatas={baseItems()}
           onValuesChange={onValuesChange}
         />

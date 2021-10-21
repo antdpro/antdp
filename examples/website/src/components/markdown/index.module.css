@@ -2,6 +2,11 @@
   overflow: initial !important;
 }
 
+[data-type="rehyp"] {
+  overflow-x: initial !important;
+  overflow: initial !important;
+}
+
 .footer {
   padding: 0 0 30px 26px;
 }

@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@types/classnames": "2.3.1",
-    "@types/react": "17.0.30",
+    "@types/react": "17.0.31",
     "@types/react-dom": "17.0.10",
     "antd": "4.16.13",
     "babel-plugin-import": "1.13.3",

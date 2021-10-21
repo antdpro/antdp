@@ -45,7 +45,7 @@ class Store {
       // 保存的值进行删除
       const pathName = entery.getNamePath();
       if (pathName) {
-        this.store = setValue(this.store, pathName, undefined, true);
+        this.store = setValue(this.store, pathName, undefined);
       }
     };
   };

@@ -3,13 +3,14 @@ ButtonGroupPro
 ---
 
 ButtonGroupPro权限按钮组
+> 🚧 暂时去除改组件权限功能,待下版本优化
+
 
 ### 基础示例
 
-<!--DemoStart--> 
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import ReactDOM from 'react-dom';
-import React, { Component } from 'react';
 import { ButtonGroupPro } from '@antdp/antdp-ui'
 const Demo  = ()=> {
     return (
@@ -20,15 +21,6 @@ const Demo  = ()=> {
               type: 'primary',
               label: 'Button',
               onClick: () => {},
-            },
-            {
-              type: 'buttonGroup',
-              ButtonandDropdown: true,
-              option:[
-                { type: 'primary', label: '新增' },
-                { type: 'primary',label: '导出'},
-                { type: 'primary',label: '设置列' },
-              ],
             },
             {
               label: 'Menu',

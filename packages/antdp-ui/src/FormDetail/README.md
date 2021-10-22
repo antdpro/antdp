@@ -5,10 +5,12 @@ FormDetail 快速详情表单
 
 ### 基础示例
 
-<!--DemoStart--> 
+
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
 import React, { useRef , useState } from 'react';
 import { FormDetail } from '@antdp/antdp-ui'
+import ReactDOM from 'react-dom';
 
 const FormDetailDemo = () => {
   const [ fileList , setFileList ] =useState([])
@@ -35,32 +37,12 @@ const FormDetailDemo = () => {
               type: "radio",
               options: [{ label: "青菜", value: 1 }, { label: "黄瓜", value: 2 }],
               initialValue: 2
-            },
-            {
-              label: "上报时间",
-              name: "time",
-              type: "datePicker",
-              initialValue: moment()
-            },
-            {
-              label: "照片",
-              name: "picture",
-              type: "UploadGrid",
-              full: true,
-              attributes: {
-                fileList: this.state.fileList,
-                onChange: ({ fileList }) =>setFileList(fileList),
-                action: "",
-                listType: "picture-card",
-                showDownloadIcon:true,
-                showRemoveIcon:true,
-                showPreviewIcon:true,
-              }
             }
           ]}
         />
+  )
 }
-export default FormDetailDemo
+ReactDOM.render(<FormDetailDemo />, _mount_);
 ```
 <!--End-->
 

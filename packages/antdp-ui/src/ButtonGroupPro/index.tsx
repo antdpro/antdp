@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Dropdown, Menu, Badge } from 'antd';
 import { ButtonProps } from 'antd/es/button';
 import { ButtonGroupProps, ButtonType } from 'antd/lib/button';
-import { AuthorizedBtn } from '@antdp/authorized';
+// import { AuthorizedBtn } from '@antdp/authorized';
 import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import './index.css';
@@ -170,9 +170,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                       ...it,
                     } as ButtonProps;
                     it.path ? (
-                      <AuthorizedBtn key={idx} path={item.path}>
+                      // <AuthorizedBtn key={idx} path={item.path}>
                         <Button {...buttonGroupprops}>{it.label}</Button>
-                      </AuthorizedBtn>
+                      // </AuthorizedBtn>
                     ) : (
                       <Button {...buttonGroupprops} key={index}>
                         {it.label}
@@ -185,9 +185,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
           // 自定义render
           if (item.render) {
             return item.path ? (
-              <AuthorizedBtn key={idx} path={item.path}>
-                {item.render(item.label)}
-              </AuthorizedBtn>
+              // <AuthorizedBtn key={idx} path={item.path}>
+                item.render(item.label)
+              // </AuthorizedBtn>
             ) : (
               <span key={idx}>{item.render(item.label)}</span>
             );
@@ -195,15 +195,15 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
           // 单独Button
           if (item.path) {
             return item.badge ? (
-              <AuthorizedBtn key={idx} path={item.path}>
+              // <AuthorizedBtn key={idx} path={item.path}>
                 <Badge {...badgeaParams} style={{ marginTop: '15px' }}>
                   {buttondom}
                 </Badge>
-              </AuthorizedBtn>
+              // </AuthorizedBtn>
             ) : (
-              <AuthorizedBtn key={idx} path={item.path}>
-                {buttondom}
-              </AuthorizedBtn>
+              // <AuthorizedBtn key={idx} path={item.path}>
+                buttondom
+              // </AuthorizedBtn>
             );
           } else {
             return item.badge ? (

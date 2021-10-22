@@ -6,26 +6,25 @@ InputCount
 
 ### 基础示例
 
-<!--DemoStart--> 
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import { InputCount } from '@antdp/antdp-ui'
-export default class Home extends Component {
-  state={
-    value:""
-  }
+class Demo extends Component {
   render() {
     return (
       <div>
         <InputCount
-          value={this.state.value}
-          onChange={(value)=>this.setState({value:value})}
+          value={''}
+          onChange={(value)=>{}}
           onSend={()=>console.log('短信发送了')}
         />
       </div>
     )
   }
 }
+ReactDOM.render(<Demo />, _mount_);
 ```
 <!--End-->
 

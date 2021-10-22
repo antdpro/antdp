@@ -8,10 +8,10 @@ ButtonGroupPro权限按钮组
 
 <!--DemoStart--> 
 ```jsx
+import ReactDOM from 'react-dom';
 import React, { Component } from 'react';
 import { ButtonGroupPro } from '@antdp/antdp-ui'
-export default class Home extends Component {
-  render() {
+const Demo  = ()=> {
     return (
       <div>
        <ButtonGroupPro
@@ -20,7 +20,6 @@ export default class Home extends Component {
               type: 'primary',
               label: 'Button',
               onClick: () => {},
-              path:"/demo/add1",
             },
             {
               type: 'buttonGroup',
@@ -39,14 +38,12 @@ export default class Home extends Component {
                   key: '1',
                   label: '新增2',
                   onClick: ()=>{},
-                  path:"/demo/add2",
                 },
                 {
                   key: '2',
                   label: '新增3',
                   onClick: ()=>{},
                   disabled: true,
-                  path:"/demo/add3",
                 }
               ]
             }
@@ -54,8 +51,8 @@ export default class Home extends Component {
         />
       </div>
     )
-  }
 }
+ReactDOM.render(<Demo />, _mount_);
 ```
 <!--End-->
 

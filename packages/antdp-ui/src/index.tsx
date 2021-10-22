@@ -12,5 +12,7 @@ export * from './InputCount';
  * 这个组件有个严重问题。
  * 报错：Module not found: Can't resolve '@@/core/umiExports' in 
  * 这个组件 `@antdp/authorized` 引入了 `umi` 中的 `Redirect`
+ * 暂时删除 ButtonGroupPro AuthorizedBtn权限组件
  */
 export { default as ButtonGroupPro } from './ButtonGroupPro';
+export * from './ButtonGroupPro';

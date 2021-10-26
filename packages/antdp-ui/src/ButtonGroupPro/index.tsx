@@ -8,8 +8,6 @@ import classNames from 'classnames';
 import './index.css';
 import { MenuInfo } from 'rc-menu/lib/interface';
 
-const ButtonGroup = Button.Group;
-
 export interface ButtonGroupProProps {
   button: Array<any>;
   className?: string;
@@ -33,7 +31,7 @@ export interface MenusOptionProps
   menu?: Array<MenusProps>;
   key?: number;
   ButtonandDropdown?: string | number;
-  type?: ButtonType | 'buttonGroup';
+  type?: ButtonType;
   render?: (...arg: any) => React.ReactNode;
   badge?: number | string;
 }
@@ -147,39 +145,6 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
               <Dropdown overlay={() => renderMenu(item.menu, idx)} key={idx}>
                 {DropdownButtonDom}
               </Dropdown>
-            );
-          }
-          // ButtonGroup按钮组
-          if (item.type === 'buttonGroup') {
-            return (
-              <ButtonGroup key={idx}>
-                {item.option &&
-                  item.option?.length > 0 &&
-                  item.option.map((it: MenusOptionProps, index: number) => {
-                    const buttonGroupprops = {
-                      size: 'middle',
-                      type: it.type || 'default',
-                      onClick: it.onClick,
-                      disabled: it.disabled,
-                      icon: item.icon,
-                      style: {
-                        margin: item.ButtonandDropdown
-                          ? '0 0 0 -2px'
-                          : '12px 0 12px 12px',
-                      },
-                      ...it,
-                    } as ButtonProps;
-                    it.path ? (
-                      // <AuthorizedBtn key={idx} path={item.path}>
-                        <Button {...buttonGroupprops}>{it.label}</Button>
-                      // </AuthorizedBtn>
-                    ) : (
-                      <Button {...buttonGroupprops} key={index}>
-                        {it.label}
-                      </Button>
-                    );
-                  })}
-              </ButtonGroup>
             );
           }
           // 自定义render

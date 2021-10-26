@@ -3,7 +3,7 @@ ButtonGroupPro
 ---
 
 ButtonGroupPro权限按钮组
-> 🚧 暂时去除改组件权限功能,待下版本优化
+> 🚧 1.废弃 type="buttonGroup" 2.暂时去除改组件权限功能,待下版本优化
 
 
 ### 基础示例
@@ -58,7 +58,7 @@ interface MenusOptionProps extends Omit<ButtonProps, "type">, ButtonGroupProps {
   menu?: Array<MenusProps>;
   key?: number;
   ButtonandDropdown?: string | number;
-  type?: ButtonType | "buttonGroup";
+  type?: ButtonType;
   render?: (...arg: any) => React.ReactNode;
   badge?: number | string
 }

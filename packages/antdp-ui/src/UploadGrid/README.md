@@ -5,36 +5,32 @@ UploadGrid 可拖拽上传组件。
 
 ### 基础示例
 
-<!--DemoStart--> 
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx
-import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import React, { useState } from 'react';
 import { UploadGrid } from '@antdp/antdp-ui'
-import { PlusOutlined } from '@ant-design/icons/lib';
-export default class Home extends Component {
-  state = {
-    fileList: []
-  }
-  uploadButton = (
+const Demo = () => {
+  const [fileList,setFileList] = useState([])
+  const uploadButton = (
     <div>
-      <PlusOutlined />
       <div>Upload</div>
     </div>
   );
-  render() {
-    return (
-      <div>
-        <UploadGrid
-          action=""
-          listType="picture-card"
-          fileList={this.state.fileList}
-          onChange={({ fileList }) => { this.setState({ fileList: fileList }) }}
-        >
-          {this.state.fileList.length >= 9 ? null : this.uploadButton}
-        </UploadGrid>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <UploadGrid
+        action=""
+        listType="picture-card"
+        fileList={fileList}
+        onChange={({ fileList }) =>setFileList(fileList)}
+      >
+        {fileList.length >= 9 ? null : uploadButton}
+      </UploadGrid>
+    </div>
+  )
 }
+ReactDOM.render(<Demo />, _mount_);
 ```
 <!--End-->
 

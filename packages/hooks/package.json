@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.15.4",
-    "ahooks": "2.10.11"
+    "ahooks": "2.10.12"
   },
   "devDependencies": {
     "react": "17.0.2",

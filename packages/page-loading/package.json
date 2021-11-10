@@ -40,7 +40,7 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.16.0"
+    "@babel/runtime": "7.16.3"
   },
   "devDependencies": {
     "antd": "4.16.13",

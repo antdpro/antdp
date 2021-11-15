@@ -44,7 +44,7 @@
     "@ant-design/icons": "4.7.0",
     "@antdp/antdp-ui": "1.6.19",
     "@antdp/document-title": "1.8.16",
-    "@babel/runtime": "7.16.0"
+    "@babel/runtime": "7.16.3"
   },
   "devDependencies": {
     "antd": "4.16.13",

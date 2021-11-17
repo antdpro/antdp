@@ -53,6 +53,13 @@ export default config;
 - `ANTD_MENU_IS_SHOW` 是否显示 左侧菜单
 - `ANTD_HEAD_IS_SHOW` 是否显示 head头部 
 
+## Locale
+- `default` 国际化，默认值`zh-CN`
+- `antd`: 默认值`true`,
+- `title`: 默认值`true`,
+- `baseNavigator`: 默认值`true`,
+- `baseSeparator`: 默认值`-`,
+
 ## favicon
 
 ```js

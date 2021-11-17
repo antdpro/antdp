@@ -17,6 +17,7 @@ npm i @antdp/basic-layouts --save
 ```jsx
 import BasicLayout from '@antdp/basic-layouts';
 import logo from './logo.svg';
+import {  useIntl } from 'umi';
 
 export default (props) => {
   return (
@@ -24,6 +25,7 @@ export default (props) => {
       {...props}
       projectName="Ant Design Pro2"
       logo={logo}
+      intlLanguage={useIntl()}
     />
   )
 };
@@ -80,5 +82,9 @@ export default (props) => {
     path: string;
     url: string;
   };
+  /**
+   * 开启umi国际化配置
+  */
+  intlLanguage:any
 }
 ```

@@ -54,11 +54,12 @@ export default config;
 - `ANTD_HEAD_IS_SHOW` 是否显示 head头部 
 
 ## Locale
-- `default` 国际化，默认值`zh-CN`
-- `antd`: 默认值`true`,
-- `title`: 默认值`true`,
-- `baseNavigator`: 默认值`true`,
-- `baseSeparator`: 默认值`-`,
+继承于umi [`@umijs/plugin-locale`](https://umijs.org/zh-CN/plugins/plugin-locale)
+- `default` 当检测不到具体语言时，展示 default 中指定的语言。 默认值`zh-CN`
+- `antd`:开启后，支持 antd 国际化 默认值`true`,
+- `title`:标题国际化 默认值`true`,
+- `baseNavigator`:开启浏览器语言检测。 默认值`true`,
+- `baseSeparator`: 国家（lang） 与 语言（language） 之间的分割符。 默认值`-`返回的语言及目录文件为 zh-CN、en-US、sk 等。,
 
 ## favicon
 

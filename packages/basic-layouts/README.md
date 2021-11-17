@@ -17,7 +17,7 @@ npm i @antdp/basic-layouts --save
 ```jsx
 import BasicLayout from '@antdp/basic-layouts';
 import logo from './logo.svg';
-import {  useIntl } from 'umi';
+import { useIntl,SelectLang } from 'umi';
 
 export default (props) => {
   return (
@@ -26,6 +26,7 @@ export default (props) => {
       projectName="Ant Design Pro2"
       logo={logo}
       intlLanguage={useIntl()}
+      topRightLanguage={<SelectLang />}
     />
   )
 };
@@ -83,8 +84,16 @@ export default (props) => {
     url: string;
   };
   /**
-   * 开启umi国际化配置
-  */
-  intlLanguage:any
+   * 开启umi国际化配置。useIntl 是最常用的 api,它可以获得 formatMessage 等 api 来进行具体的值绑定。
+   */
+  intlLanguage:useIntl();
+  /**
+   * 开启右侧语言选择
+   */
+  topRightLanguage:React.ReactNode;
+  /**
+   * 点击logo图标跳转的路径，默认 /welcome
+   */
+  logoJumpTo?:string;
 }
 ```

@@ -2,5 +2,7 @@
   "template": "node",
   "container": {
     "node": "14"
-  }
+  },
+  "hardReloadOnChange": true,
+  "infiniteLoopProtection": true
 }

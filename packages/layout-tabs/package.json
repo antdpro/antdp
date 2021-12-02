@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.16.3",
-    "react-frame-component": "5.1.0"
+    "react-frame-component": "5.2.0"
   },
   "devDependencies": {
     "antd": "4.16.13",

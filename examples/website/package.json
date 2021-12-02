@@ -27,7 +27,7 @@
     "@antdp/page-loading": "1.8.16",
     "@antdp/request": "1.8.16",
     "@antdp/user-login": "1.8.16",
-    "@uiw/react-code-preview": "2.2.2",
+    "@uiw/react-code-preview": "2.2.3",
     "@uiw/react-github-corners": "1.5.3",
     "@uiw/react-markdown-preview": "3.4.0",
     "antdp": "1.8.16",

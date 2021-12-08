@@ -12,7 +12,7 @@ export default function Pages() {
         </div>
       )}
       <iframe
-        src="https://codesandbox.io/embed/github/antdpro/antdp/tree/master/examples/antdp-base?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+        src="https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0"
         style={{
           width: '100%',
           height: '100%',

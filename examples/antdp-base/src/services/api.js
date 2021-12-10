@@ -8,10 +8,9 @@ export async function userLogin(params) {
 }
 
 // 模拟分页请求
-export const selectPage = async (params, formData) => {
-  const { current, pageSize } = params;
+export const selectPage = async (param) => {
   return request('/api/demo/selectPage', {
     method: 'POST',
-    data: { page: current, pageSize, queryData: { ...formData } },
+    data: param,
   });
 };

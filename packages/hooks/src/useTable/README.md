@@ -8,74 +8,88 @@ useTable封装了常用的 antd Form 与 antd Table 联动逻辑，并且同时�
 
 <!--DemoStart--> 
 ```jsx
-import React, { useRef, useMemo } from 'react';
-import { Card, Space, Row, Col, Drawer } from 'antd';
-import 'antd/dist/antd.css';
-import { QuickForm, ButtonGroupPro, FormDetail } from '@antdp/antdp-ui';
-import { detailItems } from './item';
-import SearchTable from './SearchTable';
-import { useModel } from 'umi';
+import React, { useRef, useState } from 'react';
+import { Card, Table, Space, Row, Col, Form } from 'antd';
+import { QuickForm, ButtonGroupPro } from '@antdp/antdp-ui';
+import { baseItems, columns } from './item';
+import { selectPage } from '@/services/api';
+import { useTable } from '@antdp/hooks';
 
-const Demo = () => {
-  const {
-    drawerVisible,
-    setTrue,
-    setFalse,
-    queryInfo,
-    setInfo,
-    isView,
-    setIsView,
-  } = useModel('demo', (model) => ({
-    ...model,
-  }));
+const SearchTable = () => {
+  const baseRef = useRef();
+  const [form] = Form.useForm();
 
-  const data = useMemo(() => {
-    return detailItems({
-      isView,
-      queryInfo,
-      setInfo,
-    });
-  }, [isView, queryInfo, setInfo]);
+  // 分页接口
+  const { tableProps, search } = useTable(
+    async (params, formData) => {
+      const data = await selectPage({
+        ...params,
+        queryData: { ...formData },
+      });
+      if (data.code === 1) {
+        return {
+          list: data.data.rows,
+          total: data.data.total,
+        };
+      }
+    },
+    {
+      form,
+      defaultParams: [
+        { current: 1, pageSize: 20 },
+        { name2: '123' },
+      ],
+    },
+  );
+
+  const { submit, reset } = search;
 
   return (
     <Space direction="vertical" style={{ display: 'block' }}>
       <Card size="small">
-        <ButtonGroupPro
-          button={[
-            {
-              type: 'primary',
-              label: '新增',
-              onClick: () => {
-                setTrue();
-                setIsView(false);
-              },
-              path: '/demo/add1',
-            },
-            {
-              type: 'primary',
-              label: '详情',
-              onClick: () => {
-                setTrue();
-                setIsView(true);
-              },
-            },
+        <QuickForm
+          type="CardPro"
+          colspan={4}
+          form={form}
+          formDatas={[
+             {
+              label: '消息对象',
+              name: 'name2',
+              type: 'input',
+             }
           ]}
         />
+        <Row>
+          <Col
+            span={24}
+            style={{
+              textAlign: 'right',
+            }}
+          >
+            <ButtonGroupPro
+              button={[
+                {
+                  type: 'primary',
+                  label: '搜索',
+                  onClick: submit,
+                },
+                {
+                  type: 'primary',
+                  label: '重置',
+                  onClick: reset,
+                },
+              ]}
+            />
+          </Col>
+        </Row>
       </Card>
-      <SearchTable />
-      <Drawer
-        title="详情"
-        width={800}
-        closable={true}
-        onClose={() => setFalse()}
-        visible={drawerVisible}
-      >
-        <FormDetail isView={isView} formDatas={data} />
-      </Drawer>
+      <Card size="small">
+        <Table {...tableProps} bordered rowKey="id" columns={columns} />
+      </Card>
     </Space>
   );
 };
-export default Demo;
+export default SearchTable;
 
 ```
 <!--End-->

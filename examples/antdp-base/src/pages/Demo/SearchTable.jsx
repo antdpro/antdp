@@ -14,21 +14,29 @@ const SearchTable = () => {
   const { updateValue } = getChildFormItemFun(form);
 
   // 分页接口
-  const { tableProps, search } = useTable(selectPage, {
-    form,
-    formatResult: (req) => {
-      if (req.code === 1) {
+  const { tableProps, search } = useTable(
+    async (params, formData) => {
+      const data = await selectPage({
+        ...params,
+        queryData: { ...formData },
+      });
+      if (data.code === 1) {
         return {
-          list: req.data.rows,
-          total: req.data.total,
+          list: data.data.rows,
+          total: data.data.total,
         };
       }
     },
-    defaultParams: [
-      { current: 1, pageSize: 20 },
-      { name2: '123', name3: '' },
-    ],
-  });
+    {
+      form,
+      defaultParams: [
+        { current: 1, pageSize: 20 },
+        { name2: '123', name3: '' },
+      ],
+    },
+  );
+
+  console.log('tableProps', tableProps);
 
   const { submit, reset } = search;
 

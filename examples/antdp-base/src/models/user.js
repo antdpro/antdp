@@ -14,6 +14,7 @@ export default function useModelUser() {
       sessionStorage.setItem('token', data.token);
       const li2 = [
         '/',
+        '/EditTable',
         '/welcome',
         '/dashboard',
         '/dashboard/demo',

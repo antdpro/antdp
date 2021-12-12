@@ -1,0 +1,50 @@
+{
+  "name": "@antdp/edit-table",
+  "version": "1.8.16",
+  "description": "基于antd封装的组件",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "homepage": "https://antdpro.github.io/antdp",
+  "repository": "https://github.com/antdpro/antdp/tree/master/packages/antdp-edit-table",
+  "keywords": [
+    "antdp-ui",
+    "antdp",
+    "antd"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib",
+    "esm",
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/antdpro/antdp/issues"
+  },
+  "peerDependencies": {
+    "antd": ">=4.16.13",
+    "react": ">=17.x",
+    "react-dom": ">=17.x"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.16.3",
+    "rc-field-form": "~1.22.0"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.37",
+    "@types/react-dom": "17.0.11",
+    "antd": "4.16.13",
+    "babel-plugin-import": "1.13.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  }
+}

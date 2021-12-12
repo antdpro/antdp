@@ -133,4 +133,10 @@ export const data = [
       },
     ],
   },
+  {
+    path: '/edit-table',
+    name: 'edit-table',
+    icon: <OneToOneOutlined />,
+    component: lazy(() => import('./pages/edit-table')),
+  },
 ];

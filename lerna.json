@@ -1,6 +1,6 @@
 {
   "packages": ["examples/*", "packages/*"],
-  "version": "1.8.17",
+  "version": "1.8.18",
   "command": {
     "version": {
       "ignoreChanges": ["packages/icons/**"]

@@ -1,6 +1,6 @@
 {
   "name": "@example/antdp-base",
-  "version": "1.8.16",
+  "version": "1.8.17",
   "private": true,
   "scripts": {
     "start": "umi dev",
@@ -22,23 +22,23 @@
   },
   "dependencies": {
     "@ant-design/pro-form": "1.42.1",
-    "@antdp/antdp-ui": "1.8.16",
-    "@antdp/edit-table": "1.8.16",
-    "@antdp/authorized": "1.8.16",
-    "@antdp/basic-layouts": "1.8.16",
-    "@antdp/hooks": "1.8.16",
-    "@antdp/page-loading": "1.8.16",
-    "@antdp/request": "1.8.16",
-    "@antdp/user-login": "1.8.16",
+    "@antdp/antdp-ui": "1.8.17",
+    "@antdp/authorized": "1.8.17",
+    "@antdp/basic-layouts": "1.8.17",
+    "@antdp/edit-table": "1.8.17",
+    "@antdp/hooks": "1.8.17",
+    "@antdp/page-loading": "1.8.17",
+    "@antdp/request": "1.8.17",
+    "@antdp/user-login": "1.8.17",
     "ahooks": "3.0.1",
     "antd": "4.16.13",
+    "rc-field-form": "~1.22.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "rc-field-form": "~1.22.0"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@antdp/config": "1.8.16",
-    "@antdp/dependencies": "1.8.16",
+    "@antdp/config": "1.8.17",
+    "@antdp/dependencies": "1.8.17",
     "@umijs/plugin-dva": "0.13.0",
     "@umijs/plugin-locale": "0.14.2",
     "@umijs/plugin-model": "2.6.1",

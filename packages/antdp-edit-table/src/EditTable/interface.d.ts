@@ -43,6 +43,10 @@ export interface ColumnsProps extends ColumnType<any> {
   tip?: (errs: string) => React.ReactNode;
   /** Tooltip 组件属性  */
   tipAttr?: TooltipProps;
+  /** 是否是 List */
+  isList?: boolean;
+  /** list 组件参数 */
+  listAttr?: Omit<ListProps, 'children' | 'name'>;
   /** 自定义 渲染(列原始默认的自定义渲染,加了个 other 参数，不是编辑状态下的表格渲染)  ， other 参数 只有操作列才有 */
   render?: (
     value: any,
@@ -118,6 +122,28 @@ export interface RefEditTableProps {
   newAdd: (string | number)[];
   /** 收集 所有 表单 */
   forms: Store;
+}
+
+
+/**  Item 组件  渲染的单个内部FromItem组件  */
+export interface EditableCellItemProps extends Omit<FieldProps, 'label'> {
+  /** 当前行数据存储父级的name list时不用传 */
+  preName?: string;
+  /** 当前行的所有数据 */
+  itemValue?: any;
+  /** Tooltip 组件属性  */
+  tipAttr?: TooltipProps;
+  /** 错误提示  */
+  tip?: (errs: string) => React.ReactNode;
+  /** 进行覆写 方法时 新增一个 行参数 v */
+  children?:
+  | React.ReactNode
+  | ((
+    control: { [name: string]: any },
+    meta: Meta,
+    form: FormInstance<any>,
+    v?: { record: any },
+  ) => React.ReactNode);
 }
 
 export interface EditFormsProps {

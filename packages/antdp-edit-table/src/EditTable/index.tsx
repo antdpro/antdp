@@ -10,7 +10,7 @@ import {
 } from './interface.d';
 import { FormInstance, ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import Tr, { EditForms } from './Tr';
-import Td from './Td';
+import Td, { EditableCellItem } from './Td';
 import Operation from './Operation';
 export type { ColumnsProps, EditableTableProps, RefEditTableProps };
 const EditableTable = (
@@ -40,12 +40,12 @@ const EditableTable = (
   const [formsRef] = useStore(store)
 
 
-  const [editingKey, setEditingKey] = useState<(string | number)[]>([]);
-  const [newAdd, setNewAdd] = React.useState<(string | number)[]>([]);
+  const [editingKey, setEditingKey] = useState<string[]>([]);
+  const [newAdd, setNewAdd] = React.useState<string[]>([]);
   /** editingKey 和 newAdd 移出 id */
   const removeKey = (id: string | number) => {
-    setEditingKey((arr) => arr.filter((k) => k !== id));
-    setNewAdd((arr) => arr.filter((k) => k !== id));
+    setEditingKey((arr) => arr.filter((k) => `${k}` !== `${id}`));
+    setNewAdd((arr) => arr.filter((k) => `${k}` !== `${id}`));
   };
 
   /** 获取行 所有编辑字段 */
@@ -72,9 +72,9 @@ const EditableTable = (
   };
 
   /** 判断是否编辑 */
-  const isEditing = (record: any) => editingKey.includes(record[rowKey]);
+  const isEditing = (record: any) => editingKey.includes(`${record[rowKey]}`);
   /** 判断是否是新增的 */
-  const isAddEdit = (record: any) => newAdd.includes(record[rowKey]);
+  const isAddEdit = (record: any) => newAdd.includes(`${record[rowKey]}`);
 
   /** 新增  */
   const add = () => {
@@ -102,7 +102,7 @@ const EditableTable = (
   const edit = (record: any) => {
     let obj = { ...record };
     restForm(record[rowKey], obj);
-    setEditingKey((arr) => arr.concat([record[rowKey]]));
+    setEditingKey((arr) => arr.concat([`${record[rowKey]}`]));
   };
 
   /** 取消编辑  */
@@ -113,7 +113,7 @@ const EditableTable = (
 
   /** 删除行 */
   const onDelete = (id: string | number, rowItem: object, index: number) => {
-    const list = dataSource.filter((item) => item[rowKey] !== id);
+    const list = dataSource.filter((item) => `${item[rowKey]}` !== `${id}`);
     removeKey(id);
     onSave && onSave(list, rowItem, rowItem, index);
   };
@@ -121,12 +121,12 @@ const EditableTable = (
   /** 保存 */
   const save = async (key: string | number, record: object, indx: number) => {
     try {
-      const row = await getForm(key).validateFields(fields);
+      const row = await getForm(key).validateFields();
       if (onBeforeSave && !onBeforeSave(row, record, indx)) {
         return;
       }
       const newData = [...dataSource];
-      const index = newData.findIndex((item) => key === item[rowKey]);
+      const index = newData.findIndex((item) => `${key}` === `${item[rowKey]}`);
       if (index > -1) {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
@@ -183,9 +183,11 @@ const EditableTable = (
         attr: col.attr,
         tip: col.tip,
         tipAttr: col.tipAttr,
+        isList: col.isList,
+        listAttr: col.listAttr,
       }),
     };
-  }) as ColumnsType;
+  }) as ColumnsType<any>;
   // 表单值更新 表单更新值适用单个 不使用多个
   const onChange = (
     id: string | number,
@@ -195,8 +197,8 @@ const EditableTable = (
   ) => {
     if (onValuesChange) {
       const list = dataSource.map((item) => {
-        if (id === item[rowKey]) {
-          return { ...item, ...value };
+        if (`${id}` === `${item[rowKey]}`) {
+          return { ...item, ...allValue };
         }
         return { ...item };
       });
@@ -265,12 +267,14 @@ type EditTableType = typeof InitEditTable
 
 interface EditorTableProps extends EditTableType {
   /** form 存储表单 hook */
-  useStore: typeof useStore
+  useStore: typeof useStore;
+  Item: typeof EditableCellItem
 }
 
 const EditorTable = InitEditTable as EditorTableProps
 
 EditorTable.useStore = useStore;
+EditorTable.Item = EditableCellItem;
 
 export default EditorTable
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Col, InputNumber, Button, Select } from 'antd';
+import { Input, Col, InputNumber, Button, Select, Form } from 'antd';
 import EditTable from '@antdp/edit-table';
 import 'antd/dist/antd.css';
 const originData = [];
@@ -24,7 +24,7 @@ export default () => {
     {
       title: 'name',
       dataIndex: 'name',
-      width: '25%',
+      width: '20%',
       editable: true,
       type: 'Custom',
       inputNode: (edit) => {
@@ -41,9 +41,53 @@ export default () => {
       inputNode: <InputNumber />,
     },
     {
+      title: 'isList',
+      dataIndex: 'list',
+      width: '15%',
+      editable: true,
+      type: 'Custom',
+      isList: true,
+      render: (text) => {
+        return (
+          text &&
+          (text || [])
+            .filter((it) => it)
+            .map((ite) => ite.first)
+            .join(',')
+        );
+      },
+      inputNode: (fields, { add, remove }, { errors }) => (
+        <>
+          {fields.map(({ key, name, fieldKey, ...restField }, index) => (
+            <EditTable.Item
+              key={key}
+              {...restField}
+              name={[name, 'first']}
+              fieldKey={[fieldKey, 'first']}
+              rules={[
+                {
+                  required: true,
+                  whitespace: true,
+                  message: 'Missing first name',
+                },
+              ]}
+            >
+              <Input placeholder="First Name" />
+            </EditTable.Item>
+          ))}
+          <Form.Item>
+            <Button type="dashed" onClick={() => add()}>
+              Add field
+            </Button>
+            <Form.ErrorList errors={errors} />
+          </Form.Item>
+        </>
+      ),
+    },
+    {
       title: 'address',
       dataIndex: 'address',
-      width: '40%',
+      width: '30%',
       editable: true,
       type: 'Input',
     },

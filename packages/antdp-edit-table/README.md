@@ -81,6 +81,10 @@ export interface ColumnsProps extends ColumnType<any> {
   tip?: (errs: string) => React.ReactNode;
   /** Tooltip 组件属性  */
   tipAttr?: TooltipProps;
+  /** 是否是 List */
+  isList?: boolean;
+  /** list 组件参数 */
+  listAttr?: Omit<ListProps, 'children' | 'name'>;
   /** 自定义 渲染(列原始默认的自定义渲染,加了个 other 参数，不是编辑状态下的表格渲染)  ， other 参数 只有操作列才有 */
   render?: (
     value: any,
@@ -136,6 +140,33 @@ export interface RefEditTableProps {
 }
 ```
 
+### Item 组件参数
+
+```ts
+/**  Item 组件  渲染的单个内部FromItem组件  */
+export interface EditableCellItemProps extends Omit<FieldProps, 'label'> {
+  /** 当前行数据存储父级的name list时不用传 */
+  preName?: string;
+  /** 当前行的所有数据 */
+  itemValue?: any;
+  /** Tooltip 组件属性  */
+  tipAttr?: TooltipProps;
+  /** 错误提示  */
+  tip?: (errs: string) => React.ReactNode;
+  /** 进行覆写 方法时 新增一个 行参数 v */
+  children?:
+  | React.ReactNode
+  | ((
+    control: { [name: string]: any },
+    meta: Meta,
+    form: FormInstance<any>,
+    v?: { record: any },
+  ) => React.ReactNode);
+}
+```
+
+
+
 ### 案例
 
 
@@ -144,7 +175,7 @@ export interface RefEditTableProps {
 ```tsx
 import ReactDOM from 'react-dom';
 import React from 'react';
-import { Input, Col, InputNumber, Button, Select } from 'antd';
+import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
 import EditTable from '@antdp/edit-table';
 import 'antd/dist/antd.css';
 const originData = [];
@@ -169,7 +200,7 @@ const EditableTable =() => {
     {
       title: 'name',
       dataIndex: 'name',
-      width: '25%',
+      width: '20%',
       editable: true,
       type: 'Custom',
       inputNode: (edit) => {
@@ -186,9 +217,55 @@ const EditableTable =() => {
       inputNode: <InputNumber />,
     },
     {
+      title: 'isList',
+      dataIndex: 'list',
+      width: '15%',
+      editable: true,
+      type: 'Custom',
+      isList: true,
+      render: (text) => {
+        return (
+          text &&
+          (text || [])
+            .filter((it) => it)
+            .map((ite) => ite.first)
+            .join(',')
+        );
+      },
+      inputNode: (fields, { add, remove }, { errors }) => (
+        <>
+          {fields.map(({ key, name, fieldKey, ...restField }, index) => (
+            <div style={{marginBottom:10}} >
+            <EditTable.Item
+              key={key}
+              {...restField}
+              name={[name, 'first']}
+              fieldKey={[fieldKey, 'first']}
+              rules={[
+                {
+                  required: true,
+                  whitespace: true,
+                  message: 'Missing first name',
+                },
+              ]}
+            >
+              <Input placeholder="First Name" />
+            </EditTable.Item>
+            </div>
+          ))}
+          <Form.Item>
+            <Button type="dashed" onClick={() => add()}>
+              Add field
+            </Button>
+            <Form.ErrorList errors={errors} />
+          </Form.Item>
+        </>
+      ),
+    },
+    {
       title: 'address',
       dataIndex: 'address',
-      width: '40%',
+      width: '30%',
       editable: true,
       type: 'Input',
     },

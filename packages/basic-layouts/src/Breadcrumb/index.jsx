@@ -19,10 +19,10 @@ import { getBreadcrumbNameRouterMap } from './../utils';
 // ];
 
 export default (props = {}) => {
-  const { intlLanguage } = props;
+  const { intlLanguage, routeIntl } = props;
   const breadcrumbNameMap = useMemo(
-    () => getBreadcrumbNameRouterMap(props.route.routes),
-    [props.route.routes],
+    () => getBreadcrumbNameRouterMap(routeIntl),
+    [JSON.stringify(routeIntl)],
   );
 
   const _breadcrumbRender = useMemo(() => {

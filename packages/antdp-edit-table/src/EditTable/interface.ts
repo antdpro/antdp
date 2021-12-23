@@ -6,7 +6,9 @@ import { RenderedCell } from 'rc-table/lib/interface';
 import { Rule, ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import { ItemChildAttr, ItemChildType } from './utils';
 import Store from './Store';
-import { FormInstance } from 'rc-field-form/lib/interface';
+import { FormInstance, Meta } from 'rc-field-form/lib/interface';
+import { ListProps } from 'rc-field-form/lib/List';
+
 export interface OtherProps {
   /** 编辑中字段 */
   editingKey: any[];
@@ -126,7 +128,7 @@ export interface RefEditTableProps {
 
 
 /**  Item 组件  渲染的单个内部FromItem组件  */
-export interface EditableCellItemProps extends Omit<FieldProps, 'label'> {
+export interface EditableCellItemProps extends Omit<FieldProps, 'label' | "children"> {
   /** 当前行数据存储父级的name list时不用传 */
   preName?: string;
   /** 当前行的所有数据 */

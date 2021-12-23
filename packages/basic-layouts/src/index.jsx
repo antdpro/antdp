@@ -10,11 +10,7 @@ import MeunView from './Menu';
 import Breadcrumb from './Breadcrumb';
 import TopRightMenu from './TopRightMenu';
 import LogoHeader from './LogoHeader';
-import {
-  getTreeList,
-  getMenuItemRouters,
-  getBreadcrumbNameRouterMap,
-} from './utils';
+import { getTreeList, getMenuItemRouters } from './utils';
 import { getAuthorizedPage } from '@antdp/authorized';
 
 import './index.css';
@@ -79,7 +75,6 @@ export default (props = {}) => {
       title = item.name;
     }
   });
-
   const toPath = getAuthorizedPage(route.routes || [], location.pathname);
   // /**  是否显示 左侧菜单 */
   // ANTD_MENU_IS_SHOW: false,
@@ -119,7 +114,11 @@ export default (props = {}) => {
             >
               <div className="antdp-global-header-left">
                 {ANTD_MENU_IS_SHOW && collapsedView}
-                <Breadcrumb routeData={routeData} {...props} />
+                <Breadcrumb
+                  routeData={routeData}
+                  routeIntl={getRoutes}
+                  {...props}
+                />
               </div>
               {headerRightView}
               {topRightLanguage}

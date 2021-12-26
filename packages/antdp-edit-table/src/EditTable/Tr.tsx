@@ -3,7 +3,7 @@ import { FormInstance } from 'rc-field-form/lib/interface';
 
 import RcForm from 'rc-field-form';
 import Store from './Store';
-import { EditFormsProps } from './interface.d';
+import { EditFormsProps } from './interface';
 
 export const EditForms = React.createContext<EditFormsProps>({
   formsRef: new Store(),

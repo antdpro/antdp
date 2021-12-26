@@ -7,7 +7,7 @@ import {
   ColumnsProps,
   EditableTableProps,
   RefEditTableProps,
-} from './interface.d';
+} from './interface';
 import { FormInstance, ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import Tr, { EditForms } from './Tr';
 import Td, { EditableCellItem } from './Td';

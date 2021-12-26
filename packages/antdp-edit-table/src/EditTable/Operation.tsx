@@ -4,7 +4,7 @@ import {
   ColumnsProps,
   EditableTableProps,
   RefEditTableProps,
-} from './interface.d';
+} from './interface';
 export type { ColumnsProps, EditableTableProps, RefEditTableProps };
 
 export interface OperationProps {

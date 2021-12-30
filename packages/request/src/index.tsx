@@ -43,6 +43,7 @@ request.interceptors.request.use((url: string, options: any) => {
     //如果有token 就走token逻辑
     const headers = {
       Authorization: setToken(),
+      ...((options || {}).headers || {})
     };
     return ({
       url: url,

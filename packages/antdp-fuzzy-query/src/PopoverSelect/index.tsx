@@ -8,30 +8,54 @@ export interface FuzzyQueryProps extends SelectProps<any> {
   /** 请求 */
   request: (params: any) => Promise<{ label: any, value: any, [s: string]: any }[]>
   /** 延迟时间 */
-  debounceTimeout?: number
+  debounceTimeout?: number;
+  /** 提示框宽度 */
+  tipWidth?: number;
 }
 const columnsDefault = [{ dataIndex: "label", title: "名称" }, { dataIndex: "value", title: "编号" }];
 
 const PopoverSelect = (props: FuzzyQueryProps) => {
-  const { onChange, labelInValue = true, columns = columnsDefault, request, debounceTimeout = 800, ...rest } = props
+  const { onChange, labelInValue = true, columns = columnsDefault, request, debounceTimeout = 800, tipWidth, ...rest } = props
+
   const [width, setWidth] = React.useState(0)
   const [fetching, setFetching] = React.useState(false);
-
+  const [visible, setVisible] = React.useState(false);
+  const PopoverRef = React.useRef<any>(true);
   const [dataSource, setDataSource] = React.useState<any[]>([])
+
+  const ValueField = React.useMemo(
+    () => (props.fieldNames && props.fieldNames.value) || 'value',
+    [props.fieldNames],
+  );
+  const LableField = React.useMemo(
+    () => (props.fieldNames && props.fieldNames.label) || 'label',
+    [props.fieldNames],
+  );
+
 
   const inputRef = React.useRef<HTMLDivElement>(null)
   React.useLayoutEffect(() => {
     if (inputRef.current) {
-      const offsetWidth = inputRef.current.offsetWidth
-      setWidth(offsetWidth - 30)
+      if (tipWidth) {
+        setWidth(tipWidth);
+      } else {
+        const offsetWidth = inputRef.current.offsetWidth;
+        setWidth(offsetWidth - 30);
+      }
     }
   }, [])
+
+  // 转换
+  const saveTr = (item: any) => {
+    const { [ValueField]: value, [LableField]: label } = item || {};
+    return { [ValueField]: value, [LableField]: label };
+  };
+
   // 选中数据
   const onClick = (item: any, isCheck: boolean) => {
-    const valueField = props.fieldNames && props.fieldNames.value || "value"
-    let nextValue = item
+    let nextValue: any = saveTr(item);
     if (!labelInValue) {
-      nextValue = item && item[valueField]
+      nextValue = item && nextValue[ValueField];
     }
     if (["tags", "multiple"].includes(props.mode as string)) {
       if (Array.isArray(props.value)) {
@@ -41,7 +65,7 @@ const PopoverSelect = (props: FuzzyQueryProps) => {
         } else {
           nextValue = props.value.filter((it) => {
             if (labelInValue && it) {
-              return it[valueField] !== nextValue[valueField]
+              return it[ValueField] !== nextValue[ValueField]
             }
             return it !== nextValue
           })
@@ -54,9 +78,12 @@ const PopoverSelect = (props: FuzzyQueryProps) => {
         }
       }
     } else {
+      setVisible(false);
       if (!isCheck) {
-        nextValue = undefined
+        nextValue = undefined;
+        return;
       }
+      PopoverRef.current = false;
     }
     onChange && onChange(nextValue, nextValue)
   }
@@ -64,6 +91,10 @@ const PopoverSelect = (props: FuzzyQueryProps) => {
   // 请求数据
   const debounceFetcher = React.useMemo(() => {
     const loadOptions = (value: any) => {
+      if (!PopoverRef.current) {
+        PopoverRef.current = true;
+        return;
+      }
       fetchRef.current += 1;
       const fetchId = fetchRef.current;
       if (request) {
@@ -81,9 +112,20 @@ const PopoverSelect = (props: FuzzyQueryProps) => {
     return debounce(loadOptions, debounceTimeout);
   }, [request, debounceTimeout]);
 
+  const getOptions = () => {
+    return dataSource.map((item) => {
+      const { [ValueField]: value, [LableField]: label } = item;
+      return { [ValueField]: value, [LableField]: label };
+    });
+  };
+
   return <Popover
     trigger="click"
     placement="bottomLeft"
+    visible={visible}
+    onVisibleChange={(vis) => {
+      setVisible(vis);
+    }}
     content={<Table
       columns={columns}
       dataSource={dataSource}
@@ -93,7 +135,7 @@ const PopoverSelect = (props: FuzzyQueryProps) => {
       labelInValue={labelInValue}
       onClick={onClick}
       loading={fetching}
-      fieldNames={props.fieldNames}
+      ValueField={ValueField}
     />}
   >
     <div ref={inputRef} className="popover-select-warp" style={{ width: "100%" }}>
@@ -108,8 +150,7 @@ const PopoverSelect = (props: FuzzyQueryProps) => {
         value={props.value}
         notFoundContent={fetching ? <Spin size="small" /> : null}
         onChange={(value, item) => onChange && onChange(value, item)}
-        open={true}
-        options={dataSource}
+        options={getOptions() as any}
         dropdownStyle={{ display: "none" }}
       />
     </div>

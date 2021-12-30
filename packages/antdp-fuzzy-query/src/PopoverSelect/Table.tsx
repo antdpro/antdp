@@ -8,16 +8,14 @@ export interface TablesProps extends TableProps<any> {
   onClick: (item: any, isCheck: boolean) => void
   mode: SelectProps<any>["mode"];
   labelInValue: boolean;
-  fieldNames?: SelectProps<any>["fieldNames"];
+  ValueField: string;
 }
 
-const getCheck = (item: any, value: TablesProps["value"], mode: any, labelInValue: boolean, fieldNames: SelectProps<any>["fieldNames"]) => {
-  const valueField = fieldNames && fieldNames.value || "value"
-
+const getCheck = (item: any, value: TablesProps["value"], mode: any, labelInValue: boolean, ValueField: string) => {
   if (["tags", "multiple"].includes(mode) && Array.isArray(value)) {
     const fig = value.find(it => {
       if (labelInValue && it) {
-        return it[valueField] === item[valueField]
+        return it[ValueField] === item[ValueField]
       }
       return it === value
     })
@@ -26,29 +24,28 @@ const getCheck = (item: any, value: TablesProps["value"], mode: any, labelInValu
     }
   } else {
     if (labelInValue && value) {
-      return value[valueField] === item[valueField]
+      return value[ValueField] === item[ValueField]
     } else {
-      return value === item
+      return value === item[ValueField]
     }
   }
   return false
 }
 
 export default (props: TablesProps) => {
-  const { value, width, onClick, mode, labelInValue, fieldNames, ...rest } = props
+  const { value, width, onClick, mode, labelInValue, ValueField, ...rest } = props
   const getCheckMome = React.useCallback(getCheck, [JSON.stringify(value)])
   const onRow = (record: any) => {
-    const check = getCheckMome(record, value, mode, labelInValue, fieldNames)
+    const check = getCheckMome(record, value, mode, labelInValue, ValueField)
     return {
       onClick: () => onClick(record, !check),
       style: check && { background: "#e6f7ff" } || {}
     }
   }
-  const valueField = React.useMemo(() => fieldNames && fieldNames.value || "value", [])
 
   return <div className="fuzzy-query-table" >
     <Table
-      rowKey={valueField}
+      rowKey={ValueField}
       onRow={onRow}
       size="small"
       pagination={false}

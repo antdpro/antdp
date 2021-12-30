@@ -1,0 +1,51 @@
+{
+  "name": "@antdp/fuzzy-query",
+  "version": "1.8.19",
+  "description": "基于antd封装的组件  模糊查询 自定义提示",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "homepage": "https://antdpro.github.io/antdp",
+  "repository": "https://github.com/antdpro/antdp/tree/master/packages/antdp-edit-table",
+  "keywords": [
+    "antdp-ui",
+    "antdp",
+    "antd"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "lib",
+    "esm",
+    "src"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/antdpro/antdp/issues"
+  },
+  "peerDependencies": {
+    "antd": ">=4.16.13",
+    "react": ">=17.x",
+    "react-dom": ">=17.x"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.16.5",
+    "lodash": "4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash": "4.14.178",
+    "@types/react": "17.0.37",
+    "@types/react-dom": "17.0.11",
+    "antd": "4.17.4",
+    "babel-plugin-import": "1.13.3",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  }
+}

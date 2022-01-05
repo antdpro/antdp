@@ -18,7 +18,8 @@
     "⬆️⬆️⬆️⬆️⬆️ install ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ install::package ▲▲▲▲▲",
     "⬇️⬇️⬇️⬇️⬇️ watch::package ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ watch::package ▼▼▼▼▼",
     "watch": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb watch",
-    "watch:antdp-edit-table": "lerna exec  --scope @antdp/antdp-edit-table -- tsbb watch",
+    "watch:antdp-edit-table": "lerna exec  --scope @antdp/edit-table -- tsbb watch",
+    "watch:antdp-fuzzy-query": "lerna exec  --scope @antdp/fuzzy-query -- tsbb watch",
     "watch:antdp-ui": "lerna exec  --scope @antdp/antdp-ui -- tsbb watch",
     "watch:authorized": "lerna exec  --scope @antdp/authorized -- tsbb watch",
     "watch:basic-layouts": "lerna exec  --scope @antdp/basic-layouts -- tsbb watch",
@@ -48,6 +49,7 @@
   "author": "jaywcjlove",
   "license": "MIT",
   "dependencies": {
+    "@types/lodash": "4.14.178",
     "@kkt/less-modules": "6.11.0",
     "@kkt/react-library": "6.11.0",
     "@types/jest": "27.0.3",

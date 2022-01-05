@@ -28,6 +28,7 @@
     "@antdp/page-loading": "1.8.19",
     "@antdp/request": "1.8.19",
     "@antdp/user-login": "1.8.19",
+    "@antdp/fuzzy-query": "1.8.19",
     "@uiw/react-code-preview": "2.2.3",
     "@uiw/react-github-corners": "1.5.3",
     "@uiw/react-markdown-preview": "3.4.0",

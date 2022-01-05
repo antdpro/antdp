@@ -84,7 +84,7 @@ export default (props = {}) => {
         </Link>
       </span>
     ),
-    [Homes],
+    [Homes, routesDatas.length],
   );
 
   return (

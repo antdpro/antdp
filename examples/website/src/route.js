@@ -139,4 +139,10 @@ export const data = [
     icon: <OneToOneOutlined />,
     component: lazy(() => import('./pages/edit-table')),
   },
+  {
+    path: '/fuzzy-query',
+    name: 'fuzzy-query',
+    icon: <OneToOneOutlined />,
+    component: lazy(() => import('./pages/fuzzy-query')),
+  },
 ];

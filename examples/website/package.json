@@ -39,10 +39,10 @@
     "web-vitals": "1.0.1"
   },
   "devDependencies": {
-    "@kkt/less-modules": "6.11.0",
-    "@kkt/raw-modules": "6.11.0",
-    "@kkt/scope-plugin-options": "6.11.0",
-    "kkt": "6.11.0"
+    "@kkt/less-modules": "7.0.4",
+    "@kkt/raw-modules": "7.0.4",
+    "@kkt/scope-plugin-options": "7.0.4",
+    "kkt": "7.0.4"
   },
   "eslintConfig": {
     "extends": [

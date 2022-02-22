@@ -48,7 +48,7 @@
   "author": "jaywcjlove",
   "license": "MIT",
   "dependencies": {
-    "@kkt/less-modules": "7.0.4",
+    "@kkt/less-modules": "7.1.1",
     "@kkt/react-library": "7.0.4",
     "@types/jest": "27.4.0",
     "@types/react": "17.0.38",

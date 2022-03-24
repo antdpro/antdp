@@ -29,6 +29,7 @@
             "name": "实例展示",
             "locale": "实例展示",
             "icon": "pie-chart",
+            "index": true,
             "component": "@/pages/Demo"
           },
           {

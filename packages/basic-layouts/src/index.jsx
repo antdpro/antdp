@@ -144,12 +144,15 @@ export default (props = {}) => {
                     {...props}
                   />
                 )}
-                <HeaderMenu
-                  selectedKey={topAndLeftMenu.childParent.get(
-                    location.pathname,
-                  )}
-                  routes={topAndLeftMenu.parentMenu}
-                />
+                {ANTD_MENU_TOP_LEFT && (
+                  <HeaderMenu
+                    selectedKey={topAndLeftMenu.childParent.get(
+                      location.pathname,
+                    )}
+                    childMenus={childMenu}
+                    routes={topAndLeftMenu.parentMenu}
+                  />
+                )}
               </div>
               {headerRightView}
               {topRightLanguage}
@@ -157,17 +160,20 @@ export default (props = {}) => {
           )}
 
           <Layout>
-            {ANTD_TITLE_TOP && Array.isArray(childMenu) && childMenu.length && (
-              <Layout.Sider>
-                <MeunView
-                  {...props}
-                  route={{
-                    routes: childMenu,
-                  }}
-                  selectedKey={location.pathname}
-                />
-              </Layout.Sider>
-            )}
+            {ANTD_TITLE_TOP &&
+              ANTD_MENU_IS_SHOW &&
+              Array.isArray(childMenu) &&
+              childMenu.length && (
+                <Layout.Sider>
+                  <MeunView
+                    {...props}
+                    route={{
+                      routes: childMenu,
+                    }}
+                    selectedKey={location.pathname}
+                  />
+                </Layout.Sider>
+              )}
             <Layout.Content>
               {(() => {
                 if (location.pathname === '/') {

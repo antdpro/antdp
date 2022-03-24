@@ -206,3 +206,41 @@ export const getChildMenu = (routers) => {
     childParent,
   };
 };
+
+export const filterMenus = (routes) => {
+  return routes
+    .map((item) => {
+      if (item && Array.isArray(item.children) && item.children.length) {
+        return {
+          ...item,
+          children: filterMenus(item.children),
+        };
+      }
+      return item;
+    })
+    .filter((item) => {
+      return item.name && !item.hideInMenu;
+    })
+    .sort((a, b) => a.order - b.order);
+};
+
+export const getDiffIndex = (routes) => {
+  let index = undefined;
+  const diff = (menus) => {
+    let length = menus.length;
+    let i = 0;
+    while (i < length) {
+      const item = menus[i];
+      if (item.index) {
+        index = item.path;
+        break;
+      }
+      if (Array.isArray(item.children) && item.children.length) {
+        diff(item.children);
+      }
+      i++;
+    }
+  };
+  diff(routes || []);
+  return index;
+};

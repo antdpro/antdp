@@ -1,6 +1,6 @@
 {
   "name": "@antdp/request",
-  "version": "1.8.19",
+  "version": "1.8.20",
   "description": "@/antdp-request",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",

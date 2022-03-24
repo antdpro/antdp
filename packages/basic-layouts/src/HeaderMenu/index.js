@@ -2,13 +2,19 @@ import React from 'react';
 import { Menu } from 'antd';
 import Link from '../Menu/Link';
 import { useLocation } from 'react-router-dom';
-import { getDiffIndex, filterMenus } from './../utils';
+import { getDiffIndex, filterMenus, getTreeList } from './../utils';
 import { useHistory } from 'umi';
 const HeaderMenu = (props) => {
   const location = useLocation();
   const history = useHistory();
 
   const { selectedKey = '', routes, childMenus } = props;
+
+  const getChildMenu = React.useMemo(() => {
+    return getTreeList(childMenus || []).filter((item) => {
+      return item.name && !item.hideInMenu;
+    });
+  }, [childMenus]);
 
   const NavMenuItems = React.useMemo(() => {
     if (!routes) {
@@ -35,11 +41,8 @@ const HeaderMenu = (props) => {
   };
 
   React.useEffect(() => {
-    if (NavMenuItems.length && (childMenus || []).length) {
-      const index = getDiffIndex(
-        filterMenus(childMenus || []),
-        location.pathname,
-      );
+    if (NavMenuItems.length && (getChildMenu || []).length) {
+      const index = getDiffIndex(getChildMenu, location.pathname);
       if (index !== location.pathname && index) {
         history.push(index);
       }

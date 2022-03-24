@@ -224,23 +224,15 @@ export const filterMenus = (routes) => {
     .sort((a, b) => a.order - b.order);
 };
 
-export const getDiffIndex = (routes) => {
+export const getDiffIndex = (routes, pathname) => {
   let index = undefined;
-  const diff = (menus) => {
-    let length = menus.length;
-    let i = 0;
-    while (i < length) {
-      const item = menus[i];
-      if (item.index) {
-        index = item.path;
-        break;
-      }
-      if (Array.isArray(item.children) && item.children.length) {
-        diff(item.children);
-      }
-      i++;
-    }
-  };
-  diff(routes || []);
-  return index;
+  const treeList = getTreeList(routes || []);
+
+  const current = treeList.find((item) => item.path === pathname);
+  if (current) {
+    return index;
+  }
+  index = treeList.find((item) => item.index);
+
+  return (index || {}).path;
 };

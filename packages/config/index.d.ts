@@ -33,6 +33,10 @@ export interface Options extends Omit<IConfig, 'routes'> {
     ANTD_MENU_IS_SHOW: boolean;
     /**  是否显示 head头部 */
     ANTD_HEAD_IS_SHOW: boolean;
+    /** 父级菜单展示顶部 ，子集菜单展示侧边 */
+    ANTD_MENU_TOP_LEFT: boolean;
+    /** 标题 放在 头部 ,菜单放在头部下面  */
+    ANTD_TITLE_TOP: boolean
   };
 }
 

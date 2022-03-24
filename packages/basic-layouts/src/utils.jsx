@@ -177,3 +177,32 @@ export function getIcon(icon) {
   }
   return icon;
 }
+
+const getDiffChild = (routes, parent, childParent) => {
+  routes.forEach((item) => {
+    childParent.set(item.path, parent);
+    if (Array.isArray(item.children) && item.children.length) {
+      getDiffChild(item.children, parent, childParent);
+    }
+  });
+};
+
+// 所有的 最顶层的父级 找出来，子集放在一个位置
+export const getChildMenu = (routers) => {
+  const parentMenu = [];
+  const childMenu = new Map([]);
+  const childParent = new Map([]);
+  routers.forEach((menu) => {
+    parentMenu.push(menu);
+    childParent.set(menu.path, menu.path);
+    if (Array.isArray(menu.children) && menu.children.length) {
+      childMenu.set(menu.path, menu.children);
+      getDiffChild(menu.children, menu.path, childParent);
+    }
+  });
+  return {
+    parentMenu,
+    childMenu,
+    childParent,
+  };
+};

@@ -207,32 +207,12 @@ export const getChildMenu = (routers) => {
   };
 };
 
-export const filterMenus = (routes) => {
-  return routes
-    .map((item) => {
-      if (item && Array.isArray(item.children) && item.children.length) {
-        return {
-          ...item,
-          children: filterMenus(item.children),
-        };
-      }
-      return item;
-    })
-    .filter((item) => {
-      return item.name && !item.hideInMenu;
-    })
-    .sort((a, b) => a.order - b.order);
-};
-
 export const getDiffIndex = (routes, pathname) => {
   let index = undefined;
-  const treeList = getTreeList(routes || []);
-
-  const current = treeList.find((item) => item.path === pathname);
+  const current = routes.find((item) => item.path === pathname);
   if (current) {
     return index;
   }
-  index = treeList.find((item) => item.index);
-
+  index = routes.find((item) => item.index);
   return (index || {}).path;
 };

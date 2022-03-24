@@ -88,9 +88,11 @@ export default (props = {}) => {
     topAndLeftMenu = getChildMenu(route.routes);
   }
 
-  const childMenu = topAndLeftMenu.childMenu.get(
-    topAndLeftMenu.childParent.get(location.pathname),
-  );
+  const childMenu = ANTD_MENU_TOP_LEFT
+    ? topAndLeftMenu.childMenu.get(
+        topAndLeftMenu.childParent.get(location.pathname),
+      )
+    : getRoutes;
 
   return (
     <DocumentTitle
@@ -154,7 +156,7 @@ export default (props = {}) => {
           )}
 
           <Layout>
-            {ANTD_TITLE_TOP && childMenu && childMenu.length && (
+            {ANTD_TITLE_TOP && Array.isArray(childMenu) && childMenu.length && (
               <Layout.Sider>
                 <MeunView
                   {...props}

@@ -85,7 +85,7 @@ export default (props = {}) => {
   };
 
   if (ANTD_MENU_TOP_LEFT) {
-    topAndLeftMenu = getChildMenu(route.routes);
+    topAndLeftMenu = getChildMenu(getRoutes);
   }
 
   const childMenu = ANTD_MENU_TOP_LEFT

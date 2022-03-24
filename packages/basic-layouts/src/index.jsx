@@ -78,15 +78,16 @@ export default (props = {}) => {
   });
   const toPath = getAuthorizedPage(route.routes || [], location.pathname);
 
-  let topAndLeftMenu = {
-    parentMenu: [],
-    childMenu: new Map([]),
-    childParent: new Map([]),
-  };
-
-  if (ANTD_MENU_TOP_LEFT) {
-    topAndLeftMenu = getChildMenu(getRoutes);
-  }
+  let topAndLeftMenu = React.useMemo(() => {
+    if (ANTD_MENU_TOP_LEFT) {
+      return getChildMenu(getRoutes);
+    }
+    return {
+      parentMenu: [],
+      childMenu: new Map([]),
+      childParent: new Map([]),
+    };
+  }, [getRoutes]);
 
   const childMenu = ANTD_MENU_TOP_LEFT
     ? topAndLeftMenu.childMenu.get(

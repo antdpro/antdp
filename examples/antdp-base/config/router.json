@@ -52,6 +52,18 @@
         "component": "@/pages/EditTable"
       },
       {
+        "path": "/EditTables",
+        "name": "编辑表格2",
+        "icon": "file-protect",
+        "component": "@/pages/EditTable"
+      },
+      {
+        "path": "/EditTabless",
+        "name": "编辑表格3",
+        "icon": "file-protect",
+        "component": "@/pages/EditTable"
+      },
+      {
         "path": "/404",
         "name": "404",
         "hideInMenu": true,

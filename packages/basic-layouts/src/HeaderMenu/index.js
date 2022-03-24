@@ -36,7 +36,10 @@ const HeaderMenu = (props) => {
 
   React.useEffect(() => {
     if (NavMenuItems.length && (childMenus || []).length) {
-      const index = getDiffIndex(filterMenus(childMenus || []));
+      const index = getDiffIndex(
+        filterMenus(childMenus || []),
+        location.pathname,
+      );
       if (index !== location.pathname && index) {
         history.push(index);
       }

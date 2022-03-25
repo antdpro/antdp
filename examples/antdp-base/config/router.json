@@ -65,6 +65,42 @@
         "component": "@/pages/EditTable"
       },
       {
+        "path": "/EditTable1",
+        "name": "编辑表格",
+        "icon": "file-protect",
+        "component": "@/pages/EditTable"
+      },
+      {
+        "path": "/EditTables2",
+        "name": "编辑表格2",
+        "icon": "file-protect",
+        "component": "@/pages/EditTable"
+      },
+      {
+        "path": "/EditTabless3",
+        "name": "编辑表格3",
+        "icon": "file-protect",
+        "component": "@/pages/EditTable"
+      },
+      {
+        "path": "/EditTable4",
+        "name": "编辑表格",
+        "icon": "file-protect",
+        "component": "@/pages/EditTable"
+      },
+      {
+        "path": "/EditTables5",
+        "name": "编辑表格2",
+        "icon": "file-protect",
+        "component": "@/pages/EditTable"
+      },
+      {
+        "path": "/EditTabless6",
+        "name": "编辑表格3",
+        "icon": "file-protect",
+        "component": "@/pages/EditTable"
+      },
+      {
         "path": "/404",
         "name": "404",
         "hideInMenu": true,

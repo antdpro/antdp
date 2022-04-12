@@ -189,6 +189,12 @@ const getDiffChild = (routes, parent, childParent) => {
 
 // 所有的 最顶层的父级 找出来，子集放在一个位置
 export const getChildMenu = (routers) => {
+  /**
+   * 1. 先找 side === true 下所有子集 把子集对应的最顶级父级写成当前这个
+   * 2. 在上面的路由选中的就是它自己
+   * 3. 把 side === true  下所有的子集全部存储在另外一个地方
+   * */
+
   const parentMenu = [];
   const childMenu = new Map([]);
   const childParent = new Map([]);

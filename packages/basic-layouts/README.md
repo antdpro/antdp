@@ -35,7 +35,8 @@ export default (props) => {
 
 ## Component Interface
 
-```typescript
+```ts
+
  interface BaseLayoutProps {
   /**
    * 项目logo

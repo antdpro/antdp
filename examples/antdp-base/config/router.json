@@ -51,7 +51,29 @@
         "path": "/EditTable",
         "name": "编辑表格",
         "icon": "file-protect",
-        "component": "@/pages/EditTable"
+        "component": "@/pages/EditTable",
+        "routes": [
+          {
+            "path": "/EditTable/demo",
+            "name": "实例展示",
+            "locale": "实例展示",
+            "icon": "pie-chart",
+            "index": true,
+            "component": "@/pages/Demo"
+          },
+          {
+            "path": "/EditTable/workplace",
+            "name": "工作台",
+            "locale": "工作台",
+            "icon": "pie-chart",
+            "component": "@/pages/Dashboard"
+          },
+          {
+            "path": "/EditTable/notfund",
+            "name": "测试不存在页面",
+            "icon": "radar-chart"
+          }
+        ]
       },
       {
         "path": "/EditTables",

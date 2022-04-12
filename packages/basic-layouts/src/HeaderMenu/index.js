@@ -2,13 +2,21 @@ import React from 'react';
 import { Menu } from 'antd';
 import Link from '../Menu/Link';
 import { useLocation } from 'react-router-dom';
-import { getDiffIndex, filterMenus, getTreeList } from './../utils';
+import {
+  getDiffIndex,
+  filterMenus,
+  getTreeList,
+  getMapMenus,
+  menuDiff,
+  getIcon,
+} from './../utils';
 import { useHistory } from 'umi';
 const HeaderMenu = (props) => {
   const location = useLocation();
   const history = useHistory();
 
   const { selectedKey = '', routes, childMenus } = props;
+  console.log(routes);
 
   const getChildMenu = React.useMemo(() => {
     return getTreeList(childMenus || []).filter((item) => {
@@ -24,6 +32,32 @@ const HeaderMenu = (props) => {
       .filter((item) => item.name && !item.hideInMenu)
       .sort((a, b) => a.order - b.order);
   }, [routes]);
+
+  const getNavItems = (menusData = []) => {
+    if (!menusData) {
+      return [];
+    }
+    return menusData
+      .map((item) => {
+        if (item.children && !item.side) {
+          return (
+            <Menu.SubMenu
+              key={item.path}
+              icon={getIcon(item.icon)}
+              title={item.name}
+            >
+              {getNavItems(item.children)}
+            </Menu.SubMenu>
+          );
+        }
+        return (
+          <Menu.Item key={item.path}>
+            <Link path={item.path} name={item.name} icon={item.icon} />
+          </Menu.Item>
+        );
+      })
+      .filter((item) => item);
+  };
 
   const getNavMenuItems = (menusData = []) => {
     if (!menusData) {
@@ -47,7 +81,7 @@ const HeaderMenu = (props) => {
         history.push(index);
       }
     }
-  }, [selectedKey]);
+  }, [location.pathname]);
 
   return (
     <Menu
@@ -58,7 +92,7 @@ const HeaderMenu = (props) => {
       defaultOpenKeys={[]}
       style={{ width: '100%' }}
     >
-      {getNavMenuItems(NavMenuItems)}
+      {getNavItems(NavMenuItems)}
     </Menu>
   );
 };

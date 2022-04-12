@@ -23,6 +23,7 @@
         "name": "实例展示",
         "icon": "dashboard",
         "locale": "dashboard",
+        "side": true,
         "routes": [
           {
             "path": "/dashboard/demo",

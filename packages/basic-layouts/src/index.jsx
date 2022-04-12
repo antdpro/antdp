@@ -45,7 +45,6 @@ export default (props = {}) => {
   const headerRightView = useMemo(() => {
     return (
       <Fragment>
-        <div style={{ flex: 1 }}></div>
         <div className="antdp-global-header-right">
           <Fullscreen />
           <TopRightMenu menu={topRightMenu} profile={profile} />
@@ -137,7 +136,7 @@ export default (props = {}) => {
               )}
               <div
                 className="antdp-global-header-left"
-                style={{ overflowY: 'auto' }}
+                style={{ overflowY: 'auto', flex: 1 }}
               >
                 {ANTD_MENU_IS_SHOW && !ANTD_TITLE_TOP && collapsedView}
                 {!ANTD_TITLE_TOP && (

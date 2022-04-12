@@ -1,5 +1,5 @@
 import React, { useRef, useMemo } from 'react';
-import { Card, Space, Row, Col, Drawer } from 'antd';
+import { Card, Space, Row, Col, Drawer, Modal } from 'antd';
 import 'antd/dist/antd.css';
 import { QuickForm, ButtonGroupPro, FormDetail } from '@antdp/antdp-ui';
 import { detailItems } from './item';

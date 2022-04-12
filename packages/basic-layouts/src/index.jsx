@@ -10,7 +10,13 @@ import MeunView from './Menu';
 import Breadcrumb from './Breadcrumb';
 import TopRightMenu from './TopRightMenu';
 import LogoHeader from './LogoHeader';
-import { getTreeList, getMenuItemRouters, getChildMenu } from './utils';
+import {
+  getTreeList,
+  getMenuItemRouters,
+  getChildMenu,
+  getMapMenus,
+  menuDiff,
+} from './utils';
 import { getAuthorizedPage } from '@antdp/authorized';
 import HeaderMenu from './HeaderMenu';
 
@@ -79,7 +85,7 @@ export default (props = {}) => {
 
   let topAndLeftMenu = React.useMemo(() => {
     if (ANTD_MENU_TOP_LEFT) {
-      return getChildMenu(getRoutes);
+      return getMapMenus(getRoutes);
     }
     return {
       parentMenu: [],
@@ -93,6 +99,8 @@ export default (props = {}) => {
         topAndLeftMenu.childParent.get(location.pathname),
       )
     : getRoutes;
+
+  console.log(topAndLeftMenu.childParent);
 
   return (
     <DocumentTitle

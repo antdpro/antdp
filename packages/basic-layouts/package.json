@@ -46,7 +46,7 @@
     "@antdp/document-title": "1.8.24",
     "@antdp/fullscreen": "1.8.24",
     "@antdp/layout-tabs": "1.8.24",
-    "@babel/runtime": "7.16.5"
+    "@babel/runtime": "7.17.9"
   },
   "devDependencies": {
     "antd": "4.17.4",

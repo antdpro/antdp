@@ -30,7 +30,7 @@
     "@antdp/page-loading": "1.8.24",
     "@antdp/request": "1.8.24",
     "@antdp/user-login": "1.8.24",
-    "ahooks": "3.0.1",
+    "ahooks": "~3.3.0",
     "antd": "4.17.4",
     "rc-field-form": "~1.22.0",
     "react": "17.0.2",
@@ -44,7 +44,7 @@
     "@umijs/plugin-model": "2.6.1",
     "@umijs/plugin-request": "2.8.0",
     "@umijs/test": "3.5.20",
-    "lint-staged": "11.2.0",
+    "lint-staged": "~12.3.7",
     "prettier": "2.4.1",
     "react-sortable-hoc": "2.0.0",
     "umi": "~3.5.22"

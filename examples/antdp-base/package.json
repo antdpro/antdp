@@ -47,6 +47,6 @@
     "lint-staged": "11.2.0",
     "prettier": "2.4.1",
     "react-sortable-hoc": "2.0.0",
-    "umi": "3.5.20"
+    "umi": "~3.5.22"
   }
 }

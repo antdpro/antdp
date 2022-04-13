@@ -21,7 +21,7 @@
   "dependencies": {
     "@ant-design/icons": "4.7.0",
     "@babel/runtime": "7.16.5",
-    "umi": "3.5.20",
+    "umi": "~3.5.22",
     "umi-plugin-antd-icon-config": "2.0.4"
   }
 }

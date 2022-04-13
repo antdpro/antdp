@@ -16,7 +16,6 @@ const HeaderMenu = (props) => {
   const history = useHistory();
 
   const { selectedKey = '', routes, childMenus } = props;
-  console.log(routes);
 
   const getChildMenu = React.useMemo(() => {
     return getTreeList(childMenus || []).filter((item) => {

@@ -36,11 +36,11 @@
     "react-dom": ">=17.x"
   },
   "dependencies": {
-    "@babel/runtime": "7.16.5",
+    "@babel/runtime": "~7.17.9",
     "rc-field-form": "~1.22.0"
   },
   "devDependencies": {
-    "@types/react": "17.0.38",
+    "@types/react": "~17.0.44",
     "@types/react-dom": "~17.0.15",
     "antd": "4.17.4",
     "babel-plugin-import": "1.13.3",

@@ -142,10 +142,7 @@ export default (props = {}) => {
                   logoJumpTo={logoJumpTo}
                 />
               )}
-              <div
-                className="antdp-global-header-left"
-                style={{ overflowY: 'auto', flex: 1 }}
-              >
+              <div className="antdp-global-header-left" style={{ flex: 1 }}>
                 {ANTD_MENU_IS_SHOW && !ANTD_TITLE_TOP && collapsedView}
                 {!ANTD_TITLE_TOP && (
                   <Breadcrumb

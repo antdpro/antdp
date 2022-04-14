@@ -5,6 +5,7 @@
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
   "module": "esm/index.js",
+  "types": "./lib/index.d.ts",
   "license": "MIT",
   "keywords": [
     "authorized",
@@ -18,15 +19,11 @@
   "files": [
     "lib",
     "esm",
-    "index.d.ts"
+    "src"
   ],
   "peerDependencies": {
-    "prop-types": ">=15.7.2",
     "react": ">=16.7.0",
     "react-dom": ">=16.7.0"
-  },
-  "dependencies": {
-    "@babel/runtime": "~7.17.9"
   },
   "devDependencies": {
     "react": "17.0.2",

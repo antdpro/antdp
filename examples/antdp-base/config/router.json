@@ -43,6 +43,7 @@
           {
             "path": "/dashboard/notfund",
             "name": "测试不存在页面",
+            "hideInMenu": true,
             "icon": "radar-chart"
           }
         ]
@@ -65,6 +66,7 @@
             "path": "/EditTable/workplace",
             "name": "工作台",
             "locale": "工作台",
+            "hideInMenu": true,
             "icon": "pie-chart",
             "component": "@/pages/Dashboard"
           },

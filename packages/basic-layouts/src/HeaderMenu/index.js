@@ -2,14 +2,7 @@ import React from 'react';
 import { Menu } from 'antd';
 import Link from '../Menu/Link';
 import { useLocation } from 'react-router-dom';
-import {
-  getDiffIndex,
-  filterMenus,
-  getTreeList,
-  getMapMenus,
-  menuDiff,
-  getIcon,
-} from './../utils';
+import { getDiffIndex, getTreeList, menuDiff, getIcon } from './../utils';
 import { useHistory } from 'umi';
 const HeaderMenu = (props) => {
   const location = useLocation();
@@ -36,7 +29,7 @@ const HeaderMenu = (props) => {
     if (!menusData) {
       return [];
     }
-    return menusData
+    return menuDiff(menusData)
       .map((item) => {
         if (item.children && !item.side) {
           return (
@@ -49,21 +42,6 @@ const HeaderMenu = (props) => {
             </Menu.SubMenu>
           );
         }
-        return (
-          <Menu.Item key={item.path}>
-            <Link path={item.path} name={item.name} icon={item.icon} />
-          </Menu.Item>
-        );
-      })
-      .filter((item) => item);
-  };
-
-  const getNavMenuItems = (menusData = []) => {
-    if (!menusData) {
-      return [];
-    }
-    return menusData
-      .map((item) => {
         return (
           <Menu.Item key={item.path}>
             <Link path={item.path} name={item.name} icon={item.icon} />

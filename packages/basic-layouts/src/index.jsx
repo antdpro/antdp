@@ -13,7 +13,6 @@ import LogoHeader from './LogoHeader';
 import {
   getTreeList,
   getMenuItemRouters,
-  getChildMenu,
   getMapMenus,
   menuDiff,
 } from './utils';
@@ -94,13 +93,15 @@ export default (props = {}) => {
     };
   }, [getRoutes]);
 
-  const childMenu = ANTD_MENU_TOP_LEFT
+  let childMenu = ANTD_MENU_TOP_LEFT
     ? topAndLeftMenu.childMenu.get(
         topAndLeftMenu.childParent.get(location.pathname),
       )
     : getRoutes;
 
-  console.log(topAndLeftMenu.childParent);
+  childMenu = React.useMemo(() => {
+    return menuDiff(childMenu || []);
+  }, [childMenu]);
 
   return (
     <DocumentTitle
@@ -167,7 +168,7 @@ export default (props = {}) => {
           )}
 
           <Layout>
-            {ANTD_TITLE_TOP &&
+            {(ANTD_TITLE_TOP &&
               ANTD_MENU_IS_SHOW &&
               Array.isArray(childMenu) &&
               childMenu.length && (
@@ -180,7 +181,8 @@ export default (props = {}) => {
                     selectedKey={location.pathname}
                   />
                 </Layout.Sider>
-              )}
+              )) ||
+              null}
             <Layout.Content>
               {(() => {
                 if (location.pathname === '/') {

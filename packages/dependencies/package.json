@@ -11,7 +11,7 @@
     "antd"
   ],
   "dependencies": {
-    "@babel/runtime": "~7.17.9"
+    "@babel/runtime": "7.17.9"
   },
   "devDependencies": {
     "react": "17.0.2",

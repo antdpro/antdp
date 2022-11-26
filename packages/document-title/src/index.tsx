@@ -1,6 +1,11 @@
 import React, { useEffect } from 'react';
 
-export default (props = {}) => {
+export interface DocumentTitle {
+  title?: string;
+  children?: React.ReactNode;
+}
+
+export default (props: DocumentTitle = {}) => {
   useEffect(() => {
     document.title = props.title || '';
   }, [props.title]);

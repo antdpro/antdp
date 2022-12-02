@@ -13,8 +13,8 @@
     "build:website": "lerna exec --scope @example/website -- npm run build",
     "build": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb build",
     "⬇️⬇️⬇️⬇️⬇️ install ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ install::package ▼▼▼▼▼",
-    "install": "npm run build && npm run install:pkg && npm run install:example",
     "bootstrap": "lerna bootstrap",
+    "hoist": "lerna bootstrap --hoist",
     "install:pkg": "lerna bootstrap --scope @antdp/* --hoist",
     "install:example": "lerna bootstrap --scope @example/* --hoist",
     "⬆️⬆️⬆️⬆️⬆️ install ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ install::package ▲▲▲▲▲",
@@ -33,12 +33,16 @@
     "watch:user-login": "lerna exec  --scope @antdp/user-login -- tsbb watch",
     "watch:hooks": "lerna exec  --scope @antdp/hooks -- tsbb watch",
     "⬆️⬆️⬆️⬆️⬆️ watch::package ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
-    "remove": "lerna exec --scope @antdp/* --scope @example/*  --  rm -rf package-lock.json",
     "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
     "publish": "lerna publish from-package",
     "start": "lerna exec --scope @example/antdp-base npm run start",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
-    "clean": "lerna clean --yes && npm run remove",
+    "clean": "lerna clean  --yes && npm run remove && rm -rf ./package-lock.json && rm -rf node_modules && npm run remove:c ",
+    "remove": " lerna exec --scope @antdp/* --scope @example/*  -- rm -rf package-lock.json",
+    "remove:c": "rm -rf package-lock.json &&  npm run remove:yarn && npm run remove:lib && npm run remove:esm",
+    "remove:yarn": "lerna exec --scope @antdp/* --scope @example/*  -- rm -rf yarn.lock",
+    "remove:lib": "lerna exec --scope @antdp/*  -- rm -rf ./lib",
+    "remove:esm": "lerna exec --scope @antdp/*  -- rm -rf ./esm",
     "tsbb": "tsbb",
     "lerna": "lerna"
   },
@@ -46,15 +50,6 @@
     "*.{js,jsx,less,md,json}": [
       "prettier --write"
     ]
-  },
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "examples/*"
-    ]
-  },
-  "engines": {
-    "node": ">=16.0.0"
   },
   "dependencies": {
     "compile-less-cli": "1.8.11",

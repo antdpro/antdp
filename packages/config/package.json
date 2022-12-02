@@ -11,6 +11,7 @@
   "files": [
     "lib",
     "esm",
+    "src",
     "index.d.ts"
   ],
   "keywords": [

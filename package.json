@@ -2,6 +2,8 @@
   "name": "antdp-project",
   "private": true,
   "description": "Ant Design Project",
+  "author": "jaywcjlove",
+  "license": "MIT",
   "scripts": {
     "prepare": "husky install",
     "website:install": "lerna bootstrap --scope @example/website --hoist",
@@ -12,7 +14,6 @@
     "build": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb build",
     "⬇️⬇️⬇️⬇️⬇️ install ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ install::package ▼▼▼▼▼",
     "bootstrap": "lerna bootstrap",
-    "install": "npm run install:pkg && npm run build && npm run install:example",
     "install:pkg": "lerna bootstrap --scope @antdp/* --hoist",
     "install:example": "lerna bootstrap --scope @example/* --hoist",
     "⬆️⬆️⬆️⬆️⬆️ install ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ install::package ▲▲▲▲▲",
@@ -36,7 +37,7 @@
     "publish": "lerna publish from-package",
     "start": "lerna exec --scope @example/antdp-base npm run start",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
-    "clean": "lerna clean && npm run remove",
+    "clean": "lerna clean --yes && npm run remove",
     "tsbb": "tsbb",
     "lerna": "lerna"
   },
@@ -45,30 +46,22 @@
       "prettier --write"
     ]
   },
-  "author": "jaywcjlove",
-  "license": "MIT",
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "examples/*"
+    ]
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "dependencies": {
-    "@kkt/less-modules": "~7.1.1",
-    "@kkt/react-library": "~7.1.1",
-    "@types/jest": "27.4.0",
-    "@types/react": "~17.0.44",
-    "@types/react-dom": "~17.0.15",
-    "@types/react-test-renderer": "~17.0.2",
-    "@umijs/preset-react": "~2.1.2",
-    "babel-plugin-import": "1.13.3",
     "compile-less-cli": "1.8.11",
-    "husky": "7.0.4",
+    "husky": "8.0.2",
     "jest-environment-jsdom": "27.4.6",
-    "kkt": "~7.1.5",
-    "lerna": "4.0.0",
-    "lint-staged": "~12.3.7",
+    "lerna": "6.1.0",
+    "lint-staged": "~13.0.4",
     "prettier": "2.5.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-frame-component": "5.2.1",
-    "react-test-renderer": "17.0.2",
-    "tsbb": "^3.7.2",
-    "umi": "~3.5.22",
-    "umi-plugin-antd-icon-config": "2.0.4"
+    "tsbb": "^3.7.7"
   }
 }

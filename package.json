@@ -13,6 +13,7 @@
     "build:website": "lerna exec --scope @example/website -- npm run build",
     "build": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb build",
     "⬇️⬇️⬇️⬇️⬇️ install ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ install::package ▼▼▼▼▼",
+    "install": "npm run build && npm run install:pkg && npm run install:example",
     "bootstrap": "lerna bootstrap",
     "install:pkg": "lerna bootstrap --scope @antdp/* --hoist",
     "install:example": "lerna bootstrap --scope @example/* --hoist",

@@ -17,7 +17,7 @@ jobs:
         node-version: 16
 
     - name: Look Changelog
-      uses: jaywcjlove/changelog-generator@v1.4.8
+      uses: jaywcjlove/changelog-generator@v1.6.2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         filter-author: (小弟调调™|Renovate Bot)
@@ -35,7 +35,7 @@ jobs:
 
     - name: Generate changelog
       id: changelog
-      uses: jaywcjlove/changelog-generator@v1.4.8
+      uses: jaywcjlove/changelog-generator@v1.6.2
       if: steps.create_tag.outputs.successful
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -123,21 +123,11 @@ jobs:
         </body></html>
         EOF
 
-    - run: npm install @jsdevtools/npm-publish -g
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/antdp/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/antdp-ui/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/authorized/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/basic-layouts/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/config/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/dependencies/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/document-title/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/fullscreen/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/layout-tabs/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/page-loading/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/user-login/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/request/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/hooks/package.json
-    - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./packages/antdp-edit-table/package.json
+    - name: 📦 antdp publish to NPM
+      uses: kktjs/npm-publish@main
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        workspaces: packages/*
 
     - name: Deploy Website
       uses: peaceiris/actions-gh-pages@v3

@@ -3,9 +3,40 @@ import { Form, Input, Button, Row } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 import { InputCount } from '@antdp/antdp-ui';
 import '../index.css';
-import { ThemeContext } from '../themContext';
 
-const PhoneLogin = (props) => {
+declare const ValidateStatuses: ["success", "warning", "error", "validating", ""];
+export declare type ValidateStatus = typeof ValidateStatuses[number];
+
+export interface FormItemProps {
+  prefixCls?: string,
+  noStyle?: boolean,
+  style?: React.CSSProperties,
+  className?: string,
+  children?: React.ReactNode,
+  id?: string,
+  hasFeedback?: boolean,
+  validateStatus?: ValidateStatus,
+  required?: boolean,
+  hidden?: boolean,
+  initialValue?: any,
+  messageVariables?: Record<string, string>,
+  tooltip?: React.ReactNode,
+  fieldKey?: React.Key | React.Key[];
+}
+
+export interface PhoneProps {
+  value: {
+    phoneFormItems?: string[];
+    formBtns?: string[];
+    loading: string,
+    formChildren: React.FC<any>,
+    onSend: () => void,
+    phoneCodeProps: FormItemProps,
+    onFinish: () => void,
+  }
+}
+
+const PhoneLogin = (props: PhoneProps) => {
   const {
     value: {
       phoneFormItems,
@@ -24,7 +55,7 @@ const PhoneLogin = (props) => {
       {...otherProps}
     >
       {Array.isArray(phoneFormItems) &&
-        phoneFormItems.map((item, index) => {
+        phoneFormItems.map((item: any, index: number) => {
           const { inputProps, ...formItemProps } = item;
           return (
             <Form.Item key={index} {...formItemProps}>
@@ -34,7 +65,7 @@ const PhoneLogin = (props) => {
         })}
       <Form.Item {...phoneCodeProps}>
         <InputCount
-          onSend={onSend && onSend}
+          onSend={!!onSend && onSend}
           prefix={<LockOutlined className="site-form-item-icon" />}
           placeholder="请输入验证码"
           autoComplete="true"
@@ -44,8 +75,9 @@ const PhoneLogin = (props) => {
       <Form.Item>
         <Row align="middle" justify="center">
           {Array.isArray(formBtns) &&
-            formBtns.map((item, index) => {
+            formBtns.map((item: any, index: number) => {
               const { label, attr } = item;
+              console.log('label, attr: ', label, attr);
               if (attr && attr.htmlType === 'submit') {
                 attr.loading = loading;
               }

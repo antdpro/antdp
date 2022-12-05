@@ -1,9 +1,17 @@
 import React, { useMemo } from 'react';
+// @ts-ignore
 import { history } from 'umi';
 import { useLocation } from 'react-router-dom';
 
-export default (props = {}) => {
-  const { isShowView, bodyPadding, match = {}, child: Child } = props;
+interface IframeProps {
+  isShowView?: boolean;
+  bodyPadding?: number | string;
+  match?: any;
+  child: React.FC<any>
+}
+
+export default (props: IframeProps) => {
+  const { isShowView, bodyPadding, match, child: Child } = props;
   let location = useLocation();
   return useMemo(() => {
     return (

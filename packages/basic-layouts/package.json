@@ -3,9 +3,6 @@
   "version": "1.8.24",
   "description": "入口框架公共界面",
   "homepage": "https://antdpro.github.io/antdp",
-  "sideEffects": [
-    "*.css"
-  ],
   "main": "lib/index.js",
   "module": "esm/index.js",
   "license": "MIT",
@@ -23,17 +20,6 @@
     "esm",
     "index.d.ts"
   ],
-  "babel": {
-    "plugins": [
-      [
-        "import",
-        {
-          "libraryName": "antd",
-          "style": true
-        }
-      ]
-    ]
-  },
   "peerDependencies": {
     "antd": ">=4.x",
     "prop-types": ">=15.7.2",
@@ -49,9 +35,9 @@
     "@babel/runtime": "~7.20.1"
   },
   "devDependencies": {
-    "antd": "4.17.4",
+    "antd": "4.24.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "umi": "~3.5.22"
+    "umi": "~3.5.35"
   }
 }

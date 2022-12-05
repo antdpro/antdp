@@ -11,6 +11,7 @@
   "files": [
     "lib",
     "esm",
+    "src",
     "index.d.ts"
   ],
   "keywords": [
@@ -21,7 +22,7 @@
   "dependencies": {
     "@ant-design/icons": "4.7.0",
     "@babel/runtime": "~7.20.1",
-    "umi": "~3.5.22",
+    "umi": "~3.5.35",
     "umi-plugin-antd-icon-config": "2.0.4"
   }
 }

@@ -25,7 +25,7 @@ const UserLayout = (props) => {
           let params;
           if (TYPE === 'both') {
             params =
-              baseRef?.current?.state?.key === 1
+              baseRef?.current === 1
                 ? { username: values?.username, password: values?.password }
                 : { phone: values?.phone, code: values?.code };
           } else {

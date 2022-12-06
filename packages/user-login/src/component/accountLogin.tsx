@@ -1,10 +1,18 @@
 import React from 'react';
 import { Form, Input, Button, Row } from 'antd';
 
-const AccountLogin = (props) => {
-  const {
-    value: { formItems, formBtns, loading, formChildren, ...otherProps },
-  } = props;
+export interface LoginProps {
+  value: {
+    formItems?: string[];
+    formBtns?: string[];
+    loading: string,
+    formChildren: React.FC<any>,
+    onFinish: () => void,
+  }
+}
+
+const AccountLogin = (props: LoginProps) => {
+  const { value: { formItems, formBtns, loading, formChildren, ...otherProps } } = props;
   return (
     <Form
       className="antdp-login-form"
@@ -12,7 +20,7 @@ const AccountLogin = (props) => {
       {...otherProps}
     >
       {Array.isArray(formItems) &&
-        formItems.map((item, index) => {
+        formItems.map((item: any, index: number) => {
           const { inputProps, ...formItemProps } = item;
           return (
             <Form.Item key={index} {...formItemProps}>
@@ -24,8 +32,9 @@ const AccountLogin = (props) => {
       <Form.Item>
         <Row align="middle" justify="center">
           {Array.isArray(formBtns) &&
-            formBtns.map((item, index) => {
+            formBtns.map((item: any, index: number) => {
               const { label, attr } = item;
+              console.log('label, attr: ', label, attr);
               if (attr && attr.htmlType === 'submit') {
                 attr.loading = loading;
               }

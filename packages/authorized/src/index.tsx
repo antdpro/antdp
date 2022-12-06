@@ -4,9 +4,12 @@ import {
   FormatBtn as AuthorizedBtn,
   getFormatPage as getAuthorizedPage,
 } from './format';
-export { AuthorizedBtn, getAuthorizedPage };
+import { AuthorizedProps } from "./interface"
 
-export default (props = {}) => {
+export { AuthorizedBtn, getAuthorizedPage };
+export * from "./interface"
+
+export default (props: AuthorizedProps = {}) => {
   if (props.authority) {
     return React.Children.map(props.children, (child) => {
       if (!React.isValidElement(child)) return child;
@@ -17,5 +20,5 @@ export default (props = {}) => {
     if (props.redirectPath) {
       return <Redirect to={props.redirectPath} />;
     }
-  }, [location.redirectPath]);
+  }, [props.redirectPath]);
 };

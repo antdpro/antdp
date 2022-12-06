@@ -1,13 +1,10 @@
 {
   "name": "@antdp/page-loading",
-  "version": "1.8.19",
+  "version": "1.8.24",
   "description": "页面过渡动画组件。",
   "homepage": "https://antdpro.github.io/antdp",
-  "main": "cjs/index.js",
+  "main": "lib/index.js",
   "module": "esm/index.js",
-  "sideEffects": [
-    "*.css"
-  ],
   "license": "MIT",
   "keywords": [
     "loading",
@@ -23,27 +20,16 @@
     "esm",
     "src"
   ],
-  "babel": {
-    "plugins": [
-      [
-        "import",
-        {
-          "libraryName": "antd",
-          "style": true
-        }
-      ]
-    ]
-  },
   "peerDependencies": {
     "antd": ">=4.x",
     "react": ">=16.7.0",
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.16.5"
+    "@babel/runtime": "~7.20.1"
   },
   "devDependencies": {
-    "antd": "4.17.4",
+    "antd": "4.24.1",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   }

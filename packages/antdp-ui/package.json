@@ -1,6 +1,6 @@
 {
   "name": "@antdp/antdp-ui",
-  "version": "1.8.19",
+  "version": "1.8.24",
   "description": "基于antd封装的组件",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
@@ -28,16 +28,15 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",
-    "@antdp/authorized": "1.8.19",
-    "@babel/runtime": "7.16.5",
+    "@antdp/authorized": "1.8.24",
+    "@babel/runtime": "~7.20.1",
     "classnames": "2.3.1"
   },
   "devDependencies": {
     "@types/classnames": "2.3.1",
-    "@types/react": "17.0.37",
-    "@types/react-dom": "17.0.11",
-    "antd": "4.17.4",
-    "babel-plugin-import": "1.13.3",
+    "@types/react": "~17.0.44",
+    "@types/react-dom": "~17.0.15",
+    "antd": "4.24.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-sortable-hoc": "2.0.0"

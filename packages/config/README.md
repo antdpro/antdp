@@ -52,6 +52,8 @@ export default config;
   - `auth_check_url` 判断路径是否有权限的字段 默认值`menuUrl`,如果字段设置为`undefined`则`auth_menu`和`auth_btn`储存形式为 `["/web"]`,反之储存形式为`[{menuUrl:"/web"}]`,
 - `ANTD_MENU_IS_SHOW` 是否显示 左侧菜单
 - `ANTD_HEAD_IS_SHOW` 是否显示 head头部 
+- `ANTD_MENU_TOP_LEFT` 父级菜单展示顶部 ，子集菜单展示侧边
+- `ANTD_TITLE_TOP` 标题 放在 头部 ,菜单放在头部下面
 
 ## Locale
 继承于umi [`@umijs/plugin-locale`](https://umijs.org/zh-CN/plugins/plugin-locale)

@@ -14,7 +14,11 @@ export default (props = {}) => {
 
   return useMemo(
     () => (
-      <div className="antdp-global-title">
+      <div
+        className={`antdp-global-title ${
+          ANTD_TITLE_TOP ? 'antdp-global-title-top' : 'antdp-global-title-h1'
+        }`}
+      >
         <Link to={logoJumpTo}>
           {logo}
           {!props.collapsed && name}

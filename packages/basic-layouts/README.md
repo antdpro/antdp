@@ -35,7 +35,20 @@ export default (props) => {
 
 ## Component Interface
 
-```typescript
+```ts
+
+export interface RouterData {
+  path: string;
+  redirect?: string;
+  component?: string;
+  icon?: string;
+  routes?: RouterData[];
+  /** 控制菜单子集展示侧边 **/
+  side?: boolean
+  // 子集默认展示
+  index?: boolean;
+}
+
  interface BaseLayoutProps {
   /**
    * 项目logo

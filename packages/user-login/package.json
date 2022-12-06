@@ -1,6 +1,6 @@
 {
   "name": "@antdp/user-login",
-  "version": "1.8.19",
+  "version": "1.8.24",
   "description": "用户登录页面",
   "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": [
@@ -23,17 +23,6 @@
     "esm",
     "index.d.ts"
   ],
-  "babel": {
-    "plugins": [
-      [
-        "import",
-        {
-          "libraryName": "antd",
-          "style": true
-        }
-      ]
-    ]
-  },
   "peerDependencies": {
     "antd": ">=4.x",
     "prop-types": ">=15.7.2",
@@ -43,13 +32,13 @@
   "dependencies": {
     "@ant-design/icons": "4.7.0",
     "@antdp/antdp-ui": "1.6.19",
-    "@antdp/document-title": "1.8.19",
-    "@babel/runtime": "7.16.5"
+    "@antdp/document-title": "1.8.24",
+    "@babel/runtime": "~7.20.1"
   },
   "devDependencies": {
-    "antd": "4.17.4",
+    "antd": "4.24.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "umi": "3.5.20"
+    "umi": "~3.5.35"
   }
 }

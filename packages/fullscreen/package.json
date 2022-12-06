@@ -1,6 +1,6 @@
 {
   "name": "@antdp/fullscreen",
-  "version": "1.8.19",
+  "version": "1.8.24",
   "description": "设置页面全屏",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",
-    "@babel/runtime": "7.16.5"
+    "@babel/runtime": "~7.20.1"
   },
   "devDependencies": {
     "react": "17.0.2",

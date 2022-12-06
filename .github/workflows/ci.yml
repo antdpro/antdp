@@ -2,7 +2,7 @@ name: Build & Deploy
 on:
   push:
     branches:
-      - master
+      - dev
 
 env:
   SKIP_PREFLIGHT_CHECK: true
@@ -125,11 +125,11 @@ jobs:
         </body></html>
         EOF
 
-    - name: 📦 antdp publish to NPM
-      uses: kktjs/npm-publish@main
-      with:
-        token: ${{ secrets.NPM_TOKEN }}
-        workspaces: packages/*
+    # - name: 📦 antdp publish to NPM
+    #   uses: kktjs/npm-publish@main
+    #   with:
+    #     token: ${{ secrets.NPM_TOKEN }}
+    #     workspaces: packages/*
 
     - name: Deploy Website
       uses: peaceiris/actions-gh-pages@v3

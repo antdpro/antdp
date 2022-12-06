@@ -1,10 +1,18 @@
 import React, { useMemo } from 'react';
 import Frame, { FrameContextConsumer } from 'react-frame-component';
+// @ts-ignore
 import { history } from 'umi';
 import { useLocation } from 'react-router-dom';
 
-export default (props = {}) => {
-  const { isShowView, bodyPadding, match, child: Child } = props;
+interface IframeProps {
+  isShowView?: boolean;
+  bodyPadding?: number | string;
+  match?: any;
+  child: React.FC<any>
+}
+
+export default (props: IframeProps) => {
+  const { isShowView = false, bodyPadding = '', match = '', child: Child } = props;
   let location = useLocation();
   const child = useMemo(
     () => <Child match={match} history={history} location={location} />,
@@ -18,7 +26,7 @@ export default (props = {}) => {
         //   console.log('~~::::')
         // }}
         mountTarget="#mount-antdp"
-        initialContent={initialContent()}
+        // initialContent={initialContent()}
         className="antdps-global-frame"
         style={{
           display: isShowView ? 'block' : 'none',
@@ -26,7 +34,7 @@ export default (props = {}) => {
         }}
       >
         <FrameContextConsumer>
-          {({ document, window }) => {
+          {({ }) => {
             return <div style={{ padding: bodyPadding || 14 }}>{child}</div>;
           }}
         </FrameContextConsumer>

@@ -6,6 +6,7 @@
   "sideEffects": false,
   "main": "lib/index.js",
   "module": "esm/index.js",
+  "types": "lib/index.d.ts",
   "license": "MIT",
   "keywords": [
     "document",

@@ -73,6 +73,10 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
       ANTD_MENU_IS_SHOW: true,
       /**  是否显示 head头部 */
       ANTD_HEAD_IS_SHOW: true,
+      /** 父级菜单展示顶部 ，子集菜单展示侧边 */
+      ANTD_MENU_TOP_LEFT: false,
+      /** 标题 放在 头部 ,菜单放在头部下面  */
+      ANTD_TITLE_TOP: false,
       ...(options.define || {}),
       /** 是否开启父子路由面包屑 */
       ANTD_IS_BREADCRUMB,

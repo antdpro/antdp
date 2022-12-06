@@ -1,21 +1,28 @@
+import { AuthorizedBtnProps, AuthList, GetAuthorizedPageProps } from "."
+import { IRoute } from 'umi';
+
+declare const ANTD_AUTH_CONF: {
+  auth_menu: 'authMenu',
+  auth_btn: 'authBtn',
+  auth_check_url: 'menuUrl',
+  [k: string]: unknown
+}
+
 /**
  * @description: 按钮权限
  * @param { string } path 路径
  * @param { React.ReactNode } children 展示内容
  */
-export const FormatBtn = ({ path, children }) => {
+export const FormatBtn = ({ path, children }: AuthorizedBtnProps) => {
   if (!path) {
     return children || null;
   }
   if (!!ANTD_AUTH_CONF) {
-    const authBtns =
-      (sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) &&
-        JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn))) ||
-      [];
+    const authBtns: AuthList =
+      (sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) && JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) || "[]")) || [];
     let finx = -1;
     if (ANTD_AUTH_CONF.auth_check_url) {
-      finx = authBtns.findIndex(
-        (item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
+      finx = (authBtns as Record<string, unknown>[]).findIndex((item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
       );
     } else {
       finx = authBtns.findIndex((item) => item === path);
@@ -32,11 +39,11 @@ export const FormatBtn = ({ path, children }) => {
  * @param {Array} authMenus 权限路由
  * @return {*}
  */
-const checkRouter = (path, authMenus) => {
+const checkRouter = (path: string, authMenus: AuthList) => {
   let fig = true;
   let finx = -1;
   if (ANTD_AUTH_CONF.auth_check_url) {
-    finx = authMenus.findIndex(
+    finx = (authMenus as Record<string, unknown>[]).findIndex(
       (item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
     );
   } else {
@@ -62,7 +69,7 @@ const checkRouter = (path, authMenus) => {
  * @param {string} pathname 当前路径
  * @return {*}
  */
-export const getFormatPage = (allRouters, pathname) => {
+export const getFormatPage: GetAuthorizedPageProps = (allRouters, pathname) => {
   // 1. 有权限 无页面 404
   // 2. 有权限 有页面 403
   // 3. 无权限 有页面 403
@@ -70,7 +77,7 @@ export const getFormatPage = (allRouters, pathname) => {
   // 5. 其他
   if (!!ANTD_AUTH_CONF) {
     const allMenu = !!sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu)
-      ? JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu))
+      ? JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu) || "[]")
       : [];
     const check =
       mapRouterCheck(allRouters, pathname).length > 0 ? true : false;
@@ -90,13 +97,12 @@ export const getFormatPage = (allRouters, pathname) => {
   return true;
 };
 /**
- * @description:
  * @param { Array } data 路由
  * @param { string } pathName 路径
  * @param { Array<true|flase> } list  [ true | flase ]
  * @return {*}
  */
-const mapRouterCheck = (data, pathName, list = []) => {
+const mapRouterCheck = (data: IRoute[], pathName: string, list: IRoute[] = []) => {
   (data || []).forEach((val) => {
     const { path, routes } = val;
     if (

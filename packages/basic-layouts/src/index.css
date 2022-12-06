@@ -1,9 +1,10 @@
-#root, .ant-layout {
+#root,
+.ant-layout {
   height: 100%;
 }
 
 .ant-layout .ant-layout-header {
-  box-shadow: 0 0 8px 0 rgba(0,0,0,.1);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
   background: #fff;
   padding: 0;
   line-height: 42px;
@@ -13,11 +14,10 @@
 .ant-layout .ant-layout-sider {
   min-height: 100%;
   background-color: #001529;
-  box-shadow: 2px 0 6px rgba(0,21,41,.35);
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   overflow: auto;
   z-index: 9999;
 }
-
 
 .ant-layout .ant-layout-sider::-webkit-scrollbar {
   border-radius: 5px;
@@ -42,41 +42,57 @@
   background-color: #fff;
 }
 
-
 .antdp-global-sider .ant-menu.ant-menu-dark .ant-menu-item-selected,
-.antdp-global-sider .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+.antdp-global-sider
+  .ant-menu-submenu-popup.ant-menu-dark
+  .ant-menu-item-selected {
   background-color: transparent !important;
   box-shadow: inset 4px 0px 0px #1890ff;
 }
-.antdp-global-sider .ant-menu-item-group .ant-menu-item-group-title span.anticon {
+.antdp-global-sider
+  .ant-menu-item-group
+  .ant-menu-item-group-title
+  span.anticon {
   margin-right: 10px;
 }
 
 /* ---------------------- */
+.antdp-global-title-top {
+  background: none !important;
+}
+.antdp-global-title-top h1 {
+  color: #000;
+}
 .antdp-global-title {
   position: relative;
   padding: 0 24px;
   overflow: hidden;
   background: #001529;
   cursor: pointer;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .antdp-global-title h1 {
   box-sizing: border-box;
   display: inline-block;
   margin: 0 0 0 12px;
-  color: #fff;
   font-weight: 600;
   font-size: 20px;
   vertical-align: middle;
   animation: fade-in;
-  animation-duration: .3s;
+  animation-duration: 0.3s;
   white-space: nowrap;
 }
+.antdp-global-title-h1 h1 {
+  color: #fff;
+}
+
+.antdp-global-title-h1 a {
+  height: 64px;
+}
+
 .antdp-global-title a {
   display: flex;
   align-items: center;
-  height: 64px;
 }
 .antdp-global-title img {
   display: inline-block;

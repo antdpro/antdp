@@ -177,3 +177,114 @@ export function getIcon(icon) {
   }
   return icon;
 }
+
+const getDiffChild = (routes, parent, childParent) => {
+  routes.forEach((item) => {
+    childParent.set(item.path, parent);
+    if (Array.isArray(item.children) && item.children.length) {
+      getDiffChild(item.children, parent, childParent);
+    }
+  });
+};
+
+// 所有的 最顶层的父级 找出来，子集放在一个位置
+export const getChildMenu = (routers) => {
+  /**
+   * 1. 先找 side === true 下所有子集 把子集对应的最顶级父级写成当前这个
+   * 2. 在上面的路由选中的就是它自己
+   * 3. 把 side === true  下所有的子集全部存储在另外一个地方
+   * */
+
+  const parentMenu = [];
+  const childMenu = new Map([]);
+  const childParent = new Map([]);
+  routers.forEach((menu) => {
+    parentMenu.push(menu);
+    childParent.set(menu.path, menu.path);
+    if (Array.isArray(menu.children) && menu.children.length) {
+      childMenu.set(menu.path, menu.children);
+      getDiffChild(menu.children, menu.path, childParent);
+    }
+  });
+  return {
+    parentMenu,
+    childMenu,
+    childParent,
+  };
+};
+
+export const getMapMenus = (routers) => {
+  /**
+   * 1. 先找 side === true 下所有子集 把子集对应的最顶级父级写成当前这个
+   * 2. 在上面的路由选中的就是它自己
+   * 3. 把 side === true  下所有的子集全部存储在另外一个地方
+   * */
+  // 顶部展示路由
+  const parentMenu = [];
+  // 侧边展示路由
+  const childMenu = new Map([]);
+  // 为了顶部的选中状态
+  const childParentPath = new Map([]);
+
+  const diff = (routes, side, parent, index = 0) => {
+    const current = index + 1;
+    routes.forEach((itemRoute) => {
+      if (index === 0) {
+        parentMenu.push(itemRoute);
+      }
+      let childParent = parent;
+      let childSide = side;
+      if (
+        itemRoute.side &&
+        !side &&
+        Array.isArray(itemRoute.children) &&
+        itemRoute.children.length
+      ) {
+        childMenu.set(itemRoute.path, itemRoute.children);
+        childParent = itemRoute.path;
+        childSide = itemRoute.side;
+        // diff(itemRoute.children, itemRoute.side, itemRoute.path, current)
+      }
+      if (Array.isArray(itemRoute.children) && itemRoute.children.length) {
+        diff(itemRoute.children, childSide, childParent, current);
+      }
+
+      if (side) {
+        childParentPath.set(itemRoute.path, parent);
+      } else {
+        childParentPath.set(itemRoute.path, itemRoute.path);
+      }
+    });
+  };
+  diff(routers || [], false);
+  return {
+    parentMenu,
+    childMenu,
+    childParent: childParentPath,
+  };
+};
+
+export const menuDiff = (routers) => {
+  return routers
+    .filter((item) => {
+      if (!item.name || item.hideInMenu) {
+        return false;
+      }
+      if (Array.isArray(item.children)) {
+        const child = menuDiff(item.children);
+        return child.length;
+      }
+      return item;
+    })
+    .sort((a, b) => a.order - b.order);
+};
+
+export const getDiffIndex = (routes, pathname) => {
+  let index = undefined;
+  const current = routes.find((item) => item.path === pathname);
+  if (current) {
+    return index;
+  }
+  index = routes.find((item) => item.index);
+  return (index || {}).path;
+};

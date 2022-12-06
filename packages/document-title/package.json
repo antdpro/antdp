@@ -1,6 +1,6 @@
 {
   "name": "@antdp/document-title",
-  "version": "1.8.19",
+  "version": "1.8.24",
   "description": "设置页面标题",
   "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": false,
@@ -27,10 +27,9 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.16.5"
+    "@babel/runtime": "~7.20.1"
   },
   "devDependencies": {
-    "@babel/runtime": "7.16.5",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   }

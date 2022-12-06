@@ -10,8 +10,14 @@ import MeunView from './Menu';
 import Breadcrumb from './Breadcrumb';
 import TopRightMenu from './TopRightMenu';
 import LogoHeader from './LogoHeader';
-import { getTreeList, getMenuItemRouters } from './utils';
+import {
+  getTreeList,
+  getMenuItemRouters,
+  getMapMenus,
+  menuDiff,
+} from './utils';
 import { getAuthorizedPage } from '@antdp/authorized';
+import HeaderMenu from './HeaderMenu';
 
 import './index.css';
 
@@ -44,7 +50,6 @@ export default (props = {}) => {
   const headerRightView = useMemo(() => {
     return (
       <Fragment>
-        <div style={{ flex: '1 1 0%' }}></div>
         <div className="antdp-global-header-right">
           <Fullscreen />
           <TopRightMenu menu={topRightMenu} profile={profile} />
@@ -76,16 +81,34 @@ export default (props = {}) => {
     }
   });
   const toPath = getAuthorizedPage(route.routes || [], location.pathname);
-  // /**  是否显示 左侧菜单 */
-  // ANTD_MENU_IS_SHOW: false,
-  //   /**  是否显示 head头部 */
-  //   ANTD_HEAD_IS_SHOW: false,
+
+  let topAndLeftMenu = React.useMemo(() => {
+    if (ANTD_MENU_TOP_LEFT) {
+      return getMapMenus(getRoutes);
+    }
+    return {
+      parentMenu: [],
+      childMenu: new Map([]),
+      childParent: new Map([]),
+    };
+  }, [getRoutes]);
+
+  let childMenu = ANTD_MENU_TOP_LEFT
+    ? topAndLeftMenu.childMenu.get(
+        topAndLeftMenu.childParent.get(location.pathname),
+      )
+    : getRoutes;
+
+  childMenu = React.useMemo(() => {
+    return menuDiff(childMenu || []);
+  }, [childMenu]);
+
   return (
     <DocumentTitle
       title={`${title || ''}${title ? ' - ' : ''}${projectName || ''}`}
     >
       <Layout>
-        {ANTD_MENU_IS_SHOW && (
+        {ANTD_MENU_IS_SHOW && !ANTD_TITLE_TOP && (
           <Layout.Sider
             width={siderWidth}
             collapsed={collapsed}
@@ -112,35 +135,72 @@ export default (props = {}) => {
               style={{ padding: 0 }}
               className="antdp-global-header"
             >
-              <div className="antdp-global-header-left">
-                {ANTD_MENU_IS_SHOW && collapsedView}
-                <Breadcrumb
-                  routeData={routeData}
-                  routeIntl={getRoutes}
-                  {...props}
+              {ANTD_TITLE_TOP && (
+                <LogoHeader
+                  collapsed={false}
+                  projectName={projectName}
+                  logo={props.logo}
+                  logoJumpTo={logoJumpTo}
                 />
+              )}
+              <div className="antdp-global-header-left" style={{ flex: 1 }}>
+                {ANTD_MENU_IS_SHOW && !ANTD_TITLE_TOP && collapsedView}
+                {!ANTD_TITLE_TOP && (
+                  <Breadcrumb
+                    routeData={routeData}
+                    routeIntl={getRoutes}
+                    {...props}
+                  />
+                )}
+                {ANTD_MENU_TOP_LEFT && (
+                  <HeaderMenu
+                    selectedKey={topAndLeftMenu.childParent.get(
+                      location.pathname,
+                    )}
+                    childMenus={childMenu}
+                    routes={topAndLeftMenu.parentMenu}
+                  />
+                )}
               </div>
               {headerRightView}
               {topRightLanguage}
             </Layout.Header>
           )}
-          <Layout.Content>
-            {(() => {
-              if (location.pathname === '/') {
-                return <Redirect to="/welcome" />;
-              }
-              if (!!ANTD_AUTH_CONF && (toPath === 404 || toPath === 403)) {
-                return <Redirect to={`/${toPath}`} />;
-              }
-              return (
-                <LayoutTabs
-                  bodyPadding={bodyPadding}
-                  activeKey={location.pathname}
-                  dataSource={routeData}
-                />
-              );
-            })()}
-          </Layout.Content>
+
+          <Layout>
+            {(ANTD_TITLE_TOP &&
+              ANTD_MENU_IS_SHOW &&
+              Array.isArray(childMenu) &&
+              childMenu.length && (
+                <Layout.Sider>
+                  <MeunView
+                    {...props}
+                    route={{
+                      routes: childMenu,
+                    }}
+                    selectedKey={location.pathname}
+                  />
+                </Layout.Sider>
+              )) ||
+              null}
+            <Layout.Content>
+              {(() => {
+                if (location.pathname === '/') {
+                  return <Redirect to="/welcome" />;
+                }
+                if (!!ANTD_AUTH_CONF && (toPath === 404 || toPath === 403)) {
+                  return <Redirect to={`/${toPath}`} />;
+                }
+                return (
+                  <LayoutTabs
+                    bodyPadding={bodyPadding}
+                    activeKey={location.pathname}
+                    dataSource={routeData}
+                  />
+                );
+              })()}
+            </Layout.Content>
+          </Layout>
         </Layout>
       </Layout>
     </DocumentTitle>

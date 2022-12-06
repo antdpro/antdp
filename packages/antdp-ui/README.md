@@ -10,7 +10,7 @@ npm i @antdp/antdp-ui
 
 ## 组件
 
-- [QuickForm 快速表单](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/QuickForm/README.md)
+- [QuickForm 快速生成表单](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/QuickForm/README.md)
 - [FormDetail 详情表单](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/FormDetail/README.md)
 - [CardPro 卡片](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/CardPro/README.md)
 - [ButtonGroupPro 按钮组](https://github.com/antdpro/antdp/blob/master/packages/antdp-ui/src/ButtonGroupPro/README.md)

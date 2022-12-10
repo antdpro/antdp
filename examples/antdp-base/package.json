@@ -30,7 +30,7 @@
     "@antdp/page-loading": "1.8.24",
     "@antdp/request": "1.8.24",
     "@antdp/user-login": "1.8.24",
-    "ahooks": "~3.3.0",
+    "ahooks": "~3.7.2",
     "antd": "4.24.1",
     "rc-field-form": "~1.27.3",
     "react": "17.0.2",

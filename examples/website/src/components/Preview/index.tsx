@@ -13,6 +13,10 @@ const Warpper = styled.div`
   .w-rcpl-preview {
     white-space: normal;
   }
+  .ant-table table{
+    display: table !important;
+    width: 100%;
+  }
 `;
 
 const Markdown = styled(MarkdownPreview)`

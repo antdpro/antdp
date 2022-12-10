@@ -1,12 +1,10 @@
 import str from '@antdp/page-loading/README.md';
-import PageLoading from '@antdp/page-loading';
-import Markdown from '../../components/markdown';
+import Markdown from '../../components/Preview';
 
 export default function Pages() {
   return (
     <Markdown
-      source={str}
-      dependencies={{ PageLoading }}
+      {...str}
       editePath="https://github.com/antdpro/antdp/edit/master/packages/page-loading/README.md"
     />
   );

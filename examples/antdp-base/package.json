@@ -21,7 +21,7 @@
     ]
   },
   "dependencies": {
-    "@ant-design/pro-form": "1.42.1",
+    "@ant-design/pro-form": "1.74.7",
     "@antdp/antdp-ui": "1.8.24",
     "@antdp/authorized": "1.8.24",
     "@antdp/basic-layouts": "1.8.24",
@@ -31,22 +31,28 @@
     "@antdp/request": "1.8.24",
     "@antdp/user-login": "1.8.24",
     "ahooks": "~3.3.0",
-    "antd": "4.17.4",
-    "rc-field-form": "~1.22.0",
+    "antd": "4.24.1",
+    "rc-field-form": "~1.27.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
+  },
+  "overrides": {
+    "dva": "^2.6.0-beta.20"
+  },
+  "resolutions": {
+    "dva": "^2.6.0-beta.20"
   },
   "devDependencies": {
     "@antdp/config": "1.8.24",
     "@antdp/dependencies": "1.8.24",
-    "@umijs/plugin-dva": "0.13.0",
-    "@umijs/plugin-locale": "0.14.2",
-    "@umijs/plugin-model": "2.6.1",
-    "@umijs/plugin-request": "2.8.0",
+    "@umijs/plugin-dva": "0.13.2",
+    "@umijs/plugin-locale": "0.16.0",
+    "@umijs/plugin-model": "2.6.2",
+    "@umijs/plugin-request": "2.9.0",
     "@umijs/test": "3.5.20",
     "lint-staged": "~12.3.7",
     "prettier": "2.4.1",
     "react-sortable-hoc": "2.0.0",
-    "umi": "~3.5.22"
+    "umi": "~3.5.35"
   }
 }

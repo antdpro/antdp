@@ -2,14 +2,12 @@
   "packages": ["examples/*", "packages/*"],
   "version": "1.8.24",
   "command": {
-    "version": {
-      "ignoreChanges": ["packages/icons/**"]
-    },
     "create": {
       "license": "MIT"
     },
     "bootstrap": {
-      "yarnClientArgs": ["--no-yarn-lock", "--no-package-lock"],
+      "yarnClientArgs": ["--no-yarn-lock"],
+      "npmClientArgs": ["--no-package-lock"],
       "forceLocal": true
     }
   }

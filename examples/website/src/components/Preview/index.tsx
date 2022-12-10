@@ -5,7 +5,7 @@ import { getMetaId, isMeta, getURLParameters, CodeBlockData } from 'markdown-rea
 import { Root, Element, RootContent } from 'hast';
 import CodeLayout from 'react-code-preview-layout';
 import { useRef } from 'react';
-
+import Footer from "./../Footer"
 const Warpper = styled.div`
   width: 100%;
   height: 100%;
@@ -19,6 +19,11 @@ const Markdown = styled(MarkdownPreview)`
   padding: 50px 30px 120px 30px;
   max-width: 1024px;
 `;
+
+
+const EditText = styled.div`
+  padding: 30px;
+`
 
 const getBooleanValue = (param: Record<string, string>, field: string, defaultValue: boolean) => {
   if (Reflect.has(param, field)) {
@@ -84,6 +89,12 @@ const Preview = (props: MarkdownProps) => {
           },
         }}
       />
+      {props.editePath && (
+        <EditText>
+          <a href={props.editePath}>编辑当前页面内容</a>
+        </EditText>
+      )}
+      <Footer />
       <BackToUp element={$dom.current} style={{ float: 'right' }}>
         Top
       </BackToUp>

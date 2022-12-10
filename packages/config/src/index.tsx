@@ -1,12 +1,52 @@
 import path from 'path';
-import { defineConfig } from 'umi';
+import { defineConfig, IRoute, IConfig } from 'umi';
 import favicon from './favicon';
+
+interface AuthConf {
+  /**
+   * 储存菜单路由权限---本地keys
+   */
+  auth_menu?: string;
+  /**
+   * 储存按钮路径权限---本地keys
+   */
+  auth_btn?: string;
+  /**
+   * 判断路径是否有权限的字段
+   */
+  auth_check_url?: string | undefined;
+}
+
+export interface Options extends Omit<IConfig, 'routes'> {
+  define?: {
+    /**
+     * 是否显示 Tab 选项卡，默认值 `true`
+     */
+    ANTD_IS_TABS?: boolean;
+    /**
+     * 使用 iframe 展示页面，默认值 `false`
+     */
+    ANTD_IS_IFRAME_RENDER?: boolean;
+    // 是否开启父子路由面包屑
+    ANTD_IS_BREADCRUMB?: boolean;
+    // 是否开启权限验证
+    ANTD_AUTH_CONF?: AuthConf | undefined;
+    /**  是否显示 左侧菜单 */
+    ANTD_MENU_IS_SHOW?: boolean;
+    /**  是否显示 head头部 */
+    ANTD_HEAD_IS_SHOW?: boolean;
+    /** 父级菜单展示顶部 ，子集菜单展示侧边 */
+    ANTD_MENU_TOP_LEFT?: boolean;
+    /** 标题 放在 头部 ,菜单放在头部下面  */
+    ANTD_TITLE_TOP?: boolean
+  };
+}
 
 /**
  * - options umi 参数配置
  * - routes 路由配置
  */
-export default (routes = [], options = {}) => {
+export default (routes:IRoute = [], options:Options = {}) => {
   const { REACT_APP_ENV } = process.env;
   options.proxy = options.proxy
     ? options.proxy[REACT_APP_ENV || 'dev']

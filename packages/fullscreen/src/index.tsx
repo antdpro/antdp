@@ -1,6 +1,28 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { FullscreenOutlined, FullscreenExitOutlined } from '@ant-design/icons';
 
+interface Documents extends Document {
+  mozFullScreen?:()=>boolean 
+  webkitIsFullScreen?:()=>boolean  
+  webkitFullScreen?:()=>boolean  
+  msFullScreen?:()=>boolean  
+  webkitCancelFullScreen?:()=>void;
+  mozCancelFullScreen?:()=>void;
+  webkitRequestFullScreen?:()=>void;
+  msExitFullscreen?:()=>void;
+  mozFullScreenEnabled?:boolean
+  webkitFullscreenEnabled?:boolean
+  msFullscreenEnabled?:boolean
+}
+
+interface HTMLDOM extends HTMLElement {
+  webkitRequestFullScreen?:()=>void
+  mozRequestFullScreen?:()=>void
+  msRequestFullscreen?:()=>void
+}
+
+const document: Documents = window.document; 
+
 /**
  * 当前是否全屏
  */
@@ -30,7 +52,7 @@ export default (props = {}) => {
   if (!isFullscreenEnabled()) return null;
   const [fullscreen, setFullscreen] = useState(false);
   if (fullscreen) {
-    let element = document.documentElement;
+    let element:HTMLDOM = document.documentElement;
     if (element.requestFullscreen) {
       element.requestFullscreen();
     } else if (element.webkitRequestFullScreen) {

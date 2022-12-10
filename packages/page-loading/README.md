@@ -15,8 +15,8 @@ npm i @antdp/page-loading --save
 ## Basic Usage
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx  mdx:preview
+import React from 'react';
 import PageLoading from '@antdp/page-loading';
 
 const Demo = () => (
@@ -25,5 +25,5 @@ const Demo = () => (
   </div>
 );
 
-ReactDOM.render(<Demo />, _mount_);
+export default Demo
 ```

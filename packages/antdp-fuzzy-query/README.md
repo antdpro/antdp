@@ -24,7 +24,6 @@ export interface FuzzyQueryProps extends SelectProps<any> {
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```tsx mdx:preview
-import ReactDOM from 'react-dom';
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
 import FuzzyQuery from '@antdp/fuzzy-query';

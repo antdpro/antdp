@@ -13,10 +13,9 @@ npm i @antdp/fullscreen --save
 ```
 
 ## 基础示例预览
-
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```tsx  mdx:preview
+import React from 'react';
 import Fullscreen from '@antdp/fullscreen';
 
 const Demo = () => (
@@ -25,5 +24,5 @@ const Demo = () => (
   </div>
 );
 
-ReactDOM.render(<Demo />, _mount_);
+export default Demo
 ```

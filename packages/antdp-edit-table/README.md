@@ -170,7 +170,6 @@ export interface EditableCellItemProps extends Omit<FieldProps, 'label'> {
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```tsx  mdx:preview
-import ReactDOM from 'react-dom';
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
 import EditTable from '@antdp/edit-table';
@@ -243,7 +242,7 @@ const EditableTable =() => {
                   required: true,
                   whitespace: true,
                   message: 'Missing first name',
-                },
+                }, 
               ]}
             >
               <Input placeholder="First Name" />

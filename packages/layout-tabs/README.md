@@ -25,7 +25,7 @@ npm i @antdp/layout-tabs --save
 
 ## Basic Usage
 
-```jsx
+```tsx 
 import React from 'react';
 import LayoutTabs from '@antdp/layout-tabs';
 
@@ -33,6 +33,7 @@ import LayoutTabs from '@antdp/layout-tabs';
   activeKey={location.pathname}
   dataSource={[]}
 />
+
 ```
 
 ## Component Interface

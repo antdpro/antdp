@@ -51,7 +51,7 @@
     "@umijs/plugin-request": "2.9.0",
     "@umijs/test": "3.5.20",
     "lint-staged": "~12.3.7",
-    "prettier": "2.4.1",
+    "prettier": "2.8.1",
     "react-sortable-hoc": "2.0.0",
     "umi": "~3.5.35"
   }

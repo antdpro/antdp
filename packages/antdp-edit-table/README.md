@@ -1,6 +1,5 @@
----
 EditTable 编辑表格
----
+===
 
 ### 依赖安装
 
@@ -169,10 +168,8 @@ export interface EditableCellItemProps extends Omit<FieldProps, 'label'> {
 
 ### 案例
 
-
-
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```tsx
+```tsx  mdx:preview
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
@@ -324,5 +321,5 @@ const EditableTable =() => {
     </div>
   );
 };
-ReactDOM.render(<EditableTable />, _mount_);
+export default EditableTable
 ```

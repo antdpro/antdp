@@ -9,8 +9,8 @@ CardPro 卡片
 ### 基础示例
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx    mdx:preview
+import React from "react"
 import { CardPro } from '@antdp/antdp-ui';
 
 const Demo = () => (
@@ -21,12 +21,17 @@ const Demo = () => (
   </div>
 );
 
-ReactDOM.render(<Demo />, _mount_);
+export default Demo
 ```
 
 ### Props
 
 组件继承 [`Card`](https://ant.design/components/card-cn/#header)
+
+| 参数 | 说明 | 类型 | 默认值 |
+| -------- | -------- | -------- | -------- |
+| children | 组件渲染的内容 | React.ReactNode  | - |
+| className | 组件样式 | string | - |
 
 ```ts
 interface CarProProps extends CardProps {

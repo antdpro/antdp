@@ -6,15 +6,13 @@ ButtonGroupPro权限按钮组
 > 🚧 1.废弃 type="buttonGroup" 2.暂时去除改组件权限功能,待下版本优化
 
 
-### 基础示例
+### 案例
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
-import { ButtonGroupPro } from '@antdp/antdp-ui'
-const Demo  = ()=> {
-    return (
-      <div>
+```tsx   mdx:preview
+import React from "react";
+import { ButtonGroupPro } from '@antdp/antdp-ui';
+
+const Demo  = ()=>(
        <ButtonGroupPro
           button={[
             {
@@ -38,18 +36,31 @@ const Demo  = ()=> {
                   disabled: true,
                 }
               ]
-            }
+            },
           ]}
         />
-      </div>
-    )
-}
-ReactDOM.render(<Demo />, _mount_);
+    );
+export default Demo;
 ```
 <!--End-->
 
 ### Props
-组件继承antd [`Button`](https://ant.design/components/button-cn/#header)
+组件继承antd的 [`Button`](https://ant.design/components/button-cn/#header)
+
+
+| 参数 | 说明 | 类型 | 默认值 |
+| -------- | -------- | -------- | -------- |
+| path | 权限路径 | string  |- |
+| label | 按钮展示名称 | string｜React.ReactNode | - |
+| option | 按钮组数据 | `Array<MenusOptionProps>` | - |
+| menu | 按钮组名称 | `Array<MenusOptionProps>` | - |
+| key | 按钮组唯一值 | number | - |
+| ButtonandDropdown | 是否能点击按钮组的下拉菜单 | string ｜ number | - |
+| type | 按钮组类型 | string ｜ number | - |
+| render | 按钮组渲染 | ButtonType | - |
+| badge | 按钮组徽标 | number | - |
+
+
 ```ts
 interface MenusOptionProps extends Omit<ButtonProps, "type">, ButtonGroupProps {
   path?: string;

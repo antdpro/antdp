@@ -7,13 +7,12 @@ InputCount
 ### 基础示例
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx  mdx:preview
+
 import React, { Component } from 'react';
 import { InputCount } from '@antdp/antdp-ui'
-class Demo extends Component {
-  render() {
-    return (
+
+const  Demo=  () =>  (
       <div>
         <InputCount
           value={''}
@@ -22,14 +21,19 @@ class Demo extends Component {
         />
       </div>
     )
-  }
-}
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo
 ```
 <!--End-->
 
 ### Props
 组件继承 [`Input`](https://ant.design/components/input-cn/#header)[`Button`](https://ant.design/components/button-cn/#header)
+
+| 参数 | 说明 | 类型 | 默认值 |
+| -------- | -------- | -------- | -------- |
+| onSend | 点击点击短信发送回调 |  `() => void`  |- |
+| buttonProps | 继承antd button属性 | - | - |
+
 ```ts
 export interface InputCountProps extends InputProps {
   /** 点击短信发送回调 */

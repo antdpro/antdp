@@ -20,10 +20,9 @@ npm i @antdp/document-title --save
 ## Basic Usage
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```tsx  mdx:preview
+import React from 'react';
 import DocumentTitle from '@antdp/document-title';
-
 
 const Demo = () => (
   <DocumentTitle title="展示浏览器标题 - 首页">
@@ -31,5 +30,5 @@ const Demo = () => (
   </DocumentTitle>
 );
 
-ReactDOM.render(<Demo />, _mount_);
+export default Demo
 ```

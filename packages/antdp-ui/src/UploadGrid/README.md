@@ -6,8 +6,7 @@ UploadGrid 可拖拽上传组件。
 ### 基础示例
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx
-import ReactDOM from 'react-dom';
+```jsx  mdx:preview
 import React, { useState } from 'react';
 import { UploadGrid } from '@antdp/antdp-ui'
 const Demo = () => {
@@ -30,12 +29,20 @@ const Demo = () => {
     </div>
   )
 }
-ReactDOM.render(<Demo />, _mount_);
+
+export default Demo;
 ```
 <!--End-->
 
 ### Props
 组件继承 [`antd Upload`](https:ant.design/components/upload-cn/#header)
+
+| 参数 | 说明 | 类型 | 默认值 |
+| -------- | -------- | -------- | -------- |
+| onChange | 点击上传的回调函数 | `(params: { fileList: UploadFile[] }) => void`  |- |
+| useDragHandle | 是否可以拖拽| boolean | - |
+| children | 组件渲染的内容 | ReactNode | - |
+
 ```ts
 export type Props = {
   onChange: (params: { fileList: UploadFile[] }) => void;

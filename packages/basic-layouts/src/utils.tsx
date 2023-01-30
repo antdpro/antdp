@@ -29,8 +29,10 @@ export class HandleMenu {
   childParent: Map<string, string> = new Map([])
   /**key对应子集数据*/
   childMenu: Map<string, RouterMenu[]> = new Map([])
-  // 所有菜单平铺
+  // 所有子集菜单 平铺
   flatMenu: RouterMenu[] = []
+  // 所有菜单 平铺
+  flatAllMenu: RouterMenu[] = []
   /**语言转换*/
   intlLanguage?: IntlShape;
   /**路由数据*/
@@ -151,6 +153,7 @@ export class HandleMenu {
         this.initFlat(routes, newparentMenu)
       }
       if (item.path) {
+        this.flatAllMenu.push({ ...item })
         this.pathToParentMenus.set(item.path, newparentMenu)
       }
       if (item.path && !Array.isArray(routes)) {
@@ -234,7 +237,7 @@ export class HandleMenu {
   /**9. 获取跳转地址*/
   getToPath(path: string) {
     // 1. 先判断是不是 side === true
-    const currentItem = this.flatMenu.find(item => item.path === path)
+    const currentItem = this.flatAllMenu.find(item => item.path === path)
     if (!currentItem) {
       return "/404"
     }
@@ -277,10 +280,10 @@ export function getIcon(icon: string) {
 }
 
 /**获取菜单渲染**/
-export const getSiderMenus = (menus: RouterMenu[] = [], isSider = true) => {
-  const loop = (menus: RouterMenu[] = []) => {
+export const getSiderMenus = (menus: RouterMenu[] = [], isSider = false) => {
+  const loop = (menus: RouterMenu[] = [], parentSider = false) => {
     return menus.filter((items) => {
-      if (items.hideInMenu || !items.name) {
+      if (items.hideInMenu || !items.name || (isSider && parentSider)) {
         return false
       }
       return true
@@ -294,8 +297,8 @@ export const getSiderMenus = (menus: RouterMenu[] = [], isSider = true) => {
         ite.label = name
         ite.title = name
       }
-      if (routes && routes.length && isSider) {
-        ite.children = loop(routes)
+      if (routes && routes.length && (!item.side || !isSider)) {
+        ite.children = loop(routes, item.side)
       } else if (path && name) {
         ite.label = <NavLink to={path} >{name}</NavLink>
       }

@@ -95,13 +95,6 @@
   animation-duration: 0.3s;
   white-space: nowrap;
 }
-.antdp-global-title-h1 h1 {
-  color: #fff;
-}
-
-.antdp-global-title-h1 a {
-  height: 64px;
-}
 
 .antdp-global-title a {
   display: flex;

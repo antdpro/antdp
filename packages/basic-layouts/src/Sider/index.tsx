@@ -14,7 +14,7 @@ const Sider = (props: SiderProps) => {
   const { HandleMenu, collapsed, siderWidth = 260 } = useLayouts()
   const menus = HandleMenu.getSiderMenus(location.pathname)
   const items = useMemo(() => {
-    return getSiderMenus(menus, !ANTD_MENU_TOP_LEFT)
+    return getSiderMenus(menus, !!ANTD_MENU_TOP_LEFT)
   }, [menus])
   if (!items.length) {
     return <React.Fragment />

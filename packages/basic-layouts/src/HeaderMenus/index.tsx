@@ -11,7 +11,7 @@ const HeaderMenus = () => {
   const { HandleMenu, collapsed, setCollapsed } = useLayouts()
   const menus = HandleMenu.parentMenu || []
   const items = useMemo(() => {
-    return getSiderMenus(menus)
+    return getSiderMenus(menus, !!ANTD_MENU_TOP_LEFT)
   }, [menus])
 
   const parentPath = HandleMenu.getParentPath(location.pathname)

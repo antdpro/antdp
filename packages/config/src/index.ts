@@ -1,6 +1,7 @@
 import { defineConfig } from 'umi';
+import path from 'path';
 import favicon from './favicon';
-import { OptionsProps, IRoute } from "./interface"
+import { OptionsProps, IRoute } from './interface';
 /**
  * - options umi 参数配置
  * - routes 路由配置
@@ -15,20 +16,20 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
   const ANTD_IS_BREADCRUMB = !!defineObj.ANTD_IS_BREADCRUMB;
   // 权限配置参数
   let ANTD_AUTH_CONF = defineObj.ANTD_AUTH_CONF || false;
-  if (typeof ANTD_AUTH_CONF === "boolean" && ANTD_AUTH_CONF) {
+  if (typeof ANTD_AUTH_CONF === 'boolean' && ANTD_AUTH_CONF) {
     ANTD_AUTH_CONF = {
       auth_menu: 'authMenu',
       auth_btn: 'authBtn',
       auth_check_url: 'menuUrl',
-    }
+    };
   }
-  if (typeof ANTD_AUTH_CONF === "object" && ANTD_AUTH_CONF) {
+  if (typeof ANTD_AUTH_CONF === 'object' && ANTD_AUTH_CONF) {
     ANTD_AUTH_CONF = {
       auth_menu: 'authMenu',
       auth_btn: 'authBtn',
       auth_check_url: 'menuUrl',
-      ...(ANTD_AUTH_CONF || {})
-    }
+      ...(ANTD_AUTH_CONF || {}),
+    };
   }
 
   return defineConfig({
@@ -85,6 +86,12 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
     },
     routes: routes || [],
     plugins: [
+      /**
+       * https://github.com/umijs/umi-plugin-antd-icon-config
+       * 由于 layout 支持在 config 中 icon:string 的配置，但是在 4.0 中不推荐这样的用法。
+       * 这个插件可以将其转化，不再引入全量的 icon。
+       */
+      path.join(__dirname, 'plugins', 'antdicon', 'index.js'),
       ...(options.plugins || []),
     ],
   });

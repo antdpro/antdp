@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu } from 'antd';
 import Link from '../Menu/Link';
 import { useLocation } from 'react-router-dom';
-import { getDiffIndex, getTreeList, menuDiff, getIcon } from './../utils';
+import { getDiffIndex, getTreeList, menuDiff, getIcon } from '../utils';
 import { useHistory } from 'umi';
 const HeaderMenu = (props) => {
   const location = useLocation();

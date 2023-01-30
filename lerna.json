@@ -1,6 +1,7 @@
 {
   "packages": ["examples/*", "packages/*"],
   "version": "1.8.24",
+  "useWorkspaces": true,
   "command": {
     "create": {
       "license": "MIT"

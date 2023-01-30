@@ -38,7 +38,31 @@
             "name": "工作台",
             "locale": "工作台",
             "icon": "pie-chart",
-            "component": "@/pages/Dashboard"
+            "component": "@/pages/Dashboard",
+            "side": true,
+            "routes": [
+              {
+                "path": "/dashboard/workplace/dashboard/demo",
+                "name": "实例展示1",
+                "locale": "实例展示1",
+                "icon": "pie-chart",
+                "index": true,
+                "component": "@/pages/Demo"
+              },
+              {
+                "path": "/dashboard/workplace/dashboard/workplace",
+                "name": "工作台1",
+                "locale": "工作台1",
+                "icon": "pie-chart",
+                "component": "@/pages/Dashboard"
+              },
+              {
+                "path": "/dashboard/workplace/dashboard/notfund",
+                "name": "测试不存在页面1",
+                "hideInMenu": true,
+                "icon": "radar-chart"
+              }
+            ]
           },
           {
             "path": "/dashboard/notfund",

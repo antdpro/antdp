@@ -19,10 +19,9 @@ export interface LayoutTabsRouter extends RouteProps {
 }
 
 export interface LayoutTabsProps {
-  activeKey?: string[]
   dataSource?: LayoutTabsRouter[]
   children?: React.ReactNode;
-  bodyPadding?: string;
+  bodyPadding?: string | number;
 }
 
 export default (props: LayoutTabsProps) => {
@@ -30,6 +29,7 @@ export default (props: LayoutTabsProps) => {
     dataSource = [],
     bodyPadding = ''
   } = props;
+
 
   let location = useLocation();
   const [tabAll, setTabAll] = useState<LayoutTabsRouter[]>([]);
@@ -49,7 +49,6 @@ export default (props: LayoutTabsProps) => {
     if (location.search && urlData) {
       (urlData as LayoutTabsRouter).location = location;
     }
-
     const findActiveTab = tabAll.find(
       (item: { path: string }) => item.path === location.pathname,
     );
@@ -80,7 +79,6 @@ export default (props: LayoutTabsProps) => {
       }
       return item;
     });
-
     setTabAll([...tabData]);
   }, [location.search]);
 

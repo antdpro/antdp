@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { Link } from 'umi';
 import './index.css';
-import { getBreadcrumbNameRouterMap } from './../utils';
+import { getBreadcrumbNameRouterMap } from '../utils';
 
 // const routes = [
 //   {

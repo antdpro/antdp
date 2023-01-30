@@ -52,6 +52,12 @@
       "prettier --write"
     ]
   },
+  "workspaces": {
+    "packages": [
+      "examples/*",
+      "packages/*"
+    ]
+  },
   "dependencies": {
     "compile-less-cli": "1.8.13",
     "husky": "8.0.2",

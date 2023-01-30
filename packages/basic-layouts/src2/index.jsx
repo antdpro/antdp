@@ -18,6 +18,7 @@ import {
 } from './utils';
 import { getAuthorizedPage } from '@antdp/authorized';
 import HeaderMenu from './HeaderMenu';
+// import { HandleMenu } from "../src1/utils"
 
 import './index.css';
 
@@ -74,6 +75,7 @@ export default (props = {}) => {
   }, [route.routes]);
 
   const routeData = getTreeList(getRoutes);
+
   let title = '';
   routeData.forEach((item) => {
     if (item.path === location.pathname) {
@@ -92,6 +94,15 @@ export default (props = {}) => {
       childParent: new Map([]),
     };
   }, [getRoutes]);
+  // const newHandleMenu = new HandleMenu({
+  //   routers: route.routes,
+  //   intlLanguage: intlLanguage,
+  //   isCheckAuth: !!ANTD_AUTH_CONF,
+  //   isTOPLEFT: !!ANTD_MENU_TOP_LEFT
+  // })
+
+  // console.log("getRoutes", topAndLeftMenu)
+  // console.log("HandleMenu", newHandleMenu.getSiderMenus(location.pathname), newHandleMenu.getBreadcrumb(location.pathname))
 
   let childMenu = ANTD_MENU_TOP_LEFT
     ? topAndLeftMenu.childMenu.get(

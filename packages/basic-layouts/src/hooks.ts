@@ -36,7 +36,6 @@ export const LayoutsProvider = (props: UseLayoutsProps) => {
       isTOPLEFT: !!ANTD_MENU_TOP_LEFT,
     });
   }, [routes, intlLanguage]);
-  console.log('Menus', Menus);
 
   return createElement(LayoutsContext.Provider, {
     value: { HandleMenu: Menus, collapsed, setCollapsed, ...rest },

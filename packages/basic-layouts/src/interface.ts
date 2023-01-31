@@ -1,6 +1,6 @@
 import React from 'react';
 import { IntlShape } from 'react-intl/lib/src/types';
-import { ItemType } from 'antd/lib/menu/hooks/useItems';
+// import { ItemType } from 'antd/lib/menu/hooks/useItems';
 
 export interface HandleMenuProps {
   /**语言转换*/

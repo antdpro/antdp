@@ -24,8 +24,8 @@ const HeaderMenus = () => {
 
   if (!items.length) {
     return <div className="antdp-basic-layouts-header-menus" style={{ flex: 1, overflow: "auto" }} >
-      <div className="antdp-basic-layouts-collapsed">{collapsedView}</div>
-      <Breadcrumbs />
+      {ANTD_MENU_IS_SHOW && <div className="antdp-basic-layouts-collapsed">{collapsedView}</div>}
+      {ANTD_IS_BREADCRUMB && <Breadcrumbs />}
     </div>
   }
 

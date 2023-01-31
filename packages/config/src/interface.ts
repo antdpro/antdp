@@ -23,27 +23,30 @@ export interface chainWebpackOptions {
   createCSSRule: ICreateCSSRule;
 }
 
-export interface OptionsProps extends Omit<IConfigFromPlugins | IConfig, 'routes'> {
+export interface OptionsProps
+  extends Omit<IConfigFromPlugins | IConfig, 'routes'> {
   define?: {
     /** 是否显示 Tab 选项卡 */
-    ANTD_IS_TABS?: boolean,
+    ANTD_IS_TABS?: boolean;
     /** 使用 iframe 展示页面 **/
-    ANTD_IS_IFRAME_RENDER?: boolean,
+    ANTD_IS_IFRAME_RENDER?: boolean;
     /**  是否显示 左侧菜单 */
-    ANTD_MENU_IS_SHOW?: boolean,
+    ANTD_MENU_IS_SHOW?: boolean;
     /**  是否显示 head头部 */
-    ANTD_HEAD_IS_SHOW?: boolean,
+    ANTD_HEAD_IS_SHOW?: boolean;
     /**  是否开启父子路由面包屑 */
     ANTD_IS_BREADCRUMB?: boolean;
     /**  是否开启权限验证 */
-    ANTD_AUTH_CONF?: boolean | {
-      /** 存储本地菜单  key */
-      auth_menu?: string,
-      /** 存储本地按钮  key */
-      auth_btn?: string,
-      /** 校验 字段  undefined 时 权限数据为  string[] ,否则为 { auth_check_url:string}[] */
-      auth_check_url?: string | undefined,
-    },
+    ANTD_AUTH_CONF?:
+      | boolean
+      | {
+          /** 存储本地菜单  key */
+          auth_menu?: string;
+          /** 存储本地按钮  key */
+          auth_btn?: string;
+          /** 校验 字段  undefined 时 权限数据为  string[] ,否则为 { auth_check_url:string}[] */
+          auth_check_url?: string | undefined;
+        };
     [s: string]: any;
   };
 }

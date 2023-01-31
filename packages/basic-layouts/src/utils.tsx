@@ -256,6 +256,12 @@ export class HandleMenu {
     const findx = siderMenus?.find(item => item.index || item.redirect)
     return findx?.path || findx?.redirect
   }
+
+  /**10 更加path地址获取当前配置数据*/
+  getPathItem(path: string) {
+    const currentItem = this.flatAllMenu.find(item => item.path === path)
+    return currentItem
+  }
 }
 
 export function isUrl(path: string) {

@@ -15,11 +15,11 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
 
   return <LayoutsProvider  {...props} routes={routes} intlLanguage={intlLanguage} >
     <Layout className="antdp-basic-layouts">
-      <Layout.Header className="antdp-basic-layouts-header" >
+      {ANTD_HEAD_IS_SHOW && <Layout.Header className="antdp-basic-layouts-header" >
         <Header />
-      </Layout.Header>
+      </Layout.Header>}
       <Layout>
-        <SiderMenus />
+        {ANTD_MENU_IS_SHOW && <SiderMenus />}
         <Layout.Content className="antdp-basic-layouts-content"  >
           <WarpContent />
         </Layout.Content>

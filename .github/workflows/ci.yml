@@ -126,11 +126,12 @@ jobs:
         </body></html>
         EOF
 
-    # - name: 📦 antdp publish to NPM
-    #   uses: kktjs/npm-publish@main
-    #   with:
-    #     token: ${{ secrets.NPM_TOKEN }}
-    #     workspaces: packages/*
+    - name: 📦 antdp publish to NPM
+      uses: kktjs/npm-publish@main
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        workspaces: packages/*
+        tag: bate
 
     - name: Deploy Website
       uses: peaceiris/actions-gh-pages@v3

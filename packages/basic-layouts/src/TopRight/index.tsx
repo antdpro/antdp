@@ -3,6 +3,7 @@ import { Avatar, Dropdown } from 'antd';
 import { ItemType } from "antd/lib/menu/hooks/useItems"
 import React, { useMemo, Fragment } from 'react';
 import { Link, } from 'react-router-dom';
+import Fullscreen from '@antdp/fullscreen';
 import { useLayouts } from "./../hooks"
 
 
@@ -34,6 +35,7 @@ const User = () => {
   }, [topRightMenu]) as ItemType[]
 
   return <React.Fragment>
+    <Fullscreen />
     <Dropdown menu={{ items: rightMenu }} placement="bottomRight" trigger={['click']} >
       <span className="antdp-basic-layouts-header-user">
         <span style={{ marginRight: 8 }}>

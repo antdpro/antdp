@@ -1,6 +1,6 @@
 {
   "name": "@antdp/basic-layouts",
-  "version": "1.8.24",
+  "version": "2.0.0-bate-0",
   "description": "入口框架公共界面",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
@@ -29,17 +29,17 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",
-    "@antdp/authorized": "1.8.24",
-    "@antdp/document-title": "1.8.24",
-    "@antdp/fullscreen": "1.8.24",
-    "@antdp/layout-tabs": "1.8.24",
+    "@antdp/authorized": "2.0.0-bate-0",
+    "@antdp/document-title": "2.0.0-bate-0",
+    "@antdp/fullscreen": "2.0.0-bate-0",
+    "@antdp/layout-tabs": "2.0.0-bate-0",
     "@babel/runtime": "~7.20.1"
   },
   "devDependencies": {
-    "react-intl": "~6.2.6",
     "antd": "4.24.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-intl": "~6.2.6",
     "umi": "~3.5.35"
   }
 }

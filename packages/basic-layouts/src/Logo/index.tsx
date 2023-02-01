@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Link } from 'umi';
+import { Link } from '@umijs/max';
 import { useLayouts } from "../hooks"
 
 interface LogoProps {

@@ -1,10 +1,9 @@
-
-import { IRoute } from 'umi';
+import { IRoute } from '@umijs/max';
 
 export interface AuthorizedProps {
   /**
-    * 准入权限/权限判断
-    */
+   * 准入权限/权限判断
+   */
   authority?: boolean;
   /**
    * 权限异常时重定向的页面路由
@@ -13,7 +12,6 @@ export interface AuthorizedProps {
   children?: React.ReactNode;
 }
 
-
 export interface AuthorizedBtnProps {
   // 权限路径
   path?: string;
@@ -21,8 +19,9 @@ export interface AuthorizedBtnProps {
   children?: React.ReactNode;
 }
 
-export type AuthList = (string | Record<string, unknown>)[]
+export type AuthList = (string | Record<string, unknown>)[];
 
 export type GetAuthorizedPageProps = (
-  allRouters: IRoute[], pathname: string
+  allRouters: IRoute[],
+  pathname: string,
 ) => true | 403 | 404;

@@ -9,7 +9,7 @@
     "routes": [
       {
         "path": "/",
-        "redirect": "/welcome"
+        "redirectTo": "/welcome"
       },
       {
         "path": "/welcome",

@@ -9,11 +9,10 @@ import "./index.css"
 
 const BasicLayouts = (props: BasicLayoutsProps) => {
   const {
-    intlLanguage,
     route: { routes = [] } = {}
   } = props
 
-  return <LayoutsProvider  {...props} routes={routes} intlLanguage={intlLanguage} >
+  return <LayoutsProvider  {...props} routes={routes} >
     <Layout className="antdp-basic-layouts">
       {ANTD_HEAD_IS_SHOW && <Layout.Header className="antdp-basic-layouts-header" >
         <Header />

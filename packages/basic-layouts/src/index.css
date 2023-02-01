@@ -21,11 +21,11 @@
 }
 
 .antdp-basic-layouts-header{
-  padding: 0;
+  padding: 0 !important;
   margin: 0;
-  background-color: #fff;
-  line-height: 42px;
-  height: 42px;
+  background-color: #fff !important;
+  line-height: 42px!important;;
+  height: 42px!important;;
   display: flex;
   position: relative;
   box-sizing:border-box;

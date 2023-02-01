@@ -1,12 +1,12 @@
-import { AuthorizedBtnProps, AuthList, GetAuthorizedPageProps } from "."
-import { IRoute } from 'umi';
+import { AuthorizedBtnProps, AuthList, GetAuthorizedPageProps } from '.';
+import { IRoute } from '@umijs/max';
 
 declare const ANTD_AUTH_CONF: {
-  auth_menu: 'authMenu',
-  auth_btn: 'authBtn',
-  auth_check_url: 'menuUrl',
-  [k: string]: unknown
-}
+  auth_menu: 'authMenu';
+  auth_btn: 'authBtn';
+  auth_check_url: 'menuUrl';
+  [k: string]: unknown;
+};
 
 /**
  * @description: 按钮权限
@@ -19,10 +19,13 @@ export const FormatBtn = ({ path, children }: AuthorizedBtnProps) => {
   }
   if (!!ANTD_AUTH_CONF) {
     const authBtns: AuthList =
-      (sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) && JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) || "[]")) || [];
+      (sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) &&
+        JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) || '[]')) ||
+      [];
     let finx = -1;
     if (ANTD_AUTH_CONF.auth_check_url) {
-      finx = (authBtns as Record<string, unknown>[]).findIndex((item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
+      finx = (authBtns as Record<string, unknown>[]).findIndex(
+        (item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
       );
     } else {
       finx = authBtns.findIndex((item) => item === path);
@@ -77,7 +80,7 @@ export const getFormatPage: GetAuthorizedPageProps = (allRouters, pathname) => {
   // 5. 其他
   if (!!ANTD_AUTH_CONF) {
     const allMenu = !!sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu)
-      ? JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu) || "[]")
+      ? JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu) || '[]')
       : [];
     const check =
       mapRouterCheck(allRouters, pathname).length > 0 ? true : false;
@@ -102,7 +105,11 @@ export const getFormatPage: GetAuthorizedPageProps = (allRouters, pathname) => {
  * @param { Array<true|flase> } list  [ true | flase ]
  * @return {*}
  */
-const mapRouterCheck = (data: IRoute[], pathName: string, list: IRoute[] = []) => {
+const mapRouterCheck = (
+  data: IRoute[],
+  pathName: string,
+  list: IRoute[] = [],
+) => {
   (data || []).forEach((val) => {
     const { path, routes } = val;
     if (

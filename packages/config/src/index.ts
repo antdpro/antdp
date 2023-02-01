@@ -1,6 +1,6 @@
-import { defineConfig } from 'umi';
-import path from 'path';
-import favicon from './favicon';
+import { defineConfig } from '@umijs/max';
+// import path from 'path';
+// import favicon from './favicon';
 import { OptionsProps, IRoute } from './interface';
 /**
  * - options umi 参数配置
@@ -42,8 +42,12 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
      * 整合 dva 数据流
      */
     dva: {
-      hmr: true,
+      // hmr: true,
     },
+    mfsu: false,
+    model: {},
+    initialState: {},
+    request: {},
     /**
      * 如果需要自行通过 react-helment 等方式渲染 title，配 `title: false` 可禁用内置的 title 渲染机制
      * https://github.com/umijs/umi/pull/4345/files
@@ -53,13 +57,13 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
     /**
      * 是否启用按需加载，即是否把构建产物进行拆分，在需要的时候下载额外的 JS 再执行。
      */
-    dynamicImport: {
-      loading: '@/components/PageLoading/index',
-    },
-    nodeModulesTransform: {
-      type: 'none',
-    },
-    favicon,
+    // dynamicImport: {
+    //   loading: '@/components/PageLoading/index',
+    // },
+    // nodeModulesTransform: {
+    //   type: 'none',
+    // },
+    // favicon,
     ...options,
     define: {
       /**
@@ -91,7 +95,7 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
        * 由于 layout 支持在 config 中 icon:string 的配置，但是在 4.0 中不推荐这样的用法。
        * 这个插件可以将其转化，不再引入全量的 icon。
        */
-      path.join(__dirname, 'plugins', 'antdicon', 'index.js'),
+      // path.join(__dirname, 'plugins', 'antdicon', 'index.js'),
       ...(options.plugins || []),
     ],
   });

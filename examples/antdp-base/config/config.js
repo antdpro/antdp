@@ -1,6 +1,6 @@
 import config from '@antdp/config';
-import router from './router.json';
 import proxy from './proxy';
+import router from './router.json';
 export default config(router, {
   proxy,
   define: {
@@ -19,10 +19,8 @@ export default config(router, {
     ANTD_TITLE_TOP: true,
   },
   locale: {
+    // 默认使用 src/locales/zh-CN.ts 作为多语言文件
     default: 'zh-CN',
-    antd: true,
-    title: true,
-    baseNavigator: true,
     baseSeparator: '-',
   },
 });

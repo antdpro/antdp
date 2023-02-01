@@ -1,20 +1,20 @@
-import React, { Suspense, Fragment } from 'react';
-import ReactDOM from 'react-dom';
-import { Layout, Menu, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import GitHubCorners from '@uiw/react-github-corners';
+import { Layout, Menu, Spin } from 'antd';
+import 'antd/dist/reset.css';
+import { Fragment, Suspense } from 'react';
+import ReactDOM from 'react-dom';
 import {
   HashRouter as Router,
-  Switch,
-  Route,
-  NavLink,
   Link,
+  NavLink,
+  Route,
+  Switch,
   useLocation,
 } from 'react-router-dom';
-import 'antd/dist/antd.css';
+import ReactLogo from './assets/logo.svg';
 import './index.css';
 import { data } from './route';
-import ReactLogo from './assets/logo.svg';
 
 const { Sider, Content } = Layout;
 

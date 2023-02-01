@@ -56,7 +56,8 @@
   "workspaces": {
     "packages": [
       "examples/*",
-      "packages/*"
+      "packages/*",
+      "!packages/antdp-ui"
     ]
   },
   "dependencies": {

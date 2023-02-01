@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Card, Input, Button, Table, Form, Space, DatePicker } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { Button, Card, DatePicker, Form, Input, Space, Table } from 'antd';
+import 'antd/dist/reset.css';
 import moment from 'moment';
-import 'antd/dist/antd.css';
+import React, { Component } from 'react';
 
 const data = [];
 for (let i = 0; i < 20; i++) {

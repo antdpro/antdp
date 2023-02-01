@@ -1,14 +1,14 @@
-import React, { useRef } from 'react';
-import UserLogin from '@antdp/user-login';
-import Authorized from '@antdp/authorized';
 import {
-  GithubOutlined,
   AlipayOutlined,
+  GithubOutlined,
   WechatOutlined,
 } from '@ant-design/icons';
-import 'antd/dist/antd.css';
+import Authorized from '@antdp/authorized';
+import UserLogin from '@antdp/user-login';
+import { useModel } from '@umijs/max';
+import 'antd/dist/reset.css';
+import { useRef } from 'react';
 import logo from './logo.svg';
-import { useModel } from 'umi';
 
 const UserLayout = (props) => {
   const baseRef = useRef();

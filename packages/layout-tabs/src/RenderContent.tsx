@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 // @ts-ignore
-import { history } from 'umi';
+import { history } from '@umijs/max';
 import { useLocation } from 'react-router-dom';
 
 interface IframeProps {

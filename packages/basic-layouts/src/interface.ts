@@ -20,6 +20,7 @@ export interface RouterMenu {
   index?: boolean;
   component?: React.ReactNode;
   redirect?: string;
+  redirectTo?: string;
   hideInMenu?: boolean;
   routes?: RouterMenu[];
   children?: RouterMenu[];

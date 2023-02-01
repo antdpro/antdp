@@ -1,13 +1,13 @@
 import React, { useEffect, useState, Fragment, useMemo } from 'react';
 // @ts-ignore
-import { history, matchPath } from 'umi';
+import { history } from '@umijs/max';
 import { Tabs, Result } from 'antd';
-import { useLocation, RouteProps } from 'react-router-dom';
+import { useLocation, matchPath } from 'react-router-dom';
 import Iframe from './Iframe';
 import RenderContent from './RenderContent';
 import './index.css';
 
-export interface LayoutTabsRouter extends RouteProps {
+export interface LayoutTabsRouter {
   // component?: JSX.Element;
   exact?: boolean;
   icon: string;
@@ -16,6 +16,7 @@ export interface LayoutTabsRouter extends RouteProps {
   path: string;
   location?: any;
   match?: any;
+  element?: React.ReactNode
 }
 
 export interface LayoutTabsProps {
@@ -37,7 +38,7 @@ export default (props: LayoutTabsProps) => {
   useEffect(() => {
     let urlData: LayoutTabsRouter | null = null;
     dataSource.forEach((item: LayoutTabsRouter) => {
-      const match = matchPath(location.pathname, item);
+      const match = matchPath(item.path, location.pathname);
       if (match) {
         urlData = {
           ...item,
@@ -144,13 +145,11 @@ export default (props: LayoutTabsProps) => {
         )}
       {tabAll.map((pane: LayoutTabsRouter, index: number) => {
         if (!pane) return null;
-        const match = matchPath(location.pathname, pane);
+        const match = matchPath(pane.path, location.pathname);
         const isShowView = !!match;
-        const Comp =
-          pane.component ||
-          function () {
-            return NotFound;
-          };
+        const Comp = function () {
+          return pane.element || NotFound;
+        };
         // @ts-ignore
         if (ANTD_IS_IFRAME_RENDER) {
           return (

@@ -1,18 +1,16 @@
-import React from 'react';
-import BasicLayout from '@antdp/basic-layouts';
-import Authorized from '@antdp/authorized';
-import { useModel, useIntl, SelectLang } from 'umi';
 import {
   LogoutOutlined,
   SettingOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import 'antd/dist/antd.css';
+import Authorized from '@antdp/authorized';
+import BasicLayout from '@antdp/basic-layouts';
+import { SelectLang, useIntl, useModel } from '@umijs/max';
+import 'antd/dist/reset.css';
 import logo from './logo.svg';
 
 const Layout = (props) => {
   const { token, logout } = useModel('user', (model) => ({ ...model }));
-  console.log('props', props);
 
   return (
     <Authorized authority={!!token} redirectPath="/login">

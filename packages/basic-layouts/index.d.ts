@@ -1,6 +1,6 @@
 import React from 'react';
 import { MenuItemProps } from 'antd/lib/menu/MenuItem';
-import { History, Location } from 'umi';
+import { History, Location } from '@umijs/max';
 
 export interface RouterData {
   path: string;
@@ -9,7 +9,7 @@ export interface RouterData {
   icon?: string;
   routes?: RouterData[];
   /** 控制菜单子集展示侧边 **/
-  side?: boolean
+  side?: boolean;
   // 子集默认展示
   index?: boolean;
 }

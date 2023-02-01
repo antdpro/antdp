@@ -1,5 +1,5 @@
 {
-  "packages": ["examples/*", "packages/*"],
+  "packages": ["examples/*", "packages/*", "!packages/antdp-ui"],
   "version": "2.0.0-bate-0",
   "useWorkspaces": true,
   "command": {

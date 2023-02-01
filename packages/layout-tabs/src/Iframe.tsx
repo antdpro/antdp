@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import Frame, { FrameContextConsumer } from 'react-frame-component';
 // @ts-ignore
-import { history } from 'umi';
+import { history } from '@umijs/max';
 import { useLocation } from 'react-router-dom';
 
 interface IframeProps {

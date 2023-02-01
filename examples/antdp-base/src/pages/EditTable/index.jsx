@@ -1,7 +1,7 @@
-import React from 'react';
-import { Input, Col, InputNumber, Button, Select, Form } from 'antd';
 import EditTable from '@antdp/edit-table';
-import 'antd/dist/antd.css';
+import { Button, Form, Input, InputNumber } from 'antd';
+import 'antd/dist/reset.css';
+import React from 'react';
 const originData = [];
 
 for (let i = 0; i < 5; i++) {

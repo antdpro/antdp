@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
-import { Link } from 'umi';
 import { UserOutlined } from '@ant-design/icons';
-import { Menu, Avatar, Dropdown } from 'antd';
+import { Link } from '@umijs/max';
+import { Avatar, Dropdown, Menu } from 'antd';
+import React, { Component, Fragment } from 'react';
 import './index.css';
 
 export default class extends Component {

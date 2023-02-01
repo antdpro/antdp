@@ -1,10 +1,10 @@
-import React, { useRef, useMemo } from 'react';
-import { Card, Space, Row, Col, Drawer, Modal } from 'antd';
-import 'antd/dist/antd.css';
-import { QuickForm, ButtonGroupPro, FormDetail } from '@antdp/antdp-ui';
+import { ButtonGroupPro, FormDetail } from '@antdp/antdp-ui';
+import { useModel } from '@umijs/max';
+import { Card, Drawer, Space } from 'antd';
+import 'antd/dist/reset.css';
+import { useMemo } from 'react';
 import { detailItems } from './item';
 import SearchTable from './SearchTable';
-import { useModel } from 'umi';
 
 const Demo = () => {
   const {

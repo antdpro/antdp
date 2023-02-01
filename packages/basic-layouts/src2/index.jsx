@@ -1,23 +1,23 @@
-import React, { useState, useMemo, Fragment } from 'react';
-import { Layout } from 'antd';
-import { Redirect } from 'umi';
-import { useLocation } from 'react-router-dom';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import LayoutTabs from '@antdp/layout-tabs';
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { getAuthorizedPage } from '@antdp/authorized';
 import DocumentTitle from '@antdp/document-title';
 import Fullscreen from '@antdp/fullscreen';
-import MeunView from './Menu';
+import LayoutTabs from '@antdp/layout-tabs';
+import { Redirect } from '@umijs/max';
+import { Layout } from 'antd';
+import React, { Fragment, useMemo, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Breadcrumb from './Breadcrumb';
-import TopRightMenu from './TopRightMenu';
+import HeaderMenu from './HeaderMenu';
 import LogoHeader from './LogoHeader';
+import MeunView from './Menu';
+import TopRightMenu from './TopRightMenu';
 import {
-  getTreeList,
-  getMenuItemRouters,
   getMapMenus,
+  getMenuItemRouters,
+  getTreeList,
   menuDiff,
 } from './utils';
-import { getAuthorizedPage } from '@antdp/authorized';
-import HeaderMenu from './HeaderMenu';
 // import { HandleMenu } from "../src1/utils"
 
 import './index.css';

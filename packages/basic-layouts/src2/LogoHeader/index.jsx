@@ -1,5 +1,5 @@
+import { Link } from '@umijs/max';
 import React, { useMemo } from 'react';
-import { Link } from 'umi';
 
 export default (props = {}) => {
   const { logoJumpTo = '/' } = props;

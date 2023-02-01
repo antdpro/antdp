@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { userLogin } from '@/services/api';
-import { message } from 'antd';
-import { history } from 'umi';
+import { history } from '@umijs/max';
+import { useState } from 'react';
 const getToken = () => sessionStorage.getItem('token');
 
 export default function useModelUser() {

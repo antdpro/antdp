@@ -1,9 +1,9 @@
-import React from 'react';
+import { useHistory } from '@umijs/max';
 import { Menu } from 'antd';
-import Link from '../Menu/Link';
+import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { getDiffIndex, getTreeList, menuDiff, getIcon } from '../utils';
-import { useHistory } from 'umi';
+import Link from '../Menu/Link';
+import { getDiffIndex, getIcon, getTreeList, menuDiff } from '../utils';
 const HeaderMenu = (props) => {
   const location = useLocation();
   const history = useHistory();

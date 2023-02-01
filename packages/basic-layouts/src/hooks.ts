@@ -7,8 +7,10 @@ import {
 } from 'react';
 import DocumentTitle from '@antdp/document-title';
 import { useLocation } from 'react-router-dom';
+// @ts-ignore
+import { useAppData } from '@umijs/max';
 
-import { UseLayoutsProps } from './interface';
+import { UseLayoutsProps, RouterMenu } from './interface';
 import { HandleMenu } from './utils';
 
 interface LayoutsContextType {
@@ -28,9 +30,17 @@ export const LayoutsContext = createContext<
 export const useLayouts = () => useContext(LayoutsContext);
 
 export const LayoutsProvider = (props: UseLayoutsProps) => {
-  const { routes, intlLanguage, children, ...rest } = props;
+  const { intlLanguage, children, ...rest } = props;
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
+  const { clientRoutes } = useAppData();
+
+  const routes = useMemo(() => {
+    const routes = (clientRoutes as RouterMenu[]).find(
+      (item) => item.path === '/',
+    );
+    return routes?.routes || [];
+  }, [clientRoutes]);
 
   const Menus = useMemo(() => {
     return new HandleMenu({

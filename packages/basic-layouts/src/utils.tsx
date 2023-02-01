@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '@ant-design/icons';
-import { NavLink } from "umi"
+import { NavLink } from 'react-router-dom';
 import { ItemType } from "antd/lib/menu/hooks/useItems"
 import { RouterMenu } from "./interface"
 import { IntlShape } from "react-intl/lib/src/types"
@@ -49,6 +49,7 @@ export class HandleMenu {
   isTOPLEFT?: boolean = false
 
   preParentPath?: string = ''
+  prePath?: string = ''
 
   constructor(props: HandleMenuProps) {
     // 所有的 权限菜单
@@ -238,23 +239,37 @@ export class HandleMenu {
   getToPath(path: string) {
     // 1. 先判断是不是 side === true
     const currentItem = this.flatAllMenu.find(item => item.path === path)
+    if (currentItem?.path === "/") {
+      this.preParentPath = ""
+      this.prePath = currentItem.redirectTo
+      return currentItem.redirectTo
+    }
     if (!currentItem) {
+      this.preParentPath = ""
+      if (this.prePath === "/404") {
+        return false
+      }
+      this.prePath = "/404"
       return "/404"
     }
     if (!currentItem?.side) {
-      const finx = this.parentflatMenu.find((it) => it.path === path)
-      if (finx) {
-        this.preParentPath = ""
-      }
+      this.prePath = currentItem.path || ""
+      this.preParentPath = ""
       return false
     }
     if (this.preParentPath === currentItem.path) {
+      this.prePath = currentItem.path
       return false
     }
     this.preParentPath = currentItem.path
     const siderMenus = this.childMenu.get(path)
-    const findx = siderMenus?.find(item => item.index || item.redirect)
-    return findx?.path || findx?.redirect
+    const findx = siderMenus?.find(item => item.index || item.redirectTo)
+    const current = findx?.path || findx?.redirectTo
+    if (this.prePath === current) {
+      return false
+    }
+    this.prePath = current
+    return current
   }
 
   /**10 更加path地址获取当前配置数据*/

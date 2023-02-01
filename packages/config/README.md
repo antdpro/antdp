@@ -27,7 +27,7 @@ export default config(router, {
 ## Interface
 
 ```typescript
-import { IConfig, IRoute } from 'umi';
+import { IConfig, IRoute } from '@umijs/max';
 
 export interface Options extends Omit<IConfig, 'routes'> {
   routes: IRoute;

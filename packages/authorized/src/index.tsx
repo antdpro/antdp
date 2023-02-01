@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Redirect } from 'umi';
+import { Navigate } from "react-router-dom"
 import {
   FormatBtn as AuthorizedBtn,
   getFormatPage as getAuthorizedPage,
@@ -18,7 +18,7 @@ export default (props: AuthorizedProps = {}) => {
   }
   return useMemo(() => {
     if (props.redirectPath) {
-      return <Redirect to={props.redirectPath} />;
+      return <Navigate to={props.redirectPath} replace />;
     }
   }, [props.redirectPath]);
 };

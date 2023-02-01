@@ -17,7 +17,7 @@ npm i @antdp/basic-layouts --save
 ```jsx
 import BasicLayout from '@antdp/basic-layouts';
 import logo from './logo.svg';
-import { useIntl,SelectLang } from 'umi';
+import { useIntl,SelectLang } from '@umijs/max';
 
 export default (props) => {
   return (

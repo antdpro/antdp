@@ -1,6 +1,6 @@
 {
   "name": "@antdp/layout-tabs",
-  "version": "2.0.0-bate-0",
+  "version": "2.0.0-bate-1",
   "description": "用于主框架选项卡组件。",
   "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": [
@@ -36,11 +36,11 @@
     "react-frame-component": "5.2.3"
   },
   "devDependencies": {
-    "react-router": "~6.8.0",
-    "react-router-dom": "~6.8.0",
+    "@umijs/max": "~4.0.47",
     "antd": "5.1.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "@umijs/max": "~4.0.47"
+    "react-router": "~6.8.0",
+    "react-router-dom": "~6.8.0"
   }
 }

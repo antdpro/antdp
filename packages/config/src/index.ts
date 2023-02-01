@@ -1,5 +1,5 @@
 import { defineConfig } from '@umijs/max';
-// import path from 'path';
+import path from 'path';
 // import favicon from './favicon';
 import { OptionsProps, IRoute } from './interface';
 /**
@@ -95,7 +95,7 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
        * 由于 layout 支持在 config 中 icon:string 的配置，但是在 4.0 中不推荐这样的用法。
        * 这个插件可以将其转化，不再引入全量的 icon。
        */
-      // path.join(__dirname, 'plugins', 'antdicon', 'index.js'),
+      path.join(__dirname, 'plugins', 'antdicon', 'index.js'),
       ...(options.plugins || []),
     ],
   });

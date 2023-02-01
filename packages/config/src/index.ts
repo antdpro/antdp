@@ -34,9 +34,13 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
 
   return defineConfig({
     hash: true,
-    targets: {
-      ie: 11,
-    },
+    /**
+     * umi max 不兼容 ie11
+     * https://github.com/ant-design/ant-design-pro/issues/10115
+     * */
+    // targets: {
+    //   ie: 11,
+    // },
     ignoreMomentLocale: true,
     /**
      * 整合 dva 数据流

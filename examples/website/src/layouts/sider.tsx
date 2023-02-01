@@ -13,6 +13,7 @@ const getMenus = (routes: any[] = []) => {
     if (Array.isArray(item.children)) {
       ite.children = getMenus(item.children)
     } else if (item.path) {
+      ite.key = item.path
       ite.label = <NavLink to={item.path} >{item.name}</NavLink>
     }
     return { ...ite }
@@ -38,7 +39,7 @@ const SiderMenus = () => {
       defaultSelectedKeys={[location?.pathname]}
       selectedKeys={[location.pathname]}
       defaultOpenKeys={[location.pathname]}
-      items={getMenus(routesConfig)}
+      items={getMenus(routesConfig[0].children)}
       style={{ width: '100%' }}
     />
   </Layout.Sider>

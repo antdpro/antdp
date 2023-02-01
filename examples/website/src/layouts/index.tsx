@@ -4,10 +4,10 @@ import { Layout } from "antd"
 import SiderMenus from "./sider"
 
 const Layouts = () => {
-  return <Layout>
+  return <Layout style={{ height: "100%" }} >
     <SiderMenus />
     <Layout>
-      <Layout.Content>
+      <Layout.Content style={{ height: "100%", overflow: "auto" }}>
         <Outlet />
       </Layout.Content>
     </Layout>

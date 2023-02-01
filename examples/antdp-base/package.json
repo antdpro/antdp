@@ -31,8 +31,8 @@
     "ahooks": "~3.7.2",
     "antd": "5.1.7",
     "rc-field-form": "~1.27.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "overrides": {
     "dva": "^2.6.0-beta.20"

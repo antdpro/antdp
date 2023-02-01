@@ -1,107 +1,16 @@
-import { LoadingOutlined } from '@ant-design/icons';
-import GitHubCorners from '@uiw/react-github-corners';
-import { Layout, Menu, Spin } from 'antd';
+// import GitHubCorners from '@uiw/react-github-corners';
+// import ReactDOM from 'react-dom/client';
 import 'antd/dist/reset.css';
-import { Fragment, Suspense } from 'react';
-import ReactDOM from 'react-dom';
-import {
-  HashRouter as Router,
-  Link,
-  NavLink,
-  Route,
-  Switch,
-  useLocation,
-} from 'react-router-dom';
-import ReactLogo from './assets/logo.svg';
+import React from 'react';
+import ReactClient from 'react-dom/client';
+import { HashRouter } from 'react-router-dom';
 import './index.css';
-import { data } from './route';
+import Route from './route';
 
-const { Sider, Content } = Layout;
-
-// 递归实现----菜单渲染
-function renderMenu(data) {
-  return data.map(({ path, name, icon, childs }) => {
-    if (childs) {
-      return (
-        <Menu.SubMenu key={path} title={name} icon={icon}>
-          {renderMenu(childs)}
-        </Menu.SubMenu>
-      );
-    }
-    return (
-      <Menu.Item key={path} icon={icon}>
-        <NavLink to={path}>{name}</NavLink>
-      </Menu.Item>
-    );
-  });
-}
-// 递归实现----内容渲染
-function renderContent(data) {
-  return data.map(({ childs, ...item }, key) => {
-    if (childs) {
-      return renderContent(childs);
-    }
-    return <Route key={key} exact {...item} />;
-  });
-}
-
-function MenuContent() {
-  let location = useLocation();
-  return (
-    <Menu theme="dark" mode="inline" defaultSelectedKeys={[location?.pathname]}>
-      {renderMenu(data)}
-    </Menu>
-  );
-}
-
-ReactDOM.render(
-  <Fragment>
-    <GitHubCorners
-      fixed
-      href="https://github.com/antdpro/antdp"
-      size={60}
-      zIndex={9999}
-      target="__blank"
-    />
-    <Router>
-      <Layout style={{ height: '100%' }}>
-        <Sider
-          width={230}
-          style={{
-            boxShadow: '2px 0 8px 0 rgb(29 35 41 / 5%)',
-            overflow: 'auto',
-          }}
-        >
-          <Link to="/" className="logo">
-            <img src={ReactLogo} width={28} height={28} alt="logo" />
-            <span>Antd Project</span>
-          </Link>
-          <MenuContent />
-        </Sider>
-        <Layout>
-          <Content
-            style={{ height: '100%', overflow: 'auto', position: 'relative' }}
-          >
-            <Suspense
-              fallback={
-                <Spin
-                  indicator={
-                    <LoadingOutlined
-                      style={{ fontSize: 24, margin: '20px 20px' }}
-                      spin
-                    />
-                  }
-                />
-              }
-            >
-              <Switch>
-                <Fragment>{renderContent(data)}</Fragment>
-              </Switch>
-            </Suspense>
-          </Content>
-        </Layout>
-      </Layout>
-    </Router>
-  </Fragment>,
-  document.getElementById('root'),
+ReactClient.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <HashRouter>
+      <Route />
+    </HashRouter>
+  </React.StrictMode>,
 );

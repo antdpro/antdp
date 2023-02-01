@@ -1,4 +1,5 @@
 import str from '@antdp/layout-tabs/README.md';
+import React from 'react';
 import Markdown from '../../components/Preview';
 
 export default function Pages() {

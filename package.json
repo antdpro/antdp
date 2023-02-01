@@ -59,6 +59,14 @@
       "packages/*"
     ]
   },
+  "overrides": {
+    "react-dom": "^18.2.0",
+    "react": "^18.2.0"
+  },
+  "resolutions": {
+    "react-dom": "^18.2.0",
+    "react": "^18.2.0"
+  },
   "dependencies": {
     "compile-less-cli": "1.8.13",
     "husky": "8.0.2",

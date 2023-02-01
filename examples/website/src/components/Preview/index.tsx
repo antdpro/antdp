@@ -5,7 +5,7 @@ import { getMetaId, isMeta, getURLParameters, CodeBlockData } from 'markdown-rea
 import { Root, Element, RootContent } from 'hast';
 import CodeLayout from 'react-code-preview-layout';
 import { useRef } from 'react';
-import Footer from "./../Footer"
+import Footer from "../Footer"
 const Warpper = styled.div`
   width: 100%;
   height: 100%;

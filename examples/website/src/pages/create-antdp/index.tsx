@@ -1,6 +1,7 @@
 import { Fragment, useState } from 'react';
 import { Spin } from 'antd';
 import styles from '../example/index.module.css';
+import React from 'react';
 
 export default function Pages() {
   const [loading, setLoading] = useState(true);

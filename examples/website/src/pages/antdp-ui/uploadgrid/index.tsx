@@ -1,5 +1,6 @@
 import str from '@antdp/antdp-ui/lib/UploadGrid/README.md';
 import Markdown from '../../../components/Preview';
+import React from 'react';
 
 export default function Pages() {
   return (

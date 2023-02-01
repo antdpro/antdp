@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import Icon, {
   AntDesignOutlined,
   HomeFilled,
@@ -13,6 +13,44 @@ import Icon, {
   SelectOutlined,
   OneToOneOutlined,
 } from '@ant-design/icons';
+import { useRoutes } from 'react-router-dom';
+import { IndexRouteObject, NonIndexRouteObject, RouteObject } from 'react-router-dom';
+import Layouts from "./layouts"
+import Home from "./pages/antdp"
+import CreateAntdp from "./pages/create-antdp"
+import Example from "./pages/example"
+import BasicLayouts from "./pages/basic-layouts"
+import Authorized from "./pages/authorized"
+import Config from "./pages/config"
+import DocumentTitle from "./pages/document-title"
+import LayoutTabs from "./pages/layout-tabs"
+import Fullscreen from "./pages/fullscreen"
+import UserLogin from "./pages/user-login"
+import PageLoading from "./pages/page-loading"
+import ButtonGroupPro from "./pages/antdp-ui/buttongrouppro"
+import QuickForm from "./pages/antdp-ui/quickform"
+import CardPro from "./pages/antdp-ui/cardpro"
+import FormDetail from "./pages/antdp-ui/formdetail"
+import InputCount from "./pages/antdp-ui/inputcount"
+import UploadGrid from "./pages/antdp-ui/uploadgrid"
+import EditTable from "./pages/edit-table"
+import FuzzyQuery from "./pages/fuzzy-query"
+
+
+interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
+  name?: React.ReactNode
+  icon?: React.ReactNode
+  index?: boolean
+}
+interface NonIndexRouteObjects extends Omit<NonIndexRouteObject, "index" | 'children'> {
+  name?: React.ReactNode
+  icon?: React.ReactNode
+  index?: boolean
+  children?: NonIndexRouteObjects[]
+}
+
+type RoutesType = IndexRouteObjects | NonIndexRouteObjects
+
 
 const TabSvg = () => (
   <svg viewBox="0 0 1024 1024" width="14" height="14" fill="currentColor">
@@ -22,127 +60,151 @@ const TabSvg = () => (
   </svg>
 );
 
-export const data = [
+export const routesConfig: RoutesType[] = [
   {
-    path: '/',
-    exact: true,
-    name: 'Home',
-    icon: <HomeFilled />,
-    component: lazy(() => import('./pages/antdp')),
-  },
-  {
-    path: '/create-antdp',
-    name: '快速开始',
-    icon: <AntDesignOutlined />,
-    component: lazy(() => import('./pages/create-antdp')),
-  },
-  {
-    path: '/example',
-    name: '实例预览',
-    icon: <CodeSandboxOutlined />,
-    component: lazy(() => import('./pages/example')),
-  },
-  {
-    path: '/basic-layouts',
-    name: 'BasicLayouts',
-    icon: <LayoutFilled />,
-    component: lazy(() => import('./pages/basic-layouts')),
-  },
-  {
-    path: '/authorized',
-    name: 'Authorized',
-    icon: <LockFilled />,
-    component: lazy(() => import('./pages/authorized')),
-  },
-  {
-    path: '/config',
-    name: 'Config',
-    icon: <ControlFilled />,
-    component: lazy(() => import('./pages/config')),
-  },
-  {
-    path: '/document-title',
-    name: 'Document Title',
-    icon: <FontSizeOutlined />,
-    component: lazy(() => import('./pages/document-title')),
-  },
-  {
-    path: '/layout-tabs',
-    name: 'Layout Tabs',
-    icon: <Icon component={TabSvg} />,
-    component: lazy(() => import('./pages/layout-tabs')),
-  },
-  {
-    path: '/fullscreen',
-    name: 'Fullscreen',
-    icon: <FullscreenOutlined />,
-    component: lazy(() => import('./pages/fullscreen')),
-  },
-  {
-    path: '/user-login',
-    name: 'User Login',
-    icon: <UserOutlined />,
-    component: lazy(() => import('./pages/user-login')),
-  },
-  {
-    path: '/page-loading',
-    name: 'Page Loading',
-    icon: <LoadingOutlined />,
-    component: lazy(() => import('./pages/page-loading')),
-  },
-  {
-    path: '/antdp-ui',
-    name: 'Antdp Ui',
-    icon: <SelectOutlined />,
-    childs: [
+    path: "/",
+    element: <Layouts />,
+    children: [
       {
-        path: '/antdp-ui/buttongrouppro',
-        name: 'ButtonGroupPro',
-        icon: <OneToOneOutlined />,
-        component: lazy(() => import('./pages/antdp-ui/buttongrouppro')),
+        index: true,
+        path: '/',
+        name: 'Home',
+        icon: <HomeFilled />,
+        element: <Home />
       },
       {
-        path: '/antdp-ui/quickform',
-        name: 'QuickForm',
-        icon: <OneToOneOutlined />,
-        component: lazy(() => import('./pages/antdp-ui/quickform')),
+        path: '/create-antdp',
+        name: '快速开始',
+        icon: <AntDesignOutlined />,
+        element: <CreateAntdp />
       },
       {
-        path: '/antdp-ui/cardpro',
-        name: 'CardPro',
-        icon: <OneToOneOutlined />,
-        component: lazy(() => import('./pages/antdp-ui/cardpro')),
+        path: '/example',
+        name: '实例预览',
+        icon: <CodeSandboxOutlined />,
+        element: <Example />
       },
       {
-        path: '/antdp-ui/formdetail',
-        name: 'FormDetail',
-        icon: <OneToOneOutlined />,
-        component: lazy(() => import('./pages/antdp-ui/formdetail')),
+        path: '/basic-layouts',
+        name: 'BasicLayouts',
+        icon: <LayoutFilled />,
+        element: <BasicLayouts />
       },
       {
-        path: '/antdp-ui/inputcount',
-        name: 'InputCount',
-        icon: <OneToOneOutlined />,
-        component: lazy(() => import('./pages/antdp-ui/inputcount')),
+        path: '/authorized',
+        name: 'Authorized',
+        icon: <LockFilled />,
+        element: <Authorized />
       },
       {
-        path: '/antdp-ui/uploadgrid',
-        name: 'UploadGrid',
-        icon: <OneToOneOutlined />,
-        component: lazy(() => import('./pages/antdp-ui/uploadgrid')),
+        path: '/config',
+        name: 'Config',
+        icon: <ControlFilled />,
+        element: <Config />
       },
-    ],
-  },
-  {
-    path: '/edit-table',
-    name: 'edit-table',
-    icon: <OneToOneOutlined />,
-    component: lazy(() => import('./pages/edit-table')),
-  },
-  {
-    path: '/fuzzy-query',
-    name: 'fuzzy-query',
-    icon: <OneToOneOutlined />,
-    component: lazy(() => import('./pages/fuzzy-query')),
-  },
-];
+      {
+        path: '/document-title',
+        name: 'Document Title',
+        icon: <FontSizeOutlined />,
+        element: <DocumentTitle />,
+      },
+      {
+        path: '/layout-tabs',
+        name: 'Layout Tabs',
+        icon: <Icon component={TabSvg} />,
+        element: <LayoutTabs />
+      },
+      {
+        path: '/fullscreen',
+        name: 'Fullscreen',
+        icon: <FullscreenOutlined />,
+        element: <Fullscreen />
+      },
+      {
+        path: '/user-login',
+        name: 'User Login',
+        icon: <UserOutlined />,
+        element: <UserLogin />
+      },
+      {
+        path: '/page-loading',
+        name: 'Page Loading',
+        icon: <LoadingOutlined />,
+        element: <PageLoading />
+      },
+      {
+        path: '/antdp-ui',
+        name: 'Antdp Ui',
+        icon: <SelectOutlined />,
+        children: [
+          {
+            path: '/antdp-ui/buttongrouppro',
+            name: 'ButtonGroupPro',
+            icon: <OneToOneOutlined />,
+            element: <ButtonGroupPro />
+          },
+          {
+            path: '/antdp-ui/quickform',
+            name: 'QuickForm',
+            icon: <OneToOneOutlined />,
+            element: <QuickForm />
+          },
+          {
+            path: '/antdp-ui/cardpro',
+            name: 'CardPro',
+            icon: <OneToOneOutlined />,
+            element: <CardPro />
+          },
+          {
+            path: '/antdp-ui/formdetail',
+            name: 'FormDetail',
+            icon: <OneToOneOutlined />,
+            element: <FormDetail />
+          },
+          {
+            path: '/antdp-ui/inputcount',
+            name: 'InputCount',
+            icon: <OneToOneOutlined />,
+            element: <InputCount />
+          },
+          {
+            path: '/antdp-ui/uploadgrid',
+            name: 'UploadGrid',
+            icon: <OneToOneOutlined />,
+            element: <UploadGrid />
+          },
+        ],
+      },
+      {
+        path: '/edit-table',
+        name: 'Edit-table',
+        icon: <OneToOneOutlined />,
+        element: <EditTable />
+      },
+      {
+        path: '/fuzzy-query',
+        name: 'fuzzy-query',
+        icon: <OneToOneOutlined />,
+        element: <FuzzyQuery />
+      },
+    ]
+  }
+]
+
+const Routes = () => {
+  const getRoots = (routes: RoutesType[]) => {
+    return routes.map((item) => {
+      const { name, icon, ...rest } = item
+      let newItem = { ...rest }
+      if (item.children) {
+        newItem.children = getRoots(item.children)
+      }
+      return newItem
+    })
+  }
+  return useRoutes(getRoots(routesConfig) as RouteObject[]);
+};
+export default Routes;
+
+
+// export default routesConfig

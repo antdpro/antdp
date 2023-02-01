@@ -1,5 +1,7 @@
 import str from '@antdp/antdp-ui/lib/InputCount/README.md';
 import Markdown from '../../../components/Preview';
+import React from 'react';
+
 export default function Pages() {
   return (
     <div>

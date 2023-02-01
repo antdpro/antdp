@@ -1,6 +1,6 @@
 {
   "name": "@antdp/authorized",
-  "version": "2.0.0-bate-0",
+  "version": "2.0.0-bate-1",
   "description": "通过判断是否进入主界面还是登录界面。",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
@@ -26,10 +26,10 @@
     "react-dom": ">=16.7.0"
   },
   "devDependencies": {
-    "react-router": "~6.8.0",
-    "react-router-dom": "~6.8.0",
+    "@umijs/max": "~4.0.47",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "@umijs/max": "~4.0.47"
+    "react-router": "~6.8.0",
+    "react-router-dom": "~6.8.0"
   }
 }

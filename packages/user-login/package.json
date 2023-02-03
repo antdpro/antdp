@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",
-    "@antdp/antdp-ui": "1.6.19",
+    "@antdp/antdp-ui": "2.0.0-bate-1",
     "@antdp/document-title": "2.0.0-bate-1",
     "@babel/runtime": "~7.20.1"
   },

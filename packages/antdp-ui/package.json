@@ -1,6 +1,6 @@
 {
   "name": "@antdp/antdp-ui",
-  "version": "2.0.0-bate-0",
+  "version": "2.0.0-bate-1",
   "description": "基于antd封装的组件",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
@@ -28,16 +28,13 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
+    "immutability-helper": "^3.1.1",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "@ant-design/icons": "4.7.0",
-    "@antdp/authorized": "2.0.0-bate-0",
+    "@antdp/authorized": "1.8.24",
     "@babel/runtime": "~7.20.1",
     "classnames": "2.3.1"
-  },
-  "overrides": {
-    "react-sortable-hoc": "2.0.0"
-  },
-  "resolutions": {
-    "react-sortable-hoc": "2.0.0"
   },
   "devDependencies": {
     "@types/classnames": "2.3.1",
@@ -45,7 +42,6 @@
     "@types/react-dom": "~18.0.10",
     "antd": "5.1.7",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-sortable-hoc": "2.0.0"
+    "react-dom": "^18.2.0"
   }
 }

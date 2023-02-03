@@ -7,6 +7,7 @@ UploadGrid 可拖拽上传组件。
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx  mdx:preview
+// ```jsx
 import React, { useState } from 'react';
 import { UploadGrid } from '@antdp/antdp-ui'
 const Demo = () => {

@@ -9,18 +9,3 @@ export type Props = {
   useDragHandle?: boolean | undefined;
 } & UploadProps &
   UploadListProps;
-
-type SortableParams = {
-  props: Omit<Props, 'onChange'>;
-  onPreview: (file: UploadFile) => void;
-  onRemove: (file: UploadFile) => void | boolean;
-};
-
-export type SortableItemParams = {
-  item: UploadFile;
-} & SortableParams;
-
-export type SortableListParams = {
-  onChange: (info: UploadChangeParam) => void;
-  items: UploadFile[];
-} & SortableParams;

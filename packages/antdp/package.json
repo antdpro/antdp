@@ -11,7 +11,7 @@
   "author": "jaywcjlove",
   "license": "MIT",
   "dependencies": {
-    "@antdp/antdp-ui": "2.0.0-bate-0",
+    "@antdp/antdp-ui": "2.0.0-bate-1",
     "@antdp/authorized": "2.0.0-bate-1",
     "@antdp/basic-layouts": "2.0.0-bate-1",
     "@antdp/config": "2.0.0-bate-1",

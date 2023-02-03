@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@ant-design/pro-form": "1.74.7",
-    "@antdp/antdp-ui": "2.0.0-bate-0",
+    "@antdp/antdp-ui": "2.0.0-bate-1",
     "@antdp/authorized": "2.0.0-bate-1",
     "@antdp/basic-layouts": "2.0.0-bate-1",
     "@antdp/edit-table": "2.0.0-bate-1",

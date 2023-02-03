@@ -1,6 +1,6 @@
 {
   "name": "@antdp/antdp-ui",
-  "version": "2.0.0-bate-1",
+  "version": "2.0.0-bate-2",
   "description": "基于antd封装的组件",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
@@ -28,13 +28,13 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "immutability-helper": "^3.1.1",
-    "react-dnd": "^16.0.1",
-    "react-dnd-html5-backend": "^16.0.1",
     "@ant-design/icons": "4.7.0",
     "@antdp/authorized": "1.8.24",
     "@babel/runtime": "~7.20.1",
-    "classnames": "2.3.1"
+    "classnames": "2.3.1",
+    "immutability-helper": "^3.1.1",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1"
   },
   "devDependencies": {
     "@types/classnames": "2.3.1",

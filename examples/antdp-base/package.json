@@ -1,6 +1,6 @@
 {
   "name": "@example/antdp-base",
-  "version": "2.0.0-bate-2",
+  "version": "2.0.0-bate.3",
   "private": true,
   "scripts": {
     "start": "max dev",
@@ -20,14 +20,14 @@
   },
   "dependencies": {
     "@ant-design/pro-form": "1.74.7",
-    "@antdp/antdp-ui": "2.0.0-bate-2",
-    "@antdp/authorized": "2.0.0-bate-2",
-    "@antdp/basic-layouts": "2.0.0-bate-2",
-    "@antdp/edit-table": "2.0.0-bate-2",
-    "@antdp/hooks": "2.0.0-bate-2",
-    "@antdp/page-loading": "2.0.0-bate-2",
-    "@antdp/request": "2.0.0-bate-2",
-    "@antdp/user-login": "2.0.0-bate-2",
+    "@antdp/antdp-ui": "2.0.0-bate.3",
+    "@antdp/authorized": "2.0.0-bate.3",
+    "@antdp/basic-layouts": "2.0.0-bate.3",
+    "@antdp/edit-table": "2.0.0-bate.3",
+    "@antdp/hooks": "2.0.0-bate.3",
+    "@antdp/page-loading": "2.0.0-bate.3",
+    "@antdp/request": "2.0.0-bate.3",
+    "@antdp/user-login": "2.0.0-bate.3",
     "ahooks": "~3.7.2",
     "antd": "5.1.7",
     "rc-field-form": "~1.27.3",
@@ -41,8 +41,8 @@
     "dva": "^2.6.0-beta.20"
   },
   "devDependencies": {
-    "@antdp/config": "2.0.0-bate-2",
-    "@antdp/dependencies": "2.0.0-bate-2",
+    "@antdp/config": "2.0.0-bate.3",
+    "@antdp/dependencies": "2.0.0-bate.3",
     "@umijs/max": "~4.0.47",
     "@umijs/plugin-model": "~2.6.2",
     "lint-staged": "~13.0.4",

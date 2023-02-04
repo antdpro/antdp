@@ -1,6 +1,6 @@
 {
   "name": "@antdp/antdp-ui",
-  "version": "2.0.0-bate.3",
+  "version": "2.0.0-bate.4",
   "description": "基于antd封装的组件",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@antdp/basic-layouts",
-  "version": "2.0.0-bate.3",
+  "version": "2.0.0-bate.4",
   "description": "入口框架公共界面",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
@@ -29,10 +29,10 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",
-    "@antdp/authorized": "2.0.0-bate.3",
-    "@antdp/document-title": "2.0.0-bate.3",
-    "@antdp/fullscreen": "2.0.0-bate.3",
-    "@antdp/layout-tabs": "2.0.0-bate.3",
+    "@antdp/authorized": "2.0.0-bate.4",
+    "@antdp/document-title": "2.0.0-bate.4",
+    "@antdp/fullscreen": "2.0.0-bate.4",
+    "@antdp/layout-tabs": "2.0.0-bate.4",
     "@babel/runtime": "~7.20.1"
   },
   "devDependencies": {

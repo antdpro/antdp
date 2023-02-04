@@ -121,7 +121,7 @@ export const EditableCellItem = (props: EditableCellItemProps) => {
             overlayInnerStyle={{ color: 'red' }}
             {...tipAttr}
             title={tip ? tip(errs) : errs}
-            visible={!!meta.errors.length}
+            open={!!meta.errors.length}
           >
             {childNode}
           </Tooltip>

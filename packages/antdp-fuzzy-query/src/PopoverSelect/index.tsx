@@ -124,8 +124,8 @@ const PopoverSelect = (props: FuzzyQueryProps) => {
   return <Popover
     trigger="click"
     placement="bottomLeft"
-    visible={visible}
-    onVisibleChange={(vis) => {
+    open={visible}
+    onOpenChange={(vis) => {
       setVisible(vis);
     }}
     content={<Table

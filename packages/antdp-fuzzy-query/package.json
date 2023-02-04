@@ -4,6 +4,7 @@
   "description": "基于antd封装的组件  模糊查询 自定义提示",
   "license": "MIT",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "module": "es/index.js",
   "directories": {
     "lib": "lib",

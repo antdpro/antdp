@@ -5,6 +5,7 @@
   "license": "MIT",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"

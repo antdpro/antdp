@@ -8,7 +8,6 @@ import RenderContent from './RenderContent';
 import './index.css';
 
 export interface LayoutTabsRouter {
-  // component?: JSX.Element;
   exact?: boolean;
   icon: string;
   key: string;
@@ -92,7 +91,6 @@ export default (props: LayoutTabsProps) => {
   return (
     <Fragment>
       {
-        // @ts-ignore
         ANTD_IS_TABS && (
           <Tabs
             type="editable-card"
@@ -150,7 +148,6 @@ export default (props: LayoutTabsProps) => {
         const Comp = function () {
           return pane.element || NotFound;
         };
-        // @ts-ignore
         if (ANTD_IS_IFRAME_RENDER) {
           return (
             <Iframe
@@ -162,7 +159,6 @@ export default (props: LayoutTabsProps) => {
             />
           );
         }
-        // @ts-ignore
         if (ANTD_IS_TABS) {
           return (
             <RenderContent

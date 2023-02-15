@@ -21,18 +21,16 @@ const { Sider, Content } = Layout;
 // 递归实现----菜单渲染
 function renderMenu(data) {
   return data.map(({ path, name, icon, childs }) => {
+    const result = {
+      key: path,
+      icon: icon,
+      label: <NavLink to={path}>{name}</NavLink>,
+    };
     if (childs) {
-      return (
-        <Menu.SubMenu key={path} title={name} icon={icon}>
-          {renderMenu(childs)}
-        </Menu.SubMenu>
-      );
+      result.children = renderMenu(childs);
+      return result;
     }
-    return (
-      <Menu.Item key={path} icon={icon}>
-        <NavLink to={path}>{name}</NavLink>
-      </Menu.Item>
-    );
+    return result;
   });
 }
 // 递归实现----内容渲染
@@ -48,9 +46,12 @@ function renderContent(data) {
 function MenuContent() {
   let location = useLocation();
   return (
-    <Menu theme="dark" mode="inline" defaultSelectedKeys={[location?.pathname]}>
-      {renderMenu(data)}
-    </Menu>
+    <Menu
+      theme="dark"
+      mode="inline"
+      defaultSelectedKeys={[location?.pathname]}
+      items={renderMenu(data)}
+    />
   );
 }
 

@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import rehypeRewrite from 'rehype-rewrite';
 import { Component } from 'react';
+import BackToUp from '@uiw/react-back-to-top';
 import Code from './Code';
 import styles from './index.module.css';
 import Footer from '../Footer';
@@ -25,6 +26,9 @@ export default class Markdown extends Component {
         <MarkdownPreview
           style={{ padding: '20px 26px 40px 26px' }}
           source={this.props.source}
+          wrapperElement={{
+            'data-color-mode': 'light',
+          }}
           rehypePlugins={[
             [
               rehypeRewrite,
@@ -98,6 +102,7 @@ export default class Markdown extends Component {
           </div>
         )}
         <Footer placement="left" />
+        <BackToUp>Top</BackToUp>
       </Fragment>
     );
   }

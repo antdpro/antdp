@@ -1,6 +1,7 @@
 import { Link, NavLink, useLocation } from "react-router-dom"
 import { Layout, Menu } from "antd";
 import { SubMenuType } from 'antd/es/menu/hooks/useItems'
+import styled from "styled-components";
 import ReactLogo from '../assets/logo.svg';
 import { routesConfig, NonIndexRouteObjects } from '../route';
 
@@ -20,29 +21,39 @@ function getMenus(routes: NonIndexRouteObjects[] = []): SubMenuType[] {
   });
 }
 
+const Sup = styled.sup`
+  font-size: 12px;
+  color: #3387ffab;
+  padding-left: 58px;
+  top: -15px;
+`;
+
 const SiderMenus = () => {
   let location = useLocation();
-  return <Layout.Sider
-    width={230}
-    style={{
-      boxShadow: '2px 0 8px 0 rgb(29 35 41 / 5%)',
-      overflow: 'auto',
-    }}
-  >
-    <Link to="/" className="logo">
-      <img src={ReactLogo} width={28} height={28} alt="logo" />
-      <span>Antd Project</span>
-    </Link>
-    <Menu
-      theme="dark"
-      mode="inline"
-      defaultSelectedKeys={[location?.pathname]}
-      selectedKeys={[location.pathname]}
-      defaultOpenKeys={[location.pathname]}
-      items={getMenus(routesConfig[0].children) || []}
-      style={{ width: '100%' }}
-    />
-  </Layout.Sider>
+  return (
+    <Layout.Sider
+      width={230}
+      style={{
+        boxShadow: '2px 0 8px 0 rgb(29 35 41 / 5%)',
+        overflow: 'auto',
+      }}
+    >
+      <Link to="/" className="logo">
+        <img src={ReactLogo} width={28} height={28} alt="logo" />
+        <span>Antd Project</span>
+      </Link>
+        <Sup>{VERSION}</Sup>
+      <Menu
+        theme="dark"
+        mode="inline"
+        defaultSelectedKeys={[location?.pathname]}
+        selectedKeys={[location.pathname]}
+        defaultOpenKeys={[location.pathname]}
+        items={getMenus(routesConfig[0].children) || []}
+        style={{ width: '100%', paddingBottom: 50 }}
+      />
+    </Layout.Sider>
+  )
 }
 
 export default SiderMenus

@@ -9,15 +9,16 @@ env:
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
         node-version: 16
+        registry-url: 'https://registry.npmjs.org'
 
     - name: Look Changelog
-      uses: jaywcjlove/changelog-generator@v1.6.2
+      uses: jaywcjlove/changelog-generator@main
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         filter-author: (小弟调调™|Renovate Bot)
@@ -32,13 +33,13 @@ jobs:
 
     - name: Create Tag
       id: create_tag
-      uses: jaywcjlove/create-tag-action@v1.3.5
+      uses: jaywcjlove/create-tag-action@main
       with:
         package-path: ./packages/antdp/package.json
 
     - name: Generate changelog
       id: changelog
-      uses: jaywcjlove/changelog-generator@v1.6.2
+      uses: jaywcjlove/changelog-generator@main
       if: steps.create_tag.outputs.successful
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
@@ -47,7 +48,7 @@ jobs:
         filter: '[R|r]elease[d]\s+[v|V]\d(\.\d+){0,2}'
 
     - name: Create Release
-      uses: jaywcjlove/create-tag-action@v1.3.5
+      uses: jaywcjlove/create-tag-action@main
       with:
         package-path: ./packages/antdp/package.json
         release: true
@@ -126,6 +127,15 @@ jobs:
         </body></html>
         EOF
 
+    - name: Create README.md
+      working-directory: ./examples/website/build
+      run: |
+        cat > README.md << EOF
+        Documentation antdp@v1
+        ====
+        Preview: https://raw.githack.com/antdpro/antdp/gh-pages/index.html
+        EOF
+        
     - name: 📦 antdp publish to NPM
       uses: kktjs/npm-publish@main
       with:

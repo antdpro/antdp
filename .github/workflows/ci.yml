@@ -127,6 +127,15 @@ jobs:
           </body></html>
           EOF
 
+      - name: Create README.md
+        working-directory: ./examples/website/build
+        run: |
+          cat > README.md << EOF
+          Documentation antdp@v1
+          ====
+          Preview: https://raw.githack.com/antdpro/antdp/v1-doc/index.html
+          EOF
+
       - name: 📦 antdp publish to NPM
         uses: kktjs/npm-publish@main
         with:

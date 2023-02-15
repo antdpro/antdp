@@ -1,23 +1,23 @@
 import { Link, NavLink, useLocation } from "react-router-dom"
-import { Layout, Menu } from "antd"
+import { Layout, Menu } from "antd";
+import { SubMenuType } from 'antd/es/menu/hooks/useItems'
 import ReactLogo from '../assets/logo.svg';
-import { routesConfig } from '../route';
+import { routesConfig, NonIndexRouteObjects } from '../route';
 
-const getMenus = (routes: any[] = []) => {
-  return routes.map((item) => {
-    const ite = { ...item }
-    if (item.name) {
-      ite.label = item.name
-      ite.title = item.name
+function getMenus(routes: NonIndexRouteObjects[] = []): SubMenuType[] {
+  return routes.map((item, idx) => {
+    const { path, icon, name, children } = item
+    let result: Partial<SubMenuType> = {
+      key: path || idx.toString(),
+      icon: icon,
+      label: <NavLink to={path!}>{name}</NavLink>,
     }
-    if (Array.isArray(item.children)) {
-      ite.children = getMenus(item.children)
-    } else if (item.path) {
-      ite.key = item.path
-      ite.label = <NavLink to={item.path} >{item.name}</NavLink>
+    if (children) {
+      result.children = getMenus(children);
+      return result as SubMenuType;
     }
-    return { ...ite }
-  })
+    return result as SubMenuType;
+  });
 }
 
 const SiderMenus = () => {
@@ -39,7 +39,7 @@ const SiderMenus = () => {
       defaultSelectedKeys={[location?.pathname]}
       selectedKeys={[location.pathname]}
       defaultOpenKeys={[location.pathname]}
-      items={getMenus(routesConfig[0].children)}
+      items={getMenus(routesConfig[0].children) || []}
       style={{ width: '100%' }}
     />
   </Layout.Sider>

@@ -45,7 +45,7 @@ interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   icon?: React.ReactNode
   index?: boolean
 }
-interface NonIndexRouteObjects extends Omit<NonIndexRouteObject, "index" | 'children'> {
+export interface NonIndexRouteObjects extends Omit<NonIndexRouteObject, "index" | 'children'> {
   name?: React.ReactNode
   icon?: React.ReactNode
   index?: boolean

@@ -144,8 +144,8 @@ jobs:
           workspaces: packages/*
           tag: bate
 
-        - name: Deploy Website
-          uses: peaceiris/actions-gh-pages@v3
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./examples/website/build
+      - name: Deploy Website
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./examples/website/build

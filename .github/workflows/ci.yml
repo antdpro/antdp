@@ -2,7 +2,7 @@ name: Build & Deploy
 on:
   push:
     branches:
-      - master
+      - v1
 
 env:
   SKIP_PREFLIGHT_CHECK: true
@@ -81,7 +81,7 @@ jobs:
           <head>
           <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
           <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
-          <title>ANTDP Example Zip Files</title>
+          <title>ANTDP Example Zip Files v1</title>
           <style type="text/css">
           body, html { height: 100%; font-size: 12px; font-family: Avenir Next,PingFang SC,Hiragino Sans GB,Droid Sans Fallback,Microsoft YaHei,sans-serif; }
           h1 { font-size: 2.6rem; font-weight: 300; }
@@ -135,6 +135,8 @@ jobs:
 
       - name: Deploy Website
         uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/v1' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: v1-doc
           publish_dir: ./examples/website/build

@@ -1,6 +1,7 @@
 import rawModules from '@kkt/raw-modules';
 import lessModules from '@kkt/less-modules';
 
+/** @type {import("kkt").KKTRC['default']} */
 export default (conf, env, options) => {
   conf = lessModules.withLoaderOptions({
     lessOptions: { javascriptEnabled: true },

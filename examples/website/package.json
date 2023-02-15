@@ -29,18 +29,21 @@
     "@antdp/request": "1.8.24",
     "@antdp/user-login": "1.8.24",
     "@uiw/react-code-preview": "3.0.0",
+    "@uiw/react-back-to-top": "^1.2.1",
     "@uiw/react-github-corners": "1.5.3",
-    "@uiw/react-markdown-preview": "3.4.6",
+    "@uiw/react-markdown-preview": "~4.1.7",
     "antdp": "1.8.24",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-code-preview-layout": "~2.0.7",
     "react-router-dom": "5.2.0"
   },
   "devDependencies": {
-    "@kkt/less-modules": "~7.2.3",
-    "@kkt/raw-modules": "~7.2.3",
-    "@kkt/scope-plugin-options": "~7.2.3",
-    "kkt": "~7.2.3"
+    "@kkt/less-modules": "~7.4.1",
+    "@kkt/raw-modules": "~7.4.1",
+    "@kkt/scope-plugin-options": "~7.4.1",
+    "kkt": "~7.4.1",
+    "markdown-react-code-preview-loader": "~2.1.4"
   },
   "eslintConfig": {
     "extends": [

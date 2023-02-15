@@ -52,7 +52,7 @@
     ]
   },
   "dependencies": {
-    "compile-less-cli": "1.8.11",
+    "compile-less-cli": "1.8.13",
     "husky": "8.0.2",
     "jest-environment-jsdom": "27.4.6",
     "lerna": "6.1.0",

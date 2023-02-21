@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
 import { Menu, Select } from 'antd';
-import Link from './Link';
+import React, { Component } from 'react';
 import { getIcon, getRoutesList } from '../utils';
+import Link from './Link';
 
 const SearchMenus = (props) => {
-  const { routes = [], history, selectedKey } = props;
+  const { route = { routes: [] }, history, selectedKey } = props;
   const listRouters = React.useMemo(() => {
-    return getRoutesList(routes);
-  }, [routes]);
+    return getRoutesList(route.routes);
+  }, [route.routes]);
 
   const listMenus = React.useMemo(() => {
     return listRouters

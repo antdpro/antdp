@@ -70,12 +70,13 @@ export default (routes = [], options = {}) => {
       ANTD_MENU_TOP_LEFT: false,
       /** 标题 放在 头部 ,菜单放在头部下面  */
       ANTD_TITLE_TOP: false,
+      /**是否显示菜单查询*/
+      ANTD_MENU_SEARCH_IS_SHOW: true,
       ...(options.define || {}),
       // 是否开启父子路由面包屑
       ANTD_IS_BREADCRUMB,
       // 是否开启权限验证
       ANTD_AUTH_CONF,
-      ANTD_MENU_SEARCH_IS_SHOW: true,
     },
     routes: routes || [],
     plugins: [

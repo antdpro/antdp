@@ -4,7 +4,7 @@ import Link from './Link';
 import { getIcon, getRoutesList } from '../utils';
 
 const SearchMenus = (props) => {
-  const { routes = [], history } = props;
+  const { routes = [], history, selectedKey } = props;
   const listRouters = React.useMemo(() => {
     return getRoutesList(routes);
   }, [routes]);
@@ -17,9 +17,14 @@ const SearchMenus = (props) => {
       .map((item) => ({ label: item.name, value: item.path }));
   }, [listRouters]);
 
+  const currentValue = React.useMemo(() => {
+    return listMenus.find((item) => item.value === selectedKey) || undefined;
+  }, [selectedKey]);
+
   return (
     <div style={{ padding: '0 10px', margin: '10px 0' }}>
       <Select
+        value={currentValue}
         placeholder="请搜索"
         labelInValue
         showSearch={true}

@@ -75,6 +75,7 @@ export default (routes = [], options = {}) => {
       ANTD_IS_BREADCRUMB,
       // 是否开启权限验证
       ANTD_AUTH_CONF,
+      ANTD_MENU_SEARCH_IS_SHOW: true,
     },
     routes: routes || [],
     plugins: [

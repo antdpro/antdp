@@ -1,7 +1,7 @@
 
 .loading {
   position: absolute;
-  z-index: 9999;
+  z-index: 999;
   height: 100%;
   width: 100%;
   backdrop-filter: saturate(180%) blur(.4rem);

@@ -288,3 +288,17 @@ export const getDiffIndex = (routes, pathname) => {
   index = routes.find((item) => item.index);
   return (index || {}).path;
 };
+
+export const getRoutesList = (data = [], list = []) => {
+  data.forEach((item) => {
+    if (item.routes) {
+      getRoutesList(item.routes, list);
+      if (item.side) {
+        list.push(item);
+      }
+    } else {
+      list.push(item);
+    }
+  });
+  return list;
+};

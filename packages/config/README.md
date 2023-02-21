@@ -54,6 +54,7 @@ export default config;
 - `ANTD_HEAD_IS_SHOW` 是否显示 head头部 
 - `ANTD_MENU_TOP_LEFT` 父级菜单展示顶部 ，子集菜单展示侧边
 - `ANTD_TITLE_TOP` 标题 放在 头部 ,菜单放在头部下面
+- `ANTD_MENU_SEARCH_IS_SHOW` 菜单是否展示搜索框
 
 ## Locale
 继承于umi [`@umijs/plugin-locale`](https://umijs.org/zh-CN/plugins/plugin-locale)

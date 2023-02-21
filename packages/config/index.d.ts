@@ -37,6 +37,8 @@ export interface Options extends Omit<IConfig, 'routes'> {
     ANTD_MENU_TOP_LEFT: boolean;
     /** 标题 放在 头部 ,菜单放在头部下面  */
     ANTD_TITLE_TOP: boolean
+    /** 是否展示搜索菜单  */
+    ANTD_MENU_SEARCH_IS_SHOW:boolean
   };
 }
 

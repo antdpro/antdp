@@ -1,7 +1,39 @@
 import React, { Component } from 'react';
-import { Menu } from 'antd';
+import { Menu, Select } from 'antd';
 import Link from './Link';
-import { getIcon } from '../utils';
+import { getIcon, getRoutesList } from '../utils';
+
+const SearchMenus = (props) => {
+  const { routes = [], history } = props;
+  const listRouters = React.useMemo(() => {
+    return getRoutesList(routes);
+  }, [routes]);
+
+  const listMenus = React.useMemo(() => {
+    return listRouters
+      .filter((item) => {
+        return item && 'name' in item && !item.hideInMenu && item.path !== '*';
+      })
+      .map((item) => ({ label: item.name, value: item.path }));
+  }, [listRouters]);
+
+  return (
+    <div style={{ padding: '0 10px', margin: '10px 0' }}>
+      <Select
+        placeholder="请搜索"
+        labelInValue
+        showSearch={true}
+        optionFilterProp="children"
+        filterOption={(input, option) =>
+          (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+        }
+        options={listMenus}
+        onSelect={({ value }) => history.push(value)}
+        style={{ width: '100%' }}
+      />
+    </div>
+  );
+};
 
 export default class MeunView extends Component {
   constructor(props) {
@@ -108,6 +140,7 @@ export default class MeunView extends Component {
         defaultOpenKeys={this.state.defaultOpenKeys}
         style={{ width: '100%' }}
       >
+        {ANTD_MENU_SEARCH_IS_SHOW && <SearchMenus {...this.props} />}
         {_render}
       </Menu>
     );

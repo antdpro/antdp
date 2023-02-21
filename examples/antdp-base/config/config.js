@@ -15,8 +15,9 @@ export default config(router, {
       auth_btn: 'authBtn',
       auth_check_url: undefined,
     },
-    ANTD_MENU_TOP_LEFT: true,
+    ANTD_MENU_TOP_LEFT: false,
     ANTD_TITLE_TOP: true,
+    ANTD_MENU_SEARCH_IS_SHOW: true,
   },
   locale: {
     default: 'zh-CN',

@@ -27,22 +27,22 @@
         "routes": [
           {
             "path": "/dashboard/demo",
-            "name": "实例展示",
-            "locale": "实例展示",
+            "name": "实例展示1",
+            "locale": "实例展示1",
             "icon": "pie-chart",
             "index": true,
             "component": "@/pages/Demo"
           },
           {
             "path": "/dashboard/workplace",
-            "name": "工作台",
-            "locale": "工作台",
+            "name": "工作台1",
+            "locale": "工作台1",
             "icon": "pie-chart",
             "component": "@/pages/Dashboard"
           },
           {
             "path": "/dashboard/notfund",
-            "name": "测试不存在页面",
+            "name": "测试不存在页面1",
             "hideInMenu": true,
             "icon": "radar-chart"
           }
@@ -56,23 +56,23 @@
         "routes": [
           {
             "path": "/EditTable/demo",
-            "name": "实例展示",
-            "locale": "实例展示",
+            "name": "实例展示2",
+            "locale": "实例展示2",
             "icon": "pie-chart",
             "index": true,
             "component": "@/pages/Demo"
           },
           {
             "path": "/EditTable/workplace",
-            "name": "工作台",
-            "locale": "工作台",
+            "name": "工作台2",
+            "locale": "工作台2",
             "hideInMenu": true,
             "icon": "pie-chart",
             "component": "@/pages/Dashboard"
           },
           {
             "path": "/EditTable/notfund",
-            "name": "测试不存在页面",
+            "name": "测试不存在页面2",
             "icon": "radar-chart"
           }
         ]

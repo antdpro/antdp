@@ -44,6 +44,6 @@ export const checkedCode = (code: number | undefined, msg: string | undefined) =
   } else if (code === 500) {
     message.error(msg)
   } else {
-    message.warn(msg)
+    message.warning(msg)
   }
 }

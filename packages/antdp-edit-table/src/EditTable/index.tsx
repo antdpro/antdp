@@ -83,11 +83,11 @@ const EditableTable = (
       return;
     }
     if (newAdd.length === 1 && !multiple) {
-      message.warn('只能新增一行');
+      message.warning('只能新增一行');
       return;
     }
     if (editingKey.length === 1 && !multiple) {
-      message.warn('只能编辑一行');
+      message.warning('只能编辑一行');
       return;
     }
     const id = (new Date().getTime() * Math.round(10)).toString();

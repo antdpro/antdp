@@ -5,7 +5,7 @@ import HeaderMenus from "../HeaderMenus"
 
 const Header = () => {
   return <div className="antdp-basic-layouts-header-body">
-    <Logo />
+    {!!ANTD_MENU_TOP_LEFT && <Logo />}
     <HeaderMenus />
     <TopRight />
   </div>

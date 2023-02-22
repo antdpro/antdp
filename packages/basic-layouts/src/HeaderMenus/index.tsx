@@ -19,6 +19,7 @@ const HeaderMenus = () => {
   const collapsedView = useMemo(
     () => React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
       className: 'trigger',
+      style: { fontSize: 20, marginTop: 13 },
       onClick: () => setCollapsed(!collapsed),
     }), [collapsed]);
 

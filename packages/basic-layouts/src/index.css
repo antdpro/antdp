@@ -83,6 +83,16 @@
   float: left;
   box-sizing:border-box;
 }
+.antdp-global-title-left a {
+  height: 64px;
+  box-sizing:border-box;
+  display: flex;
+  align-items:center
+}
+
+.antdp-global-title-left h1{
+  color: #fff;
+}
 
 .antdp-global-title h1 {
   box-sizing: border-box;

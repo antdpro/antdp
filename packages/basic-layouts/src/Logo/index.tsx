@@ -26,7 +26,7 @@ const Logo = (props: LogoProps) => {
     () => (
       <div
         style={!collapsed && { width: siderWidth } || {}}
-        className={`antdp-global-title antdp-global-title-top`}
+        className={`antdp-global-title antdp-global-title-top ${!ANTD_MENU_TOP_LEFT && "antdp-global-title-left" || ""}`}
       >
         <Link to={logoJumpTo}>
           {logoRender}

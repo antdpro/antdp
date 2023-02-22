@@ -1,6 +1,6 @@
 {
   "name": "@antdp/user-login",
-  "version": "2.0.0-bate.4",
+  "version": "2.0.0-bate.4.0",
   "description": "用户登录页面",
   "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": [
@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "@ant-design/icons": "4.7.0",
-    "@antdp/antdp-ui": "2.0.0-bate.4",
-    "@antdp/document-title": "2.0.0-bate.4",
+    "@antdp/antdp-ui": "2.0.0-bate.4.0",
+    "@antdp/document-title": "2.0.0-bate.4.0",
     "@babel/runtime": "~7.20.1"
   },
   "devDependencies": {

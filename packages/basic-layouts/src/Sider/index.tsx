@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { RouterMenu, } from "../interface"
 import { getSiderMenus } from "../utils"
 import { useLayouts } from "../hooks"
-
+import Logo from "./../Logo"
 export interface SiderProps extends MenuProps {
   menus?: RouterMenu[]
 }
@@ -21,6 +21,7 @@ const Sider = (props: SiderProps) => {
   }
 
   return <Layout.Sider width={siderWidth} collapsed={collapsed} className="antdp-basic-layouts-sider" >
+    {!ANTD_MENU_TOP_LEFT && <Logo />}
     <Menu
       {...props}
       selectedKeys={[location.pathname]}

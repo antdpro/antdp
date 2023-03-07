@@ -60,37 +60,47 @@ const Preview = (props: MarkdownProps) => {
               child.children = [];
             }
           }
+          if (node.type === 'element' && node.tagName === 'pre' && node.children[0].data?.meta) {
+            const meta = node.children[0].data?.meta as string;
+            if (isMeta(meta)) {
+              node.tagName = 'div';
+              if (!node.properties) {
+                node.properties = {};
+              }
+              node.properties!['data-md'] = meta;
+              node.properties!['data-meta'] = 'preview';
+            }
+          }
         }}
         components={{
-          code: ({ inline, node, ...props }) => {
-            const { 'data-meta': meta, ...rest } = props as any;
-            if (inline || !isMeta(meta)) {
-              return <code {...props} />;
+          div: ({ node, ...props }) => {
+            const { 'data-meta': meta, 'data-md': metaData, ...rest } = props as any;
+            if (meta === 'preview') {
+              const line = node.position?.start.line;
+              const metaId = getMetaId(meta) || String(line);
+              const Child = MDcomponents[metaId];
+              if (metaId && typeof Child === 'function') {
+                const code = MDdata[metaId].value || '';
+                const param = getURLParameters(metaData);
+                return (
+                  <CodeLayout
+                    disableCheckered={getBooleanValue(param, 'disableCheckered', true)}
+                    disableToolbar={getBooleanValue(param, 'disableToolbar', false)}
+                    disableCode={getBooleanValue(param, 'disableCode', false)}
+                    disablePreview={getBooleanValue(param, 'disablePreview', false)}
+                    bordered={getBooleanValue(param, 'bordered', true)}
+                    copied={getBooleanValue(param, 'copied', true)}
+                    background={param.background}
+                    toolbar={param.title || '示例'}
+                    code={<code {...rest} />}
+                    text={code}
+                  >
+                    <Child />
+                  </CodeLayout>
+                );
+              }
             }
-            const line = node.position?.start.line;
-            const metaId = getMetaId(meta) || String(line);
-            const Child = MDcomponents[`${metaId}`];
-            if (metaId && typeof Child === 'function') {
-              const code = MDdata[metaId].value || '';
-              const param = getURLParameters(meta);
-              return (
-                <CodeLayout
-                  disableCheckered={getBooleanValue(param, 'disableCheckered', true)}
-                  disableToolbar={getBooleanValue(param, 'disableToolbar', false)}
-                  disableCode={getBooleanValue(param, 'disableCode', false)}
-                  disablePreview={getBooleanValue(param, 'disablePreview', false)}
-                  bordered={getBooleanValue(param, 'bordered', true)}
-                  copied={getBooleanValue(param, 'copied', true)}
-                  background={param.background}
-                  toolbar={param.title || '示例'}
-                  code={<code {...rest} />}
-                  text={code}
-                >
-                  <Child />
-                </CodeLayout>
-              );
-            }
-            return <code {...rest} />;
+            return <div {...props} />;
           },
         }}
       />

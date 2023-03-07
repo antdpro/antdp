@@ -2,7 +2,7 @@ name: Build & Deploy
 on:
   push:
     branches:
-      - dev
+      - master
 
 env:
   SKIP_PREFLIGHT_CHECK: true
@@ -128,21 +128,11 @@ jobs:
           </body></html>
           EOF
 
-      - name: Create README.md
-        working-directory: ./examples/website/build
-        run: |
-          cat > README.md << EOF
-          Documentation antdp@v1
-          ====
-          Preview: https://raw.githack.com/antdpro/antdp/gh-pages/index.html
-          EOF
-          
       - name: 📦 antdp publish to NPM
         uses: kktjs/npm-publish@main
         with:
           token: ${{ secrets.NPM_TOKEN }}
           workspaces: packages/*
-          tag: bate
 
       - name: Deploy Website
         uses: peaceiris/actions-gh-pages@v3

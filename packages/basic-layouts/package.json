@@ -28,7 +28,7 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@ant-design/icons": "4.7.0",
+    "@ant-design/icons": "4.8.0",
     "@antdp/authorized": "2.0.0-bate-4.1",
     "@antdp/document-title": "2.0.0-bate-4.1",
     "@antdp/fullscreen": "2.0.0-bate-4.1",

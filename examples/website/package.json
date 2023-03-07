@@ -31,11 +31,11 @@
     "@antdp/user-login": "2.0.0-bate-4.1",
     "@uiw/react-back-to-top": "^1.2.1",
     "@uiw/react-github-corners": "^1.5.15",
-    "@uiw/react-markdown-preview": "^4.1.6",
+    "@uiw/react-markdown-preview": "~4.1.10",
     "@wcj/dark-mode": "^1.0.15",
     "antdp": "2.0.0-bate-4.1",
     "react": "^18.2.0",
-    "react-code-preview-layout": "~2.0.7",
+    "react-code-preview-layout": "~2.1.1",
     "react-dom": "^18.2.0",
     "react-router": "~6.4.3",
     "react-router-dom": "~6.4.3",
@@ -49,7 +49,7 @@
     "@types/react-dom": "~18.0.10",
     "@types/styled-components": "^5.1.26",
     "kkt": "~7.4.0",
-    "markdown-react-code-preview-loader": "~2.1.2"
+    "markdown-react-code-preview-loader": "^2.1.5"
   },
   "eslintConfig": {
     "extends": [

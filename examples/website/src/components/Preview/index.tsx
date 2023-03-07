@@ -92,7 +92,7 @@ const Preview = (props: MarkdownProps) => {
                     copied={getBooleanValue(param, 'copied', true)}
                     background={param.background}
                     toolbar={param.title || '示例'}
-                    code={<code {...rest} />}
+                    code={<pre {...rest} />}
                     text={code}
                   >
                     <Child />

@@ -31,7 +31,7 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@ant-design/icons": "4.7.0",
+    "@ant-design/icons": "5.0.1",
     "@antdp/antdp-ui": "2.0.0-bate-4.1",
     "@antdp/document-title": "2.0.0-bate-4.1",
     "@babel/runtime": "~7.20.1"

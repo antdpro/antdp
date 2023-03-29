@@ -1,6 +1,5 @@
 {
   "name": "@example/antdp-base",
-  "version": "2.0.0-bate-4.1",
   "private": true,
   "scripts": {
     "start": "max dev",

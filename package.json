@@ -12,7 +12,7 @@
     "build:antdp-base": "lerna exec --scope @example/antdp-base -- npm run build",
     "build:website": "lerna exec --scope @example/website -- npm run build",
     "build": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb build",
-    "umiinstall": "lerna exec --scope @example/antdp-base -- npm run umiinstall",
+    "umiinstall": "lerna exec --scope @example/antdp-base --scope @example/basic -- npm run umiinstall",
     "⬇️⬇️⬇️⬇️⬇️ install ⬇️⬇️⬇️⬇️⬇️": "▼▼▼▼▼ install::package ▼▼▼▼▼",
     "bootstrap": "lerna bootstrap",
     "hoist": "lerna bootstrap --hoist",

@@ -1,0 +1,12 @@
+[
+  {
+    "path": "/",
+    "redirectTo": "/welcome"
+  },
+  {
+    "path": "/welcome",
+    "name": "首页",
+    "icon": "welcome",
+    "component": "@/pages/index"
+  }
+]

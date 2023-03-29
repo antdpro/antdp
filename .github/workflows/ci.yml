@@ -67,8 +67,12 @@ jobs:
       - name: Compress antdp-base Example.
         run: zip -r -y antdp-base.zip . -x "node_modules/*" -x "dist/*" -x "coverage/*" -x ".eslintcache" -x "sandbox.config.json" -x "package-lock.json"
         working-directory: examples/antdp-base
-
       - run: cp -rp examples/antdp-base/antdp-base.zip examples/website/build/zip
+
+      - name: Compress basic Example.
+        run: zip -r -y basic.zip . -x "node_modules/*" -x ".umi/*" -x "dist/*" -x "coverage/*" -x ".eslintcache" -x "sandbox.config.json" -x "package-lock.json"
+        working-directory: examples/basic
+      - run: cp -rp examples/basic/basic.zip examples/website/build/zip
 
       - name: Add Download Page
         working-directory: examples/website/build/zip

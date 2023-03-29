@@ -9,16 +9,20 @@ import { AuthorizedProps } from "./interface"
 export { AuthorizedBtn, getAuthorizedPage };
 export * from "./interface"
 
-export default (props: AuthorizedProps = {}) => {
+const Authorized = (props:AuthorizedProps)=>{
   if (props.authority) {
-    return React.Children.map(props.children, (child) => {
+    return <React.Fragment>
+      {React.Children.map(props.children, (child) => {
       if (!React.isValidElement(child)) return child;
       return React.cloneElement(child, { ...child.props });
-    });
+    })}
+    </React.Fragment>;
   }
   return useMemo(() => {
     if (props.redirectPath) {
       return <Navigate to={props.redirectPath} replace />;
     }
+    return <React.Fragment>{props.children}</React.Fragment>
   }, [props.redirectPath]);
-};
+}
+export default Authorized

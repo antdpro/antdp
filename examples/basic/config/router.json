@@ -1,12 +1,34 @@
 [
   {
-    "path": "/",
-    "redirectTo": "/welcome"
+    "path": "/login",
+    "component": "@/layouts/UserLayout"
   },
   {
-    "path": "/welcome",
-    "name": "首页",
-    "icon": "welcome",
-    "component": "@/pages/index"
+    "path": "/",
+    "component": "@/layouts/BasicLayout",
+    "routes": [
+      {
+        "path": "/",
+        "redirectTo": "/welcome"
+      },
+      {
+        "path": "/welcome",
+        "name": "首页",
+        "icon": "welcome",
+        "component": "@/pages/index"
+      },
+      {
+        "path": "/welcome2",
+        "name": "首页2",
+        "icon": "welcome",
+        "component": "@/pages/index"
+      },
+      {
+        "path": "/welcome3",
+        "name": "首页3",
+        "icon": "welcome",
+        "component": "@/pages/index"
+      }
+    ]
   }
 ]

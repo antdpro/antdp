@@ -131,15 +131,15 @@ export default (props: LayoutTabsProps) => {
               }
               setTabAll([...dataKeys]);
             }}
-          >
-            {tabAll.map((pane: { name: string, path: string }, index: number) => (
-              <Tabs.TabPane
-                tab={pane.name}
-                key={pane.path}
-                closable={tabAll.length !== 1}
-              />
-            ))}
-          </Tabs>
+            items={tabAll.map((pane) => {
+              return {
+                label: pane.name,
+                tab: pane.name,
+                key: pane.path,
+                closable: tabAll.length !== 1
+              }
+            })}
+          />
         )}
       {tabAll.map((pane: LayoutTabsRouter, index: number) => {
         if (!pane) return null;

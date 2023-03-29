@@ -31,7 +31,6 @@ const Sider = (props: SiderProps) => {
       theme="dark"
       items={items}
       style={{ width: '100%' }}
-      inlineCollapsed={collapsed}
     />
   </Layout.Sider>
 

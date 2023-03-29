@@ -3,6 +3,7 @@ import { Form, Input, Button, Row } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 import { InputCount } from '@antdp/antdp-ui';
 import '../index.css';
+import { formBtnsProps } from "./../index"
 
 declare const ValidateStatuses: ["success", "warning", "error", "validating", ""];
 export declare type ValidateStatus = typeof ValidateStatuses[number];
@@ -27,12 +28,12 @@ export interface FormItemProps {
 export interface PhoneProps {
   value: {
     phoneFormItems?: string[];
-    formBtns?: string[];
-    loading: string,
-    formChildren: React.FC<any>,
-    onSend: () => void,
-    phoneCodeProps: FormItemProps,
-    onFinish: () => void,
+    formBtns?: formBtnsProps['formBtns'];
+    loading?: string,
+    formChildren?: React.FC<any>,
+    onSend?: () => void,
+    phoneCodeProps?: FormItemProps,
+    onFinish?: formBtnsProps["onFinish"],
   }
 }
 

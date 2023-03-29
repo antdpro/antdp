@@ -1,13 +1,13 @@
 import React from 'react';
-import { Form, Input, Button, Row } from 'antd';
+import { Form, Input, Button, Row, ButtonProps } from 'antd';
 
 export interface LoginProps {
   value: {
     formItems?: string[];
-    formBtns?: string[];
-    loading: string,
-    formChildren: React.FC<any>,
-    onFinish: () => void,
+    formBtns?: { label?: React.ReactNode, attr?: ButtonProps }[],
+    loading?: string,
+    formChildren?: React.FC<any>,
+    onFinish?: (value: any) => void,
   }
 }
 
@@ -34,7 +34,6 @@ const AccountLogin = (props: LoginProps) => {
           {Array.isArray(formBtns) &&
             formBtns.map((item: any, index: number) => {
               const { label, attr } = item;
-              console.log('label, attr: ', label, attr);
               if (attr && attr.htmlType === 'submit') {
                 attr.loading = loading;
               }

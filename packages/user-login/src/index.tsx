@@ -1,5 +1,5 @@
 import React, { useState, Fragment, useImperativeHandle, forwardRef } from 'react';
-import { Radio } from 'antd';
+import { Radio, ButtonProps } from 'antd';
 import DocumentTitle from '@antdp/document-title';
 import { UserOutlined, LockOutlined, PhoneOutlined } from '@ant-design/icons';
 import { ThemeContext } from './themContext';
@@ -12,17 +12,17 @@ export interface UserLoginState { }
 export interface formBtnsProps {
   logo?: string;
   projectName?: string;
-  className: string,
-  type: boolean | string,
-  children: React.ReactNode,
-  formItems: string[],
-  formBtns: string[],
-  loading: string,
-  onFinish: () => void,
-  formChildren: any,
-  phoneFormItems: string[],
+  className?: string,
+  type?: boolean | string,
+  children?: React.ReactNode,
+  formItems?: string[],
+  formBtns?: { label?: React.ReactNode, attr?: ButtonProps }[],
+  loading?: string,
+  onFinish?: (value: unknown) => void,
+  formChildren?: any,
+  phoneFormItems?: string[],
   // phoneCodeProps: React.ReactNode,
-  onSend: () => void,
+  onSend?: () => void,
 }
 
 const BaseLayout = forwardRef((props: formBtnsProps, ref) => {

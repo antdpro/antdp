@@ -4,15 +4,53 @@
 [![npm](https://img.shields.io/npm/v/@antdp/authorized.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/authorized)
 [![npm download](https://img.shields.io/npm/dm/@antdp/authorized.svg?style=flat)](https://www.npmjs.com/package/@antdp/authorized)
 
-通过判断是否进入主界面还是登录界面。
+权限判断组件或方法，通过判断是否进入主界面还是登录界面。
 
 ## Installation
 
 ```bash
-npm i @antdp/authorized --save
+$ npm i @antdp/authorized  # yarn add @antdp/authorized
+```
+## 参数
+
+```typescript
+interface AuthorizedProps {
+  /**
+   * 准入权限/权限判断
+   */
+  authority?: boolean;
+  /**
+   * 权限异常时重定向的页面路由
+   */
+  redirectPath?: string;
+  children?: React.ReactNode;
+}
+/**
+ * @description: 页面权限
+ * @param {Array} menuRouter 原始 routes.json 文件中路由
+ * @param {string} path 当前路径
+ * @return {*}
+ */
+type GetAuthorizedPageProps = (menuRouter: Array<any>, path: string) => boolean | 404 | 403
+// 按钮权限
+interface AuthorizedBtnProps {
+  // 权限路径
+  path?: string,
+  // 展示内容
+  children?: React.ReactNode
+}
 ```
 
-## Basic Usage
+## 判断菜单是否有权限
+
+```ts
+import {getAuthorizedPage} from '@antdp/authorized';
+
+const isCheckMenu = getAuthorizedPage([{path:"/web"},{path:"/examples"}],"/examples")
+
+```
+
+## 页面权限判断重定向
 
 ```jsx
 import React from 'react';
@@ -39,32 +77,17 @@ const Layout = (props) => {
 };
 ```
 
-## Component Interface
+## 按钮权限
 
-```typescript
-interface AuthorizedProps {
-  /**
-   * 准入权限/权限判断
-   */
-  authority?: boolean;
-  /**
-   * 权限异常时重定向的页面路由
-   */
-  redirectPath?: string;
-  children?: React.ReactNode;
+```tsx 
+import React from "react"
+import { AuthorizedBtn } from "@antdp/authorized"
+
+const Demo = ()=>{
+  return (<AuthorizedBtn path="/api/select" >
+    <button>查询</button>
+  </AuthorizedBtn>)
 }
-/**
- * @description: 页面权限
- * @param {Array} menuRouter 原始 routes.json 文件中路由
- * @param {string} path 当前路径
- * @return {*}
- */
-type GetAuthorizedPageProps = (menuRouter: Array<any>, path: string) => boolean
-// 按钮权限
-interface AuthorizedBtnProps {
-  // 权限路径
-  path?: string,
-  // 展示内容
-  children?: React.ReactNode
-}
+export default Demo;
+
 ```

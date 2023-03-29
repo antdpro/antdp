@@ -24,4 +24,4 @@ export type AuthList = (string | Record<string, unknown>)[];
 export type GetAuthorizedPageProps = (
   allRouters: IRoute[],
   pathname: string,
-) => true | 403 | 404;
+) => boolean | 403 | 404;

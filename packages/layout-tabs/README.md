@@ -20,19 +20,25 @@ antd 组件 |  ✅ |  ✅ |  ✅ |  ❌(大量弹出类组件位置错乱)
 ## Installation
 
 ```bash
-npm i @antdp/layout-tabs --save
+npm i @antdp/layout-tabs --save # yarn add @antdp/layout-tabs
 ```
 
 ## Basic Usage
 
-```tsx 
+```tsx
 import React from 'react';
 import LayoutTabs from '@antdp/layout-tabs';
 
-<LayoutTabs
-  activeKey={location.pathname}
-  dataSource={[]}
-/>
+const Demo = ()=>{
+  return (
+    <LayoutTabs
+      activeKey={location.pathname}
+      dataSource={[]}
+    />
+  )
+}
+
+export default Demo;
 
 ```
 

@@ -1,12 +1,14 @@
 import React from 'react';
 import { IntlShape } from 'react-intl/lib/src/types';
-// import { ItemType } from 'antd/lib/menu/hooks/useItems';
 
 export interface HandleMenuProps {
   /**语言转换*/
   intlLanguage?: IntlShape;
+  /**菜单*/
   routers: RouterMenu[];
+  /**是否使用 TOPLEFT 布局*/
   isTOPLEFT?: boolean;
+  /**是否验证权限*/
   isCheckAuth?: boolean;
 }
 
@@ -68,9 +70,6 @@ export interface BasicLayoutsProps {
      * 用户名称/昵称
      */
     name?: string;
-  };
-  route?: {
-    routes: RouterMenu[];
   };
 }
 

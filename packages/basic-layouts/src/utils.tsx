@@ -2,16 +2,9 @@ import React from 'react';
 import Icon from '@ant-design/icons';
 import { NavLink } from 'react-router-dom';
 import { ItemType } from "antd/lib/menu/hooks/useItems"
-import { RouterMenu } from "./interface"
+import { RouterMenu, HandleMenuProps } from "./interface"
 import { IntlShape } from "react-intl/lib/src/types"
 
-interface HandleMenuProps {
-  /**语言转换*/
-  intlLanguage?: IntlShape;
-  routers: RouterMenu[]
-  isTOPLEFT?: boolean
-  isCheckAuth?: boolean
-}
 
 /**
  * 
@@ -19,7 +12,6 @@ interface HandleMenuProps {
  * 2. 保存每个子集对应的父级
  * 3. 父级链
  */
-
 export class HandleMenu {
   authMenus: any[] = []
   /**所有直接渲染的父级菜单*/
@@ -48,7 +40,9 @@ export class HandleMenu {
   /**是否使用*/
   isTOPLEFT?: boolean = false
 
+  /**记录上次父级菜单*/
   preParentPath?: string = ''
+  /**记录上次菜单*/
   prePath?: string = ''
 
   constructor(props: HandleMenuProps) {

@@ -5,23 +5,20 @@ import {
   useContext,
   useState,
 } from 'react';
-import DocumentTitle from '@antdp/document-title';
+import DocumentTitleDom, { DocumentTitle } from '@antdp/document-title';
 import { useLocation } from 'react-router-dom';
 // @ts-ignore
 import { useAppData } from '@umijs/max';
-
 import { UseLayoutsProps, RouterMenu } from './interface';
 import { HandleMenu } from './utils';
 
-interface LayoutsContextType {
+export interface LayoutsContextType extends UseLayoutsProps {
   HandleMenu: HandleMenu;
   collapsed: boolean;
   setCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const LayoutsContext = createContext<
-  LayoutsContextType & UseLayoutsProps
->({
+export const LayoutsContext = createContext<LayoutsContextType>({
   HandleMenu: new HandleMenu({ routers: [] }),
   collapsed: false,
   setCollapsed: () => null,
@@ -67,7 +64,7 @@ export const LayoutsProvider = (props: UseLayoutsProps) => {
     return arr.filter(Boolean).join('-');
   }, [title, props.projectName]);
 
-  return createElement(DocumentTitle, {
+  return createElement<DocumentTitle>(DocumentTitleDom, {
     title: renderTitle,
     children: createElement(LayoutsContext.Provider, {
       value: { HandleMenu: Menus, collapsed, setCollapsed, ...rest },

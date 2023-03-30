@@ -8,8 +8,7 @@ CardPro 卡片
 
 ### 基础示例
 
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
-```jsx    mdx:preview
+```jsx mdx:preview
 import React from "react"
 import { CardPro } from '@antdp/antdp-ui';
 

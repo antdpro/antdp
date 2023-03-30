@@ -8,41 +8,39 @@ ButtonGroupPro权限按钮组
 
 ### 案例
 
-```tsx   mdx:preview
+```tsx mdx:preview
 import React from "react";
 import { ButtonGroupPro } from '@antdp/antdp-ui';
 
 const Demo  = ()=>(
-       <ButtonGroupPro
-          button={[
-            {
-              type: 'primary',
-              label: 'Button',
-              onClick: () => {},
-            },
-            {
-              label: 'Menu',
-              type: 'primary',
-              menu: [
-                {
-                  key: '1',
-                  label: '新增2',
-                  onClick: ()=>{},
-                },
-                {
-                  key: '2',
-                  label: '新增3',
-                  onClick: ()=>{},
-                  disabled: true,
-                }
-              ]
-            },
-          ]}
-        />
-    );
+  <ButtonGroupPro
+    button={[
+      {
+        type: 'primary',
+        label: 'Button',
+        onClick: () => {},
+      },
+      {
+        label: 'Menu',
+        type: 'primary',
+        menu: [
+          {
+            key: '1',
+            label: '新增2',
+            onClick: ()=>{},
+          },
+          {
+            key: '2',
+            label: '新增3',
+            onClick: ()=>{},
+            disabled: true,
+          }
+        ]
+      },
+    ]}
+  />);
 export default Demo;
 ```
-<!--End-->
 
 ### Props
 组件继承antd的 [`Button`](https://ant.design/components/button-cn/#header)
@@ -59,7 +57,6 @@ export default Demo;
 | type | 按钮组类型 | string ｜ number | - |
 | render | 按钮组渲染 | ButtonType | - |
 | badge | 按钮组徽标 | number | - |
-
 
 ```ts
 interface MenusOptionProps extends Omit<ButtonProps, "type">, ButtonGroupProps {

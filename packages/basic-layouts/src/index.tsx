@@ -6,12 +6,23 @@ import WarpContent from "./Content"
 import { BasicLayoutsProps } from "./interface"
 import { LayoutsProvider } from "./hooks"
 import "./index.css"
+export * from "./hooks"
+export * from "./utils"
+export { default as Breadcrumb } from "./Breadcrumb"
+export * from "./Breadcrumb"
+export { default as WarpContent } from "./Content"
+export * from "./Content"
+export { default as Header } from "./Header"
+export * from "./Header"
+export { default as HeaderMenus } from "./HeaderMenus"
+export * from "./HeaderMenus"
+export { default as Logo } from "./Logo"
+export * from "./Logo"
+export { default as Sider } from "./Sider"
+export * from "./Sider"
+export { default as TopRight } from "./TopRight"
 
 const BasicLayouts = (props: BasicLayoutsProps) => {
-  const {
-    route: { routes = [] } = {}
-  } = props
-
   const render = useMemo(() => {
     if (!!ANTD_MENU_TOP_LEFT) {
       return <React.Fragment>
@@ -40,7 +51,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     }
   }, [])
 
-  return <LayoutsProvider  {...props} routes={routes} >
+  return <LayoutsProvider  {...props}  >
     <Layout className="antdp-basic-layouts">
       {render}
     </Layout>

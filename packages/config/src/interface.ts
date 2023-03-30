@@ -1,6 +1,8 @@
+// @ts-ignore
 import { IConfig } from '@umijs/max';
 // @ts-ignore
 import { IConfigFromPlugins } from '@@/core/pluginConfig';
+// @ts-ignore
 import { IBundlerConfigType, ICreateCSSRule } from '@umijs/max';
 import webpack from '@umijs/deps/compiled/webpack';
 

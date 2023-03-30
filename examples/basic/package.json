@@ -12,8 +12,6 @@
   "dependencies": {
     "@antdp/authorized": "2.0.0-bate-4.1",
     "@antdp/basic-layouts": "2.0.0-bate-4.1",
-    "@antdp/page-loading": "2.0.0-bate-4.1",
-    "@antdp/request": "2.0.0-bate-4.1",
     "@antdp/user-login": "2.0.0-bate-4.1",
     "umi": "~4.0.63",
     "antd": "5.1.7",

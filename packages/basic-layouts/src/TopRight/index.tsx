@@ -6,21 +6,20 @@ import { Link, } from 'react-router-dom';
 import Fullscreen from '@antdp/fullscreen';
 import { useLayouts } from "./../hooks"
 
-
 const User = () => {
   const { topRightMenu = [], profile = {}, topRightLanguage } = useLayouts()
   const { avatar, name, } = profile
 
   const rightMenu = useMemo(() => {
     return topRightMenu.map((item, index) => {
-      const { icon, title, link } = item
+      const { icon, title, link, onClick, ...rest } = item
       if (item.divider) {
         return { type: "divider" }
       }
       if (!title) {
         return null;
       }
-      let child = (<Fragment>
+      let child = (<Fragment >
         {icon && <span style={{ marginRight: 5 }}>{icon}</span>}
         {title}
       </Fragment>);
@@ -28,8 +27,10 @@ const User = () => {
         child = <Link to={link}>{child}</Link>
       }
       return {
+        ...rest,
         label: child,
-        key: index
+        key: index,
+        onClick,
       }
     })
   }, [topRightMenu]) as ItemType[]
@@ -44,11 +45,7 @@ const User = () => {
           ) : (
             <Avatar
               size={24}
-              icon={
-                <UserOutlined
-                  style={{ minWidth: 'inherit', marginRight: 0 }}
-                />
-              }
+              icon={<UserOutlined style={{ minWidth: 'inherit', marginRight: 0 }} />}
             />
           )}
         </span>

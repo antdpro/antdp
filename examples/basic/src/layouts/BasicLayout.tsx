@@ -8,11 +8,10 @@ import BasicLayout from '@antdp/basic-layouts';
 import 'antd/dist/reset.css';
 import logo from './logo.svg';
 
-const Layout = (props:any) => {
+const Layout = () => {
   return (
     <Authorized authority={true} redirectPath="/login">
       <BasicLayout
-        {...props}
         projectName="Ant Design"
         profile={{
           name: '埋名',
@@ -21,18 +20,13 @@ const Layout = (props:any) => {
         }}
         siderWidth={240}
         logo={logo}
-        // logoJumpTo="/dashboard/demo"  // 点击logo图标跳转的路径，默认 /welcome
-        iframeRender={false}
-        // topRightLanguage={<SelectLang />}
-        // 是否进行权限判定
-        // isAuthorized={true}
-        // intlLanguage={useIntl()}
-        // isBreadcrumb={true} // 是否根据路由进行展示 面包屑
         topRightMenu={[
           {
             title: '个人中心',
             icon: <UserOutlined />,
-            onClick: () => {},
+            onClick: () => {
+              console.log(222)
+            }
           },
           {
             title: '个人设置',
@@ -45,9 +39,6 @@ const Layout = (props:any) => {
           {
             title: '退出登录',
             icon: <LogoutOutlined />,
-            onClick: () => {
-              // logout();
-            },
           },
         ]}
       />

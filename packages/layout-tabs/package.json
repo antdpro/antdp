@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@babel/runtime": "~7.20.1",
-    "react-frame-component": "5.2.3"
+    "react-frame-component": "5.2.6"
   },
   "devDependencies": {
     "@umijs/max": "~4.0.47",

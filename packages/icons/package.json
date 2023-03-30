@@ -19,7 +19,7 @@
     "index.d.ts"
   ],
   "dependencies": {
-    "@ant-design/icons": "4.7.0",
+    "@ant-design/icons": "5.0.1",
     "@babel/runtime": "~7.20.1"
   }
 }

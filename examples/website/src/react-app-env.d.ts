@@ -15,6 +15,13 @@ declare module '*.less' {
   export default classes;
 }
 
+declare module '*.module.css' {
+  const classes: { readonly [key: string]: string };
+  export default classes;
+}
+
+declare module '*.css';
+
 declare module '*.svg' {
   import * as React from 'react';
 

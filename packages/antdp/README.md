@@ -18,13 +18,13 @@ Ant Design Project
 
 ### Quick start
 
-使用 [`create-antdp`](https://antdpro.github.io/create-antdp) 工具，将示例 [`antdp-base`](https://antdpro.github.io/antdp/zip/antdp-base.zip) 初始化，让我们快速创建这个 React 应用程序：
+使用 [`create-antdp`](https://antdpro.github.io/create-antdp) 工具，将示例 [`basic`](https://antdpro.github.io/antdp/zip/basic.zip) 初始化，让我们快速创建这个 React 应用程序：
 
 ```shell
 # npm 6.x
-$ npm init antdp my-app --example antdp-base
+$ npm init antdp my-app --example basic
 # npm 7+, extra double-dash is needed:
-$ npm init antdp my-app -- --example antdp-base
+$ npm init antdp my-app -- --example basic
 
 $ yarn create antdp [appName]
 # or npm
@@ -33,7 +33,7 @@ $ npm create antdp my-app
 $ npx create-antdp my-app
 ```
 
-或者直接下载: [`antdp-base.zip`](https://antdpro.github.io/antdp/zip/antdp-base.zip)
+或者直接下载: [`basic.zip`](https://antdpro.github.io/antdp/zip/basic.zip)
 
 ### Open in CodeSandbox
 

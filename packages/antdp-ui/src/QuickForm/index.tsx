@@ -140,7 +140,7 @@ const QuickForm: QuickFormComponent = (props, ref) => {
   } = props;
 
   const [hide] = useFormItemHide(formHide)
-  hide.setInitialValues(initialHide || {}, true)
+  React.useMemo(() => hide.setInitialValues(initialHide || {}, true), []);
 
   const HideFormItemDoM = []; // 隐藏的表单
   const FormItemDoM = [];

@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@umijs/max": "~4.0.47",
-    "antd": "5.1.7",
+    "antd": "5.3.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intl": "~6.2.6",

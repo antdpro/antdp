@@ -62,11 +62,13 @@
   },
   "overrides": {
     "react-dom": "^18.2.0",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-refresh": "^0.12.0"
   },
   "resolutions": {
     "react-dom": "^18.2.0",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-refresh": "^0.12.0"
   },
   "dependencies": {
     "compile-less-cli": "1.8.14",

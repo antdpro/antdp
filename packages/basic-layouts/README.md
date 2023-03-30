@@ -66,6 +66,7 @@ export interface BasicLayoutsProps {
     title?: React.ReactNode;
     link?: string;
     divider?: boolean;
+    onClick?: () => void;
   }[];
   /**
    * 设置内容区域补白，默认 14px

@@ -63,11 +63,4 @@ export default config;
 - `baseNavigator`:开启浏览器语言检测。 默认值`true`,
 - `baseSeparator`: 国家（lang） 与 语言（language） 之间的分割符。 默认值`-`返回的语言及目录文件为 zh-CN、en-US、sk 等。,
 
-## favicon
-
-```js
-export default {
-  // 配置 favicon 地址（href 属性）
-  favicon: '/assets/favicon.ico', 
-}
-```
+[更多配置](https://umijs.org/docs/api/config)

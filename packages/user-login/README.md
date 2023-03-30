@@ -71,37 +71,33 @@ export default (props) => {
 
 ```typescript
 import React from 'react';
-import { FormProps, FormItemProps } from 'antd/lib/form';
-import { InputProps } from 'antd/lib/input';
+import { FormProps, FormItemProps,InputProps } from 'antd/lib/form';
 
-
-export interface formItem extends FormItemProps {
-  inputProps?: InputProps;
-}
-
-export interface UserLoginProps extends FormProps{
-  /**
-   * 项目logo
-   */
-  logo?: JSX.Element;
-  /**
-   * 项目名称
-   */
+export interface UserLoginProps extends Omit<FormProps, "onFinish"> {
+  /**logo*/
+  logo?: string;
+  /**项目名称*/
   projectName?: string;
-  className?: string;
-  loading?: boolean;
-  formItems?: formItem[];
-  // 短信登陆 表单
-  phoneFormItems?:formItem[];
-  // 短信验证form.item属性
-  phoneCodeProps?:formItemProps
-  // 验证短信回调
-  onSend ?: () => void
-  // 手机登陆｜账号登陆｜账号手机登陆
-  type?:'phone' | 'account' | 'both',
-  // 登陆组件额外jsx.element
-  children?:JSX.Element;
-  // 表单内部额外jsx.element
-  formChildren?:JSX.Element;
+  className?: string,
+  /**登录类型*/
+  type?: "account" | "phone",
+  children?: React.ReactNode,
+  /**账号登录设置的formItem*/
+  formItems?: ({ render?: React.ReactNode, inputProps?: InputProps } & FormItemProps)[],
+  /**表单操作按钮*/
+  formBtns?: { label?: React.ReactNode, attr?: ButtonProps }[],
+  /**加载状态*/
+  loading?: boolean,
+  /**表单提交*/
+  onFinish?: (value: any, submitType: string | number) => void,
+  /**自定义form表单内渲染*/
+  formChildren?: React.ReactNode,
+  /**手机号登录设置的 formItem 项*/
+  phoneFormItems?: UserLoginProps["formItems"],
+  /**手机号FormItem 属性*/
+  phoneCodeProps?: FormItemProps,
+  /**发送验证码*/
+  onSend?: () => void,
 }
+
 ```

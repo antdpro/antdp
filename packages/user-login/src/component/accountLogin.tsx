@@ -1,27 +1,26 @@
 import React from 'react';
-import { Form, Input, Button, Row, ButtonProps } from 'antd';
+import { Form, Input, Button, Row, } from 'antd';
+import { UserLoginProps } from "./../index"
+const AccountLogin = (props: {
+  data: Omit<UserLoginProps, "projectName" | "logo" | "className" | "children">,
+  submitType: string | number
+}) => {
+  const { data: { formItems, formBtns, loading, formChildren, onFinish, ...otherProps }, submitType } = props;
+  const onSubmit = (value: any) => onFinish && onFinish(value, submitType)
 
-export interface LoginProps {
-  value: {
-    formItems?: string[];
-    formBtns?: { label?: React.ReactNode, attr?: ButtonProps }[],
-    loading?: string,
-    formChildren?: React.FC<any>,
-    onFinish?: (value: any) => void,
-  }
-}
-
-const AccountLogin = (props: LoginProps) => {
-  const { value: { formItems, formBtns, loading, formChildren, ...otherProps } } = props;
   return (
     <Form
       className="antdp-login-form"
       initialValues={{ remember: true }}
       {...otherProps}
+      onFinish={onSubmit}
     >
       {Array.isArray(formItems) &&
-        formItems.map((item: any, index: number) => {
-          const { inputProps, ...formItemProps } = item;
+        formItems.map((item, index: number) => {
+          const { inputProps, render, ...formItemProps } = item;
+          if (render) {
+            return render;
+          }
           return (
             <Form.Item key={index} {...formItemProps}>
               {inputProps && <Input disabled={loading} {...inputProps} />}

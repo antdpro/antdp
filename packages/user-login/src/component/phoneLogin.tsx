@@ -3,61 +3,44 @@ import { Form, Input, Button, Row } from 'antd';
 import { LockOutlined } from '@ant-design/icons';
 import { InputCount } from '@antdp/antdp-ui';
 import '../index.css';
-import { formBtnsProps } from "./../index"
+import { UserLoginProps } from "./../index"
 
 declare const ValidateStatuses: ["success", "warning", "error", "validating", ""];
 export declare type ValidateStatus = typeof ValidateStatuses[number];
 
-export interface FormItemProps {
-  prefixCls?: string,
-  noStyle?: boolean,
-  style?: React.CSSProperties,
-  className?: string,
-  children?: React.ReactNode,
-  id?: string,
-  hasFeedback?: boolean,
-  validateStatus?: ValidateStatus,
-  required?: boolean,
-  hidden?: boolean,
-  initialValue?: any,
-  messageVariables?: Record<string, string>,
-  tooltip?: React.ReactNode,
-  fieldKey?: React.Key | React.Key[];
-}
-
-export interface PhoneProps {
-  value: {
-    phoneFormItems?: string[];
-    formBtns?: formBtnsProps['formBtns'];
-    loading?: string,
-    formChildren?: React.FC<any>,
-    onSend?: () => void,
-    phoneCodeProps?: FormItemProps,
-    onFinish?: formBtnsProps["onFinish"],
-  }
-}
-
-const PhoneLogin = (props: PhoneProps) => {
+const PhoneLogin = (props: {
+  data: Omit<UserLoginProps, "projectName" | "logo" | "className" | "children">,
+  submitType: string | number
+}) => {
   const {
-    value: {
+    data: {
       phoneFormItems,
       phoneCodeProps,
       onSend,
       formBtns,
       loading,
       formChildren,
+      onFinish,
       ...otherProps
     },
+    submitType
   } = props;
+
+  const onSubmit = (value: any) => onFinish && onFinish(value, submitType)
+
   return (
     <Form
       className="antdp-login-form"
       initialValues={{ remember: true }}
       {...otherProps}
+      onFinish={onSubmit}
     >
       {Array.isArray(phoneFormItems) &&
-        phoneFormItems.map((item: any, index: number) => {
-          const { inputProps, ...formItemProps } = item;
+        phoneFormItems.map((item, index: number) => {
+          const { inputProps, render, ...formItemProps } = item;
+          if (render) {
+            return render;
+          }
           return (
             <Form.Item key={index} {...formItemProps}>
               {inputProps && <Input disabled={loading} {...inputProps} />}
@@ -66,7 +49,7 @@ const PhoneLogin = (props: PhoneProps) => {
         })}
       <Form.Item {...phoneCodeProps}>
         <InputCount
-          onSend={!!onSend && onSend}
+          onSend={onSend}
           prefix={<LockOutlined className="site-form-item-icon" />}
           placeholder="请输入验证码"
           autoComplete="true"

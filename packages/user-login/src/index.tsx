@@ -1,85 +1,60 @@
-import React, { useState, Fragment, useImperativeHandle, forwardRef } from 'react';
-import { Radio, ButtonProps } from 'antd';
+import React, { useState, useImperativeHandle, forwardRef } from 'react';
+import { Radio, ButtonProps, FormItemProps, FormProps, InputProps } from 'antd';
 import DocumentTitle from '@antdp/document-title';
-import { UserOutlined, LockOutlined, PhoneOutlined } from '@ant-design/icons';
-import { ThemeContext } from './themContext';
 import AccountLogin from './component/accountLogin';
 import PhoneLogin from './component/phoneLogin';
+import { DefaultItems } from "./defaultItem"
 import './index.css';
 
-export interface UserLoginState { }
-
-export interface formBtnsProps {
+export interface UserLoginProps extends Omit<FormProps, "onFinish"> {
+  /**logo*/
   logo?: string;
+  /**项目名称*/
   projectName?: string;
   className?: string,
-  type?: boolean | string,
+  /**登录类型*/
+  type?: "account" | "phone",
   children?: React.ReactNode,
-  formItems?: string[],
+  /**账号登录设置的formItem*/
+  formItems?: ({ render?: React.ReactNode, inputProps?: InputProps } & FormItemProps)[],
+  /**表单操作按钮*/
   formBtns?: { label?: React.ReactNode, attr?: ButtonProps }[],
-  loading?: string,
-  onFinish?: (value: unknown) => void,
-  formChildren?: any,
-  phoneFormItems?: string[],
-  // phoneCodeProps: React.ReactNode,
+  /**加载状态*/
+  loading?: boolean,
+  /**表单提交*/
+  onFinish?: (value: any, submitType: string | number) => void,
+  /**自定义form表单内渲染*/
+  formChildren?: React.ReactNode,
+  /**手机号登录设置的 formItem 项*/
+  phoneFormItems?: UserLoginProps["formItems"],
+  /**手机号FormItem 属性*/
+  phoneCodeProps?: FormItemProps,
+  /**发送验证码*/
   onSend?: () => void,
 }
 
-const BaseLayout = forwardRef((props: formBtnsProps, ref) => {
-  const [key, setKey] = useState(1)
-  const staticData =
-  {
-    projectName: '项目管理后台',
-    loading: false,
-    logo: null,
-    formItems: [
-      {
-        name: 'username',
-        rules: [{ required: true, message: '请输入用户名!' }],
-        inputProps: {
-          prefix: <UserOutlined className="site-form-item-icon" />,
-          placeholder: '请输入用户名',
-        },
-      },
-      {
-        name: 'password',
-        rules: [{ required: true, message: '请输入密码!' }],
-        inputProps: {
-          prefix: <LockOutlined className="site-form-item-icon" />,
-          placeholder: '请输入密码',
-          autoComplete: 'true',
-          type: 'password',
-        },
-      },
-    ],
-    formBtns: [
-      {
-        label: '登录',
-        attr: {
-          type: 'primary',
-          htmlType: 'submit',
-        },
-      },
-    ],
-    phoneFormItems: [
-      {
-        name: 'phone',
-        rules: [{ required: true, message: '请输入手机号!' }],
-        inputProps: {
-          prefix: <PhoneOutlined className="site-form-item-icon" />,
-          placeholder: '请输入手机号',
-          autoComplete: 'true',
-          type: 'password',
-        },
-      },
-    ],
-    phoneCodeProps: {
-      name: 'code',
-      rules: [{ required: true, message: '请输入验证码!' }],
-    },
-    type: 'account',
-  }
 
+interface RadioButtonProps {
+  onChange: (value: string) => void,
+  value: string
+}
+
+const RadioButton = (props: RadioButtonProps) => {
+  return (
+    <Radio.Group
+      value={props.value}
+      options={[
+        { label: "账号登陆", value: "account" },
+        { label: "手机登陆", value: "phone" },
+      ]}
+      onChange={(event) => props.onChange(event.target.value)}
+    />
+  )
+}
+
+
+const BaseLayout = forwardRef((props: UserLoginProps, ref) => {
+  const [submitType, setSubmitType] = useState<string>("account")
   const {
     logo,
     projectName,
@@ -87,10 +62,11 @@ const BaseLayout = forwardRef((props: formBtnsProps, ref) => {
     children,
     // 登陆页面类型
     type,
+    ...rest
   } = props;
 
-  const allData = { ...props, ...staticData };
-  useImperativeHandle(ref, () => key);
+  const allData = { ...DefaultItems, ...rest, } as UserLoginProps;
+  useImperativeHandle(ref, () => submitType);
   return (
     <DocumentTitle title={`用户登录 - ${projectName || ''}`}>
       <div className={`antdp-login ${className || ''}`}>
@@ -98,50 +74,9 @@ const BaseLayout = forwardRef((props: formBtnsProps, ref) => {
           {!!logo && <img src={logo} alt="logo" />}
           {projectName && <h1>{projectName}</h1>}
         </div>
-        <ThemeContext.Provider value={allData}>
-          <ThemeContext.Consumer>
-            {(value: any) => {
-              const accountProps = {
-                formItems: value?.formItems,
-                formBtns: value?.formBtns,
-                loading: value?.loading,
-                onFinish: value?.onFinish,
-                formChildren: value?.formChildren,
-              };
-              const phoneProps = {
-                phoneFormItems: value?.phoneFormItems,
-                phoneCodeProps: value?.phoneCodeProps,
-                onSend: value?.onSend,
-                formBtns: value?.formBtns,
-                loading: value?.loading,
-                onFinish: value?.onFinish,
-                formChildren: value?.formChildren,
-              };
-              return type === 'account' ? (
-                <AccountLogin value={accountProps} />
-              ) : type === 'phone' ? (
-                <PhoneLogin value={phoneProps} />
-              ) : (
-                <Fragment>
-                  <Radio.Group
-                    style={{ marginBottom: 24 }}
-                    name="radiogroup"
-                    defaultValue={key}
-                    onChange={(e) => setKey(e.target.value)}
-                  >
-                    <Radio value={1}>账号登陆</Radio>
-                    <Radio value={2}>手机登陆</Radio>
-                  </Radio.Group>
-                  {key === 1 ? (
-                    <AccountLogin value={accountProps} />
-                  ) : (
-                    <PhoneLogin value={phoneProps} />
-                  )}
-                </Fragment>
-              );
-            }}
-          </ThemeContext.Consumer>
-        </ThemeContext.Provider>
+        {["account", "phone"].includes(type || "") ? <React.Fragment /> : <RadioButton onChange={(value) => setSubmitType(value)} value={submitType} />}
+        {type === "account" || submitType === "account" ? <AccountLogin submitType={submitType} data={{ ...allData, type }} /> : <React.Fragment />}
+        {type === "phone" || submitType === "phone" ? <PhoneLogin submitType={submitType} data={{ ...allData, type }} /> : <React.Fragment />}
         {children}
       </div>
     </DocumentTitle>

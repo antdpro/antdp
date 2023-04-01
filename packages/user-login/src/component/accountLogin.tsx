@@ -5,7 +5,7 @@ const AccountLogin = (props: {
   data: Omit<UserLoginProps, "projectName" | "logo" | "className" | "children">,
   submitType: string | number
 }) => {
-  const { data: { formItems, formBtns, loading, formChildren, onFinish, ...otherProps }, submitType } = props;
+  const { data: { formItems, formBtns, loading, formChildren, onFinish, phoneFormItems, phoneCodeProps, onSend, ...otherProps }, submitType } = props;
   const onSubmit = (value: any) => onFinish && onFinish(value, submitType)
 
   return (

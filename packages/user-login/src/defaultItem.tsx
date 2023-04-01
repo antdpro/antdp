@@ -49,5 +49,4 @@ export const DefaultItems = {
     name: 'code',
     rules: [{ required: true, message: '请输入验证码!' }],
   },
-  type: 'account',
 }

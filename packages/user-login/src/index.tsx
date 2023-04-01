@@ -1,4 +1,4 @@
-import React, { useState, useImperativeHandle, forwardRef } from 'react';
+import React, { useState, useImperativeHandle, forwardRef, useMemo } from 'react';
 import { Radio, ButtonProps, FormItemProps, FormProps, InputProps } from 'antd';
 import DocumentTitle from '@antdp/document-title';
 import AccountLogin from './component/accountLogin';
@@ -31,6 +31,11 @@ export interface UserLoginProps extends Omit<FormProps, "onFinish"> {
   phoneCodeProps?: FormItemProps,
   /**发送验证码*/
   onSend?: () => void,
+
+  /**外层样式**/
+  warpStyle?: React.CSSProperties
+  /**标题样式*/
+  titleStyle?: React.CSSProperties
 }
 
 
@@ -55,6 +60,8 @@ const RadioButton = (props: RadioButtonProps) => {
 
 const BaseLayout = forwardRef((props: UserLoginProps, ref) => {
   const [submitType, setSubmitType] = useState<string>("account")
+  const newData = { ...DefaultItems, ...props } as UserLoginProps
+
   const {
     logo,
     projectName,
@@ -62,21 +69,27 @@ const BaseLayout = forwardRef((props: UserLoginProps, ref) => {
     children,
     // 登陆页面类型
     type,
+    warpStyle,
+    titleStyle,
     ...rest
-  } = props;
+  } = newData;
 
-  const allData = { ...DefaultItems, ...rest, } as UserLoginProps;
   useImperativeHandle(ref, () => submitType);
+
+  const isType = useMemo(() => {
+    return ["account", "phone"].includes(type || "")
+  }, [type])
+
   return (
     <DocumentTitle title={`用户登录 - ${projectName || ''}`}>
-      <div className={`antdp-login ${className || ''}`}>
-        <div className="antdp-login-title">
+      <div className={`antdp-login ${className || ''}`} style={warpStyle} >
+        <div className="antdp-login-title" style={titleStyle} >
           {!!logo && <img src={logo} alt="logo" />}
           {projectName && <h1>{projectName}</h1>}
         </div>
-        {["account", "phone"].includes(type || "") ? <React.Fragment /> : <RadioButton onChange={(value) => setSubmitType(value)} value={submitType} />}
-        {type === "account" || submitType === "account" ? <AccountLogin submitType={submitType} data={{ ...allData, type }} /> : <React.Fragment />}
-        {type === "phone" || submitType === "phone" ? <PhoneLogin submitType={submitType} data={{ ...allData, type }} /> : <React.Fragment />}
+        {isType ? <React.Fragment /> : <RadioButton onChange={(value) => setSubmitType(value)} value={submitType} />}
+        {(type === "account" || (!isType && submitType === "account")) ? <AccountLogin submitType={submitType} data={{ ...rest, type }} /> : <React.Fragment />}
+        {(type === "phone" || (!isType && submitType === "phone")) ? <PhoneLogin submitType={submitType} data={{ ...rest, type }} /> : <React.Fragment />}
         {children}
       </div>
     </DocumentTitle>

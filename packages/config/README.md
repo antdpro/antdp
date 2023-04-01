@@ -15,8 +15,13 @@ npm i @antdp/config --save-dev
 ## Basic Usage
 
 ```js
+// config/config.{js|ts}
+
+//二次封装的umi配置
 import config from '@antdp/config';
+// 路由数据
 import router from './router.json';
+/**开发代理配置*/
 import proxy from './proxy';
 
 export default config(router, {

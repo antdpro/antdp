@@ -12,37 +12,21 @@
 npm i @antdp/user-login --save
 ```
 
-## Basic Usage
+## 基本使用
 
-```jsx
+```tsx  mdx:preview
 import React, { useRef } from 'react';
 import UserLogin from '@antdp/user-login';
-import logo from './logo.svg';
 
-export default (props) => {
-  const baseRef = useRef();
-  const TYPE = 'both';
+const Demo= (props) => {
   return (
     <UserLogin
-      logo={logo}
+      warpStyle={{minHeight:"300px"}}
       projectName="Ant Design"
       loading={props.loading}
-      onFinish={(values) => {
-        let params;
-        if (TYPE === 'both') {
-          params =
-            baseRef?.current?.state?.key === '1'
-              ? { username: values?.username, password: values?.password }
-              : { phone: values?.phone, code: values?.code };
-        } else {
-          params = values;
-        }
-        props.dispatch({
-          type: 'global/login',
-          payload: params,
-        });
+      onFinish={(values,submitType) => {
+        console.log("打印保存参数---->",value,submitType)
       }}
-      type={TYPE}
       onSend={() => console.log('短信验证回调')}
       formBtns={[
         {
@@ -64,7 +48,89 @@ export default (props) => {
       ]}
     />
   )
-};
+}
+export default Demo;
+```
+
+## 账号登录
+
+```tsx  mdx:preview
+import React, { useRef } from 'react';
+import UserLogin from '@antdp/user-login';
+
+const Demo= (props) => {
+  return (
+    <UserLogin
+      warpStyle={{minHeight:"300px"}}
+      projectName="Ant Design"
+      loading={props.loading}
+      onFinish={(values) => {
+       console.log("打印保存参数---->",values)
+      }}
+      type="account"
+      formBtns={[
+        {
+          label: '登录',
+          attr: {
+            type: 'primary',
+            htmlType: 'submit',
+            style: {
+              marginRight: 20,
+            },
+          },
+        },
+        {
+          label: '重置',
+          attr: {
+            type: 'primary',
+          },
+        },
+      ]}
+    />
+  )
+}
+export default Demo;
+```
+
+## 手机号登录
+
+```tsx  mdx:preview
+import React, { useRef } from 'react';
+import UserLogin from '@antdp/user-login';
+
+const Demo= (props) => {
+  return (
+    <UserLogin
+      warpStyle={{minHeight:"300px"}}
+      projectName="Ant Design"
+      loading={props.loading}
+      onFinish={(values) => {
+       console.log("打印保存参数---->",values)
+      }}
+      type="phone"
+      onSend={() => console.log('短信验证回调')}
+      formBtns={[
+        {
+          label: '登录',
+          attr: {
+            type: 'primary',
+            htmlType: 'submit',
+            style: {
+              marginRight: 20,
+            },
+          },
+        },
+        {
+          label: '重置',
+          attr: {
+            type: 'primary',
+          },
+        },
+      ]}
+    />
+  )
+}
+export default Demo;
 ```
 
 ## Props
@@ -98,6 +164,10 @@ export interface UserLoginProps extends Omit<FormProps, "onFinish"> {
   phoneCodeProps?: FormItemProps,
   /**发送验证码*/
   onSend?: () => void,
+  /**外层样式**/
+  warpStyle?: React.CSSProperties
+  /**标题样式*/
+  titleStyle?: React.CSSProperties
 }
 
 ```

@@ -21,6 +21,7 @@ const PhoneLogin = (props: {
       loading,
       formChildren,
       onFinish,
+      formItems,
       ...otherProps
     },
     submitType

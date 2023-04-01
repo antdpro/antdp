@@ -1,6 +1,6 @@
 {
   "name": "@antdp/user-login",
-  "version": "2.0.0-bate-4.1",
+  "version": "2.0.0-bate.5",
   "description": "用户登录页面",
   "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": [
@@ -32,15 +32,15 @@
   },
   "dependencies": {
     "@ant-design/icons": "5.0.1",
-    "@antdp/antdp-ui": "2.0.0-bate-4.1",
-    "@antdp/document-title": "2.0.0-bate-4.1",
+    "@antdp/antdp-ui": "2.0.0-bate.5",
+    "@antdp/document-title": "2.0.0-bate.5",
     "@babel/runtime": "~7.20.1"
   },
   "devDependencies": {
+    "@types/react": "~18.0.31",
+    "@types/react-dom": "~18.0.11",
     "antd": "5.3.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@types/react": "~18.0.31",
-    "@types/react-dom": "~18.0.11"
+    "react-dom": "^18.2.0"
   }
 }

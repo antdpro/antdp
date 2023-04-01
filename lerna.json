@@ -1,6 +1,6 @@
 {
   "packages": ["examples/*", "packages/*"],
-  "version": "2.0.0-bate-4.1",
+  "version": "2.0.0-bate.5",
   "useWorkspaces": true,
   "command": {
     "create": {

@@ -1,6 +1,6 @@
 {
   "name": "@antdp/page-loading",
-  "version": "2.0.0-bate-4.1",
+  "version": "2.0.0-bate.5",
   "description": "页面过渡动画组件。",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",

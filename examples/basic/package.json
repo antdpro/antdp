@@ -1,7 +1,7 @@
 {
   "name": "@example/basic",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.0-bate.5",
   "scripts": {
     "dev": "umi dev",
     "build": "umi build",
@@ -10,17 +10,17 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "@antdp/authorized": "2.0.0-bate-4.1",
-    "@antdp/basic-layouts": "2.0.0-bate-4.1",
-    "@antdp/user-login": "2.0.0-bate-4.1",
-    "umi": "~4.0.63",
+    "@antdp/authorized": "2.0.0-bate.5",
+    "@antdp/basic-layouts": "2.0.0-bate.5",
+    "@antdp/user-login": "2.0.0-bate.5",
     "antd": "5.1.7",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "umi": "~4.0.63"
   },
   "devDependencies": {
-    "@antdp/config": "2.0.0-bate-4.1",
-    "@antdp/dependencies": "2.0.0-bate-4.1",
+    "@antdp/config": "2.0.0-bate.5",
+    "@antdp/dependencies": "2.0.0-bate.5",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "typescript": "^5.0.0"

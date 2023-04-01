@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+// @ts-ignore
 import { Link } from '@umijs/max';
 import { useLayouts } from "../hooks"
 

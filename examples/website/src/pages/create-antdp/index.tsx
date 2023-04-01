@@ -1,33 +1,11 @@
-import { Fragment, useState } from 'react';
-import { Spin } from 'antd';
-import styles from '../example/index.module.css';
-import React from 'react';
+import str from 'create-antdp/README.md';
+import Markdown from '../../components/Preview';
 
 export default function Pages() {
-  const [loading, setLoading] = useState(true);
   return (
-    <Fragment>
-      {loading && (
-        <div className={styles.loading}>
-          <Spin tip="Loading..." />
-        </div>
-      )}
-      <iframe
-        src="https://antdpro.github.io/create-antdp"
-        style={{
-          width: '100%',
-          height: '100%',
-          border: 0,
-          overflow: 'hidden',
-        }}
-        onLoad={(evn) => {
-          setLoading(false);
-        }}
-        onError={(evn) => {
-          setLoading(false);
-        }}
-        title="@example/antdp-base"
-      />
-    </Fragment>
+    <Markdown
+      {...str}
+      editePath="https://github.com/antdpro/antdp/edit/master/packages/antdp/README.md"
+    />
   );
 }

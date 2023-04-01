@@ -4,13 +4,13 @@ import BackToUp from '@uiw/react-back-to-top';
 import { getMetaId, isMeta, getURLParameters, CodeBlockData } from 'markdown-react-code-preview-loader';
 import { Root, Element, RootContent } from 'hast';
 import CodeLayout from 'react-code-preview-layout';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Footer from "../Footer"
+
 const Warpper = styled.div`
-  width: 100%;
+  width:100%;
   height: 100%;
   overflow: auto;
-  background-color: var(--color-canvas-default);
   .w-rcpl-preview {
     white-space: normal;
   }
@@ -18,10 +18,19 @@ const Warpper = styled.div`
     display: table !important;
     width: 100%;
   }
+  .w-rcpl-code{
+    padding:0px;
+  }
 `;
 
+const BaseContent = styled.div`
+  width: 1024px;
+  margin:0 auto;
+  background-color: var(--color-canvas-default);
+`
+
 const Markdown = styled(MarkdownPreview)`
-  padding: 50px 30px 120px 30px;
+  /* padding: 0px 30px 120px 30px; */
   max-width: 1024px;
 `;
 
@@ -48,71 +57,73 @@ interface MarkdownProps extends CodeBlockData {
 const Preview = (props: MarkdownProps) => {
   const { components: MDcomponents, data: MDdata } = props
   const $dom = useRef(null);
+  const [isSetShow, setIsSetShow] = useState(false)
+
+  useEffect(() => {
+    setIsSetShow(true)
+  }, [])
+
   return (
     <Warpper ref={$dom}>
-      <Markdown
-        disableCopy={true}
-        source={props.source}
-        rehypeRewrite={(node: Root | RootContent, index: number, parent: Root | Element) => {
-          if (node.type === 'element' && parent && parent.type === 'root' && /h(1|2|3|4|5|6)/.test(node.tagName)) {
-            const child = node.children && (node.children[0] as Element);
-            if (child && child.properties && child.properties.ariaHidden === 'true') {
-              child.children = [];
-            }
-          }
-          if (node.type === 'element' && node.tagName === 'pre' && node.children[0].data?.meta) {
-            const meta = node.children[0].data?.meta as string;
-            if (isMeta(meta)) {
-              node.tagName = 'div';
-              if (!node.properties) {
-                node.properties = {};
-              }
-              node.properties!['data-md'] = meta;
-              node.properties!['data-meta'] = 'preview';
-            }
-          }
-        }}
-        components={{
-          div: ({ node, ...props }) => {
-            const { 'data-meta': meta, 'data-md': metaData, ...rest } = props as any;
-            if (meta === 'preview') {
-              const line = node.position?.start.line;
-              const metaId = getMetaId(meta) || String(line);
-              const Child = MDcomponents[metaId];
-              if (metaId && typeof Child === 'function') {
-                const code = MDdata[metaId].value || '';
-                const param = getURLParameters(metaData);
-                return (
-                  <CodeLayout
-                    disableCheckered={getBooleanValue(param, 'disableCheckered', true)}
-                    disableToolbar={getBooleanValue(param, 'disableToolbar', false)}
-                    disableCode={getBooleanValue(param, 'disableCode', false)}
-                    disablePreview={getBooleanValue(param, 'disablePreview', false)}
-                    bordered={getBooleanValue(param, 'bordered', true)}
-                    copied={getBooleanValue(param, 'copied', true)}
-                    background={param.background}
-                    toolbar={param.title || '示例'}
-                    code={<pre {...rest} />}
-                    text={code}
-                  >
-                    <Child />
-                  </CodeLayout>
-                );
+      <BaseContent>
+        <Markdown
+          disableCopy={true}
+          source={props.source}
+          rehypeRewrite={(node: Root | RootContent, index: number, parent: Root | Element) => {
+            if (node.type === 'element' && parent && parent.type === 'root' && /h(1|2|3|4|5|6)/.test(node.tagName)) {
+              const child = node.children && (node.children[0] as Element);
+              if (child && child.properties && child.properties.ariaHidden === 'true') {
+                child.children = [];
               }
             }
-            return <div {...props} />;
-          },
-        }}
-      />
-      {props.editePath && (
-        <EditText>
-          <a href={props.editePath}>编辑当前页面内容</a>
-        </EditText>
-      )}
-      <Footer />
-      <BackToUp element={$dom.current} style={{ float: 'right' }}>
+            if (node.type === 'element' && node.tagName === 'pre' && node.children[0].data?.meta) {
+              const meta = node.children[0].data?.meta as string;
+              if (isMeta(meta)) {
+                node.tagName = 'div';
+                if (!node.properties) {
+                  node.properties = {};
+                }
+                node.properties!['data-md'] = meta;
+                node.properties!['data-meta'] = 'preview';
+              }
+            }
+          }}
+          components={{
+            div: ({ node, ...props }) => {
+              const { 'data-meta': meta, 'data-md': metaData, ...rest } = props as any;
+              if (meta === 'preview') {
+                const line = node.position?.start.line;
+                const metaId = getMetaId(meta) || String(line);
+                const Child = MDcomponents[metaId];
+                if (metaId && typeof Child === 'function') {
+                  const code = MDdata[metaId].value || '';
+                  const param = getURLParameters(metaData);
+                  return (
+                    <CodeLayout
+                      disableCheckered={getBooleanValue(param, 'disableCheckered', true)}
+                      bordered={getBooleanValue(param, 'bordered', true)}
+                    >
+                      <CodeLayout.Preview><Child /></CodeLayout.Preview>
+                      <CodeLayout.Toolbar text={code} >{param.title || '示例'}</CodeLayout.Toolbar>
+                      <CodeLayout.Code ><pre {...rest} /></CodeLayout.Code>
+                    </CodeLayout>
+                  );
+                }
+              }
+              return <div {...props} />;
+            },
+          }}
+        />
+        {props.editePath && (
+          <EditText>
+            <a href={props.editePath}>编辑当前页面内容</a>
+          </EditText>
+        )}
+        <Footer />
+      </BaseContent>
+      {isSetShow && <BackToUp element={$dom.current} style={{ float: 'right' }}>
         Top
-      </BackToUp>
+      </BackToUp>}
     </Warpper>
   );
 };

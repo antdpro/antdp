@@ -18,7 +18,7 @@ body, html, #root {
 }
 
 .wmde-markdown {
-  padding: 50px 50px 150px 50px;
+  padding: 10px 20px;
   max-width: 1200px;
 }
 .wmde-markdown >:first-child {

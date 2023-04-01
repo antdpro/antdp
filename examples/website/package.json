@@ -35,13 +35,14 @@
     "@wcj/dark-mode": "^1.0.15",
     "antdp": "2.0.0-bate-4.1",
     "react": "^18.2.0",
-    "react-code-preview-layout": "~2.1.1",
+    "react-code-preview-layout": "~3.0.0",
     "react-dom": "^18.2.0",
     "react-router": "~6.4.3",
     "react-router-dom": "~6.4.3",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "create-antdp": "~1.0.7",
     "@kkt/less-modules": "~7.4.0",
     "@kkt/raw-modules": "~7.4.0",
     "@kkt/scope-plugin-options": "~7.4.0",

@@ -4,11 +4,10 @@ import React from 'react';
 
 export default function Pages() {
   return (
-    <div>
-      <Markdown
-        {...str}
-        editePath="https://github.com/antdpro/antdp/edit/master/packages/authorized/README.md"
-      />
-    </div>
+    <Markdown
+      {...str}
+      editePath="https://github.com/antdpro/antdp/edit/master/packages/authorized/README.md"
+    />
   );
 }
+

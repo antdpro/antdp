@@ -19,6 +19,7 @@ export interface FuzzyQueryProps extends SelectProps<any> {
   debounceTimeout?: number
 }
 ```
+[更多参数参考 antd5 Select组件](https://ant.design/components/select-cn#api)
 
 ### 案例
 

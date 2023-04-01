@@ -12,6 +12,7 @@ const Warpper = styled.div`
   width:100%;
   height: 100%;
   overflow: auto;
+  background-color: var(--color-canvas-default);
   .w-rcpl-preview {
     white-space: normal;
   }
@@ -27,7 +28,6 @@ const Warpper = styled.div`
 const BaseContent = styled.div`
   width: 1024px;
   margin:0 auto;
-  background-color: var(--color-canvas-default);
 `
 
 const Markdown = styled(MarkdownPreview)`

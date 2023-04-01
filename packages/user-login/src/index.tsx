@@ -22,7 +22,7 @@ export interface UserLoginProps extends Omit<FormProps, "onFinish"> {
   /**加载状态*/
   loading?: boolean,
   /**表单提交*/
-  onFinish?: (value: any, submitType: string | number) => void,
+  onFinish?: (value: any, submitType: "account" | "phone") => void,
   /**自定义form表单内渲染*/
   formChildren?: React.ReactNode,
   /**手机号登录设置的 formItem 项*/

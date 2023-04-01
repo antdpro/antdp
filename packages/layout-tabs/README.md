@@ -23,7 +23,7 @@ antd 组件 |  ✅ |  ✅ |  ✅ |  ❌(大量弹出类组件位置错乱)
 npm i @antdp/layout-tabs --save # yarn add @antdp/layout-tabs
 ```
 
-## Basic Usage
+## 基本使用
 
 ```tsx
 import React from 'react';
@@ -32,7 +32,7 @@ import LayoutTabs from '@antdp/layout-tabs';
 const Demo = ()=>{
   return (
     <LayoutTabs
-      activeKey={location.pathname}
+      // 菜单路由信息
       dataSource={[]}
     />
   )
@@ -42,23 +42,27 @@ export default Demo;
 
 ```
 
-## Component Interface
+## 参数
 
-```typescript
-interface LayoutTabsRouter {
-  component?: JSX.Element;
-  exact?: boolean;
+```ts
+export interface LayoutTabsRouter {
   icon: string;
   key: string;
   name: string;
   path: string;
+  exact?: boolean;
+  location?: any;
+  match?: any;
+  element?: React.ReactNode
 }
 
-interface LayoutTabsProps {
-  activeKey?: string[]
+export interface LayoutTabsProps {
+  // 菜单路由数据
   dataSource?: LayoutTabsRouter[]
-  children?: React.ReactNode;
+  // 内容边距
+  bodyPadding?: string | number;
 }
+
 ```
 
 通过配置 [`@antdp/config`](https://www.npmjs.com/package/@antdp/config)，来解决是否重新渲染或者 `iframe` 展示页面等功能

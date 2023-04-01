@@ -9,7 +9,7 @@
 ## 安装
 
 ```bash
-npm i @antdp/basic-layouts --save
+$ npm i @antdp/basic-layouts  # yarn add  @antdp/basic-layouts
 ```
 
 ## 参数

@@ -8,19 +8,20 @@ import RenderContent from './RenderContent';
 import './index.css';
 
 export interface LayoutTabsRouter {
-  exact?: boolean;
   icon: string;
   key: string;
   name: string;
   path: string;
+  exact?: boolean;
   location?: any;
   match?: any;
   element?: React.ReactNode
 }
 
 export interface LayoutTabsProps {
+  // 菜单路由数据
   dataSource?: LayoutTabsRouter[]
-  children?: React.ReactNode;
+  // 内容边距
   bodyPadding?: string | number;
 }
 
@@ -29,7 +30,6 @@ export default (props: LayoutTabsProps) => {
     dataSource = [],
     bodyPadding = ''
   } = props;
-
 
   let location = useLocation();
   const [tabAll, setTabAll] = useState<LayoutTabsRouter[]>([]);

@@ -68,4 +68,4 @@ export default config;
 - `baseNavigator`:开启浏览器语言检测。 默认值`true`,
 - `baseSeparator`: 国家（lang） 与 语言（language） 之间的分割符。 默认值`-`返回的语言及目录文件为 zh-CN、en-US、sk 等。,
 
-[更多配置](https://umijs.org/docs/api/config)
+[更多配置参考 umi](https://umijs.org/docs/api/config)

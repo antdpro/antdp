@@ -16,9 +16,9 @@ const AuthorizedConfigContext = createContext<Omit<AuthorizedConfigProviderProps
 export const AuthorizedConfigProvider = (props: AuthorizedConfigProviderProps) => {
   const {
     children,
-    auth_menu,
-    auth_btn,
-    auth_check_url,
+    auth_menu = "authMenu",
+    auth_btn = "authBtn",
+    auth_check_url = "menuUrl",
     isCheckAuth = false,
   } = props
 

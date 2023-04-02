@@ -3,7 +3,7 @@ import { Form, Input, Button, Row, } from 'antd';
 import { UserLoginProps } from "./../index"
 const AccountLogin = (props: {
   data: Omit<UserLoginProps, "projectName" | "logo" | "className" | "children">,
-  submitType: string | number
+  submitType: "account" | "phone"
 }) => {
   const { data: { formItems, formBtns, loading, formChildren, onFinish, phoneFormItems, phoneCodeProps, onSend, ...otherProps }, submitType } = props;
   const onSubmit = (value: any) => onFinish && onFinish(value, submitType)

@@ -10,7 +10,7 @@ export declare type ValidateStatus = typeof ValidateStatuses[number];
 
 const PhoneLogin = (props: {
   data: Omit<UserLoginProps, "projectName" | "logo" | "className" | "children">,
-  submitType: string | number
+  submitType: "account" | "phone"
 }) => {
   const {
     data: {

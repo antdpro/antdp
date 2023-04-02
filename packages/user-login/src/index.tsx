@@ -40,8 +40,8 @@ export interface UserLoginProps extends Omit<FormProps, "onFinish"> {
 
 
 interface RadioButtonProps {
-  onChange: (value: string) => void,
-  value: string
+  onChange: (value: "account" | "phone") => void,
+  value: "account" | "phone"
 }
 
 const RadioButton = (props: RadioButtonProps) => {
@@ -59,7 +59,7 @@ const RadioButton = (props: RadioButtonProps) => {
 
 
 const BaseLayout = forwardRef((props: UserLoginProps, ref) => {
-  const [submitType, setSubmitType] = useState<string>("account")
+  const [submitType, setSubmitType] = useState<"account" | "phone">("account")
   const newData = { ...DefaultItems, ...props } as UserLoginProps
 
   const {

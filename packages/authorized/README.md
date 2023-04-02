@@ -113,7 +113,7 @@ const Layout = (props) => {
 
 ```tsx mdx:preview
 // 为了渲染设置的本地权限数据
-sessionStorage.setItem("auth_btn",JSON.stringify(["/api/select"]))
+sessionStorage.setItem("authBtn",JSON.stringify([{menuUrl:"/api/select"}]))
 
 import React from "react"
 import { AuthorizedBtn ,AuthorizedConfigProvider } from "@antdp/authorized"

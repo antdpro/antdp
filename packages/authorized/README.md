@@ -13,7 +13,7 @@ $ npm i @antdp/authorized  # yarn add @antdp/authorized
 ```
 ## 参数
 
-```typescript
+```ts
 interface AuthorizedProps {
   /**
    * 准入权限/权限判断
@@ -41,10 +41,42 @@ interface AuthorizedBtnProps {
 }
 ```
 
+## AuthorizedConfigProvider 设置按钮权限配置
+
+使用 `AuthorizedConfigProvider`可以自己进行重新设置组件包裹内的所有按钮的权限参数，不使用默认配置的按钮权限配置
+
+```ts
+export interface AuthorizedConfigProviderProps {
+  auth_menu?: string,
+  auth_btn?: string,
+  auth_check_url?: string,
+  isCheckAuth?: boolean
+  children?: React.ReactNode
+}
+
+```
+
+## useAuthorizedonfig 获取当前组件范围内的权限配置参数
+
+```ts
+// 返回参数
+{
+  /** 存储本地菜单  key */
+  auth_menu?: string;
+  /** 存储本地按钮  key */
+  auth_btn?: string;
+  /** 校验 字段  undefined 时 权限数据为  string[] ,否则为 { auth_check_url:string}[] */
+  auth_check_url?: string | undefined;
+  /**是否进行权限验证*/
+  isCheckAuth?: boolean
+}
+
+```
+
 ## 判断菜单是否有权限
 
 ```ts
-import {getAuthorizedPage} from '@antdp/authorized';
+import { getAuthorizedPage } from '@antdp/authorized';
 
 const isCheckMenu = getAuthorizedPage([{path:"/web"},{path:"/examples"}],"/examples")
 
@@ -79,14 +111,22 @@ const Layout = (props) => {
 
 ## 按钮权限
 
-```tsx 
+```tsx mdx:preview
+// 为了渲染设置的本地权限数据
+sessionStorage.setItem("auth_btn",JSON.stringify(["/api/select"]))
+
 import React from "react"
-import { AuthorizedBtn } from "@antdp/authorized"
+import { AuthorizedBtn ,AuthorizedConfigProvider } from "@antdp/authorized"
 
 const Demo = ()=>{
-  return (<AuthorizedBtn path="/api/select" >
-    <button>查询</button>
-  </AuthorizedBtn>)
+  return (<AuthorizedConfigProvider isCheckAuth={true} >
+    <AuthorizedBtn path="/api/select" >
+      <button>查询</button>
+    </AuthorizedBtn>
+    <AuthorizedBtn path="/api/select2" >
+      <button>查询2</button>
+    </AuthorizedBtn>
+  </AuthorizedConfigProvider>)
 }
 export default Demo;
 

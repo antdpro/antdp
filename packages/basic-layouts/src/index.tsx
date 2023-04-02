@@ -5,6 +5,7 @@ import Header from "./Header"
 import WarpContent from "./Content"
 import { BasicLayoutsProps } from "./interface"
 import { LayoutsProvider } from "./hooks"
+import { AuthorizedConfigProvider } from "@antdp/authorized"
 import "./index.css"
 export * from "./hooks"
 export * from "./utils"
@@ -50,11 +51,34 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
       </React.Fragment>
     }
   }, [])
+  const newData = useMemo(() => {
+    if (typeof ANTD_AUTH_CONF === "boolean") {
+      return {
+        auth_menu: 'authMenu',
+        auth_btn: 'authBtn',
+        auth_check_url: 'menuUrl',
+        isCheckAuth: true,
+      }
+    }
+    if (typeof ANTD_AUTH_CONF === "object" && ANTD_AUTH_CONF) {
+      return {
+        auth_menu: 'authMenu',
+        auth_btn: 'authBtn',
+        auth_check_url: 'menuUrl',
+        ...(ANTD_AUTH_CONF || {}) as any,
+        isCheckAuth: true,
+      }
+    }
+    return { isCheckAuth: false, }
+  }, [ANTD_AUTH_CONF])
 
-  return <LayoutsProvider  {...props}  >
-    <Layout className="antdp-basic-layouts">
-      {render}
-    </Layout>
-  </LayoutsProvider>
+
+  return <AuthorizedConfigProvider {...newData} >
+    <LayoutsProvider  {...props}  >
+      <Layout className="antdp-basic-layouts">
+        {render}
+      </Layout>
+    </LayoutsProvider>
+  </AuthorizedConfigProvider>
 }
 export default BasicLayouts

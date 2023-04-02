@@ -1,4 +1,4 @@
-import { AuthorizedBtnProps, AuthList, GetAuthorizedPageProps } from '.';
+import { AuthList, GetAuthorizedPageProps } from '.';
 import { IRoute } from '@umijs/max';
 
 declare const ANTD_AUTH_CONF: {
@@ -8,34 +8,35 @@ declare const ANTD_AUTH_CONF: {
   [k: string]: unknown;
 };
 
-/**
- * @description: 按钮权限
- * @param { string } path 路径
- * @param { React.ReactNode } children 展示内容
- */
-export const FormatBtn = ({ path, children }: AuthorizedBtnProps) => {
-  if (!path) {
-    return children || null;
-  }
-  if (!!ANTD_AUTH_CONF) {
-    const authBtns: AuthList =
-      (sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) &&
-        JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) || '[]')) ||
-      [];
-    let finx = -1;
-    if (ANTD_AUTH_CONF.auth_check_url) {
-      finx = (authBtns as Record<string, unknown>[]).findIndex(
-        (item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
-      );
-    } else {
-      finx = authBtns.findIndex((item) => item === path);
-    }
-    if (finx === -1) {
-      return null;
-    }
-  }
-  return children || null;
-};
+// /**
+//  * @description: 按钮权限
+//  * @param { string } path 路径
+//  * @param { React.ReactNode } children 展示内容
+//  */
+// export const FormatBtn = ({ path, children }: AuthorizedBtnProps) => {
+//   if (!path) {
+//     return children || null;
+//   }
+//   if (!!ANTD_AUTH_CONF) {
+//     const authBtns: AuthList =
+//       (sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) &&
+//         JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) || '[]')) ||
+//       [];
+//     let finx = -1;
+//     if (ANTD_AUTH_CONF.auth_check_url) {
+//       finx = (authBtns as Record<string, unknown>[]).findIndex(
+//         (item) => item[ANTD_AUTH_CONF.auth_check_url] === path,
+//       );
+//     } else {
+//       finx = authBtns.findIndex((item) => item === path);
+//     }
+//     if (finx === -1) {
+//       return null;
+//     }
+//   }
+//   return children || null;
+// };
+
 /**
  * @description: 根据 menuUrl 判断是否存在权限
  * @param {string} path 路径

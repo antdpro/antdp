@@ -33,12 +33,3 @@ export default Demo
 | -------- | -------- | -------- | -------- |
 | onSend | 点击点击短信发送回调 |  `() => void`  |- |
 | buttonProps | 继承antd button属性 | - | - |
-
-```ts
-export interface InputCountProps extends InputProps {
-  /** 点击短信发送回调 */
-  onSend?: () => void;
-  /** antd button属性 */
-  buttonProps?: ButtonProps;
-}
-```

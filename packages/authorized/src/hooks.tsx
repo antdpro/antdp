@@ -23,8 +23,10 @@ export const AuthorizedConfigProvider = (props: AuthorizedConfigProviderProps) =
   } = props
   const newAuth_check_url = React.useMemo(() => Reflect.has(props, "auth_check_url") ? props.auth_check_url : "menuUrl", [auth_check_url])
 
-  return <AuthorizedConfigContext.Provider value={{ auth_menu, auth_btn, auth_check_url: newAuth_check_url, isCheckAuth }} >
-    {children}
-  </AuthorizedConfigContext.Provider>
+  return (
+    <AuthorizedConfigContext.Provider value={{ auth_menu, auth_btn, auth_check_url: newAuth_check_url, isCheckAuth }} >
+      {children}
+    </AuthorizedConfigContext.Provider>
+  )
 }
 export const useAuthorizedonfig = () => useContext(AuthorizedConfigContext)

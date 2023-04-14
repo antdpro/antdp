@@ -44,11 +44,3 @@ export default Demo;
 | useDragHandle | 是否可以拖拽| boolean | - |
 | children | 组件渲染的内容 | ReactNode | - |
 
-```ts
-export type Props = {
-  onChange: (params: { fileList: UploadFile[] }) => void;
-  /**是否可以拖拽*/
-  useDragHandle?:boolean
-  children?: ReactNode;
-} & UploadProps & UploadListProps
-```

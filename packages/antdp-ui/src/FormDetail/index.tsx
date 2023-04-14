@@ -51,7 +51,7 @@ const FormDetail: FormDetailComponent = (props, ref) => {
     colspan,
     style,
     layout = 'horizontal',
-    bordered = true,
+    bordered = false,
     otherDescriptions = {},
     ...others
   } = props;

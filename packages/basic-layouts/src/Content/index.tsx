@@ -11,9 +11,11 @@ const WarpContent = () => {
   if (paths) {
     return <Navigate to={paths} replace />
   }
-  return <LayoutTabs
-    bodyPadding={bodyPadding}
-    dataSource={HandleMenu.flatMenu as any}
-  />
+  return (
+    <LayoutTabs
+      bodyPadding={bodyPadding}
+      dataSource={HandleMenu.flatMenu as any}
+    />
+  )
 }
 export default WarpContent

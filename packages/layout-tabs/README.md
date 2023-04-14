@@ -42,27 +42,25 @@ export default Demo;
 
 ```
 
-## 参数
+## API
 
-```ts
-export interface LayoutTabsRouter {
-  icon: string;
-  key: string;
-  name: string;
-  path: string;
-  exact?: boolean;
-  location?: any;
-  match?: any;
-  element?: React.ReactNode
-}
+| 参数 | 说明 | 类型 | 默认值 |
+| -------- | -------- | -------- | -------- |
+| dataSource | 菜单路由数据 | `LayoutTabsRouterProps[]`  | - |
+| bodyPadding | 内容边距 | `string | number`  | - |
 
-export interface LayoutTabsProps {
-  // 菜单路由数据
-  dataSource?: LayoutTabsRouter[]
-  // 内容边距
-  bodyPadding?: string | number;
-}
 
-```
+### LayoutTabsRouterProps
+| 参数 | 说明 | 类型 | 默认值 |
+| -------- | -------- | -------- | -------- |
+| icon | logo | `string`  | - |
+| key | key健 | `string`  | - |
+| name | 名称 | `string`  | - |
+| path | 路径 | `string`  | - |
+| exact | 是否匹配路由 | `boolean`  | - |
+| location | 路由信息 | `any`  | - |
+| match | 匹配信息 | `any`  | - |
+| element | 自定义组件 | `React.ReactNode`  | - |
+
 
 通过配置 [`@antdp/config`](https://www.npmjs.com/package/@antdp/config)，来解决是否重新渲染或者 `iframe` 展示页面等功能

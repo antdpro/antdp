@@ -12,44 +12,6 @@
 $ npm i @antdp/user-login --save
 ```
 
-## Props
-
-```typescript
-import React from 'react';
-import { FormProps, FormItemProps,InputProps } from 'antd/lib/form';
-
-export interface UserLoginProps extends Omit<FormProps, "onFinish"> {
-  /**logo*/
-  logo?: string;
-  /**项目名称*/
-  projectName?: string;
-  className?: string,
-  /**登录类型*/
-  type?: "account" | "phone",
-  children?: React.ReactNode,
-  /**账号登录设置的formItem*/
-  formItems?: ({ render?: React.ReactNode, inputProps?: InputProps } & FormItemProps)[],
-  /**表单操作按钮*/
-  formBtns?: { label?: React.ReactNode, attr?: ButtonProps }[],
-  /**加载状态*/
-  loading?: boolean,
-  /**表单提交*/
-  onFinish?: (value: any, submitType: "account" | "phone") => void,
-  /**自定义form表单内渲染*/
-  formChildren?: React.ReactNode,
-  /**手机号登录设置的 formItem 项*/
-  phoneFormItems?: UserLoginProps["formItems"],
-  /**手机号FormItem 属性*/
-  phoneCodeProps?: FormItemProps,
-  /**发送验证码*/
-  onSend?: () => void,
-  /**外层样式**/
-  warpStyle?: React.CSSProperties
-  /**标题样式*/
-  titleStyle?: React.CSSProperties
-}
-
-```
 
 ## 基本使用
 
@@ -172,3 +134,25 @@ const Demo= (props) => {
 export default Demo;
 ```
 
+## API
+### 该组件依赖
+- [antd Button](https://ant.design/components/button-cn) 
+- [antd Radio](https://ant.design/components/radio-cn)
+- [antd Form](https://ant.design/components/form-cn)
+
+| 参数 | 说明 | 类型 | 默认值 |
+| -------- | -------- | -------- | -------- |
+| logo | logo | string  | - |
+| projectName | 项目名称 | `string` | - |
+| className | 登陆样式 | `string` | - |
+| type | 登录类型 | `account | phone` | `account` |
+| children | 自定义内容 |  `React.ReactNode` | - |
+| formItems | 账号登录设置的formItem |   `({ render?: React.ReactNode, inputProps?: InputProps } & FormItemProps)[]` | - |
+| formBtns | 表单操作按钮 |   `{ label?: React.ReactNode, attr?: ButtonProps }[]` | - |
+| loading | 加载状态 |   `boolean` | - |
+| onFinish | 表单提交 |   `(value: any, submitType: "account" | "phone") => void` | - |
+| phoneFormItems | 手机号登录设置的 formItem 项 |   `UserLoginProps["formItems"]` | - |
+| phoneCodeProps | 手机号FormItem 属性 |   `FormItemProps` | - |
+| onSend | 自定义form表单内渲染 |   `() => void` | - |
+| warpStyle | 外层样式 |   `React.CSSProperties` | - |
+| titleStyle | 标题样式 |   `React.CSSProperties` | - |

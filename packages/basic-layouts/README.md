@@ -12,88 +12,6 @@
 $ npm i @antdp/basic-layouts  # yarn add  @antdp/basic-layouts
 ```
 
-## 参数
-
-```ts
-import React from 'react';
-import { IntlShape } from 'react-intl/lib/src/types';
-
-export interface HandleMenuProps {
-  /**语言转换*/
-  intlLanguage?: IntlShape;
-  /**菜单*/
-  routers: RouterMenu[];
-  /**是否使用 TOPLEFT 布局*/
-  isTOPLEFT?: boolean;
-  /**是否验证权限*/
-  isCheckAuth?: boolean;
-}
-
-export interface RouterMenu {
-  path?: string;
-  key?: string;
-  name?: string;
-  icon?: string;
-  locale?: string;
-  side?: boolean;
-  index?: boolean;
-  component?: React.ReactNode;
-  redirect?: string;
-  redirectTo?: string;
-  hideInMenu?: boolean;
-  routes?: RouterMenu[];
-  children?: RouterMenu[];
-  order?: number;
-  /**原来的path*/
-  oPath?: string;
-}
-
-export interface BasicLayoutsProps {
-  /**
-   * 项目logo
-   */
-  logo?: string;
-  /**
-   * 项目名称
-   */
-  projectName?: React.ReactNode;
-  children?: React.ReactNode;
-  /**国际化语言转换方法*/
-  intlLanguage?: IntlShape;
-  /**头像下拉菜单*/
-  topRightMenu?: {
-    icon?: React.ReactNode;
-    title?: React.ReactNode;
-    link?: string;
-    divider?: boolean;
-    onClick?: () => void;
-  }[];
-  /**
-   * 设置内容区域补白，默认 14px
-   */
-  bodyPadding?: number;
-  // 顶部右方
-  topRightLanguage?: React.ReactNode;
-  /**
-   * 设置最左边菜单宽度 180
-   */
-  siderWidth?: number;
-  /**
-   * 用户信息显示
-   */
-  profile?: {
-    /**
-     * 用户头像
-     */
-    avatar?: string;
-    /**
-     * 用户名称/昵称
-     */
-    name?: string;
-  };
-}
-
-```
 
 ## 基本使用
 
@@ -229,5 +147,88 @@ interface HandleMenu {
   getPathItem(path: string): RouterMenu | undefined
 }
 
+
+```
+
+## 参数
+
+```ts
+import React from 'react';
+import { IntlShape } from 'react-intl/lib/src/types';
+
+export interface HandleMenuProps {
+  /**语言转换*/
+  intlLanguage?: IntlShape;
+  /**菜单*/
+  routers: RouterMenu[];
+  /**是否使用 TOPLEFT 布局*/
+  isTOPLEFT?: boolean;
+  /**是否验证权限*/
+  isCheckAuth?: boolean;
+}
+
+export interface RouterMenu {
+  path?: string;
+  key?: string;
+  name?: string;
+  icon?: string;
+  locale?: string;
+  side?: boolean;
+  index?: boolean;
+  component?: React.ReactNode;
+  redirect?: string;
+  redirectTo?: string;
+  hideInMenu?: boolean;
+  routes?: RouterMenu[];
+  children?: RouterMenu[];
+  order?: number;
+  /**原来的path*/
+  oPath?: string;
+}
+
+export interface BasicLayoutsProps {
+  /**
+   * 项目logo
+   */
+  logo?: string;
+  /**
+   * 项目名称
+   */
+  projectName?: React.ReactNode;
+  children?: React.ReactNode;
+  /**国际化语言转换方法*/
+  intlLanguage?: IntlShape;
+  /**头像下拉菜单*/
+  topRightMenu?: {
+    icon?: React.ReactNode;
+    title?: React.ReactNode;
+    link?: string;
+    divider?: boolean;
+    onClick?: () => void;
+  }[];
+  /**
+   * 设置内容区域补白，默认 14px
+   */
+  bodyPadding?: number;
+  // 顶部右方
+  topRightLanguage?: React.ReactNode;
+  /**
+   * 设置最左边菜单宽度 180
+   */
+  siderWidth?: number;
+  /**
+   * 用户信息显示
+   */
+  profile?: {
+    /**
+     * 用户头像
+     */
+    avatar?: string;
+    /**
+     * 用户名称/昵称
+     */
+    name?: string;
+  };
+}
 
 ```

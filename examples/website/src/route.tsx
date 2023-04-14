@@ -79,10 +79,40 @@ export const routesConfig: RoutesType[] = [
         element: <Example />
       },
       {
+        path: '/user-login',
+        name: 'User Login',
+        icon: <UserOutlined />,
+        element: <UserLogin />
+      },
+      {
+        path: '/page-loading',
+        name: 'Page Loading',
+        icon: <LoadingOutlined />,
+        element: <PageLoading />
+      },
+      {
+        path: '/document-title',
+        name: 'Document Title',
+        icon: <FontSizeOutlined />,
+        element: <DocumentTitle />,
+      },
+      {
+        path: '/fullscreen',
+        name: 'Fullscreen',
+        icon: <FullscreenOutlined />,
+        element: <Fullscreen />
+      },
+      {
         path: '/basic-layouts',
         name: 'BasicLayouts',
         icon: <LayoutFilled />,
         element: <BasicLayouts />
+      },
+      {
+        path: '/layout-tabs',
+        name: 'Layout Tabs',
+        icon: <Icon component={TabSvg} />,
+        element: <LayoutTabs />
       },
       {
         path: '/authorized',
@@ -95,36 +125,6 @@ export const routesConfig: RoutesType[] = [
         name: 'Config',
         icon: <ControlFilled />,
         element: <Config />
-      },
-      {
-        path: '/document-title',
-        name: 'Document Title',
-        icon: <FontSizeOutlined />,
-        element: <DocumentTitle />,
-      },
-      {
-        path: '/layout-tabs',
-        name: 'Layout Tabs',
-        icon: <Icon component={TabSvg} />,
-        element: <LayoutTabs />
-      },
-      {
-        path: '/fullscreen',
-        name: 'Fullscreen',
-        icon: <FullscreenOutlined />,
-        element: <Fullscreen />
-      },
-      {
-        path: '/user-login',
-        name: 'User Login',
-        icon: <UserOutlined />,
-        element: <UserLogin />
-      },
-      {
-        path: '/page-loading',
-        name: 'Page Loading',
-        icon: <LoadingOutlined />,
-        element: <PageLoading />
       },
       {
         path: '/antdp-ui',

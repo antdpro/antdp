@@ -11,36 +11,6 @@
 ```bash
 $ npm i @antdp/authorized  # yarn add @antdp/authorized
 ```
-## 参数
-
-```ts
-interface AuthorizedProps {
-  /**
-   * 准入权限/权限判断
-   */
-  authority?: boolean;
-  /**
-   * 权限异常时重定向的页面路由
-   */
-  redirectPath?: string;
-  children?: React.ReactNode;
-}
-/**
- * @description: 页面权限
- * @param {Array} menuRouter 原始 routes.json 文件中路由
- * @param {string} path 当前路径
- * @return {*}
- */
-type GetAuthorizedPageProps = (menuRouter: Array<any>, path: string) => boolean | 404 | 403
-// 按钮权限
-interface AuthorizedBtnProps {
-  // 权限路径
-  path?: string,
-  // 展示内容
-  children?: React.ReactNode
-}
-```
-
 ## AuthorizedConfigProvider 设置按钮权限配置
 
 使用 `AuthorizedConfigProvider`可以自己进行重新设置组件包裹内的所有按钮的权限参数，不使用默认配置的按钮权限配置
@@ -131,3 +101,34 @@ const Demo = ()=>{
 export default Demo;
 
 ```
+
+## 参数
+
+```ts
+interface AuthorizedProps {
+  /**
+   * 准入权限/权限判断
+   */
+  authority?: boolean;
+  /**
+   * 权限异常时重定向的页面路由
+   */
+  redirectPath?: string;
+  children?: React.ReactNode;
+}
+/**
+ * @description: 页面权限
+ * @param {Array} menuRouter 原始 routes.json 文件中路由
+ * @param {string} path 当前路径
+ * @return {*}
+ */
+type GetAuthorizedPageProps = (menuRouter: Array<any>, path: string) => boolean | 404 | 403
+// 按钮权限
+interface AuthorizedBtnProps {
+  // 权限路径
+  path?: string,
+  // 展示内容
+  children?: React.ReactNode
+}
+```
+

@@ -73,12 +73,14 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
   }, [ANTD_AUTH_CONF])
 
 
-  return <AuthorizedConfigProvider {...newData} >
-    <LayoutsProvider  {...props}  >
-      <Layout className="antdp-basic-layouts">
-        {render}
-      </Layout>
-    </LayoutsProvider>
-  </AuthorizedConfigProvider>
+  return (
+    <AuthorizedConfigProvider {...newData} >
+      <LayoutsProvider  {...props}>
+        <Layout className="antdp-basic-layouts">
+          {render}
+        </Layout>
+      </LayoutsProvider>
+    </AuthorizedConfigProvider>
+  )
 }
 export default BasicLayouts

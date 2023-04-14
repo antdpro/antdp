@@ -145,7 +145,7 @@ export default Demo;
 | logo | logo | string  | - |
 | projectName | 项目名称 | `string` | - |
 | className | 登陆样式 | `string` | - |
-| type | 登录类型 | `account | phone` | `account` |
+| type | 登录类型 | `account | phone | account` |
 | children | 自定义内容 |  `React.ReactNode` | - |
 | formItems | 账号登录设置的formItem |   `({ render?: React.ReactNode, inputProps?: InputProps } & FormItemProps)[]` | - |
 | formBtns | 表单操作按钮 |   `{ label?: React.ReactNode, attr?: ButtonProps }[]` | - |

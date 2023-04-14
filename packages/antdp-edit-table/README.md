@@ -6,8 +6,7 @@ EditTable 编辑表格
 ```bash
  npm i @antdp/edit-table
 ```
-### 案例
-
+### 基本使用
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```tsx  mdx:preview
 import React from 'react';
@@ -21,7 +20,7 @@ for (let i = 0; i < 5; i++) {
     key: i.toString(),
     name: `Edrward ${i}`,
     age: 32,
-    // address: `London Park no. ${i}`,
+    address: `London Park no. ${i}`,
   });
 }
 
@@ -30,7 +29,7 @@ const EditableTable =() => {
   const [tableProps, setTableProps] = React.useState({
     isAdd: true,
     isOpt: true,
-    optIsFirst: true,
+    optIsFirst: false,
   });
   const columns = [
     {
@@ -38,10 +37,7 @@ const EditableTable =() => {
       dataIndex: 'name',
       width: '20%',
       editable: true,
-      type: 'Custom',
-      inputNode: (edit) => {
-        return <Input {...edit} />;
-      },
+      type: 'Input',
     },
     {
       title: 'age',
@@ -52,7 +48,7 @@ const EditableTable =() => {
       rules: [{ required: true, message: '请输入' }],
       inputNode: <InputNumber />,
     },
-    {
+     {
       title: 'isList',
       dataIndex: 'list',
       width: '15%',
@@ -108,44 +104,78 @@ const EditableTable =() => {
   ];
   return (
     <div>
-      <Button
-        onClick={() => {
-          setTableProps({
-            ...tableProps,
-            isOptDelete: !tableProps.isOptDelete,
-          });
-        }}
-      >
-        删除按钮
-      </Button>
-      <Button
-        onClick={() => {
-          setTableProps({ ...tableProps, isAdd: !tableProps.isAdd });
-        }}
-      >
-        新增按钮
-      </Button>
-      <Button
-        onClick={() => {
-          setTableProps({ ...tableProps, multiple: !tableProps.multiple });
-        }}
-      >
-        多行编辑
-      </Button>
-      <Button
-        onClick={() => {
-          setTableProps({ ...tableProps, optIsFirst: !tableProps.optIsFirst });
-        }}
-      >
-        操作列前或后
-      </Button>
-      <Button
-        onClick={() => {
-          setTableProps({ ...tableProps, isOpt: !tableProps.isOpt });
-        }}
-      >
-        无操作列
-      </Button>
+      <EditTable
+       initValue={{ address: 2193 }}
+        onValuesChange={(list) => setData(list)}
+        rowKey="key"
+        dataSource={data}
+        columns={columns}
+        onSave={(list) => setData(list)}
+        {...tableProps}
+      />
+    </div>
+  );
+};
+export default EditableTable
+```
+
+### 操作列在第一列
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+```tsx  mdx:preview
+import React from 'react';
+import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
+import EditTable from '@antdp/edit-table';
+import 'antd/dist/reset.css';
+const originData = [];
+
+for (let i = 0; i < 5; i++) {
+  originData.push({
+    key: i.toString(),
+    name: `Edrward ${i}`,
+    age: 32,
+    // address: `London Park no. ${i}`,
+  });
+}
+
+const EditableTable =() => {
+  const [data, setData] = React.useState(originData);
+  const [tableProps, setTableProps] = React.useState({
+    isAdd: true,
+    isOpt: true,
+    optIsFirst: true,
+  });
+  const columns = [
+    {
+      title: 'name',
+      dataIndex: 'name',
+      width: '20%',
+      editable: true,
+      type: 'Custom',
+      inputNode: (edit) => {
+        return <Input {...edit} />;
+      },
+    },
+    {
+      title: 'age',
+      dataIndex: 'age',
+      width: '15%',
+      editable: true,
+      type: 'Input',
+      // rules: [{ required: true, message: '请输入' }],
+       inputNode: (edit) => {
+        return <Input {...edit} />;
+      },
+    },
+    {
+      title: 'address',
+      dataIndex: 'address',
+      width: '30%',
+      editable: true,
+      type: 'Input',
+    },
+  ];
+  return (
+    <div>
       <EditTable
         initValue={{ address: 2193 }}
         onValuesChange={(list) => setData(list)}
@@ -163,7 +193,226 @@ const EditableTable =() => {
 export default EditableTable
 ```
 
+### 显示删除按钮
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+```tsx  mdx:preview
+import React from 'react';
+import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
+import EditTable from '@antdp/edit-table';
+import 'antd/dist/reset.css';
+const originData = [];
 
+for (let i = 0; i < 5; i++) {
+  originData.push({
+    key: i.toString(),
+    name: `Edrward ${i}`,
+    age: 32,
+    // address: `London Park no. ${i}`,
+  });
+}
+
+const EditableTable =() => {
+  const [data, setData] = React.useState(originData);
+  const [tableProps, setTableProps] = React.useState({
+    isAdd: true,
+    isOpt: true,
+    isOptDelete:true,
+    optIsFirst: false,
+  });
+  const columns = [
+    {
+      title: 'name',
+      dataIndex: 'name',
+      width: '20%',
+      editable: true,
+      type: 'Custom',
+      inputNode: (edit) => {
+        return <Input {...edit} />;
+      },
+    },
+    {
+      title: 'age',
+      dataIndex: 'age',
+      width: '15%',
+      editable: true,
+      type: 'Custom',
+      rules: [{ required: true, message: '请输入' }],
+       inputNode: (edit) => {
+        return <Input {...edit} />;
+      },
+    },
+    {
+      title: 'address',
+      dataIndex: 'address',
+      width: '30%',
+      editable: true,
+      type: 'Input',
+    },
+  ];
+  return (
+    <div>
+      <EditTable
+        initValue={{ address: 2193}}
+        onValuesChange={(list) => setData(list)}
+        rowKey="key"
+        dataSource={data}
+        columns={columns}
+        onSave={(list) => setData(list)}
+        isAdd={true}
+        {...tableProps}
+      />
+    </div>
+  );
+};
+export default EditableTable
+```
+
+### 允许同时编辑多行
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+```tsx  mdx:preview
+import React from 'react';
+import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
+import EditTable from '@antdp/edit-table';
+import 'antd/dist/reset.css';
+const originData = [];
+
+for (let i = 0; i < 5; i++) {
+  originData.push({
+    key: i.toString(),
+    name: `Edrward ${i}`,
+    age: 32,
+    // address: `London Park no. ${i}`,
+  });
+}
+
+const EditableTable =() => {
+  const [data, setData] = React.useState(originData);
+  const [tableProps, setTableProps] = React.useState({
+    isAdd: true,
+    isOpt: true,
+    isOptDelete:true,
+    optIsFirst: false,
+    multiple:true
+  });
+  const columns = [
+    {
+      title: 'name',
+      dataIndex: 'name',
+      width: '20%',
+      editable: true,
+      type: 'Custom',
+      inputNode: (edit) => {
+        return <Input {...edit} />;
+      },
+    },
+    {
+      title: 'age',
+      dataIndex: 'age',
+      width: '15%',
+      editable: true,
+      type: 'Custom',
+      rules: [{ required: true, message: '请输入' }],
+       inputNode: (edit) => {
+        return <Input {...edit} />;
+      },
+    },
+    {
+      title: 'address',
+      dataIndex: 'address',
+      width: '30%',
+      editable: true,
+      type: 'Input',
+    },
+  ];
+  return (
+    <div>
+      <EditTable
+        initValue={{ address: 2193}}
+        onValuesChange={(list) => setData(list)}
+        rowKey="key"
+        dataSource={data}
+        columns={columns}
+        onSave={(list) => setData(list)}
+        isAdd={true}
+        {...tableProps}
+      />
+    </div>
+  );
+};
+export default EditableTable
+```
+
+### 无操作和新增
+<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
+```tsx  mdx:preview
+import React from 'react';
+import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
+import EditTable from '@antdp/edit-table';
+import 'antd/dist/reset.css';
+const originData = [];
+
+for (let i = 0; i < 5; i++) {
+  originData.push({
+    key: i.toString(),
+    name: `Edrward ${i}`,
+    age: 32,
+    // address: `London Park no. ${i}`,
+  });
+}
+
+const EditableTable =() => {
+  const [data, setData] = React.useState(originData);
+  const [tableProps, setTableProps] = React.useState({
+    isOpt: false,
+    isAdd:false,
+  });
+  const columns = [
+    {
+      title: 'name',
+      dataIndex: 'name',
+      width: '20%',
+      editable: true,
+      type: 'Custom',
+      inputNode: (edit) => {
+        return <Input {...edit} />;
+      },
+    },
+    {
+      title: 'age',
+      dataIndex: 'age',
+      width: '15%',
+      editable: true,
+      type: 'Custom',
+      rules: [{ required: true, message: '请输入' }],
+       inputNode: (edit) => {
+        return <Input {...edit} />;
+      },
+    },
+    {
+      title: 'address',
+      dataIndex: 'address',
+      width: '30%',
+      editable: true,
+      type: 'Input',
+    },
+  ];
+  return (
+    <div>
+      <EditTable
+        initValue={{ address: 2193}}
+        onValuesChange={(list) => setData(list)}
+        rowKey="key"
+        dataSource={data}
+        columns={columns}
+        onSave={(list) => setData(list)}
+        isAdd={true}
+        {...tableProps}
+      />
+    </div>
+  );
+};
+export default EditableTable
+```
 
 ### API
 | 参数 | 说明 | 类型 | 默认值 |

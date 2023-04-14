@@ -7,7 +7,6 @@ EditTable 编辑表格
  npm i @antdp/edit-table
 ```
 ### 基本使用
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```tsx  mdx:preview
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
@@ -120,7 +119,6 @@ export default EditableTable
 ```
 
 ### 操作列在第一列
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```tsx  mdx:preview
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
@@ -194,7 +192,6 @@ export default EditableTable
 ```
 
 ### 显示删除按钮
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```tsx  mdx:preview
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
@@ -268,7 +265,6 @@ export default EditableTable
 ```
 
 ### 允许同时编辑多行
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```tsx  mdx:preview
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
@@ -343,7 +339,6 @@ export default EditableTable
 ```
 
 ### 无操作和新增
-<!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```tsx  mdx:preview
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';

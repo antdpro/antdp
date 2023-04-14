@@ -60,7 +60,7 @@ export default Demo;
 | exact | 是否匹配路由 | `boolean`  | - |
 | location | 路由信息 | `any`  | - |
 | match | 匹配信息 | `any`  | - |
-| element | 自定义组件 | `React.ReactNode`  | - |
+| element | 渲染内容 | `React.ReactNode`  | - |
 
 
 通过配置 [`@antdp/config`](https://www.npmjs.com/package/@antdp/config)，来解决是否重新渲染或者 `iframe` 展示页面等功能

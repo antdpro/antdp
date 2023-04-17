@@ -16,7 +16,7 @@ Ant Design Project
 - 💋 支持配置路由参数 `/router/:id`；
 - 🤡 支持 `tab` 选项卡功能。
 
-### Quick start
+### 生成项目
 
 使用 [`create-antdp`](https://antdpro.github.io/create-antdp) 工具，将示例 [`basic`](https://antdpro.github.io/antdp/zip/basic.zip) 初始化，让我们快速创建这个 React 应用程序：
 
@@ -34,8 +34,7 @@ $ npx create-antdp my-app
 ```
 
 或者直接下载: [`basic.zip`](https://antdpro.github.io/antdp/zip/basic.zip)
-
-### Open in CodeSandbox
+### 在CodeSandbox中打开，查看实例
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/s/github/antdpro/antdp/tree/master/examples/antdp-base)
 [![Open in StackBlitz](https://img.shields.io/badge/Open%20in-StackBlitz-blue?logo=)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
@@ -44,7 +43,27 @@ $ npx create-antdp my-app
 
 直接下载实例下载本地预览: [`antdp-base.zip`](https://antdpro.github.io/antdp/zip/antdp-base.zip)
 
-### Packages
+### 启动项目
+```bash
+npm install
+npm run start
+```
+
+### 目录结构
+```bash
+├── config                            # configuration and proxy
+├── mock                              # mock data
+├── src                               # code directory
+│   ├── components                    # react components
+│   ├── layouts                       # layout locales
+│   ├── locales                       # internationalization 
+│   ├── models                        # The models brings together state, reducers, async actions & action creators in one place
+│   ├── pages                         # route pages
+│   ├── services                      # api request
+│   ├── utils                         # public method
+└── package.json                      # This document is all you need to know about what’s required in your package.json file.
+```
+### 相关依赖
 
 This git repository is a repo built using Lerna. It contains several packages:
 
@@ -61,6 +80,18 @@ Package | Version | Description
 [`@antdp/dependencies`](https://www.npmjs.com/package/@antdp/dependencies) | [![npm](https://img.shields.io/npm/v/@antdp/dependencies.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/dependencies) | - |
 [~~`@antdp/icons`~~](https://www.npmjs.com/package/@antdp/icons) | [![npm](https://img.shields.io/npm/v/@antdp/icons.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/icons) | - |
 [`@antdp/page-loading`](https://www.npmjs.com/package/@antdp/page-loading) | [![npm](https://img.shields.io/npm/v/@antdp/page-loading.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/page-loading) | - |
+
+### 参与框架开发
+```bash
+git clone https://github.com/antdpro/antdp.git
+```
+
+```bash
+npm install               # 按照项目依赖
+npm run build             # 实时监听包输出 JS
+npm run start:website     # 运行文档网站
+npm run start:antdp-base  # 运行实例
+```
 
 ### 发布版本
 
@@ -83,17 +114,6 @@ lerna version [major | minor | patch | premajor | preminor | prepatch | prerelea
 - `prepatch` - 预发布补丁 `1.1.1 => 1.1.2-alpha.0`
 - `prerelease` - 预发行 `1.1.1 => 1.1.2-alpha.0`
 
-### 开发
-
-```bash
-npm install               # 按照项目依赖
-npm run install           # 按照【子包】和【实例】依赖
-
-npm run watch:config      # 实时监听包输出 JS
-
-npm run start:website     # 运行文档网站
-npm run build:antdp-base  # 运行实例
-```
 
 ### License
 

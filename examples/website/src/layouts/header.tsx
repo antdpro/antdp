@@ -1,11 +1,13 @@
 
 import React from 'react'
 import { Layout, Col, Row, Menu } from "antd"
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import '@wcj/dark-mode';
 import styled from "styled-components";
 import ReactLogo from '../assets/logo.svg';
 import { routesConfig } from '../route'
+import { GithubOutlined } from '@ant-design/icons'
+
 const Sup = styled.sup`
   font-size: 12px;
   color: #3387ffab;
@@ -19,9 +21,17 @@ const MenuContainer = styled.div`
 `;
 
 const Header = () => {
+  const { pathname = '' } = useLocation()
   const [current, setCurrent] = React.useState('1');
   const routes = routesConfig[0]?.children || [];
   const datas = routes || []
+
+  React.useEffect(() => {
+    const index = datas.findIndex(item => item.path === '/' + pathname.split('/')[1])
+    setCurrent(index.toString());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname, JSON.stringify(datas)])
+
   return (
     <Layout.Header>
       <Row>
@@ -54,6 +64,9 @@ const Header = () => {
                 }
               })}
             />
+            <a target="__blank" href="https://github.com/antdpro/antdp">
+              <GithubOutlined style={{ fontSize: 18, marginLeft: 12, color: '#fff' }} />
+            </a>
             <dark-mode permanent style={{ display: "flex", marginLeft: 12, fontSize: 16, color: '#fff' }} light="Light" dark="Dark"></dark-mode>
           </MenuContainer>
         </Col>

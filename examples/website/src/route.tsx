@@ -12,6 +12,7 @@ import Icon, {
   UserOutlined,
   SelectOutlined,
   OneToOneOutlined,
+  CloudUploadOutlined
 } from '@ant-design/icons';
 import { useRoutes } from 'react-router-dom';
 import { IndexRouteObject, NonIndexRouteObject, RouteObject, Outlet, Navigate } from 'react-router-dom';
@@ -39,6 +40,7 @@ import UploadGrid from "./pages/antdp-ui/uploadgrid"
 import EditTable from "./pages/edit-table"
 import FuzzyQuery from "./pages/fuzzy-query"
 import UpdateLog from './pages/update'
+import ChangeLog from './pages/change-log'
 
 interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   name?: React.ReactNode
@@ -65,34 +67,57 @@ export const routesConfig: RoutesType[] = [
     children: [
       {
         index: true,
-        element: <Navigate to="/components/home" replace />,
+        element: <Navigate to="/home/home" replace />,
       },
       {
-        label: '组件',
-        path: '/components',
+        path: '/home',
+        label: '研发',
         element: <Layouts />,
         children: [
           {
             index: true,
-            element: <Navigate to="/components/home" replace />,
+            element: <Navigate to="/home/home" replace />,
           },
           {
-            name: 'Home',
-            path: '/components/home',
+            path: '/home/home',
+            name: '首页',
             icon: <HomeFilled />,
             element: <Home />
           },
           {
-            path: '/components/create-antdp',
+            path: '/home/create-antdp',
             name: '快速开始',
             icon: <AntDesignOutlined />,
             element: <CreateAntdp />
           },
           {
-            path: '/components/example',
+            path: '/home/example',
             name: '实例预览',
             icon: <CodeSandboxOutlined />,
             element: <Example />
+          },
+          {
+            path: '/home/log',
+            name: '从v1 到 v2',
+            icon:<CloudUploadOutlined />,
+            element: <UpdateLog />
+          },
+          {
+            path: '/home/change-log',
+            name: '更新日志',
+            icon:<CloudUploadOutlined />,
+            element: <ChangeLog />
+          },
+        ]
+      },
+      {
+        label: '组件依赖',
+        path: '/components',
+        element: <Layouts />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to="/components/user-login" replace />,
           },
           {
             path: '/components/user-login',
@@ -196,22 +221,6 @@ export const routesConfig: RoutesType[] = [
             name: 'fuzzy-query',
             icon: <OneToOneOutlined />,
             element: <FuzzyQuery />
-          },
-        ]
-      },
-      {
-        path: '/update',
-        label: '更新日志',
-        element: <Layouts />,
-        children: [
-          {
-            index: true,
-            element: <Navigate to="/update/log" replace />,
-          },
-          {
-            path: '/update/log',
-            name: '如何升级',
-            element: <UpdateLog />
           },
         ]
       }

@@ -14,7 +14,7 @@ import Icon, {
   OneToOneOutlined,
 } from '@ant-design/icons';
 import { useRoutes } from 'react-router-dom';
-import { IndexRouteObject, NonIndexRouteObject, RouteObject } from 'react-router-dom';
+import { IndexRouteObject, NonIndexRouteObject, RouteObject, Outlet, Navigate } from 'react-router-dom';
 
 import TabSvg from "./assets/icon/TabSvg"
 
@@ -38,151 +38,186 @@ import InputCount from "./pages/antdp-ui/inputcount"
 import UploadGrid from "./pages/antdp-ui/uploadgrid"
 import EditTable from "./pages/edit-table"
 import FuzzyQuery from "./pages/fuzzy-query"
-
+import UpdateLog from './pages/update'
 
 interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   name?: React.ReactNode
   icon?: React.ReactNode
   index?: boolean
+  label?: string;
+  Component?: any
 }
 export interface NonIndexRouteObjects extends Omit<NonIndexRouteObject, "index" | 'children'> {
   name?: React.ReactNode
   icon?: React.ReactNode
   index?: boolean
   children?: NonIndexRouteObjects[]
+  label?: React.ReactNode
+  Component?: any
 }
 
-type RoutesType = IndexRouteObjects | NonIndexRouteObjects
+export type RoutesType = IndexRouteObjects | NonIndexRouteObjects 
 
 export const routesConfig: RoutesType[] = [
   {
-    path: "/",
-    element: <Layouts />,
+    path: '/',
+    Component: Outlet,
     children: [
       {
         index: true,
-        path: '/',
-        name: 'Home',
-        icon: <HomeFilled />,
-        element: <Home />
+        element: <Navigate to="/components/home" replace />,
       },
       {
-        path: '/create-antdp',
-        name: '快速开始',
-        icon: <AntDesignOutlined />,
-        element: <CreateAntdp />
-      },
-      {
-        path: '/example',
-        name: '实例预览',
-        icon: <CodeSandboxOutlined />,
-        element: <Example />
-      },
-      {
-        path: '/user-login',
-        name: 'User Login',
-        icon: <UserOutlined />,
-        element: <UserLogin />
-      },
-      {
-        path: '/page-loading',
-        name: 'Page Loading',
-        icon: <LoadingOutlined />,
-        element: <PageLoading />
-      },
-      {
-        path: '/document-title',
-        name: 'Document Title',
-        icon: <FontSizeOutlined />,
-        element: <DocumentTitle />,
-      },
-      {
-        path: '/fullscreen',
-        name: 'Fullscreen',
-        icon: <FullscreenOutlined />,
-        element: <Fullscreen />
-      },
-      {
-        path: '/basic-layouts',
-        name: 'BasicLayouts',
-        icon: <LayoutFilled />,
-        element: <BasicLayouts />
-      },
-      {
-        path: '/layout-tabs',
-        name: 'Layout Tabs',
-        icon: <Icon component={TabSvg} />,
-        element: <LayoutTabs />
-      },
-      {
-        path: '/authorized',
-        name: 'Authorized',
-        icon: <LockFilled />,
-        element: <Authorized />
-      },
-      {
-        path: '/config',
-        name: 'Config',
-        icon: <ControlFilled />,
-        element: <Config />
-      },
-      {
-        path: '/antdp-ui',
-        name: 'Antdp Ui',
-        icon: <SelectOutlined />,
+        label: '组件',
+        path: '/components',
+        element: <Layouts />,
         children: [
           {
-            path: '/antdp-ui/buttongrouppro',
-            name: 'ButtonGroupPro',
-            icon: <OneToOneOutlined />,
-            element: <ButtonGroupPro />
+            index: true,
+            element: <Navigate to="/components/home" replace />,
           },
           {
-            path: '/antdp-ui/quickform',
-            name: 'QuickForm',
-            icon: <OneToOneOutlined />,
-            element: <QuickForm />
+            name: 'Home',
+            path: '/components/home',
+            icon: <HomeFilled />,
+            element: <Home />
           },
           {
-            path: '/antdp-ui/cardpro',
-            name: 'CardPro',
-            icon: <OneToOneOutlined />,
-            element: <CardPro />
+            path: '/components/create-antdp',
+            name: '快速开始',
+            icon: <AntDesignOutlined />,
+            element: <CreateAntdp />
           },
           {
-            path: '/antdp-ui/formdetail',
-            name: 'FormDetail',
-            icon: <OneToOneOutlined />,
-            element: <FormDetail />
+            path: '/components/example',
+            name: '实例预览',
+            icon: <CodeSandboxOutlined />,
+            element: <Example />
           },
           {
-            path: '/antdp-ui/inputcount',
-            name: 'InputCount',
-            icon: <OneToOneOutlined />,
-            element: <InputCount />
+            path: '/components/user-login',
+            name: 'User Login',
+            icon: <UserOutlined />,
+            element: <UserLogin />
           },
           {
-            path: '/antdp-ui/uploadgrid',
-            name: 'UploadGrid',
-            icon: <OneToOneOutlined />,
-            element: <UploadGrid />
+            path: '/components/page-loading',
+            name: 'Page Loading',
+            icon: <LoadingOutlined />,
+            element: <PageLoading />
           },
-        ],
+          {
+            path: '/components/document-title',
+            name: 'Document Title',
+            icon: <FontSizeOutlined />,
+            element: <DocumentTitle />,
+          },
+          {
+            path: '/components/fullscreen',
+            name: 'Fullscreen',
+            icon: <FullscreenOutlined />,
+            element: <Fullscreen />
+          },
+          {
+            path: '/components/basic-layouts',
+            name: 'BasicLayouts',
+            icon: <LayoutFilled />,
+            element: <BasicLayouts />
+          },
+          {
+            path: '/components/layout-tabs',
+            name: 'Layout Tabs',
+            icon: <Icon component={TabSvg} />,
+            element: <LayoutTabs />
+          },
+          {
+            path: '/components/authorized',
+            name: 'Authorized',
+            icon: <LockFilled />,
+            element: <Authorized />
+          },
+          {
+            path: '/components/config',
+            name: 'Config',
+            icon: <ControlFilled />,
+            element: <Config />
+          },
+          {
+            path: '/components/antdp-ui',
+            name: 'Antdp Ui',
+            icon: <SelectOutlined />,
+            children: [
+              {
+                path: '/components/antdp-ui/buttongrouppro',
+                name: 'ButtonGroupPro',
+                icon: <OneToOneOutlined />,
+                element: <ButtonGroupPro />
+              },
+              {
+                path: '/components/antdp-ui/quickform',
+                name: 'QuickForm',
+                icon: <OneToOneOutlined />,
+                element: <QuickForm />
+              },
+              {
+                path: '/components/antdp-ui/cardpro',
+                name: 'CardPro',
+                icon: <OneToOneOutlined />,
+                element: <CardPro />
+              },
+              {
+                path: '/components/antdp-ui/formdetail',
+                name: 'FormDetail',
+                icon: <OneToOneOutlined />,
+                element: <FormDetail />
+              },
+              {
+                path: '/components/antdp-ui/inputcount',
+                name: 'InputCount',
+                icon: <OneToOneOutlined />,
+                element: <InputCount />
+              },
+              {
+                path: '/components/antdp-ui/uploadgrid',
+                name: 'UploadGrid',
+                icon: <OneToOneOutlined />,
+                element: <UploadGrid />
+              },
+            ],
+          },
+          {
+            path: '/components/edit-table',
+            name: 'Edit-table',
+            icon: <OneToOneOutlined />,
+            element: <EditTable />
+          },
+          {
+            path: '/components/fuzzy-query',
+            name: 'fuzzy-query',
+            icon: <OneToOneOutlined />,
+            element: <FuzzyQuery />
+          },
+        ]
       },
       {
-        path: '/edit-table',
-        name: 'Edit-table',
-        icon: <OneToOneOutlined />,
-        element: <EditTable />
-      },
-      {
-        path: '/fuzzy-query',
-        name: 'fuzzy-query',
-        icon: <OneToOneOutlined />,
-        element: <FuzzyQuery />
-      },
+        path: '/update',
+        label: '更新日志',
+        element: <Layouts />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to="/update/log" replace />,
+          },
+          {
+            path: '/update/log',
+            name: '如何升级',
+            element: <UpdateLog />
+          },
+        ]
+      }
     ]
   }
+
 ]
 
 const Routes = () => {

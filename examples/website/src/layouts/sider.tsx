@@ -1,35 +1,32 @@
-import { Link, NavLink, useLocation } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
 import { Layout, Menu } from "antd";
 import { SubMenuType } from 'antd/es/menu/hooks/useItems'
-import styled from "styled-components";
-import ReactLogo from '../assets/logo.svg';
 import { routesConfig, NonIndexRouteObjects } from '../route';
 
 function getMenus(routes: NonIndexRouteObjects[] = []): SubMenuType[] {
-  return routes.map((item, idx) => {
+  return routes.reduce<SubMenuType[]>((result, item, idx) => {
+    if (!item.name) {
+      return result;
+    }
     const { path, icon, name, children } = item
-    let result: Partial<SubMenuType> = {
+    const subMenu: Partial<SubMenuType> = {
       key: path || idx.toString(),
       icon: icon,
       label: <NavLink to={path!}>{name}</NavLink>,
     }
     if (children) {
-      result.children = getMenus(children);
-      return result as SubMenuType;
+      subMenu.children = getMenus(children);
     }
-    return result as SubMenuType;
-  });
+    result.push(subMenu as SubMenuType);
+    return result;
+  }, []);
 }
 
-const Sup = styled.sup`
-  font-size: 12px;
-  color: #3387ffab;
-  padding-left: 58px;
-  top: -15px;
-`;
-
 const SiderMenus = () => {
-  let location = useLocation();
+  const location = useLocation();
+  const childs = routesConfig[0].children?.find((item) => {
+    return item.path === '/' + location.pathname.split('/')[1];
+  })
   return (
     <Layout.Sider
       width={230}
@@ -38,18 +35,13 @@ const SiderMenus = () => {
         overflow: 'auto',
       }}
     >
-      <Link to="/" className="logo">
-        <img src={ReactLogo} width={28} height={28} alt="logo" />
-        <span>Antd Project</span>
-      </Link>
-        <Sup>{VERSION}</Sup>
       <Menu
         theme="dark"
         mode="inline"
         defaultSelectedKeys={[location?.pathname]}
         selectedKeys={[location.pathname]}
         defaultOpenKeys={[location.pathname]}
-        items={getMenus(routesConfig[0].children) || []}
+        items={getMenus(childs?.children) || []}
         style={{ width: '100%', paddingBottom: 50 }}
       />
     </Layout.Sider>

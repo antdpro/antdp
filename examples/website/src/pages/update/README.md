@@ -55,7 +55,7 @@
 +    "@antdp/request": "1.8.27",
 +    "@antdp/user-login": "1.8.27",
 +    "ahooks": "~3.7.2",
-+    "antd": "5.1.7",
++    "antd": "5.4.2",
 +    "react": "18.2.0",
 +    "react-dom": "18.2.0"
      ...

@@ -28,7 +28,7 @@
     "@antdp/request": "2.0.0-bate-4.1",
     "@antdp/user-login": "2.0.0-bate-4.1",
     "ahooks": "~3.7.2",
-    "antd": "5.1.7",
+    "antd": "5.4.2",
     "rc-field-form": "~1.27.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

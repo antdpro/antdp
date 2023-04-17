@@ -13,7 +13,7 @@
     "@antdp/authorized": "2.0.0",
     "@antdp/basic-layouts": "2.0.0",
     "@antdp/user-login": "2.0.0",
-    "antd": "5.1.7",
+    "antd": "5.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "umi": "~4.0.63"

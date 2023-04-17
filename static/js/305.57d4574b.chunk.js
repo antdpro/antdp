@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunk_example_website=self.webpackChunk_example_website||[]).push([[305],{75305:function(e,s,t){t.r(s),s.default={components:{},data:{},source:"### \u66f4\u65b0\u65e5\u5fd7"}}}]);
-//# sourceMappingURL=305.57d4574b.chunk.js.map

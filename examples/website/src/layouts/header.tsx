@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react'
-import { Layout, Col, Row, Menu } from "antd"
+import { Layout, Menu } from "antd"
 import { Link, useLocation } from "react-router-dom"
 import '@wcj/dark-mode';
 import styled from "styled-components";

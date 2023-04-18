@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Layout, Col, Row, Menu } from "antd"
 import { Link, useLocation } from "react-router-dom"
 import '@wcj/dark-mode';
@@ -26,10 +26,10 @@ const Header = () => {
   const routes = routesConfig[0]?.children || [];
   const datas = routes || []
 
-  React.useEffect(() => {
+  useEffect(() => {
     const index = datas.findIndex(item => item.path === '/' + pathname.split('/')[1])
     setCurrent(index.toString());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, JSON.stringify(datas)])
 
   return (

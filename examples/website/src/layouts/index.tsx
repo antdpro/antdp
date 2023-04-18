@@ -23,7 +23,7 @@ const Layouts = () => {
               algorithm: data_theme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
             }}
           >
-            <Outlet />
+              <Outlet />
           </ConfigProvider>
         </Layout.Content>
       </Layout>

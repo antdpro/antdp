@@ -23,13 +23,13 @@
 - 🐞 fix(deps): update dependency classnames to v2.3.2 (#190) [`#5ce9d13`](https://github.com/antdpro/antdp/commit/5ce9d13f66353bf89d02bdd374df24d90dfd2f88)
 - 💄 chore: update preview [`#925131f`](https://github.com/antdpro/antdp/commit/925131ff0b148f3ea540a0d22442ecabc9eae12a)
 - 💢 ci:update ci [`#eda23d8`](https://github.com/antdpro/antdp/commit/eda23d8712c92e41a96bf3f709ea784037c38f09)
-- 💢 ci:update ci [`#ec23f21`]https://github.com/antdpro/antdp/commit/ec23f21c95602fdf51cab68b3cd18bf7d5bae368)
+- 💢 ci:update ci [`#ec23f21`](https://github.com/antdpro/antdp/commit/ec23f21c95602fdf51cab68b3cd18bf7d5bae368)
 - 📄 Merge branch 'dev' [`#17c716e`](https://github.com/antdpro/antdp/commit/17c716e703847aed7ea3cee03ffa9a5246d288df)
 - 🐞 fix:修复预览标签 [`#5968554`](https://github.com/antdpro/antdp/commit/5968554197f09bd5d8b1f75331f2102bf38e4ec2)
 - 🌟 feat:添加basic案例 [`#1ecae70`](https://github.com/antdpro/antdp/commit/1ecae70f30734df8e07ba275d06a52291299ca86)
 - 🐞 fix:添加布局案例 [`#5434316`](https://github.com/antdpro/antdp/commit/54343162b49834100419a216e0fd9213b6a61d3a)
 - 💢 ci:update ci  @SunLxy[`#3c10701`](https://github.com/antdpro/antdp/commit/3c1070177a8a0ceb6922a88c8963d5dc5819b0e7)
-- 🐞 fix:修复 umi setup [`#a128746`]https://github.com/antdpro/antdp/commit/a128746362ad5804d0e94c9e9be0daff1a1b5cf3)
+- 🐞 fix:修复 umi setup [`#a128746`](https://github.com/antdpro/antdp/commit/a128746362ad5804d0e94c9e9be0daff1a1b5cf3)
 - 💢 ci:update ci [`#2647af4`](https://github.com/antdpro/antdp/commit/2647af434673aea2c382f19e21cce8f3d1f44aab)
 - 🐞 fix:修复案例包版本 [`#f45300b`](https://github.com/antdpro/antdp/commit/f45300b90841b2435745c9a3460fd74c2131383b)
 - 📖 doc:更新文档  @SunLxy[`#009bba3`](https://github.com/antdpro/antdp/commit/009bba365f3900a207a0567a0985ed114f7a2ecd)
@@ -65,3 +65,32 @@
 - 🐞 fix:修改文档预览主题色 [`#9809cc7`](https://github.com/antdpro/antdp/commit/9809cc7e9467c1eab10d215109546f4828842013)
 - 🌟 feat(authorized):添加AuthorizedConfigProvider和useAuthorizedonfig [`#cf75f09`](https://github.com/antdpro/antdp/commit/cf75f096ad0646a1e831f45141cc7c84c1442c2d)
 - 🆎 type:修复类型 [`#2b68319`](https://github.com/antdpro/antdp/commit/2b683192c1f3af1fed393c6329e8789ad09b986a)
+
+## v2.0.0-bate-4.1
+
+- 🐞 fix:修复弹框参数 [`#78baff2`](https://github.com/antdpro/antdp/commit/78baff20178cabe2ef2f23b26d83fce597ba1aa6)
+- 🐞 fix:修复 ts 类型引入 [`#f2a6091`](https://github.com/antdpro/antdp/commit/f2a609160e8969baac8014a6866cd0756995db77)
+- 📖 doc:更新文档 bd4ed80[`#f2a6091`](https://github.com/antdpro/antdp/commit/f2a609160e8969baac8014a6866cd0756995db77)
+- 💄 chore: update workflows config. [`#2647d4d`](https://github.com/antdpro/antdp/commit/2647d4dd6f2c3fab836495006ec030fc55c4d7fa)
+- 🌍 website: update dependency kkt to ~7.4.1 [`#bfc6b75`](https://github.com/antdpro/antdp/commit/bfc6b75c8a74635e039d82ced48ef23360404b44)
+- 📖 doc: update workflows config. [`#e2e8500`](https://github.com/antdpro/antdp/commit/e2e85001174a4ee4383ecb4acdd86b52f2b229e3)
+- 🌍 website: fix menu error. [`#786ed76`](https://github.com/antdpro/antdp/commit/786ed76d4397b9b2a5a45ee278e30eee04d0458d)
+- 🌍 website: fix dark theme issue. [`#379b965`](https://github.com/antdpro/antdp/commit/379b965da411db80282f8db4b3a769cbff16f7a7)
+- 🌍 website: add version & add theme button. [`#9f9f2b4`](https://github.com/antdpro/antdp/commit/9f9f2b4a6241065a2fbbc665febd8e7959cc3089)
+- 💄 chore: update workflows config. [`#9401a1f`](https://github.com/antdpro/antdp/commit/9401a1fcbb3a49ea198e4619c385ebd05d5e94f3)
+- 🐞 fix:修复布局参数 [`#022c3af`](https://github.com/antdpro/antdp/commit/022c3af706eb6d25ecc4726fc21bec419dc8bf90)
+- 🐞 fix:修复 message.warn提示方法不存在 [`#12d02b1`](https://github.com/antdpro/antdp/commit/12d02b179661a31b608228c758238379190f9953)
+
+## v2.0.0-bate-2
+- 💄 chore:升级umi版本 [`#5f3aaaa`](https://github.com/antdpro/antdp/commit/5f3aaaa821f514b3c5eba0e5150e029b629fc07d)
+- 🌟 feat:添加路由图标处理 [`#c3c8f97`](https://github.com/antdpro/antdp/commit/c3c8f97def3dad5bda4cac53dedcfa5753db5c65)
+- 🐞 fix:修改配置，最新版本不支持兼容ie11 [`#edf50ec`](https://github.com/antdpro/antdp/commit/edf50ec2334cc88009b073d1a4b775a36038b34c)
+- 🐞 fix:文档 [`#783191a`](https://github.com/antdpro/antdp/commit/783191a6bbb7c0ca1749a747fe5ac122891da489)
+- 🎨 style:修改文档页面布局样式 [`#867edd5`](https://github.com/antdpro/antdp/commit/867edd5c5eefc6d0995e164b0a09ac7aee0b3be2)
+- 🐞 fix:移出图标 [`#d092b35`](https://github.com/antdpro/antdp/commit/d092b35105d79b5b49fc08173ddbb341b27e77ce)
+- 💄 chore:替换react-sortable-hoc拖拽包 [`#4ddcf16`](https://github.com/antdpro/antdp/commit/4ddcf163af5345219524931f6ca102211767f952)
+
+## v2.0.0-bate-1
+- 💄 chore:升级umi版本 [`#70e2d33`](https://github.com/antdpro/antdp/commit/70e2d330e91d388114f31591ab8d617b7677e9cd)
+- 🌟 feat:添加路由图标处理 [`#97e0d0f`](https://github.com/antdpro/antdp/commit/97e0d0fe32a55dfcafd6c3ec0046c2fe40af87df)
+- 🐞 fix:修改配置，最新版本不支持兼容ie11 [`#6c37f14`](https://github.com/antdpro/antdp/commit/6c37f149e819a46197fe50713bc90672bc211faf)

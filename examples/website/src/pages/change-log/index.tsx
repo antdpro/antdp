@@ -4,7 +4,7 @@ export default function Pages() {
   return (
     <Markdown
       path={() => import('./README.md')}
-      editePath="https://github.com/antdpro/antdp/edit/master/packages/change-log/README.md"
+      editePath="https://github.com/antdpro/antdp/edit/master/examples/website/src/pages/change-log/README.md"
     />
   );
 }

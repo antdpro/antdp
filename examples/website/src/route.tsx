@@ -12,7 +12,8 @@ import Icon, {
   UserOutlined,
   SelectOutlined,
   OneToOneOutlined,
-  CloudUploadOutlined
+  CloudUploadOutlined,
+  FileAddOutlined
 } from '@ant-design/icons';
 import { useRoutes } from 'react-router-dom';
 import { IndexRouteObject, NonIndexRouteObject, RouteObject, Outlet, Navigate } from 'react-router-dom';
@@ -41,6 +42,7 @@ import EditTable from "./pages/edit-table"
 import FuzzyQuery from "./pages/fuzzy-query"
 import UpdateLog from './pages/update'
 import ChangeLog from './pages/change-log'
+import NewPage from './pages/develop/newPage'
 
 interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   name?: React.ReactNode
@@ -101,6 +103,19 @@ export const routesConfig: RoutesType[] = [
             name: '从v1 到 v2',
             icon:<CloudUploadOutlined />,
             element: <UpdateLog />
+          },
+          {
+            path: '/home/develop',
+            name: '页面开发',
+            icon:<FileAddOutlined />,
+            children: [
+              {
+                path: '/home/develop/newPages',
+                name: '新增页面',
+                icon: <FileAddOutlined />,
+                element: <NewPage />
+              },
+            ]
           },
           {
             path: '/home/change-log',

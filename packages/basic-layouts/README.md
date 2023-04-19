@@ -15,10 +15,9 @@ $ npm i @antdp/basic-layouts  # yarn add  @antdp/basic-layouts
 
 ## 基本使用
 
-```tsx
+```jsx
 import React from 'react';
 import BasicLayout from '@antdp/basic-layouts';
-
 const Demo = (props) => {
   return (
     <BasicLayout
@@ -33,7 +32,7 @@ export default Demo
 
 ## 菜单国际化设置
 
-```tsx
+```jsx
 import BasicLayout from '@antdp/basic-layouts';
 import { useIntl,SelectLang } from '@umijs/max';
 
@@ -50,7 +49,7 @@ const Demo = (props) => {
 export default Demo
 ```
 ## 配置右侧菜单
-```tsx
+```jsx
 import BasicLayout from '@antdp/basic-layouts';
 
 export default (props) => {

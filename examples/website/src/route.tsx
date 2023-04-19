@@ -44,6 +44,7 @@ import UpdateLog from './pages/update'
 import ChangeLog from './pages/change-log'
 import NewPage from './pages/develop/newPage'
 import Request from './pages/develop/request'
+import Proxy from './pages/develop/proxy'
 
 interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   name?: React.ReactNode
@@ -125,6 +126,12 @@ export const routesConfig: RoutesType[] = [
                 name: '网络请求',
                 icon: <FileAddOutlined />,
                 element: <Request />
+              },
+              {
+                path: '/home/develop/proxy',
+                name: '代理',
+                icon: <FileAddOutlined />,
+                element: <Proxy />
               },
             ]
           },

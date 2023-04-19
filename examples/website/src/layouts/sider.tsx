@@ -27,6 +27,7 @@ const SiderMenus = () => {
   const childs = routesConfig[0].children?.find((item) => {
     return item.path === '/' + location.pathname.split('/')[1];
   })
+
   return (
     <Layout.Sider
       width={230}
@@ -38,8 +39,8 @@ const SiderMenus = () => {
       <Menu
         theme="dark"
         mode="inline"
-        defaultSelectedKeys={[location?.pathname]}
         selectedKeys={[location.pathname]}
+        defaultSelectedKeys={[location.pathname]}
         defaultOpenKeys={[location.pathname]}
         items={getMenus(childs?.children) || []}
         style={{ width: '100%', paddingBottom: 50 }}

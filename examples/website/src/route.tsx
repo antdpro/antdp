@@ -107,14 +107,9 @@ export const routesConfig: RoutesType[] = [
             element: <UpdateLog />
           },
           {
-            path: '/home/develop',
             name: '页面开发',
             icon:<FileAddOutlined />,
             children: [
-              {
-                index: true,
-                element: <Navigate to="/home/develop/newPages" replace />,
-              },
               {
                 path: '/home/develop/newpages',
                 name: '新增页面',
@@ -207,14 +202,9 @@ export const routesConfig: RoutesType[] = [
             element: <Config />
           },
           {
-            path: '/components/antdp-ui',
             name: 'Antdp Ui',
             icon: <SelectOutlined />,
             children: [
-              {
-                index: true,
-                element: <Navigate to="/components/antdp-ui/buttongrouppro" replace />,
-              },
               {
                 path: '/components/antdp-ui/buttongrouppro',
                 name: 'ButtonGroupPro',

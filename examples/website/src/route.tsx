@@ -15,8 +15,7 @@ import Icon, {
   CloudUploadOutlined,
   FileAddOutlined
 } from '@ant-design/icons';
-import { useRoutes } from 'react-router-dom';
-import { IndexRouteObject, NonIndexRouteObject, RouteObject, Outlet, Navigate } from 'react-router-dom';
+import { useRoutes,IndexRouteObject, NonIndexRouteObject, RouteObject, Outlet, Navigate,Link } from 'react-router-dom';
 
 import TabSvg from "./assets/icon/TabSvg"
 
@@ -52,6 +51,7 @@ interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   index?: boolean
   label?: string;
   Component?: any
+  target?:string
 }
 export interface NonIndexRouteObjects extends Omit<NonIndexRouteObject, "index" | 'children'> {
   name?: React.ReactNode
@@ -60,6 +60,7 @@ export interface NonIndexRouteObjects extends Omit<NonIndexRouteObject, "index" 
   children?: NonIndexRouteObjects[]
   label?: React.ReactNode
   Component?: any
+  target?:string
 }
 
 export type RoutesType = IndexRouteObjects | NonIndexRouteObjects 
@@ -141,6 +142,11 @@ export const routesConfig: RoutesType[] = [
             name: '更新日志',
             icon:<CloudUploadOutlined />,
             element: <ChangeLog />
+          },
+          {
+            name: 'umijs',
+            icon: <AntDesignOutlined />,
+            target:'https://umijs.org/docs/introduce/introduce'
           },
         ]
       },

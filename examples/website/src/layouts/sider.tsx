@@ -8,11 +8,15 @@ function getMenus(routes: NonIndexRouteObjects[] = []): SubMenuType[] {
     if (!item.name) {
       return result;
     }
-    const { path, icon, name, children } = item
+    const { path, icon, name, children, target = '' } = item
     const subMenu: Partial<SubMenuType> = {
       key: path || idx.toString(),
       icon: icon,
-      label: <NavLink to={path!}>{name}</NavLink>,
+      label: target ? (
+        <a href={target} target="_blank" rel="noopener noreferrer">
+          {name}
+        </a>
+      ) : <NavLink to={path!}>{name}</NavLink>,
     }
     if (children) {
       subMenu.children = getMenus(children);

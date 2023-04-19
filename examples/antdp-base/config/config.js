@@ -25,6 +25,5 @@ export default config(router, {
   },
   dva: {},
   model: {},
-  initialState: {},
   request: {},
 });

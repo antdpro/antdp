@@ -123,7 +123,7 @@ export const routesConfig: RoutesType[] = [
               },
               {
                 path: '/home/develop/request',
-                name: '网络请求',
+                name: '请求',
                 icon: <FileAddOutlined />,
                 element: <Request />
               },
@@ -134,6 +134,12 @@ export const routesConfig: RoutesType[] = [
                 element: <Proxy />
               },
             ]
+          },
+          {
+            path: '/home/change-log',
+            name: '更新日志',
+            icon:<CloudUploadOutlined />,
+            element: <ChangeLog />
           },
           {
             path: '/home/change-log',

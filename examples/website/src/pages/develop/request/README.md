@@ -1,17 +1,11 @@
-# 网络请求
+# 请求
 简介
 对于中后台应用来说，很大一部分工作就在于请求后端的 CRUD 的接口，为进一步降低用户对请求层的感知，我们移除了默认生成的 utils/request.ts 文件，改成通过配置化的方式暴露给开发者做请求的配置和增强处理；同时通过业务总结出一套标准的接口结构规范，并提供统一的接口解析、错误处理的能力；后续将持续完善可配置项、提供垂直场景如列表、登录失效等解决方案。
 ## request
 
-系统的请求基于umi-request进行了二次封装，参见[umi-request](https://github.com/umijs/umi-request)
+我们基于umi-request进行了二次封装了@antp/request，参见[umi-request](https://github.com/umijs/umi-request)
 
-## 方法
-基于restful规范，提供了2个方法：
-- get 获取服务端数据，参数拼接在url上，以 query string 方式发送给后端
-- post 新增数据，参数以body形式发送给后端
-
-
-## 参数
+### 参数
 
 | 参数    | 说明     | 类型           | 默认值 |
 | :------ | :------- | :------------- | :----- |
@@ -23,8 +17,65 @@
 | method | 请求方法 | `POST \| GET`    | -      |
 | data | 请求传递给后端的参数 | any      | -      |
 
-## 调用方式
+### 使用方法
+```js
+import request from '@antdp/request';
+request('/api/user', {method:'POST' ,data: { name : 1 }})
+```
 
+## 配置umi内置 request 和 useRequest
+在项目config/config中添加如下 
+```diff
+export default {
++  request: {
++    dataField: 'data'
++  },
+};
+```
+构建时配置可以为 useRequest 配置 dataField ，该配置的默认值是 data。该配置的主要目的是方便 useRequest 直接消费数据。如果你想要在消费数据时拿到后端的原始数据，需要在这里配置 dataField 为 '' 。
+
+比如你的后端返回的数据格式如下。
+
+```js
+{
+  success: true,
+  data: 123,
+  code: 1,
+}
+```
+
+那么 `useRequest` 就可以直接消费 `data`。其值为 123，而不是 `{ success, data, code }`
+
+## umi内置request
+
+通过 `import { request } from '@@/plugin-request'` 或 `import { request } from '@umijs/max'` 你可以使用umi内置的请求方法。
+
+`request` 接收的 `options`除了透传 [axios](https://axios-http.com/docs/req_config) 的所有 config 之外，umi还额外添加了几个属性 `skipErrorHandler`，`getResponse`，`requestInterceptors` 和 `responseInterceptors` 。
+
+示例如下：
+
+```js
+request('/api/user', {
+  params: { name : 1 },
+  timeout: 2000,
+  // other axios options
+  skipErrorHandler: true,
+  getResponse: false,
+  requestInterceptors: [],
+  responseInterceptors: [],
+}
+```
+
+当你的某个请求想要跳过错误处理时，可以通过将`skipErrorHandler`设为 `true` 来实现
+
+request 默认返回的是你后端的数据，如果你想要拿到 axios 完整的 response 结构，可以通过传入 `{ getResponse: true }` 来实现。
+
+`requestInterceptors` 和 `responseInterceptors` 的写法同运行时配置中的拦截器写法相同，它们为 request 注册拦截器。区别在于这里注册的拦截器是 "一次性" 的。另外，这里写的拦截器会在运行时配置中的拦截器之后被注册。**
+
+<strong>注意： 当你使用了 errorHandler 时，在这里注册的 response 拦截器会失效，因为在 errorHandler 就会 throw error</strong>
+
+
+## 页面中调用接口
 ### ✨配和useRequest调用接口
 ```jsx
 import React from 'react'
@@ -32,7 +83,7 @@ import { useRequest } from '@umijs/max';
 import request from "@antdp/request"
 
 const Index = () => {
-  const selectById  = (params) => request("/api/selectById",{ method:"POST",body: { ...params } })
+  const selectById  = (params) => request("/api/selectById",{ method:"POST",data: { ...params } })
   const [ name ,setName ] = React.useState('')
   const { run, loading } = useRequest(selectById,
     manual: true,
@@ -47,12 +98,12 @@ const Index = () => {
 }
 export default Index
 ```
-### 在dva中使用
+### 配合dva调用接口
 > 在servers/index.js中
 ```ts
 import { request } from "@uiw-admin/utils"
 
-export const selectById  = (params) => request("/api/selectById",{ method:"POST",body: { ...params } })
+export const selectById  = (params) => request("/api/selectById",{ method:"POST",data: { ...params } })
 
 ```
 > 在model/index.js中

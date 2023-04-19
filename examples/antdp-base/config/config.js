@@ -23,4 +23,8 @@ export default config(router, {
     default: 'zh-CN',
     baseSeparator: '-',
   },
+  dva: {},
+  model: {},
+  initialState: {},
+  request: {},
 });

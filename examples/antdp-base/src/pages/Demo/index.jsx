@@ -58,7 +58,7 @@ const Demo = () => {
         width={800}
         closable={true}
         onClose={() => setFalse()}
-        visible={drawerVisible}
+        open={drawerVisible}
       >
         <FormDetail isView={isView} formDatas={data} />
       </Drawer>

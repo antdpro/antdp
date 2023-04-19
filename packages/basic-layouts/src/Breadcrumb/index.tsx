@@ -8,19 +8,18 @@ const Breadcrumbs = () => {
   const { HandleMenu } = useLayouts()
 
   const breadcrumbMenu = useMemo(() => {
-    return HandleMenu.getBreadcrumb(location.pathname).map((item, index) => {
-      let child: React.ReactNode = item.name
-      if (item.side && item.path && ANTD_MENU_TOP_LEFT) {
-        child = <Link to={item.path} >{item.name}</Link>
-      }
-      return <Breadcrumb.Item key={index} >
-        {child}
-      </Breadcrumb.Item>
-    })
+    return (
+      HandleMenu.getBreadcrumb(location.pathname).map((item, index) => {
+        let child: React.ReactNode = item.name
+        if (item.side && item.path && ANTD_MENU_TOP_LEFT) {
+          child = <Link to={item.path} >{item.name}</Link>
+        }
+        return { title: child, key: index }
+      })
+    )
   }, [location.pathname])
-
-  return <Breadcrumb className="antdp-basic-layouts-header-breadcrumb" >
-    {breadcrumbMenu}
-  </Breadcrumb>
+  return (
+    <Breadcrumb className="antdp-basic-layouts-header-breadcrumb" items={breadcrumbMenu} />
+  )
 }
 export default Breadcrumbs

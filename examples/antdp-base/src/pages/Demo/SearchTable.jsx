@@ -36,8 +36,6 @@ const SearchTable = () => {
     },
   );
 
-  console.log('tableProps', tableProps);
-
   const { submit, reset } = search;
 
   // 表单变更

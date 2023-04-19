@@ -24,20 +24,24 @@ const HeaderMenus = () => {
     }), [collapsed]);
 
   if (!items.length) {
-    return <div className="antdp-basic-layouts-header-menus" style={{ flex: 1, overflow: "auto" }} >
-      {ANTD_MENU_IS_SHOW && <div className="antdp-basic-layouts-collapsed">{collapsedView}</div>}
-      {ANTD_IS_BREADCRUMB && <Breadcrumbs />}
-    </div>
+    return (
+      <div className="antdp-basic-layouts-header-menus" style={{ flex: 1, overflow: "auto" }} >
+        {ANTD_MENU_IS_SHOW && <div className="antdp-basic-layouts-collapsed">{collapsedView}</div>}
+        {ANTD_IS_BREADCRUMB && <Breadcrumbs />}
+      </div>
+    )
   }
 
-  return <div className="antdp-basic-layouts-header-menus" style={{ flex: 1, overflow: "auto" }}  >
-    <Menu
-      selectedKeys={[parentPath]}
-      mode="horizontal"
-      theme="light"
-      items={items}
-      style={{ width: '95%' }}
-    />
-  </div>
+  return (
+    <div className="antdp-basic-layouts-header-menus" style={{ flex: 1, overflow: "auto" }}  >
+      <Menu
+        selectedKeys={[parentPath]}
+        mode="horizontal"
+        theme="light"
+        items={items}
+        style={{ width: '95%' }}
+      />
+    </div>
+  )
 }
 export default HeaderMenus

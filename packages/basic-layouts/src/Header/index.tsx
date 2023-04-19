@@ -4,10 +4,12 @@ import Logo from "../Logo";
 import HeaderMenus from "../HeaderMenus"
 
 const Header = () => {
-  return <div className="antdp-basic-layouts-header-body">
-    {!!ANTD_MENU_TOP_LEFT && <Logo />}
-    <HeaderMenus />
-    <TopRight />
-  </div>
+  return (
+    <div className="antdp-basic-layouts-header-body">
+      {!!ANTD_MENU_TOP_LEFT && <Logo />}
+      <HeaderMenus />
+      <TopRight />
+    </div>
+  )
 }
 export default Header

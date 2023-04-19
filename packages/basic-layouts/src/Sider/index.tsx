@@ -19,20 +19,21 @@ const Sider = (props: SiderProps) => {
   if (!items.length) {
     return <React.Fragment />
   }
-
-  return <Layout.Sider width={siderWidth} collapsed={collapsed} className="antdp-basic-layouts-sider" >
-    {!ANTD_MENU_TOP_LEFT && <Logo />}
-    <Menu
-      {...props}
-      selectedKeys={[location.pathname]}
-      defaultSelectedKeys={[location.pathname]}
-      defaultOpenKeys={[location.pathname]}
-      mode="inline"
-      theme="dark"
-      items={items}
-      style={{ width: '100%' }}
-    />
-  </Layout.Sider>
+  return (
+    <Layout.Sider width={siderWidth} collapsed={collapsed} className="antdp-basic-layouts-sider" >
+      {!ANTD_MENU_TOP_LEFT && <Logo />}
+      <Menu
+        {...props}
+        selectedKeys={[location.pathname]}
+        defaultSelectedKeys={[location.pathname]}
+        defaultOpenKeys={[location.pathname]}
+        mode="inline"
+        theme="dark"
+        items={items}
+        style={{ width: '100%' }}
+      />
+    </Layout.Sider>
+  )
 
 }
 export default Sider

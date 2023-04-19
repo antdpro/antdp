@@ -204,7 +204,6 @@ const QuickFormDemo = (props) => {
 
    // 表单变更
   const onValuesChange = ({ remark }) => {
-    console.log('remark',remark)
     if (remark === '1234') {
       // 组件显示
       hide.updateValue('fruit', false);

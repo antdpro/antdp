@@ -19,10 +19,12 @@ const User = () => {
       if (!title) {
         return null;
       }
-      let child = (<Fragment >
-        {icon && <span style={{ marginRight: 5 }}>{icon}</span>}
-        {title}
-      </Fragment>);
+      let child = (
+        <Fragment >
+          {icon && <span style={{ marginRight: 5 }}>{icon}</span>}
+          {title}
+        </Fragment>
+      );
       if (link) {
         child = <Link to={link}>{child}</Link>
       }
@@ -35,25 +37,27 @@ const User = () => {
     })
   }, [topRightMenu]) as ItemType[]
 
-  return <React.Fragment>
-    <Fullscreen />
-    <Dropdown menu={{ items: rightMenu }} placement="bottomRight" trigger={['click']} >
-      <span className="antdp-basic-layouts-header-user">
-        <span style={{ marginRight: 8 }}>
-          {avatar ? (
-            <img src={avatar} />
-          ) : (
-            <Avatar
-              size={24}
-              icon={<UserOutlined style={{ minWidth: 'inherit', marginRight: 0 }} />}
-            />
-          )}
+  return (
+    <React.Fragment>
+      <Fullscreen />
+      <Dropdown menu={{ items: rightMenu }} placement="bottomRight" trigger={['click']} >
+        <span className="antdp-basic-layouts-header-user">
+          <span style={{ marginRight: 8 }}>
+            {avatar ? (
+              <img src={avatar} />
+            ) : (
+              <Avatar
+                size={24}
+                icon={<UserOutlined style={{ minWidth: 'inherit', marginRight: 0 }} />}
+              />
+            )}
+          </span>
+          <span style={{ userSelect: "none" }} >{name || ' - '}</span>
         </span>
-        <span style={{ userSelect: "none" }} >{name || ' - '}</span>
-      </span>
-    </Dropdown>
-    {topRightLanguage}
-  </React.Fragment>
+      </Dropdown>
+      {topRightLanguage}
+    </React.Fragment>
+  )
 
 }
 export default User

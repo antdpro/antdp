@@ -62,7 +62,6 @@ const PhoneLogin = (props: {
           {Array.isArray(formBtns) &&
             formBtns.map((item: any, index: number) => {
               const { label, attr } = item;
-              console.log('label, attr: ', label, attr);
               if (attr && attr.htmlType === 'submit') {
                 attr.loading = loading;
               }

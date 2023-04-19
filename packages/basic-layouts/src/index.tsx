@@ -72,7 +72,6 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     return { isCheckAuth: false, }
   }, [ANTD_AUTH_CONF])
 
-
   return (
     <AuthorizedConfigProvider {...newData} >
       <LayoutsProvider  {...props}>

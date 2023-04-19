@@ -43,6 +43,7 @@ import FuzzyQuery from "./pages/fuzzy-query"
 import UpdateLog from './pages/update'
 import ChangeLog from './pages/change-log'
 import NewPage from './pages/develop/newPage'
+import Request from './pages/develop/request'
 
 interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   name?: React.ReactNode
@@ -110,10 +111,20 @@ export const routesConfig: RoutesType[] = [
             icon:<FileAddOutlined />,
             children: [
               {
-                path: '/home/develop/newPages',
+                index: true,
+                element: <Navigate to="/home/develop/newPages" replace />,
+              },
+              {
+                path: '/home/develop/newpages',
                 name: '新增页面',
                 icon: <FileAddOutlined />,
                 element: <NewPage />
+              },
+              {
+                path: '/home/develop/request',
+                name: '网络请求',
+                icon: <FileAddOutlined />,
+                element: <Request />
               },
             ]
           },
@@ -187,6 +198,10 @@ export const routesConfig: RoutesType[] = [
             name: 'Antdp Ui',
             icon: <SelectOutlined />,
             children: [
+              {
+                index: true,
+                element: <Navigate to="/components/antdp-ui/buttongrouppro" replace />,
+              },
               {
                 path: '/components/antdp-ui/buttongrouppro',
                 name: 'ButtonGroupPro',

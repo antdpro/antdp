@@ -1,0 +1,10 @@
+.antdp-header{
+  padding-inline: 15px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.antdp-header .ant-menu {
+  height: 30px;
+  line-height: 30px;
+}

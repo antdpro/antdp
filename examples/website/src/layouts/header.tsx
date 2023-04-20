@@ -7,10 +7,7 @@ import styled from "styled-components";
 import ReactLogo from '../assets/logo.svg';
 import { routesConfig } from '../route'
 import { GithubOutlined } from '@ant-design/icons'
-
-const LogoContainer = styled.div`
-  float: left;
-`;
+import './index.css'
 
 const Sup = styled.sup`
   font-size: 12px;
@@ -19,10 +16,10 @@ const Sup = styled.sup`
 `;
 
 const MenuContainer = styled.div`
-  float: right;
   display: flex;
   justify-content: end;
   align-items: center;
+  padding: 10px 0;
 `;
 
 const Header = () => {
@@ -38,14 +35,11 @@ const Header = () => {
   }, [pathname, JSON.stringify(datas)])
 
   return (
-    <Layout.Header>
-      <LogoContainer>
-        <Link to="/" className="logo" style={{ padding: 0 }}>
-          <img src={ReactLogo} width={28} height={28} alt="logo" />
-          <span>Antd Project<Sup>{VERSION}</Sup></span>
-        </Link>
-      </LogoContainer>
-
+    <Layout.Header className='antdp-header'>
+      <Link to="/" className="logo" style={{ padding: 0 }}>
+        <img src={ReactLogo} width={28} height={28} alt="logo" />
+        <span>Antd Project<Sup>{VERSION}</Sup></span>
+      </Link>
       <MenuContainer>
         <Menu
           theme="dark"

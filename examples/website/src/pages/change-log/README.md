@@ -12,6 +12,7 @@
 ## 2.0.1
 
 `2023-04-20`
+
 - 📖 doc(User-Login): API文档 [`e94ab97`](https://github.com/antdpro/antdp/commit/e94ab974f7490122154ef1b28dc96e69aeb5ba48)
 - 📖 doc(Basic-Layouts): api文档修改 [`9a260b6`](https://github.com/antdpro/antdp/commit/9a260b60138191977c8ee701744ec2a8eec1e37a)
 - 📖 doc(antdp-ui): 组件api文档 [`512c265`](https://github.com/antdpro/antdp/commit/512c265a00b38ac31de34e5ab49ddc37658de027)
@@ -47,6 +48,7 @@
 ## 2.0.0-bate6
 
 `2023-04-02`
+
 - 💄 chore: update workflows config. [`#b2250a2`](https://github.com/antdpro/antdp/commit/978d2038c395d0252bb4409973703d776c10213c)
 - 💄 chore: update workflows config. [`#8af780c`](https://github.com/antdpro/antdp/commit/978d2038c395d0252bb4409973703d776c10213c)
 - 📄 Merge branch 'dev' [`#b851a03`](https://github.com/antdpro/antdp/commit/b851a031f9a6c1aba12f940ccc0fe11d8f9bfbd1)
@@ -87,7 +89,6 @@
 - 📖 doc(user-login):更新文档预览 [`#d5822e7`](https://github.com/antdpro/antdp/commit/d5822e776909bdedb75e342460b6257a61087913)
 - 📖 doc:更新文档  [`#8466a3f`](https://github.com/antdpro/antdp/commit/8466a3fce00525e6a1c288c01fd2851b8e955651)
 - 💢 ci:update ci [`#ad96494`](https://github.com/antdpro/antdp/commit/ad96494f70e49d8a83a148c4a1d9197f8fb0471b)
-
 - 🐞 fix:使用异步加载文档 [`#904263c`](https://github.com/antdpro/antdp/commit/904263cce0fa4f92d0eeb9f59acb323e5557178f)
 - 📖 doc:更新文档 [`#a2f6434`](https://github.com/antdpro/antdp/commit/a2f64342fa1f76bf6a01953a13ecf760cf9029bd)
 - 💄 chore:update tsbb@4 [`#b52501c`](https://github.com/antdpro/antdp/commit/b52501cee317c75bdc9e7ca5d48c3af325205e50)
@@ -112,6 +113,7 @@
 - 🐞 fix:修复 message.warn提示方法不存在 [`#12d02b1`](https://github.com/antdpro/antdp/commit/12d02b179661a31b608228c758238379190f9953)
 
 ## v2.0.0-bate-2
+
 - 💄 chore:升级umi版本 [`#5f3aaaa`](https://github.com/antdpro/antdp/commit/5f3aaaa821f514b3c5eba0e5150e029b629fc07d)
 - 🌟 feat:添加路由图标处理 [`#c3c8f97`](https://github.com/antdpro/antdp/commit/c3c8f97def3dad5bda4cac53dedcfa5753db5c65)
 - 🐞 fix:修改配置，最新版本不支持兼容ie11 [`#edf50ec`](https://github.com/antdpro/antdp/commit/edf50ec2334cc88009b073d1a4b775a36038b34c)
@@ -121,11 +123,13 @@
 - 💄 chore:替换react-sortable-hoc拖拽包 [`#4ddcf16`](https://github.com/antdpro/antdp/commit/4ddcf163af5345219524931f6ca102211767f952)
 
 ## v2.0.0-bate-1
+
 - 💄 chore:升级umi版本 [`#70e2d33`](https://github.com/antdpro/antdp/commit/70e2d330e91d388114f31591ab8d617b7677e9cd)
 - 🌟 feat:添加路由图标处理 [`#97e0d0f`](https://github.com/antdpro/antdp/commit/97e0d0fe32a55dfcafd6c3ec0046c2fe40af87df)
 - 🐞 fix:修改配置，最新版本不支持兼容ie11 [`#6c37f14`](https://github.com/antdpro/antdp/commit/6c37f149e819a46197fe50713bc90672bc211faf)
 
 ## v2.0.0-bate-0
+
 - 📄 Merge branch 'master' into dev [`#a14f6eb`](https://github.com/antdpro/antdp/commit/a14f6eb6f6544491dbb2186b21ae73152dead246)
 - 🐞 fix:修改值 [`#a7dad34`](https://github.com/antdpro/antdp/commit/a7dad3457ec01066cbba4402aeed05a6e23b8846)
 - 📖 doc:增加文档说明 [`#3cfe92c`](https://github.com/antdpro/antdp/commit/3cfe92c195ebffe3c372b39a0adf7c30455f195e)

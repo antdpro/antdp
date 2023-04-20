@@ -138,12 +138,6 @@ export const routesConfig: RoutesType[] = [
             element: <ChangeLog />
           },
           {
-            path: '/home/change-log',
-            name: '更新日志',
-            icon:<CloudUploadOutlined />,
-            element: <ChangeLog />
-          },
-          {
             name: 'umijs',
             icon: <AntDesignOutlined />,
             target:'https://umijs.org/docs/introduce/introduce'

@@ -9,6 +9,36 @@
 - 次版本号：每月发布一个带有新特性的向下兼容的版本。
 - 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
+## 2.0.1
+
+`2023-04-20`
+- 📖 doc(User-Login): API文档 [`e94ab97`](https://github.com/antdpro/antdp/commit/e94ab974f7490122154ef1b28dc96e69aeb5ba48)
+- 📖 doc(Basic-Layouts): api文档修改 [`9a260b6`](https://github.com/antdpro/antdp/commit/9a260b60138191977c8ee701744ec2a8eec1e37a)
+- 📖 doc(antdp-ui): 组件api文档 [`512c265`](https://github.com/antdpro/antdp/commit/512c265a00b38ac31de34e5ab49ddc37658de027)
+- 🐞 fix(doc): 调整Edit-table api文档 [`214ed5c`](https://github.com/antdpro/antdp/commit/512c265a00b38ac31de34e5ab49ddc37658de027)
+- 📖 doc(EditTable): 增加使用案例 [`b423efd`](https://github.com/antdpro/antdp/commit/b423efd8c4c4db3e3648759931415e048ed10506)
+- 📖 doc(EditTable): 处理文档报错 [`650d5ba`](https://github.com/antdpro/antdp/commit/650d5ba40c1f430e840d2a1b11318755f7902872)
+- 🐞 fix: 修改文档菜单以及路由 [`7c6c1e4`](https://github.com/antdpro/antdp/commit/7c6c1e46bd348a1c10195ce2d82af1cea2be8923)
+- 📖 doc: 增加升级文档 & 更新日志文档 [`1cf66e1`](https://github.com/antdpro/antdp/commit/1cf66e1c937fb26c3f03ccee67518972bcddcd88)
+- 💄 chore(deps): update dependency react-intl to ~6.4.0 [(#214)](https://github.com/antdpro/antdp/pull/214) [`c5da2c6`](https://github.com/antdpro/antdp/commit/c5da2c69f9147ffc1b3cde0f278341e1d01f0f29)
+- 💄 chore(deps): update dependency antd to v5.4.2 [(#213)](https://github.com/antdpro/antdp/pull/213) [`b9a0314`](https://github.com/antdpro/antdp/commit/b9a031435a8c3b6538e1df0d274e815a636c6f41)
+- 🐞 fix(deps): update dependency rc-field-form to ~1.29.0 [(#210)](https://github.com/antdpro/antdp/pull/210) [`b7a4acb`](https://github.com/antdpro/antdp/commit/b7a4acbb011c7c81786805653d1dd600c2014028)
+- 🐞 fix: update base antd to v5.4.2 [`830275c`](https://github.com/antdpro/antdp/commit/830275c59129aa1b5d4235e34955daaefd429b6a)
+- 📄 Merge branch 'master' of https://github.com/antdpro/antdp [`b62c76c`](https://github.com/antdpro/antdp/commit/b62c76c1a1e0965edb998f4c553213a852d05047)
+- 🐞 fix: 修复文档控件明暗主题色切换 [`c53abd0`](https://github.com/antdpro/antdp/commit/c53abd08b36376e19bc76ed9236871c2301594b6)
+- 📖 doc: 增加更新日志 [`1e38adb`](https://github.com/antdpro/antdp/commit/1e38adb97a0efdbd6732714cadc1daff79053dc8)
+- 🐞 fix(website): 调整文档header组件样式 [`05eecda`](https://github.com/antdpro/antdp/commit/05eecda448d96ad1f37bcf44cc9c8d3c5cdaff89)
+- 🐞 fix: 删除layout header 没有使用的组件 [`ecd7c69`](https://github.com/antdpro/antdp/commit/ecd7c69e939515b1104a4ebe09dde0935b51de75)
+- 📖 doc: 增加新增页面文档 [`f1006c8`](https://github.com/antdpro/antdp/commit/f1006c884ea97656652ff6c0994b2b20d33fffb7)
+- 📖 doc: 新增网络请求文档 [`82fe63b`](https://github.com/antdpro/antdp/commit/82fe63b2cb4cd96525102e4acd46acb962ab13ae)
+- 🐞 fix(basic-layouts): 修复Breadcrumb中Breadcrumb.Item 替换为 items [`f3159c8`](https://github.com/antdpro/antdp/commit/f3159c87e703c344ebffcb245cac92f77c21a2b6)
+- 📖 doc: 增加proxy文档 [`d1e5332`](https://github.com/antdpro/antdp/commit/d1e533253b20cc72350e27c70a3894bce59f68b4)
+- 📖 doc: 更新请求文档 [`f5fcbb0`](https://github.com/antdpro/antdp/commit/f5fcbb0a5fc3271f066a816e084ca407adf0ee9b)
+- 📖 doc: 多级时路由不再跳转 [`62db8bc`](https://github.com/antdpro/antdp/commit/62db8bce7a38ecf9c6570fe624bdd6d9354958e4)
+- 📖 doc: 增加umi文档菜单 [`f7b690a`](https://github.com/antdpro/antdp/commit/f7b690a3ddbe782cfbcaf3fbd027bb1e10ca6a5d)
+- 📄 dep(@antdp/hooks): 新增react-query [`efcfd5e`](https://github.com/antdpro/antdp/commit/efcfd5e2395e2a8beba09846368c8c8510af6451)
+- 🐞 fix: 处理ci报错 [`ada2c43`](https://github.com/antdpro/antdp/commit/ada2c43e676e4623dd22d13bde9fa094d0a5dce1)
+
 ## 2.0.0
 
 `2023-04-09`

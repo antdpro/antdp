@@ -98,3 +98,4 @@ export type {
   ReactMutationOptions,
   QueryFnOptions
 }
+export * from "./fetch"

@@ -15,7 +15,7 @@ import Icon, {
   CloudUploadOutlined,
   FileAddOutlined
 } from '@ant-design/icons';
-import { useRoutes,IndexRouteObject, NonIndexRouteObject, RouteObject, Outlet, Navigate,Link } from 'react-router-dom';
+import { useRoutes,IndexRouteObject, NonIndexRouteObject, RouteObject, Outlet, Navigate } from 'react-router-dom';
 
 import TabSvg from "./assets/icon/TabSvg"
 

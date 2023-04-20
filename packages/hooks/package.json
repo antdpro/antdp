@@ -1,6 +1,6 @@
 {
   "name": "@antdp/hooks",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "@/antdp-hooks",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
@@ -30,7 +30,7 @@
     "ahooks": "~3.7.2"
   },
   "devDependencies": {
-    "@umijs/max":"~4.0.47",
+    "@umijs/max": "~4.0.47",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

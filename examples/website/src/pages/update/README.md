@@ -86,10 +86,7 @@
 
 #### 代码层修改
 
-Umi 4 中将 react-router@5 升级到 react-router@6，所以路由相关的一些 api 存在着使用上的差异。
-
-props 默认为空对象，以下属性都不能直接从 props 中取出
-![](./images/O1CN01H9ScQv21ymaLkwZ8p_!!6000000007054-2-tps-1210-374.png)<!--rehype:style=max-width: 650px;width: 100%;-->
+Umi 4 中将 react-router@5 升级到 react-router@6，所以路由相关的一些 api 存在着使用上的差异。`props` 默认为空对象，属性都不能直接从 props 中取出
 
 #### AuthorizedConfigProvider
 使用 `AuthorizedConfigProvider`可以自己进行重新设置组件包裹内的所有按钮的权限参数，不使用默认配置的按钮权限配置

@@ -52,6 +52,10 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
     // model: {},
     // initialState: {},
     // request: {},
+    reactQuery: {
+      // 是否开启 react query 官方 devtool 工具
+      devtool: false,
+    }, 
     /**
      * 如果需要自行通过 react-helment 等方式渲染 title，配 `title: false` 可禁用内置的 title 渲染机制
      * https://github.com/umijs/umi/pull/4345/files

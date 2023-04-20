@@ -9,11 +9,13 @@ import { useModel } from '@umijs/max';
 import 'antd/dist/reset.css';
 import { useRef } from 'react';
 import logo from './logo.svg';
+import { useReactMutation } from '@antdp/hooks';
 
 const UserLayout = (props) => {
   const baseRef = useRef();
   const TYPE = 'both';
   const { token, login } = useModel('user', (model) => ({ ...model }));
+  const mutation = useReactMutation({ url: '/api/users/login' });
   return (
     <Authorized authority={!token} redirectPath="/">
       <UserLogin
@@ -21,7 +23,7 @@ const UserLayout = (props) => {
         logo={logo}
         projectName="Antdp"
         loading={props.loading}
-        onFinish={(values) => {
+        onFinish={async (values) => {
           let params;
           if (TYPE === 'both') {
             params =
@@ -31,10 +33,12 @@ const UserLayout = (props) => {
           } else {
             params = values;
           }
-          login(params);
+          const { code, token, data } = await mutation.mutateAsync(params);
+          if (code === 1) login({ token: token, data: data });
         }}
         type={TYPE}
         onSend={() => console.log('短信验证回调')}
+        loading={mutation.loading}
         formBtns={[
           {
             label: '登录',

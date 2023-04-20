@@ -29,7 +29,6 @@ const UserLayout = (props: any) => {
           } else {
             params = values;
           }
-          // login(params);
         }}
         type={TYPE}
         onSend={() => console.log('短信验证回调')}

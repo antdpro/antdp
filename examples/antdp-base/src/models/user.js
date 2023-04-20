@@ -4,58 +4,27 @@ import { useState } from 'react';
 const getToken = () => sessionStorage.getItem('token');
 
 export default function useModelUser() {
-  const [isLogin, setIsLogin] = useState({ time2: 123456, fileList: [] });
-  const [token, setToken] = useState(getToken());
+  const [state, setState] = useState({
+    token: getToken(),
+  });
   // 登录
-  const login = async (params) => {
-    const data = await userLogin(params);
-    if (data.code === 1) {
-      sessionStorage.setItem('token', data.token);
-      const li2 = [
-        '/',
-        '/EditTable',
-        '/welcome',
-        '/dashboard',
-        '/dashboard/demo',
-        '/dashboard/workplace',
-        '/dashboard/workplace/dashboard/demo',
-        '/dashboard/workplace/dashboard/notfund',
-        '/dashboard/workplace/dashboard/workplace',
-        '/dashboard/notfund',
-        '/EditTable/demo',
-        '/EditTable/workplace',
-        '/EditTable/notfund',
-        '/EditTables',
-        '/EditTabless',
-        '/EditTable1',
-        '/EditTables2',
-        '/EditTabless3',
-        '/EditTable4',
-        '/EditTables5',
-        '/EditTabless6',
-        '/EditTable7',
-        '/EditTables8',
-        '/EditTabless9',
-        '/404',
-        '/403',
-      ];
-      const btns = ['/demo/add1', '/demo/add2', '/demo/add3'];
-      await sessionStorage.setItem('authBtn', JSON.stringify(btns));
-      await sessionStorage.setItem('authMenu', JSON.stringify(li2));
-      setToken(data.token);
-      history.push('/');
-    }
+  const login = async ({ token, data }) => {
+    await sessionStorage.setItem('token', token);
+    await sessionStorage.setItem('authBtn', JSON.stringify(data.btns));
+    await sessionStorage.setItem('authMenu', JSON.stringify(data.menus));
+    setState({ ...state, token: token });
+    history.push('/');
   };
   // 退出登录
   const logout = async () => {
     await sessionStorage.removeItem('token');
-    setToken('');
+    await sessionStorage.removeItem('authBtn');
+    await sessionStorage.removeItem('authMenu');
+    setState({ ...state, token: '' });
     history.push('/login');
   };
-  // 退出
   return {
-    isLogin,
-    token,
+    token: state.token,
     login,
     logout,
   };

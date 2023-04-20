@@ -11,7 +11,6 @@ import logo from './logo.svg';
 
 const Layout = (props) => {
   const { token, logout } = useModel('user', (model) => ({ ...model }));
-
   return (
     <Authorized authority={!!token} redirectPath="/login">
       <BasicLayout

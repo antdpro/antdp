@@ -25,7 +25,7 @@ npm i @antdp/layout-tabs --save # yarn add @antdp/layout-tabs
 
 ## 基本使用
 
-```tsx
+```tsx 
 import React from 'react';
 import LayoutTabs from '@antdp/layout-tabs';
 

@@ -48,14 +48,9 @@
 ## 2.0.0-bate6
 
 `2023-04-02`
-
-- 💄 chore: update workflows config. [`#b2250a2`](https://github.com/antdpro/antdp/commit/978d2038c395d0252bb4409973703d776c10213c)
-- 💄 chore: update workflows config. [`#8af780c`](https://github.com/antdpro/antdp/commit/978d2038c395d0252bb4409973703d776c10213c)
-- 📄 Merge branch 'dev' [`#b851a03`](https://github.com/antdpro/antdp/commit/b851a031f9a6c1aba12f940ccc0fe11d8f9bfbd1)
+)
 - 🐞 fix(deps): update dependency classnames to v2.3.2 (#190) [`#5ce9d13`](https://github.com/antdpro/antdp/commit/5ce9d13f66353bf89d02bdd374df24d90dfd2f88)
 - 💄 chore: update preview [`#925131f`](https://github.com/antdpro/antdp/commit/925131ff0b148f3ea540a0d22442ecabc9eae12a)
-- 💢 ci:update ci [`#eda23d8`](https://github.com/antdpro/antdp/commit/eda23d8712c92e41a96bf3f709ea784037c38f09)
-- 💢 ci:update ci [`#ec23f21`](https://github.com/antdpro/antdp/commit/ec23f21c95602fdf51cab68b3cd18bf7d5bae368)
 - 📄 Merge branch 'dev' [`#17c716e`](https://github.com/antdpro/antdp/commit/17c716e703847aed7ea3cee03ffa9a5246d288df)
 - 🐞 fix:修复预览标签 [`#5968554`](https://github.com/antdpro/antdp/commit/5968554197f09bd5d8b1f75331f2102bf38e4ec2)
 - 🌟 feat:添加basic案例 [`#1ecae70`](https://github.com/antdpro/antdp/commit/1ecae70f30734df8e07ba275d06a52291299ca86)

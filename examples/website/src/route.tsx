@@ -44,6 +44,7 @@ import ChangeLog from './pages/change-log'
 import NewPage from './pages/develop/newPage'
 import Request from './pages/develop/request'
 import Proxy from './pages/develop/proxy'
+import Css from './pages/develop/css'
 
 interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   name?: React.ReactNode
@@ -116,6 +117,12 @@ export const routesConfig: RoutesType[] = [
                 name: '新增页面',
                 icon: <FileAddOutlined />,
                 element: <NewPage />
+              },
+              {
+                path: '/home/develop/css',
+                name: '样式',
+                icon: <FileAddOutlined />,
+                element: <Css />
               },
               {
                 path: '/home/develop/request',

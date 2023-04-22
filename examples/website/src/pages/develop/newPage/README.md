@@ -76,7 +76,7 @@ export default () => {
   - ``redirect`` 重定向 
   - ``children`` 子集 路由 
   - ``hideInMenu`` 是否隐藏菜单
-  - ``side`` 控制是否侧边只展示子路由 
+  - ``side`` 控制顶部和侧边菜单展示是否联动
 
 布局及路由都配置好之后，回到之前新建的 ```index.jsx```，可以开始写业务代码了！
 

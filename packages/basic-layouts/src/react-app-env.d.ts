@@ -4,3 +4,4 @@ declare var ANTD_TITLE_TOP: boolean | undefined;
 declare var ANTD_HEAD_IS_SHOW: boolean | undefined;
 declare var ANTD_MENU_IS_SHOW: boolean | undefined;
 declare var ANTD_IS_BREADCRUMB: boolean | undefined;
+declare var ANTD_MENU_SEARCH_IS_SHOW: boolean | undefined;

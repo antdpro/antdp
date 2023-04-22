@@ -5,6 +5,7 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import { getSiderMenus } from "../utils"
 import { useLayouts } from "../hooks"
 import Breadcrumbs from "./../Breadcrumb"
+import SearchMenu from '../SearchMenus'
 
 const HeaderMenus = () => {
   const location = useLocation()
@@ -34,6 +35,7 @@ const HeaderMenus = () => {
 
   return (
     <div className="antdp-basic-layouts-header-menus" style={{ flex: 1, overflow: "auto" }}  >
+      {ANTD_MENU_SEARCH_IS_SHOW && <SearchMenu />}
       <Menu
         selectedKeys={[parentPath]}
         mode="horizontal"

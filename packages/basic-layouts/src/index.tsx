@@ -26,29 +26,37 @@ export { default as TopRight } from "./TopRight"
 const BasicLayouts = (props: BasicLayoutsProps) => {
   const render = useMemo(() => {
     if (!!ANTD_MENU_TOP_LEFT) {
-      return <React.Fragment>
-        {ANTD_HEAD_IS_SHOW && <Layout.Header className="antdp-basic-layouts-header" >
-          <Header />
-        </Layout.Header>}
-        <Layout>
-          {ANTD_MENU_IS_SHOW && <SiderMenus />}
-          <Layout.Content className="antdp-basic-layouts-content"  >
-            <WarpContent />
-          </Layout.Content>
-        </Layout>
-      </React.Fragment>
+      return (
+        <React.Fragment>
+          {ANTD_HEAD_IS_SHOW && (
+            <Layout.Header className="antdp-basic-layouts-header" >
+              <Header />
+            </Layout.Header>
+          )}
+          <Layout>
+            {ANTD_MENU_IS_SHOW && <SiderMenus />}
+            <Layout.Content className="antdp-basic-layouts-content"  >
+              <WarpContent />
+            </Layout.Content>
+          </Layout>
+        </React.Fragment>
+      )
     } else {
-      return <React.Fragment>
-        {ANTD_MENU_IS_SHOW && <SiderMenus />}
-        <Layout>
-          {ANTD_HEAD_IS_SHOW && <Layout.Header className="antdp-basic-layouts-header" >
-            <Header />
-          </Layout.Header>}
-          <Layout.Content className="antdp-basic-layouts-content"  >
-            <WarpContent />
-          </Layout.Content>
-        </Layout>
-      </React.Fragment>
+      return (
+        <React.Fragment>
+          {ANTD_MENU_IS_SHOW && <SiderMenus />}
+          <Layout>
+            {ANTD_HEAD_IS_SHOW && (
+              <Layout.Header className="antdp-basic-layouts-header" >
+                <Header />
+              </Layout.Header>
+            )}
+            <Layout.Content className="antdp-basic-layouts-content"  >
+              <WarpContent />
+            </Layout.Content>
+          </Layout>
+        </React.Fragment>
+      )
     }
   }, [])
   const newData = useMemo(() => {

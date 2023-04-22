@@ -38,6 +38,8 @@ export interface OptionsProps
     ANTD_HEAD_IS_SHOW?: boolean;
     /**  是否开启父子路由面包屑 */
     ANTD_IS_BREADCRUMB?: boolean;
+    /**  是否开启菜单栏搜索 */
+    ANTD_MENU_SEARCH_IS_SHOW?:boolean;
     /**  是否开启权限验证 */
     ANTD_AUTH_CONF?:
       | boolean

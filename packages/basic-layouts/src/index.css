@@ -17,7 +17,7 @@
   background-color: #001529;
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   overflow: auto;
-  z-index: 9999;
+  z-index: 99;
 }
 
 .antdp-basic-layouts-header{

@@ -55,7 +55,7 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
     reactQuery: {
       // 是否开启 react query 官方 devtool 工具
       devtool: false,
-    }, 
+    },
     /**
      * 如果需要自行通过 react-helment 等方式渲染 title，配 `title: false` 可禁用内置的 title 渲染机制
      * https://github.com/umijs/umi/pull/4345/files
@@ -90,6 +90,8 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
       ANTD_MENU_TOP_LEFT: false,
       /** 标题 放在 头部 ,菜单放在头部下面  */
       ANTD_TITLE_TOP: false,
+      /**  是否开启菜单栏搜索 */
+      ANTD_MENU_SEARCH_IS_SHOW: false,
       ...(options.define || {}),
       /** 是否开启父子路由面包屑 */
       ANTD_IS_BREADCRUMB,

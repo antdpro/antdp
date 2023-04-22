@@ -1,5 +1,5 @@
 export default {
-  'menu.welcome': '欢迎来到antdp',
+  'menu.welcome': '欢迎',
   'menu.home': '首页',
   'menu.dashboard': '实例展示',
   'menu.dashboard.实例展示': '实例展示',

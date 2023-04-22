@@ -1,5 +1,5 @@
 export default {
-  'menu.welcome': 'Welcome To AntdP',
+  'menu.welcome': 'Welcome',
   'menu.home': 'home',
   'menu.dashboard': 'dashboard',
   'menu.dashboard': 'welcome',

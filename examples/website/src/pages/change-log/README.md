@@ -9,6 +9,24 @@
 - 次版本号：每月发布一个带有新特性的向下兼容的版本。
 - 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
+## 2.0.2
+
+`2023-04-24`
+
+- 📖 doc: 处理预实例报错 [6e2223d](https://github.com/antdpro/antdp/commit/6e2223d27c0c77af2f3da92467bdc02ec31615fb)
+- 📖 doc: 调整文档顶部菜单高度和边距 [ddaa53c](https://github.com/antdpro/antdp/commit/ddaa53cd0fe6ae60f42d76e0ff01ac8f4ba34c80)
+- 📄 deps(@antdp/hooks): 导出fetchFn [30ac11a](https://github.com/antdpro/antdp/commit/30ac11a9c8ebe321bc470f6fdb55ba798d43b127)
+- 📄 deps(basic-layouts): 增加菜单搜索功能 [404741c](https://github.com/antdpro/antdp/commit/404741cecb575545d50b680de19246ba0f465448)
+- 📖 doc: 增加react-query请求相应文档 [a0475f4](https://github.com/antdpro/antdp/commit/a0475f4681ef34964aa5e7e81da547a8f4dc84ac)
+- 📖 doc: 增加样式文档 [eda3e67](https://github.com/antdpro/antdp/commit/eda3e6744bca621b534aa705eb8089e45977cfb8)
+- 📖 doc: 修改快速开始文档 [c9efe29](https://github.com/antdpro/antdp/commit/c9efe291029297515d0c55f4b68d2fb4175a1a41)
+- 📖 doc: 修改新增页面文档 [13fb0b8](https://github.com/antdpro/antdp/commit/13fb0b8ca8e239a23f884a5250cb33b2f5a01da2)
+- 📖 doc: 修改请求和样式文档 [88fd076](https://github.com/antdpro/antdp/commit/88fd0760370756d52c94fc3b0ac71b48f6e60a24)
+- 📖 doc: 增加mock文档 [4ea040c](https://github.com/antdpro/antdp/commit/4ea040cd1cd8221151861bbef2d86d13c61a1069)
+- 📖 doc: 增加数据流文档 [b5f5119](https://github.com/antdpro/antdp/commit/b5f51194c149be84058b2b25e97d8784dd41c7bf)
+- 📖 doc: 实例预览删除多余路由页面 [9319b83](https://github.com/antdpro/antdp/commit/9319b838069cafc5c91ca51f3e69cee1408ab399)
+- 🐞 fix: 修复实例路由报错 & basic yarn报错 [51d645c](https://github.com/antdpro/antdp/commit/51d645cf2a4dda38678e0f447fc5a7d29271a5e0)
+
 ## 2.0.1
 
 `2023-04-20`

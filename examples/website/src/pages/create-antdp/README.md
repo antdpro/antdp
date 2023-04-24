@@ -29,7 +29,7 @@ $ pnpm -v
 7.3.0
 ```
 
-## 创建项目
+## 创建ts项目
 ```shell 
 # npm 6.x
 $ npm init antdp my-app --example basic
@@ -44,6 +44,14 @@ $ npx create-antdp my-app
 ```
 
 或者直接下载: [`basic.zip`](https://antdpro.github.io/antdp/zip/basic.zip)
+
+### 创建js项目
+```shell
+# npm 6.x
+$ npm init antdp my-app --example antdp-bsae
+# npm 7+，extra double-dash is needed:
+$ npm init antdp my-app -- --example antdp-bsae
+```
 
 ## 启动项目
 

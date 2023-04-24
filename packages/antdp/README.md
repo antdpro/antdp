@@ -16,14 +16,14 @@ Ant Design Project
 - 💋 支持配置路由参数 `/router/:id`；
 - 🤡 支持 `tab` 选项卡功能。
 
-### 生成项目
+### 创建ts项目
 
 使用 [`create-antdp`](https://antdpro.github.io/create-antdp) 工具，将示例 [`basic`](https://antdpro.github.io/antdp/zip/basic.zip) 初始化，让我们快速创建这个 React 应用程序：
 
 ```shell
-# npm 6.x
+# npm 6.x ts版本
 $ npm init antdp my-app --example basic
-# npm 7+, extra double-dash is needed:
+# npm 7+,ts版本 extra double-dash is needed:
 $ npm init antdp my-app -- --example basic
 
 $ yarn create antdp [appName]
@@ -33,7 +33,15 @@ $ npm create antdp my-app
 $ npx create-antdp my-app
 ```
 
-或者直接下载: [`basic.zip`](https://antdpro.github.io/antdp/zip/basic.zip)
+或者直接下载版本: [`basic.zip`](https://antdpro.github.io/antdp/zip/basic.zip)
+
+### 创建js项目
+```shell
+# npm 6.x
+$ npm init antdp my-app --example antdp-bsae
+# npm 7+，extra double-dash is needed:
+$ npm init antdp my-app -- --example antdp-bsae
+```
 ### 在CodeSandbox中打开，查看实例
 
 [![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/s/github/antdpro/antdp/tree/master/examples/antdp-base)

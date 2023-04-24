@@ -83,13 +83,18 @@ export default const Index = () => {
 ```
 
 ## umi内置 request 和 useRequest
-在项目config/config中添加如下 
+在项目config/config.ts中添加如下 
 ```diff
-export default {
-+  request: {
+import config from '@antdp/config';
+import proxy from './proxy';
+import router from './router.json';
+export default config(router, {
+  proxy,
+  define: {
++   request: {
 +    dataField: 'data'
-+  },
-};
++   },
+});
 ```
 构建时配置可以为 useRequest 配置 dataField ，该配置的默认值是 data。该配置的主要目的是方便 useRequest 直接消费数据。如果你想要在消费数据时拿到后端的原始数据，需要在这里配置 dataField 为 '' 。
 
@@ -161,15 +166,23 @@ export default Index
 我们基于react-query进行了二次封装了`useReactQuery` 和 `useReactMutation`，参见[react-query](https://tanstack.com/query/latest)（和 @tanstack/react-query 是同一个）
 
 ### 启用方式
-由于umi已内置`react-query`,你只需在`congfig/config`中配置
+由于umi已内置`react-query`,你只需在`congfig/config.ts`中配置
 
 ```js
-reactQuery: {
-  // devtool: boolean，是否开启 react query 官方 devtool 工具，默认 false
-  devtool: false,
-  // queryClient: boolean, 是否注册全局的 QueryClient 和 QueryClientProvier，默认 true
-  queryClient: false,
-},
+import config from '@antdp/config';
+import proxy from './proxy';
+import router from './router.json';
+export default config(router, {
+  proxy,
+  define: {
+    reactQuery: {
+    // devtool: boolean，是否开启 react query 官方 devtool 工具，默认 false
+    devtool: false,
+    // queryClient: boolean, 是否注册全局的 QueryClient 和 QueryClientProvier，默认 true
+    queryClient: false,
+  },
+});
+
 ```
 
 ### API 请求 hooks

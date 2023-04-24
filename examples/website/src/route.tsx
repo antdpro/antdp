@@ -46,6 +46,7 @@ import Request from './pages/develop/request'
 import Proxy from './pages/develop/proxy'
 import Css from './pages/develop/css'
 import Mock from './pages/develop/mock'
+import DataFlow from './pages/develop/data-flow'
 
 interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   name?: React.ReactNode
@@ -142,6 +143,12 @@ export const routesConfig: RoutesType[] = [
                 name: '代理',
                 icon: <FileAddOutlined />,
                 element: <Proxy />
+              },
+              {
+                path: '/home/develop/data-flow',
+                name: '数据流',
+                icon: <FileAddOutlined />,
+                element: <DataFlow />
               },
             ]
           },

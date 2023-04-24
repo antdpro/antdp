@@ -45,8 +45,8 @@ $ npx create-antdp my-app
 
 ### 启动项目
 ```bash
-npm install
-npm run start
+yarn install
+yarn start
 ```
 
 ### 目录结构

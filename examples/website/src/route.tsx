@@ -45,6 +45,7 @@ import NewPage from './pages/develop/newPage'
 import Request from './pages/develop/request'
 import Proxy from './pages/develop/proxy'
 import Css from './pages/develop/css'
+import Mock from './pages/develop/mock'
 
 interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   name?: React.ReactNode
@@ -129,6 +130,12 @@ export const routesConfig: RoutesType[] = [
                 name: '请求',
                 icon: <FileAddOutlined />,
                 element: <Request />
+              },
+              {
+                path: '/home/develop/mock',
+                name: 'Mock',
+                icon: <FileAddOutlined />,
+                element: <Mock />
               },
               {
                 path: '/home/develop/proxy',

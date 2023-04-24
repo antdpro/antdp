@@ -27,11 +27,6 @@ proxy: {
 }
 ```
 
-然后访问 /api/users 就能访问到 http://jsonplaceholder.typicode.com/users 的数据。
-
-`注意：proxy 功能仅在 dev 时有效`。
-
-
 ## License
 
 Licensed under the MIT License.

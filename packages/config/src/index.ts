@@ -55,6 +55,7 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
     reactQuery: {
       // 是否开启 react query 官方 devtool 工具
       devtool: false,
+      queryClient: true,
     },
     /**
      * 如果需要自行通过 react-helment 等方式渲染 title，配 `title: false` 可禁用内置的 title 渲染机制

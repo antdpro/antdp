@@ -16,6 +16,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
+  "overrides": {
+    "dva": "^2.6.0-beta.20"
+  },
+  "resolutions": {
+    "dva": "^2.6.0-beta.20"
+  },
   "devDependencies": {
     "@antdp/config": "2.0.1",
     "@antdp/dependencies": "2.0.1",

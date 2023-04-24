@@ -21,8 +21,8 @@
       {
         "path": "/dashboard",
         "name": "实例展示",
-        "icon": "dashboard",
         "locale": "dashboard",
+        "icon": "dashboard",
         "side": true,
         "routes": [
           {
@@ -31,123 +31,17 @@
             "locale": "实例展示",
             "icon": "pie-chart",
             "index": true,
-            "component": "@/pages/Demo"
-          },
-          {
-            "path": "/dashboard/workplace",
-            "name": "工作台",
-            "locale": "工作台",
-            "icon": "pie-chart",
-            "component": "@/pages/Dashboard",
             "side": true,
-            "routes": [
-              {
-                "path": "/dashboard/workplace/dashboard/demo",
-                "name": "实例展示1",
-                "locale": "实例展示1",
-                "icon": "pie-chart",
-                "index": true,
-                "component": "@/pages/Demo"
-              },
-              {
-                "path": "/dashboard/workplace/dashboard/workplace",
-                "name": "工作台1",
-                "locale": "工作台1",
-                "icon": "pie-chart",
-                "component": "@/pages/Dashboard"
-              },
-              {
-                "path": "/dashboard/workplace/dashboard/notfund",
-                "name": "测试不存在页面1",
-                "hideInMenu": true,
-                "icon": "radar-chart"
-              }
-            ]
-          },
-          {
-            "path": "/dashboard/notfund",
-            "name": "测试不存在页面",
-            "hideInMenu": true,
-            "icon": "radar-chart"
-          }
-        ]
-      },
-      {
-        "path": "/EditTable",
-        "name": "编辑表格",
-        "icon": "file-protect",
-        "component": "@/pages/EditTable",
-        "routes": [
-          {
-            "path": "/EditTable/demo",
-            "name": "实例展示",
-            "locale": "实例展示",
-            "icon": "pie-chart",
-            "index": true,
             "component": "@/pages/Demo"
           },
           {
-            "path": "/EditTable/workplace",
-            "name": "工作台",
-            "locale": "工作台",
-            "hideInMenu": true,
-            "icon": "pie-chart",
-            "component": "@/pages/Dashboard"
-          },
-          {
-            "path": "/EditTable/notfund",
-            "name": "测试不存在页面",
-            "icon": "radar-chart"
+            "path": "/dashboard/EditTable",
+            "name": "编辑表格",
+            "locale": "编辑表格",
+            "icon": "file-protect",
+            "component": "@/pages/EditTable"
           }
         ]
-      },
-      {
-        "path": "/EditTables",
-        "name": "编辑表格2",
-        "icon": "file-protect",
-        "component": "@/pages/EditTable"
-      },
-      {
-        "path": "/EditTabless",
-        "name": "编辑表格3",
-        "icon": "file-protect",
-        "component": "@/pages/EditTable"
-      },
-      {
-        "path": "/EditTable1",
-        "name": "编辑表格",
-        "icon": "file-protect",
-        "component": "@/pages/EditTable"
-      },
-      {
-        "path": "/EditTables2",
-        "name": "编辑表格2",
-        "icon": "file-protect",
-        "component": "@/pages/EditTable"
-      },
-      {
-        "path": "/EditTabless3",
-        "name": "编辑表格3",
-        "icon": "file-protect",
-        "component": "@/pages/EditTable"
-      },
-      {
-        "path": "/EditTable4",
-        "name": "编辑表格",
-        "icon": "file-protect",
-        "component": "@/pages/EditTable"
-      },
-      {
-        "path": "/EditTables5",
-        "name": "编辑表格2",
-        "icon": "file-protect",
-        "component": "@/pages/EditTable"
-      },
-      {
-        "path": "/EditTabless6",
-        "name": "编辑表格3",
-        "icon": "file-protect",
-        "component": "@/pages/EditTable"
       },
       {
         "path": "/404",

@@ -20,9 +20,9 @@
   "dependencies": {
     "@ant-design/pro-form": "1.74.7",
     "@antdp/antdp-ui": "2.0.1",
+    "@antdp/edit-table": "2.0.1",
     "@antdp/authorized": "2.0.1",
     "@antdp/basic-layouts": "2.0.1",
-    "@antdp/edit-table": "2.0.1",
     "@antdp/hooks": "2.0.1",
     "@antdp/page-loading": "2.0.1",
     "@antdp/request": "2.0.1",

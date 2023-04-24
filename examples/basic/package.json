@@ -3,24 +3,24 @@
   "private": true,
   "version": "2.0.1",
   "scripts": {
-    "dev": "umi dev",
-    "build": "umi build",
-    "umiinstall": "umi setup",
-    "setup": "umi setup",
-    "start": "npm run dev"
+    "start": "max dev",
+    "build": "max build",
+    "umiinstall": "max setup"
   },
   "dependencies": {
     "@antdp/authorized": "2.0.1",
     "@antdp/basic-layouts": "2.0.1",
     "@antdp/user-login": "2.0.1",
+    "@antdp/hooks": "2.0.1",
     "antd": "5.4.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "umi": "~4.0.63"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@antdp/config": "2.0.1",
     "@antdp/dependencies": "2.0.1",
+    "@umijs/max": "~4.0.47",
+    "@umijs/plugin-model": "~2.6.2",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "typescript": "^5.0.0"

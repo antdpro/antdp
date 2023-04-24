@@ -1,31 +1,4 @@
-const menus = [
-  '/',
-  '/EditTable',
-  '/welcome',
-  '/dashboard',
-  '/dashboard/demo',
-  '/dashboard/workplace',
-  '/dashboard/workplace/dashboard/demo',
-  '/dashboard/workplace/dashboard/notfund',
-  '/dashboard/workplace/dashboard/workplace',
-  '/dashboard/notfund',
-  '/EditTable/demo',
-  '/EditTable/workplace',
-  '/EditTable/notfund',
-  '/EditTables',
-  '/EditTabless',
-  '/EditTable1',
-  '/EditTables2',
-  '/EditTabless3',
-  '/EditTable4',
-  '/EditTables5',
-  '/EditTabless6',
-  '/EditTable7',
-  '/EditTables8',
-  '/EditTabless9',
-  '/404',
-  '/403',
-];
+const menus = ['/', '/welcome', '/404', '/403'];
 const btns = ['/demo/add1', '/demo/add2', '/demo/add3'];
 
 export default {

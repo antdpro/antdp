@@ -47,6 +47,7 @@ import Proxy from './pages/develop/proxy'
 import Css from './pages/develop/css'
 import Mock from './pages/develop/mock'
 import DataFlow from './pages/develop/data-flow'
+// import Internationalization from './pages/develop/internationalization'
 
 interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   name?: React.ReactNode
@@ -150,6 +151,12 @@ export const routesConfig: RoutesType[] = [
                 icon: <FileAddOutlined />,
                 element: <DataFlow />
               },
+              // {
+              //   path: '/home/develop/internationalization',
+              //   name: '国际化',
+              //   icon: <FileAddOutlined />,
+              //   element: <Internationalization />
+              // },
             ]
           },
           {

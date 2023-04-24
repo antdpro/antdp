@@ -182,3 +182,7 @@ export default function Page() {
   return <>hello</>;
 };
 ```
+
+## License
+
+Licensed under the MIT License.

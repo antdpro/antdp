@@ -24,24 +24,7 @@
         "locale": "dashboard",
         "icon": "dashboard",
         "side": true,
-        "routes": [
-          {
-            "path": "/dashboard/demo",
-            "name": "实例展示",
-            "locale": "实例展示",
-            "icon": "pie-chart",
-            "index": true,
-            "side": true,
-            "component": "@/pages/Demo"
-          },
-          {
-            "path": "/dashboard/EditTable",
-            "name": "编辑表格",
-            "locale": "编辑表格",
-            "icon": "file-protect",
-            "component": "@/pages/EditTable"
-          }
-        ]
+        "component": "@/pages/Demo"
       },
       {
         "path": "/404",

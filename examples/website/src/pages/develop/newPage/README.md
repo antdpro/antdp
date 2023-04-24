@@ -10,11 +10,11 @@ src
 └── pages
     ├── Welcome        # 路由组件下不应该再包含其他路由组件，基于这个约定就能清楚的区分路由组件和非路由组件了
     |   ├── components # 对于复杂的页面可以再自己做更深层次的组织，但建议不要超过三层
-    |   |   ├── Form.jsx
-    |   ├── index.jsx  # 页面组件的代码
+    |   |   ├── Form.tsx
+    |   ├── index.tsx  # 页面组件的代码
     |   └── index.less # 页面样式
     ├── Order          # 路由组件下不应该再包含其他路由组件，基于这个约定就能清楚的区分路由组件和非路由组件了
-    |   ├── index.jsx
+    |   ├── index.tsx
     |   └── index.less
     ├── User
     |   ├── components # group 下公用的组件集合
@@ -29,8 +29,8 @@ src
 我们推荐尽可能的拆分路由组件为更细粒度的组件，对于多个页面可能会用到的组件我们推荐放到 src/components 中，对于只是被单个页面依赖的（区块）组件，我们推荐就近维护到路由组件文件夹下即可。
 
 ## 手动创建
-新增 js、less 文件
-在 src / pages 下创建新的 jsx，less 文件。 如果有多个相关页面，您可以创建一个新文件夹来放置相关文件。
+新增 tsx、less 文件
+在 src / pages 下创建新的 tsx，less 文件。 如果有多个相关页面，您可以创建一个新文件夹来放置相关文件。
 
 ```diff
 config
@@ -39,12 +39,13 @@ models
   pages
 +   NewPage
 +     index.less
-+     index.jsx
++     index.tsx
   ...
 ...
 package.json
 ```
-为了更好的演示，我们初始化NewPage.js的内容如下：
+
+为了更好的演示，我们初始化NewPage.tsx的内容如下：
 ```bash
 export default () => {
   return <div>New Page</div>;
@@ -79,7 +80,7 @@ export default () => {
   - ``hideInMenu`` 是否隐藏菜单
   - ``side`` 控制顶部和侧边菜单展示是否联动
 
-布局及路由都配置好之后，回到之前新建的 ```index.jsx```，可以开始写业务代码了！
+布局及路由都配置好之后，回到之前新建的 ```index.tsx```，可以开始写业务代码了！
 
 ## License
 

@@ -30,4 +30,9 @@ export default config(router, {
   dva: {},
   model: {},
   request: {},
+  reactQuery: {
+    // 是否开启 react query 官方 devtool 工具
+    devtool: false,
+    queryClient: true,
+  },
 });

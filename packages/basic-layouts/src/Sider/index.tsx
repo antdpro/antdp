@@ -20,7 +20,6 @@ const Sider = (props: SiderProps) => {
   if (!items.length) {
     return <React.Fragment />
   }
-  console.log('ANTD_MENU_SEARCH_IS_SHOW',ANTD_MENU_SEARCH_IS_SHOW)
   return (
     <Layout.Sider width={siderWidth} collapsed={collapsed} className="antdp-basic-layouts-sider" >
       {!ANTD_MENU_TOP_LEFT && <Logo />}

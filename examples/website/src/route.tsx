@@ -49,6 +49,7 @@ import Mock from './pages/develop/mock'
 import DataFlow from './pages/develop/data-flow'
 import Internationalization from './pages/develop/internationalization'
 import Dva from './pages/develop/dva'
+import Auth from './pages/develop/auth'
 
 interface IndexRouteObjects extends Omit<IndexRouteObject, "index"> {
   name?: React.ReactNode
@@ -145,6 +146,12 @@ export const routesConfig: RoutesType[] = [
                 name: '代理',
                 icon: <FileAddOutlined />,
                 element: <Proxy />
+              },
+              {
+                path: '/home/develop/auth',
+                name: '权限',
+                icon: <FileAddOutlined />,
+                element: <Auth />
               },
               {
                 path: '/home/develop/data-flow',

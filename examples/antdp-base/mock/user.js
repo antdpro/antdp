@@ -1,4 +1,4 @@
-const menus = ['/', '/welcome', '/404', '/403'];
+const menus = ['/', '/dashboard', '/welcome', '/404', '/403'];
 const btns = ['/demo/add1', '/demo/add2', '/demo/add3'];
 
 export default {

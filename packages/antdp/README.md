@@ -60,6 +60,7 @@ $ npx create-antdp my-app -- --example antdp-base
 
 ### 启动项目
 ```bash
+cd [appName]
 yarn install
 yarn start
 ```

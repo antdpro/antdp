@@ -62,6 +62,8 @@ $ npx create-antdp my-app -- --example antdp-base
 
 ## 启动项目
 
+- `cd [appName]` 进入目录
+
 - `yarn install`下载依赖
 
 - `yarn start`启动项目， 项目启动成功，你就会看见如下。

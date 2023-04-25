@@ -60,7 +60,7 @@ export default () => {
   {
     "path": "/new",
     "name": "新页面",
-    "element": "@page/NewPage",
+    "component": "@page/NewPage",
     "icon": "home"
   },
 ]

@@ -13,6 +13,10 @@ React 的组件只是通过 jsx 以及样式按照 state 构建最终的 UI，�
 
 ## antdp 如何管理状态
 
+如下图所示，Umi 内置了 [Dva](https://dvajs.com) 提供了一套状态管理方案：
+
+![undefined](https://gw.alipayobjects.com/zos/skylark/48f9ff5f-ab11-4896-9fb6-65cdd83340de/2018/png/dcb7073b-fc0c-4e2c-aa39-93ac249d715c.png)
+
 数据统一在 `src/models` 中的 model 管理，组件内尽可能的不去维护数据，而是通过 connect 去关联 model 中的数据。页面有操作的时候则触发一个 action 去请求后端接口以及修改 model 中的数据，将业务逻辑分离到一个环形的闭环中，使得数据在其中单向流动。让应用更好维护。这样的思想最初来源于 Facebook 的 [flux](http://facebook.github.io/flux/)。接下来我们来具体看看如何在 antdp 中实现这样的逻辑。
 
 ### 配置 dva

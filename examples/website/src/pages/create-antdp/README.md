@@ -48,10 +48,17 @@ $ npx create-antdp my-app
 ### 创建js项目
 ```shell
 # npm 6.x
-$ npm init antdp my-app --example antdp-bsae
+$ npm init antdp my-app --example antdp-base
 # npm 7+，extra double-dash is needed:
-$ npm init antdp my-app -- --example antdp-bsae
+$ npm init antdp my-app -- --example antdp-base
+
+$ yarn create antdp [appName] -- --example antdp-base
+# or npm
+$ npm create antdp my-app -- --example antdp-base
+# or npx
+$ npx create-antdp my-app -- --example antdp-base
 ```
+或者直接下载版本: [`antdp-base.zip`](https://antdpro.github.io/antdp/zip/antdp-base.zip)
 
 ## 启动项目
 

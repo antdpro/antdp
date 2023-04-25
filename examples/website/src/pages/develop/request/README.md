@@ -90,11 +90,11 @@ import proxy from './proxy';
 import router from './router.json';
 export default config(router, {
   proxy,
-  define: {
-+   request: {
+  define: {},
++ request: {
 +    dataField: 'data'
-+   },
-});
++ },
+);
 ```
 构建时配置可以为 useRequest 配置 dataField ，该配置的默认值是 data。该配置的主要目的是方便 useRequest 直接消费数据。如果你想要在消费数据时拿到后端的原始数据，需要在这里配置 dataField 为 '' 。
 
@@ -168,21 +168,20 @@ export default Index
 ### 启用方式
 由于umi已内置`react-query`,你只需在`congfig/config.ts`中配置
 
-```js
+```ts
 import config from '@antdp/config';
 import proxy from './proxy';
 import router from './router.json';
 export default config(router, {
   proxy,
-  define: {
-    reactQuery: {
+  define: {},
+  reactQuery: {
     // devtool: boolean，是否开启 react query 官方 devtool 工具，默认 false
     devtool: false,
     // queryClient: boolean, 是否注册全局的 QueryClient 和 QueryClientProvier，默认 true
     queryClient: false,
   },
-});
-
+);
 ```
 
 ### API 请求 hooks

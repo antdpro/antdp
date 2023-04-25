@@ -28,9 +28,9 @@ import proxy from './proxy';
 import router from './router.json';
 export default config(router, {
   proxy,
-  define: {
-+   dva: { },
-});
+  define: {}
++ dva: { },
+);
 ```
 antdp 会默认将 `src/models` 下的 model 定义自动挂载，你只需要在 model 文件夹中新建文件即可新增一个 model 用来管理组件状态。
 

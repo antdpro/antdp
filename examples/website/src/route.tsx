@@ -166,6 +166,12 @@ export const routesConfig: RoutesType[] = [
                 element: <Internationalization />
               },
               {
+                path: '/home/develop/config',
+                name: '配置',
+                icon: <FileAddOutlined />,
+                element: <Config />
+              },
+              {
                 path: '/home/develop/dva',
                 name: 'dva',
                 icon: <FileAddOutlined />,

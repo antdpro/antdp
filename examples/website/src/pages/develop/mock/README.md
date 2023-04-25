@@ -108,18 +108,6 @@ export default defineMock({
 
 `defineMock` 仅仅提供类型提示，入参与出参完全一致。
 
-## 关闭 Mock
-
-antdp 默认开启 Mock 功能，如果不需要的话可以从配置文件关闭：
-```ts
-// config/config.ts
-import config from '@antdp/config';
-import proxy from './proxy';
-import router from './router.json';
-export default config(router, {
-  mock: false,
-});
-```
 
 或是用环境变量的方式关闭：
 

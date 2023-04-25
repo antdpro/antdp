@@ -127,61 +127,51 @@ export const routesConfig: RoutesType[] = [
               {
                 path: '/home/develop/newpages',
                 name: '新增页面',
-                icon: <FileAddOutlined />,
                 element: <NewPage />
               },
               {
                 path: '/home/develop/css',
                 name: '样式',
-                icon: <FileAddOutlined />,
                 element: <Css />
               },
               {
                 path: '/home/develop/request',
                 name: '请求',
-                icon: <FileAddOutlined />,
                 element: <Request />
               },
               {
                 path: '/home/develop/mock',
                 name: 'Mock',
-                icon: <FileAddOutlined />,
                 element: <Mock />
               },
               {
                 path: '/home/develop/proxy',
                 name: '代理',
-                icon: <FileAddOutlined />,
                 element: <Proxy />
               },
               {
                 path: '/home/develop/auth',
                 name: '权限',
-                icon: <FileAddOutlined />,
                 element: <Auth />
               },
               {
                 path: '/home/develop/data-flow',
                 name: '数据流',
-                icon: <FileAddOutlined />,
                 element: <DataFlow />
               },
               {
                 path: '/home/develop/internationalization',
                 name: '国际化',
-                icon: <FileAddOutlined />,
                 element: <Internationalization />
               },
               {
                 path: '/home/develop/config',
                 name: '配置',
-                icon: <FileAddOutlined />,
                 element: <Config />
               },
               {
                 path: '/home/develop/dva',
                 name: 'dva',
-                icon: <FileAddOutlined />,
                 element: <Dva />
               }
             ]

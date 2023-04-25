@@ -23,6 +23,7 @@ import Layouts from "./layouts"
 import Home from "./pages/antdp"
 import CreateAntdp from "./pages/create-antdp"
 import Example from "./pages/example"
+import ExampleBasic from './pages/example-basic'
 import BasicLayouts from "./pages/basic-layouts"
 import Authorized from "./pages/authorized"
 import Config from "./pages/config"
@@ -103,9 +104,15 @@ export const routesConfig: RoutesType[] = [
           },
           {
             path: '/home/example',
-            name: '实例预览',
+            name: 'antdp-base预览',
             icon: <CodeSandboxOutlined />,
             element: <Example />
+          },
+          {
+            path: '/home/example-basic',
+            name: 'basic预览',
+            icon: <CodeSandboxOutlined />,
+            element: <ExampleBasic />
           },
           {
             path: '/home/log',

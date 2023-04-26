@@ -1,0 +1,69 @@
+[
+  {
+    "path": "/login",
+    "component": "@/layouts/UserLayout"
+  },
+  {
+    "path": "/",
+    "component": "@/layouts/BasicLayout",
+    "routes": [
+      {
+        "path": "/",
+        "redirectTo": "/welcome"
+      },
+      {
+        "path": "/welcome",
+        "name": "首页",
+        "icon": "welcome",
+        "locale": "welcome",
+        "component": "@/pages/Home/index"
+      },
+      {
+        "path": "/dashboard",
+        "name": "页面试例",
+        "locale": "dashboard",
+        "icon": "dashboard",
+        "side": true,
+        "component": "@/pages/Demo"
+      },
+      {
+        "path": "/components",
+        "name": "组件试例",
+        "locale": "components",
+        "icon": "dashboard",
+        "routes": [
+          {
+            "path": "/components/quickform",
+            "name": "快速表单",
+            "locale": "quickform",
+            "component": "@/pages/Components/QuickForm"
+          },
+          {
+            "path": "/components/formdetail",
+            "name": "详情表单",
+            "locale": "formdetail",
+            "component": "@/pages/Components/FormDetail"
+          },
+          {
+            "path": "/components/edittable",
+            "name": "编辑表格",
+            "locale": "edittable",
+            "component": "@/pages/Components/EditTable"
+          }
+        ]
+      },
+      {
+        "path": "/403",
+        "name": "403",
+        "icon": "file-protect",
+        "component": "@/pages/403"
+      },
+      {
+        "path": "/404",
+        "name": "404",
+        "icon": "file-protect",
+        "component": "@/pages/404"
+      }
+    ]
+  }
+]

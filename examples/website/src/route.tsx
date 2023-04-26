@@ -137,14 +137,20 @@ export const routesConfig: RoutesType[] = [
                 name: 'Mock',
                 element: <Mock />
               },
+            ]
+          },
+          {
+            name:'数据管理',
+            icon:<FileAddOutlined />,
+            children:[
               {
                 path: '/home/develop/proxy',
-                name: '代理',
+                name: '接口代理',
                 element: <Proxy />
               },
               {
                 path: '/home/develop/auth',
-                name: '权限',
+                name: '权限管理',
                 element: <Auth />
               },
               {
@@ -152,6 +158,17 @@ export const routesConfig: RoutesType[] = [
                 name: '数据流',
                 element: <DataFlow />
               },
+              {
+                path: '/home/develop/dva',
+                name: 'dva',
+                element: <Dva />
+              },
+            ]
+          },
+          {
+            name:'基础配置',
+            icon:<FileAddOutlined />,
+            children:[
               {
                 path: '/home/develop/internationalization',
                 name: '国际化',
@@ -162,11 +179,6 @@ export const routesConfig: RoutesType[] = [
                 name: '配置',
                 element: <Config />
               },
-              {
-                path: '/home/develop/dva',
-                name: 'dva',
-                element: <Dva />
-              }
             ]
           },
           {

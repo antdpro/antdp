@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { QuickForm, ButtonGroupPro } from '@antdp/antdp-ui';
-import { Card } from 'antd';
+import { Card, Space } from 'antd';
+import CardDes from '@/components/CardDes';
 import 'antd/dist/reset.css';
 import { useMemo } from 'react';
 import { detailItems } from './item';
@@ -16,21 +17,22 @@ const Page = () => {
   }, [queryInfo, setInfo]);
 
   return (
-    <Card>
-      <QuickForm header="表单一" formDatas={data} />
-
-      <QuickForm header="表单二" formDatas={data} />
-
-      <ButtonGroupPro
-        button={[
-          {
-            type: 'primary',
-            label: '提交',
-            onClick: () => {},
-          },
-        ]}
-      />
-    </Card>
+    <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+      <CardDes title="快速表单" description="@antdp/antdp-ui 超快速生成表单" />
+      <Card>
+        <QuickForm header="表单一" formDatas={data} />
+        <QuickForm header="表单二" formDatas={data} />
+        <ButtonGroupPro
+          button={[
+            {
+              type: 'primary',
+              label: '提交',
+              onClick: () => {},
+            },
+          ]}
+        />
+      </Card>
+    </Space>
   );
 };
 export default Page;

@@ -9,6 +9,10 @@ const menus = [
   '/results',
   '/results/success',
   '/results/fail',
+  '/list',
+  '/list/basiclist',
+  '/list/cardlist',
+  '/list/tablelist',
   '/404',
   '/403',
 ];

@@ -14,8 +14,8 @@
       {
         "path": "/welcome",
         "name": "首页",
-        "icon": "welcome",
         "locale": "welcome",
+        "icon": "dashboard",
         "component": "@/pages/Home/index"
       },
       {
@@ -28,7 +28,7 @@
       },
       {
         "path": "/components",
-        "name": "组件试例",
+        "name": "组件页",
         "locale": "components",
         "icon": "dashboard",
         "routes": [
@@ -69,6 +69,32 @@
             "name": "失败页",
             "locale": "fail",
             "component": "@/pages/Results/Fail"
+          }
+        ]
+      },
+      {
+        "path": "/list",
+        "name": "列表页",
+        "icon": "dashboard",
+        "locale": "list",
+        "routes": [
+          {
+            "path": "/list/basiclist",
+            "name": "基础列表",
+            "locale": "basiclist",
+            "component": "@/pages/List/BasicList"
+          },
+          {
+            "path": "/list/cardlist",
+            "name": "卡片列表",
+            "locale": "cardlist",
+            "component": "@/pages/List/CardList"
+          },
+          {
+            "path": "/list/tablelist",
+            "name": "表格列表",
+            "locale": "tablelist",
+            "component": "@/pages/List/TableList"
           }
         ]
       },

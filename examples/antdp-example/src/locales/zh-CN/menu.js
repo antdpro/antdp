@@ -8,6 +8,7 @@ export default {
   'menu.list': '列表页',
   'menu.list.basiclist': '基础列表',
   'menu.list.cardlist': '卡片列表',
+  'menu.list.tablelist': '表格列表',
   'menu.404': '404',
   'menu.403': '403',
 };

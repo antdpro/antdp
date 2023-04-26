@@ -8,6 +8,7 @@ export default {
   'menu.list': 'list pages',
   'menu.list.basiclist': 'basiclist',
   'menu.list.cardlist': 'cardlist',
+  'menu.list.tablelist': 'tablelist',
   'menu.404': '404',
   'menu.403': '403',
 };

@@ -69,6 +69,12 @@
             "name": "卡片列表",
             "locale": "cardlist",
             "component": "@/pages/List/CardList"
+          },
+          {
+            "path": "/list/tablelist",
+            "name": "表格列表",
+            "locale": "tablelist",
+            "component": "@/pages/List/TableList"
           }
         ]
       },

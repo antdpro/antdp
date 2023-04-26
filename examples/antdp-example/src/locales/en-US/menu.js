@@ -6,6 +6,9 @@ export default {
   'menu.components.quickform': 'quickform',
   'menu.components.formdetail': 'formdetail',
   'menu.components.edittable': 'edittable',
+  'menu.results': 'results',
+  'menu.results.success': 'success',
+  'menu.results.fail': 'fail',
   'menu.404': '404',
   'menu.403': '403',
 };

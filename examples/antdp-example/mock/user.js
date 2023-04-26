@@ -6,6 +6,9 @@ const menus = [
   '/components/quickform',
   '/components/formdetail',
   '/components/edittable',
+  '/results',
+  '/results/success',
+  '/results/fail',
   '/404',
   '/403',
 ];

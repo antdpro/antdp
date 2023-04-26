@@ -230,4 +230,52 @@ export default {
       ],
     });
   },
+  'POST /api/getList': (_, res) => {
+    res.send({
+      code: 1,
+      message: '查询成功',
+      data: [
+        {
+          id: 'trend-1',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
+          title: 'Card title',
+          descriptio: 'antdp 好用',
+          image:
+            'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+        },
+        {
+          id: 'trend-2',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
+          title: 'Card title',
+          descriptio: 'antdp 好用',
+          image:
+            'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+        },
+        {
+          id: 'trend-3',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
+          title: 'Card title',
+          descriptio: 'antdp 好用',
+          image:
+            'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+        },
+        {
+          id: 'trend-4',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
+          title: 'Card title',
+          descriptio: 'antdp 好用',
+          image:
+            'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+        },
+        {
+          id: 'trend-5',
+          avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
+          title: 'Card title',
+          descriptio: 'antdp 好用',
+          image:
+            'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+        },
+      ],
+    });
+  },
 };

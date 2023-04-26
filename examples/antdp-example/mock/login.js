@@ -6,6 +6,9 @@ const menus = [
   '/components/quickform',
   '/components/formdetail',
   '/components/edittable',
+  '/list',
+  '/list/basiclist',
+  '/list/cardlist',
   '/404',
   '/403',
 ];

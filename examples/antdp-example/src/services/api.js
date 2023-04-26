@@ -18,3 +18,4 @@ export async function userLogin(params) {
 // 使用react-query请求
 export const serviceProject = '/api/project/notice';
 export const serviceActivities = '/api/activities';
+export const getList = '/api/getList';

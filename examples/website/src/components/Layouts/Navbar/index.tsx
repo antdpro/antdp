@@ -1,7 +1,7 @@
 import { FC, PropsWithRef } from 'react';
 import { Link } from '@kkt/pro';
 import Icon from '@uiw/react-icon';
-import { ReactComponent as ReactLogo } from '../../../assets/logo.svg';
+import { ReactComponent as ReactLogo } from '@/assets/logo.svg';
 import {
   Wrapper,
   Left,

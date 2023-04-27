@@ -4,7 +4,7 @@ import { IConfig } from '@umijs/max';
 import { IConfigFromPlugins } from '@@/core/pluginConfig';
 // @ts-ignore
 import { IBundlerConfigType, ICreateCSSRule } from '@umijs/max';
-import webpack from '@umijs/deps/compiled/webpack';
+import webpack from 'webpack';
 
 export interface IRoute {
   component?: any;

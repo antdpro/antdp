@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import styles from './index.module.less';
-import { ReactComponent as ReactLogo } from '../../assets/logo.svg';
+import { ReactComponent as ReactLogo } from '@/assets/logo.svg';
 import Icon from '@uiw/react-icon';
 import { Link, KktproPageProps } from '@kkt/pro';
 import Footer from '@/components/Footer';

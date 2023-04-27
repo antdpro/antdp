@@ -1,6 +1,6 @@
 import { Spin } from 'antd';
 import { Fragment, useState } from 'react';
-import styles from './index.module.css';
+import styles from './index.module.less';
 import React from 'react';
 
 export default function Pages() {

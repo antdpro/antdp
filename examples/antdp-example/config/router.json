@@ -53,26 +53,6 @@
         ]
       },
       {
-        "path": "/results",
-        "name": "结果页",
-        "locale": "results",
-        "icon": "dashboard",
-        "routes": [
-          {
-            "path": "/results/success",
-            "name": "成功页",
-            "locale": "success",
-            "component": "@/pages/Results/Success"
-          },
-          {
-            "path": "/results/fail",
-            "name": "失败页",
-            "locale": "fail",
-            "component": "@/pages/Results/Fail"
-          }
-        ]
-      },
-      {
         "path": "/list",
         "name": "列表页",
         "icon": "dashboard",
@@ -95,6 +75,46 @@
             "name": "表格列表",
             "locale": "tablelist",
             "component": "@/pages/List/TableList"
+          }
+        ]
+      },
+      {
+        "path": "/results",
+        "name": "结果页",
+        "locale": "results",
+        "icon": "dashboard",
+        "routes": [
+          {
+            "path": "/results/success",
+            "name": "成功页",
+            "locale": "success",
+            "component": "@/pages/Results/Success"
+          },
+          {
+            "path": "/results/fail",
+            "name": "失败页",
+            "locale": "fail",
+            "component": "@/pages/Results/Fail"
+          }
+        ]
+      },
+      {
+        "path": "/person",
+        "name": "个人页",
+        "icon": "dashboard",
+        "locale": "person",
+        "routes": [
+          {
+            "path": "/person/personalCenter",
+            "name": "个人中心",
+            "locale": "personalCenter",
+            "component": "@/pages/Person/PersonalCenter"
+          },
+          {
+            "path": "/person/personalSettings",
+            "name": "个人设置",
+            "locale": "personalSettings",
+            "component": "@/pages/Person/PersonalSettings"
           }
         ]
       },

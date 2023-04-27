@@ -12,6 +12,12 @@ export default {
   'menu.list.basiclist': 'basiclist',
   'menu.list.cardlist': 'cardlist',
   'menu.list.tablelist': 'tablelist',
+  'menu.results': 'results',
+  'menu.results.success': 'success',
+  'menu.results.fail': 'fail',
+  'menu.person': 'person',
+  'menu.person.personalCenter': 'personalCenter',
+  'menu.person.personalSettings': 'personalSettings',
   'menu.404': '404',
   'menu.403': '403',
 };

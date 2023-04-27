@@ -12,6 +12,12 @@ export default {
   'menu.list.basiclist': '基础列表',
   'menu.list.cardlist': '卡片列表',
   'menu.list.tablelist': '表格列表',
+  'menu.results': '结果页',
+  'menu.results.success': '成功页',
+  'menu.results.fail': '失败页',
+  'menu.person': '个人页',
+  'menu.person.personalCenter': '个人中心',
+  'menu.person.personalSettings': '个人设置',
   'menu.404': '404',
   'menu.403': '403',
 };

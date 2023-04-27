@@ -13,6 +13,12 @@ const menus = [
   '/list/basiclist',
   '/list/cardlist',
   '/list/tablelist',
+  '/results',
+  '/results/success',
+  '/results/fail',
+  '/person',
+  '/person/personalCenter',
+  '/person/personalSettings',
   '/404',
   '/403',
 ];

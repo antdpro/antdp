@@ -34,7 +34,7 @@ const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
       <Right>
         <LinkMenu to="/home">首页</LinkMenu>
         <AMenu
-          href="https://stackblitz.com/github/uiwjs/uiw-admin/tree/master/examples/base?embed=1&hideNavigation=0&hidedevtools=0"
+          href="https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-example?embed=1&hideNavigation=0&hidedevtools=0"
           target="__blank"
         >
           实例预览

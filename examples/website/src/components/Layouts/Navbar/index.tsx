@@ -1,7 +1,7 @@
 import { FC, PropsWithRef } from 'react';
 import { Link } from '@kkt/pro';
 import Icon from '@uiw/react-icon';
-import ReactLogo from '../../../assets/logo.svg';
+import { ReactComponent as ReactLogo } from '../../../assets/logo.svg';
 import {
   Wrapper,
   Left,
@@ -25,7 +25,7 @@ const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
     <Wrapper>
       <Left>
         <Logo to="/">
-          <img src={ReactLogo} width={28} height={28} alt="logo" />
+          <ReactLogo  width={28} height={28} />
           <Title>
             Antd Project<Version>{VERSION}</Version>
           </Title>
@@ -41,6 +41,9 @@ const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
         </AMenu>
         <LinkMenu to="/docs">教程</LinkMenu>
         <LinkMenu to="/components">组件</LinkMenu>
+        <LinkMenu to="https://raw.githack.com/antdpro/antdp/v1-doc/index.html#/">
+          v1.x
+        </LinkMenu>
         <HeaderTools>
           <dark-mode permanent></dark-mode>
         </HeaderTools>

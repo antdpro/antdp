@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 import styles from './index.module.less';
-import ReactLogo from '../../assets/logo.svg';
+import { ReactComponent as ReactLogo } from '../../assets/logo.svg';
 import Icon from '@uiw/react-icon';
 import { Link, KktproPageProps } from '@kkt/pro';
+import Footer from '@/components/Footer';
 
 export default function ({ navigate }: KktproPageProps) {
 
@@ -36,9 +37,9 @@ export default function ({ navigate }: KktproPageProps) {
       <BackGround />
       <Container>
         <div className={styles.left}>
-          <img src={ReactLogo} width={300} height={300} alt="logo" />
+          <ReactLogo width={300} height={300}  />
           <div style={{ display: 'flex' }}>
-            <div className={styles.button} onClick={()=>navigate('/docs')}>快速上手 →</div>
+            <div className={styles.button} onClick={() => navigate('/docs')}>快速上手 →</div>
             <Link
               to="https://github.com/antdpro/antdp"
               target="_blank"
@@ -52,8 +53,10 @@ export default function ({ navigate }: KktproPageProps) {
         <div className={styles.right}>
           <div className={styles.b}></div>
           <div className={styles.c}></div>
-          <div className={styles.slogan___LKozv}>
-            <strong style={{ color: '#0273dc' }}>antdp</strong> 一个基于 <strong style={{ color: '#0273dc' }}>umi</strong> 的初始级别项目
+          <div className={styles.slogan___LKozv1}>
+            <strong style={{ color: '#0273dc' }}>antdp</strong> 一个基于{' '}
+            <strong className={styles.changeText} style={{ color: '#0273dc' }} />
+            的初始级别项目
           </div>
           <div className={styles.slogan___LKozv}>
             带给你<strong style={{ color: '#0273dc' }}>简单</strong>而<strong style={{ color: '#0273dc' }}>愉悦</strong>的 Web 开发体验
@@ -61,6 +64,7 @@ export default function ({ navigate }: KktproPageProps) {
           <div className={styles.bow___H3eNk}></div>
         </div>
       </Container>
+      <Footer></Footer>
     </Wrapper>
   )
 }

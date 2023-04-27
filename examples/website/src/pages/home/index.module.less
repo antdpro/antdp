@@ -54,11 +54,27 @@
     background-size: 350px 58px;
     margin: 0 auto 14px;
   }
-  .slogan___LKozv {
+  .slogan___LKozv1 {
     font-size: 25px;
     color: #708293;
     text-align: center;
     width: 460px;
+    @keyframes changeText {
+      0% {
+        content: 'umi';
+      }
+      50% {
+        content: 'antd';
+      }
+      100% {
+        content: 'umi';
+      }
+    }
+    .changeText::before {
+      // animation: changeText 3s linear infinite;
+      content: 'umi';
+      display: inline-block;
+    }
   }
   .slogan___LKozv {
     font-size: 25px;

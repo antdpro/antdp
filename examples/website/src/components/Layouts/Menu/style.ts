@@ -27,15 +27,17 @@ export const MenuLabel = styled(NavLink)`
   align-items: stretch;
   padding: 5px 12px;
   border-radius: 4px;
-  color: currentColor;
+  color: #374151;
+  font-size: 14px;
   margin-left: 0;
   &:hover,
   &[aria-current='page'],
   &.active {
-    background-color: var(--color-neutral-muted);
+    background-color:#eff6ff;
+    color: #60a5fa;
   }
   &.active {
-    background-color: var(--color-neutral-muted);
+    background-color: #eff6ff;
     gap: 5px;
   }
 `;
@@ -52,17 +54,18 @@ export const MenuA = styled.a`
   &:hover,
   &[aria-current='page'],
   &.active {
-    background-color: var(--color-neutral-muted);
+    background-color:#eff6ff;
+    color: #60a5fa;
   }
   &.active {
-    background-color: var(--color-neutral-muted);
+    background-color: #eff6ff;
     gap: 5px;
   }
 `;
 
 export const Divider = styled.div`
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 800;
   padding: 15px 5px 5px 5px;
   color: var(--color-fg-default);
 `;

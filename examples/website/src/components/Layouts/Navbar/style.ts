@@ -3,7 +3,7 @@ import { NavLink } from '@kkt/pro';
 
 export const Wrapper = styled.div`
   border-bottom: 1px solid var(--color-border-muted);
-  height: 58px;
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,8 +68,8 @@ export const LinkMenu = styled(NavLink)`
     margin-left: 0;
   }
   &.active {
-    color: var(--font-color);
-    background: var(--color1);
+    color: #60a5fa;
+    background-color: #eff6ff;
   }
 `;
 export const AMenu = styled.a`
@@ -82,7 +82,7 @@ export const AMenu = styled.a`
     margin-left: 0;
   }
   &.active {
-    color: var(--font-color);
-    background: var(--color1);
+    color: #60a5fa;
+    background-color: #eff6ff;
   }
 `;

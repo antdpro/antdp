@@ -18,7 +18,7 @@ interface NavbarProps
   extends React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLElement>,
     HTMLElement
-  > {}
+  > { }
 
 const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
   return (
@@ -32,6 +32,7 @@ const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
         </Logo>
       </Left>
       <Right>
+        <LinkMenu to="/home">首页</LinkMenu>
         <AMenu
           href="https://stackblitz.com/github/uiwjs/uiw-admin/tree/master/examples/base?embed=1&hideNavigation=0&hidedevtools=0"
           target="__blank"
@@ -44,7 +45,7 @@ const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
           <dark-mode permanent></dark-mode>
         </HeaderTools>
         <Link
-          to="https://github.com/uiwjs/uiw-admin"
+          to="https://github.com/antdpro/antdp"
           target="_blank"
           style={{ color: 'var(--color-fg-default)' }}
         >

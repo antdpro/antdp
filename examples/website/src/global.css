@@ -21,9 +21,9 @@ html, main {
 
 
 [data-color-mode*='light'] {
-  --font-color: #333;
+  --font-color: #000;
   --color-header-bg: 255 255 255;
-  --color-border-muted: #e5e5e5;
+  --color-border-muted: #e5e7eb;
   --color1: #f2f2f2;
 }
 

@@ -20,7 +20,12 @@
     "moduleResolution": "node",
     "isolatedModules": true,
     "types": ["jest", "node"],
-    "noEmit": true
+    "noEmit": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@@/*": ["./src/.kktp/*"],
+      "kktp": ["./src/.kktp/*"]
+    }
   },
-  "include": ["src", ".kktrc.ts"]
+  "include": ["src", "config/.kktprc.ts"]
 }

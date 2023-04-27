@@ -1,4 +1,3 @@
-import React from 'react';
 import Markdown from "../../components/Preview";
 
 export default function Pages() {

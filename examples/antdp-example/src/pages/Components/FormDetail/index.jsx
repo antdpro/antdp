@@ -4,18 +4,9 @@ import { Card, Space, Table, Steps } from 'antd';
 import CardDes from '@/components/CardDes';
 import 'antd/dist/reset.css';
 import { useMemo } from 'react';
-import { detailItems } from '../QuickForm/item';
+import { detailItems, userItems } from './item';
 
 const Page = () => {
-  const [queryInfo, setInfo] = useState({ time2: 123456, fileList: [] });
-
-  const data = useMemo(() => {
-    return detailItems({
-      queryInfo,
-      setInfo,
-    });
-  }, [queryInfo, setInfo]);
-
   const columns = [
     {
       title: '姓名',
@@ -106,9 +97,17 @@ const Page = () => {
         description="@antdp/antdp-ui 超快速生成详情表单"
       />
       <Card>
-        <FormDetail isView={true} header="用户信息" formDatas={data} />
-        <FormDetail isView={true} header="用户信息" formDatas={data} />
+        <FormDetail isView={true} header="仓库管理" formDatas={detailItems} />
+      </Card>
+      <Card>
+        <FormDetail isView={true} header="任务管理" formDatas={userItems} />
+      </Card>
+      <Card>
+        <h3>用户列表</h3>
         <Table columns={columns} dataSource={tableData} />
+      </Card>
+      <Card>
+        <h3>任务进度</h3>
         <Steps
           current={1}
           items={[

@@ -67,17 +67,22 @@ yarn start
 
 ### 目录结构
 ```bash
-├── config                            # configuration and proxy
-├── mock                              # mock data
-├── src                               # code directory
-│   ├── components                    # react components
-│   ├── layouts                       # layout locales
-│   ├── locales                       # internationalization 
-│   ├── models                        # The models brings together state, reducers, async actions & action creators in one place
-│   ├── pages                         # route pages
-│   ├── services                      # api request
-│   ├── utils                         # public method
-└── package.json                      # This document is all you need to know about what’s required in your package.json file.
+├── config
+│   ├── config.js
+│   ├── proxy.js
+│   └── router.json
+├── mock
+│   ├── load.js
+│   └── user.js
+├── package.json
+└── src
+    ├── components
+    ├── layouts
+    ├── locales
+    ├── models
+    ├── pages
+    ├── services
+    └── utils
 ```
 ### 相关依赖
 

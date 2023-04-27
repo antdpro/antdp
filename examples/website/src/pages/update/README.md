@@ -7,7 +7,7 @@
 
 ### 技术调整
 - 1.[antd 从 v4 到 v5](https://ant.design/docs/react/migration-v5-cn)
-- 2.[umi  从 v3 到 v4](https://ant.design/docs/react/migration-v5-cn)
+- 2.[umi  从 v3 到 v4](https://umijs.org/docs/introduce/upgrade-to-umi-4)
 - 3.`basic-layouts` 重构，并添加 `useLayouts` 的hooks [`2b3ad38`](https://github.com/antdpro/antdp/commit/2b3ad38deca0b31b9f575980bf1239249ae738b5)
 - 4.`Authorized` 添加 `AuthorizedConfigProvider和useAuthorizedonfig` [`cf75f09`](https://github.com/antdpro/antdp/commit/cf75f096ad0646a1e831f45141cc7c84c1442c2d)
 - 5.`react` 升级至 `18.x`

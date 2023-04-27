@@ -12,6 +12,13 @@ export const useMdData = (path: MdDataHandle) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    const $main = document.getElementsByTagName(
+      'main',
+    ) as HTMLCollectionOf<HTMLDivElement>;
+    $main[0].scrollTo(0, 0);
+  }, [path]);
+
+  useEffect(() => {
     setLoading(() => true);
     const getMd = async () => {
       try {
@@ -25,7 +32,7 @@ export const useMdData = (path: MdDataHandle) => {
       setLoading(() => false);
     };
     getMd();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [path]);
   return { mdData, loading };
 };

@@ -8,6 +8,7 @@ yarn-error.log*
 *.lerna_backup
 package-lock.json
 yarn.lock
+.kktp
 
 .DS_Store
 .cache

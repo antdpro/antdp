@@ -38,25 +38,25 @@ $ npx create-antdp my-app
 ### 创建js项目
 ```shell
 # npm 6.x
-$ npm init antdp my-app --example antdp-base
+$ npm init antdp my-app --example basicjs
 # npm 7+，extra double-dash is needed:
-$ npm init antdp my-app -- --example antdp-base
+$ npm init antdp my-app -- --example basicjs
 
-$ yarn create antdp [appName] -- --example antdp-base
+$ yarn create antdp [appName] -- --example basicjs
 # or npm
-$ npm create antdp my-app -- --example antdp-base
+$ npm create antdp my-app -- --example basicjs
 # or npx
-$ npx create-antdp my-app -- --example antdp-base
+$ npx create-antdp my-app -- --example basicjs
 ```
-或者直接下载版本: [`antdp-base.zip`](https://antdpro.github.io/antdp/zip/antdp-base.zip)
+或者直接下载版本: [`basicjs.zip`](https://antdpro.github.io/antdp/zip/basicjs.zip)
 ### 在CodeSandbox中打开，查看实例
 
-[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/s/github/antdpro/antdp/tree/master/examples/antdp-example)
-[![Open in StackBlitz](https://img.shields.io/badge/Open%20in-StackBlitz-blue?logo=)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-example?embed=1&hideNavigation=0&hidedevtools=0)
+[![Open in CodeSandbox](https://img.shields.io/badge/Open%20in-CodeSandbox-blue?logo=codesandbox)](https://codesandbox.io/s/github/antdpro/antdp/tree/master/examples/antdp-base)
+[![Open in StackBlitz](https://img.shields.io/badge/Open%20in-StackBlitz-blue?logo=)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
 用户名密码： admin/admin
 
-直接下载实例下载本地预览: [`antdp-base.zip`](https://antdpro.github.io/antdp/zip/antdp-base.zip)
+你可以也直接下载实例下载本地预览: [`antdp-base.zip`](https://antdpro.github.io/antdp/zip/antdp-base.zip)
 
 ### 启动项目
 ```bash
@@ -108,7 +108,7 @@ git clone https://github.com/antdpro/antdp.git
 ```
 
 ```bash
-npm install               # 按照项目依赖
+npm install               # 安装项目依赖
 npm run build             # 实时监听包输出 JS
 npm run start:website     # 运行文档网站
 npm run start:antdp-base  # 运行实例

@@ -10,7 +10,6 @@
     "start:antdp-base": "lerna exec --scope @example/antdp-base -- npm run start",
     "start:website": "lerna exec --scope @example/website -- npm run start",
     "start:basic": "lerna exec --scope @example/basic npm run start",
-    "start:example": "lerna exec --scope @example/antdp-example npm run start",
     "build:antdp-base": "lerna exec --scope @example/antdp-base -- npm run build",
     "build:website": "lerna exec --scope @example/website -- npm run build",
     "build": "lerna exec --scope @antdp/* --ignore @antdp/dependencies -- tsbb build --use-babel src/*.{js,ts,tsx,jsx}",

@@ -1,5 +1,5 @@
 {
-  "name": "@example/antdp-base",
+  "name": "@example/antdp-example",
   "private": true,
   "scripts": {
     "start": "max dev",

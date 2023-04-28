@@ -2,18 +2,18 @@ import styled from 'styled-components';
 import { NavLink } from '@kkt/pro';
 
 export const Wrapper = styled.div`
-  border-bottom: 1px solid var(--color-border-muted);
+  /* border-bottom: 1px solid var(--color-border-muted); */
   height: 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: fixed;
+  position: relative;
   padding: 0 12px;
   gap: 12px;
   top: 0;
   width: 100%;
   z-index: 9;
-  background-color: var(--color-canvas-default);
+  /* background-color: var(--color-canvas-default); */
   /* background-color: hsla(var(--color-header-bg) / 75%);
   backdrop-filter: saturate(180%) blur(0.4rem); */
 `;

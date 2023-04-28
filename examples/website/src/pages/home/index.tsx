@@ -1,27 +1,37 @@
 import styled from 'styled-components';
 import styles from './index.module.less';
-import { ReactComponent as ReactLogo } from '@/assets/logo.svg';
-import Icon from '@uiw/react-icon';
-import { Link, KktproPageProps } from '@kkt/pro';
+import { KktproPageProps, Link } from '@kkt/pro';
+import { Button } from 'antd'
 import Footer from '@/components/Footer';
 
 export default function ({ navigate }: KktproPageProps) {
 
-  const Wrapper = styled.div`
-  height: 640px;
-  position: relative;
+const Layout = styled.div`
+  font-family: sans-serif;
+  background-color: var(--home-background-color)
 `;
 
-  const BackGround = styled.div`
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background: url(https://img.alicdn.com/imgextra/i4/O1CN01Ri0dNS26K5UcRKrrU_!!6000000007642-2-tps-280-1400.png) repeat-x;
-    background-position: 0 -40px;
-    background-size: 140px 700px;
-    height: 640px;
-    z-index: 1;
+  const Wapper = styled.div`
+    position: relative;
+    margin: -96px auto -160px;
+    max-width: 1392px;
+    height: 932px;
+    padding-top: 220px;
+    text-align: center;
+    box-sizing: border-box;
+    ::before{
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: .8;
+      pointer-events: none;
+      background: no-repeat center / cover;
+      background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/a6c3488a-994c-4dd3-8e92-2324d9a1ca48/l9dmd9wl_w2858_h1864.png);
+  }
 `;
 
   const Container = styled.div`
@@ -33,38 +43,27 @@ export default function ({ navigate }: KktproPageProps) {
 `
 
   return (
-    <Wrapper>
-      <BackGround />
-      <Container>
-        <div className={styles.left}>
-          <ReactLogo width={300} height={300}  />
-          <div style={{ display: 'flex' }}>
-            <div className={styles.button} onClick={() => navigate('/docs')}>快速上手 →</div>
-            <Link
-              to="https://github.com/antdpro/antdp"
-              target="_blank"
-              className={styles.githubStar___uAovz}
-            >
-              <Icon type="github" style={{ fontSize: 20 }} />
-              <span style={{ color: '#4a5e71', fontSize: 18, fontWeight: 500 }}>Antd Project</span>
-            </Link>
-          </div>
+    <Layout>
+      <Wapper>
+        <h1 className={styles._default_hero_title}>
+          <span>antdp</span>
+        </h1>
+        <p className={styles.des}>
+          一个基于 <strong style={{ color: '#0273dc' }}>antd5.x</strong> 和 <strong style={{ color: '#0273dc' }}>umi</strong> 的初始级别项目，集成<strong style={{ color: '#0273dc' }}>路由、dva(Redux)、选项卡</strong>等特性
+          <br />
+          <small style={{ opacity: 0.7 }}>
+            <a href="https://raw.githack.com/antdpro/antdp/v1-doc/index.html" style={{ color: '#1677ff' }}>v1 文档</a>
+          </small>
+        </p>
+        <div className={styles._default_hero_actions}>
+          <Button type="primary" shape="round" size="large" onClick={() => navigate('/docs')}>立即上手</Button>
+          <div style={{ marginRight: 12 }} />
+          <Button type="primary" ghost shape="round" size="large">
+            <Link to="https://github.com/antdpro/antdp" target="_blank">GitHub</Link>
+          </Button>
         </div>
-        <div className={styles.right}>
-          <div className={styles.b}></div>
-          <div className={styles.c}></div>
-          <div className={styles.slogan___LKozv1}>
-            <strong style={{ color: '#0273dc' }}>antdp</strong> 一个基于{' '}
-            <strong className={styles.changeText} style={{ color: '#0273dc' }} />
-            的初始级别项目
-          </div>
-          <div className={styles.slogan___LKozv}>
-            带给你<strong style={{ color: '#0273dc' }}>简单</strong>而<strong style={{ color: '#0273dc' }}>愉悦</strong>的 Web 开发体验
-          </div>
-          <div className={styles.bow___H3eNk}></div>
-        </div>
-      </Container>
-      <Footer></Footer>
-    </Wrapper>
+      </Wapper>
+      <Footer />
+    </Layout>
   )
 }

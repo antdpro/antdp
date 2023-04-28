@@ -1,6 +1,6 @@
 import { FC, PropsWithRef } from 'react';
 import { Link } from '@kkt/pro';
-import Icon from '@uiw/react-icon';
+import { GithubOutlined } from '@ant-design/icons'
 import { ReactComponent as ReactLogo } from '@/assets/logo.svg';
 import {
   Wrapper,
@@ -52,7 +52,7 @@ const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
           target="_blank"
           style={{ color: 'var(--color-fg-default)' }}
         >
-          <Icon type="github" style={{ fontSize: 20 }} />
+         <GithubOutlined />
         </Link>
       </Right>
     </Wrapper>

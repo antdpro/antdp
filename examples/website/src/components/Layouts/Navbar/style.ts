@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { NavLink } from '@kkt/pro';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ isHome?: boolean }>`
   border-bottom: 1px solid var(--color-border-muted);
-  height: 58px;
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,8 +14,14 @@ export const Wrapper = styled.div`
   width: 100%;
   z-index: 9;
   background-color: var(--color-canvas-default);
-  /* background-color: hsla(var(--color-header-bg) / 75%);
-  backdrop-filter: saturate(180%) blur(0.4rem); */
+  background-color: hsla(var(--color-header-bg) / 75%);
+  backdrop-filter: saturate(180%) blur(0.4rem);
+  ${({ isHome }) => {
+    return isHome && css`
+      background-color: none;
+      border-bottom: none;
+    `
+  }}
 `;
 
 export const Left = styled.div`
@@ -68,8 +74,8 @@ export const LinkMenu = styled(NavLink)`
     margin-left: 0;
   }
   &.active {
-    color: var(--font-color);
-    background: var(--color1);
+    color: #60a5fa;
+    background-color: #eff6ff;
   }
 `;
 export const AMenu = styled.a`
@@ -82,7 +88,7 @@ export const AMenu = styled.a`
     margin-left: 0;
   }
   &.active {
-    color: var(--font-color);
-    background: var(--color1);
+    color: #60a5fa;
+    background-color: #eff6ff;
   }
 `;

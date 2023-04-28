@@ -1,6 +1,6 @@
 import { Spin } from 'antd';
 import { Fragment, useState } from 'react';
-import styles from './index.module.css';
+import styles from './index.module.less';
 import React from 'react';
 
 export default function Pages() {
@@ -13,7 +13,7 @@ export default function Pages() {
         </div>
       )}
       <iframe
-        src="https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-example?embed=1&hideNavigation=0&hidedevtools=0"
+        src="https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0"
         style={{
           width: '100%',
           height: '100%',

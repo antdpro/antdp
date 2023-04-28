@@ -55,9 +55,7 @@ const Demo = () => {
   return (
     <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
       <Card>
-        <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
-        </div>
+        <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
       </Card>
     </Space>
   );

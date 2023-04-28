@@ -126,18 +126,16 @@
         ]
       },
       {
-        "path": "/404",
-        "name": "404",
-        "hideInMenu": true,
-        "icon": "file-protect",
-        "component": "@/pages/404"
-      },
-      {
         "path": "/403",
         "name": "403",
-        "hideInMenu": true,
         "icon": "file-protect",
         "component": "@/pages/403"
+      },
+      {
+        "path": "/404",
+        "name": "404",
+        "icon": "file-protect",
+        "component": "@/pages/404"
       }
     ]
   }

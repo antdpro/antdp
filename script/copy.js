@@ -1,5 +1,5 @@
 /**
- * 转换 examples/base下除src目录下所有ts文件为js文件
+ * 转换 examples/basic下除src目录下所有ts文件为js文件
  * */
 const path = require('path');
 const fs = require('fs');
@@ -15,7 +15,7 @@ const PWDOutPut = path.resolve(__dirname, '../examples/basicjs/');
 const getFields = async () => {
   const dirToFiles = await recursiveReaddirFiles.default(PWDEntry, {
     exclude:
-      /(node_modules|.uiw|build|dist|\.d\.ts|\.(test|spec)\.(ts|tsx|js|jsx))$/,
+      /(node_modules|.umi|build|dist|\.d\.ts|\.(test|spec)\.(ts|tsx|js|jsx))$/,
   });
   return dirToFiles;
 };
@@ -45,14 +45,17 @@ const fieldMap = async () => {
 };
 // 为了后面那一步 修改package.json
 const ci = async () => {
-  await fieldMap();
-  // 更改 package.json name 名称
-  const pagPath = path.resolve(__dirname, '../examples/basic/package.json');
-  const pagContent = fs.readFileSync(pagPath, { encoding: 'utf-8' });
-  const newPageContent = pagContent.replace(
-    /"name": "@examples\/basic"/,
-    `"name": "@examples/basicjs"`,
-  );
-  fs.writeFileSync(pagPath, newPageContent);
+  try {
+    await fieldMap();
+    // 更改 package.json name 名称
+    const pagPath = path.resolve(__dirname, '../examples/basicjs/package.json');
+    const pagContent = fs.readFileSync(pagPath, { encoding: 'utf-8' });
+    const packageJson = JSON.parse(pagContent);
+    packageJson.name = '@example/basicjs';
+    const newPageContent = JSON.stringify(packageJson, null, 2);
+    fs.writeFileSync(pagPath, newPageContent);
+  } catch (error) {
+    console.error(error);
+  }
 };
 ci();

@@ -28,9 +28,9 @@ jobs:
       - run: export NODE_OPTIONS="--max-old-space-size=8192"
       - run: npm install
       - run: npm run build
+      - run: npm run build:website
       # examples/basic 里面的 ts 转换 成 js版本并存储到 examples/basicjs
       - run: yarn run build:js
-      - run: npm run build:website
 
       - name: Create Tag
         id: create_tag

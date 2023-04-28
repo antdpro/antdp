@@ -16,18 +16,6 @@
         "name": "首页",
         "icon": "welcome",
         "component": "@/pages/index"
-      },
-      {
-        "path": "/welcome2",
-        "name": "首页2",
-        "icon": "welcome",
-        "component": "@/pages/index"
-      },
-      {
-        "path": "/welcome3",
-        "name": "首页3",
-        "icon": "welcome",
-        "component": "@/pages/index"
       }
     ]
   }

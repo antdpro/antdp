@@ -14,17 +14,116 @@
       {
         "path": "/welcome",
         "name": "首页",
-        "icon": "welcome",
         "locale": "welcome",
+        "icon": "dashboard",
         "component": "@/pages/Home/index"
       },
       {
+        "path": "/chart",
+        "name": "图表页",
+        "locale": "chart",
+        "icon": "barChart",
+        "component": "@/pages/Chart"
+      },
+      {
         "path": "/dashboard",
-        "name": "实例展示",
+        "name": "页面试例",
         "locale": "dashboard",
-        "icon": "dashboard",
+        "icon": "fileText",
         "side": true,
         "component": "@/pages/Demo"
+      },
+      {
+        "path": "/components",
+        "name": "组件页",
+        "locale": "components",
+        "icon": "form",
+        "routes": [
+          {
+            "path": "/components/quickform",
+            "name": "快速表单",
+            "locale": "quickform",
+            "component": "@/pages/Components/QuickForm"
+          },
+          {
+            "path": "/components/formdetail",
+            "name": "详情表单",
+            "locale": "formdetail",
+            "component": "@/pages/Components/FormDetail"
+          },
+          {
+            "path": "/components/edittable",
+            "name": "编辑表格",
+            "locale": "edittable",
+            "component": "@/pages/Components/EditTable"
+          }
+        ]
+      },
+      {
+        "path": "/list",
+        "name": "列表页",
+        "icon": "table",
+        "locale": "list",
+        "routes": [
+          {
+            "path": "/list/basiclist",
+            "name": "基础列表",
+            "locale": "basiclist",
+            "component": "@/pages/List/BasicList"
+          },
+          {
+            "path": "/list/cardlist",
+            "name": "卡片列表",
+            "locale": "cardlist",
+            "component": "@/pages/List/CardList"
+          },
+          {
+            "path": "/list/tablelist",
+            "name": "表格列表",
+            "locale": "tablelist",
+            "component": "@/pages/List/TableList"
+          }
+        ]
+      },
+      {
+        "path": "/results",
+        "name": "结果页",
+        "locale": "results",
+        "icon": "checkCircle",
+        "routes": [
+          {
+            "path": "/results/success",
+            "name": "成功页",
+            "locale": "success",
+            "component": "@/pages/Results/Success"
+          },
+          {
+            "path": "/results/fail",
+            "name": "失败页",
+            "locale": "fail",
+            "component": "@/pages/Results/Fail"
+          }
+        ]
+      },
+      {
+        "path": "/person",
+        "name": "个人页",
+        "icon": "user",
+        "locale": "person",
+        "routes": [
+          {
+            "path": "/person/personalCenter",
+            "name": "个人中心",
+            "locale": "personalCenter",
+            "component": "@/pages/Person/PersonalCenter"
+          },
+          {
+            "path": "/person/personalSettings",
+            "name": "个人设置",
+            "locale": "personalSettings",
+            "component": "@/pages/Person/PersonalSettings"
+          }
+        ]
       },
       {
         "path": "/404",

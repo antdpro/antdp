@@ -72,6 +72,7 @@
     "react-refresh": "^0.14.0"
   },
   "dependencies": {
+    "@ant-design/charts": "^1.4.2",
     "compile-less-cli": "1.8.14",
     "husky": "8.0.3",
     "jest-environment-jsdom": "29.5.0",

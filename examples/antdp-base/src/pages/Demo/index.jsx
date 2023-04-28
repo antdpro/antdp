@@ -52,6 +52,7 @@ const Demo = () => {
           ]}
         />
       </Card>
+      <div style={{ marginTop: 10 }} />
       <SearchTable />
       <Drawer
         title="详情"

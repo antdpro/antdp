@@ -89,6 +89,7 @@ const SearchTable = () => {
           </Col>
         </Row>
       </Card>
+      <div style={{ marginTop: 10 }} />
       <Card size="small">
         <Table {...tableProps} bordered rowKey="id" columns={columns} />
       </Card>

@@ -1,5 +1,5 @@
 import { FC, PropsWithRef } from 'react';
-import { Link } from '@kkt/pro';
+import { Link, useLocation } from '@kkt/pro';
 import { GithubOutlined } from '@ant-design/icons'
 import { ReactComponent as ReactLogo } from '@/assets/logo.svg';
 import {
@@ -21,11 +21,12 @@ interface NavbarProps
   > { }
 
 const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
+  const { pathname } = useLocation()
   return (
-    <Wrapper>
+    <Wrapper isHome={pathname === '/home'}>
       <Left>
         <Logo to="/">
-          <ReactLogo  width={28} height={28} />
+          <ReactLogo width={28} height={28} />
           <Title>
             Antd Project<Version>{VERSION}</Version>
           </Title>
@@ -52,7 +53,7 @@ const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
           target="_blank"
           style={{ color: 'var(--color-fg-default)' }}
         >
-         <GithubOutlined />
+          <GithubOutlined />
         </Link>
       </Right>
     </Wrapper>

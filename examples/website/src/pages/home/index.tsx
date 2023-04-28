@@ -4,44 +4,35 @@ import { KktproPageProps, Link } from '@kkt/pro';
 import { Button } from 'antd'
 import Footer from '@/components/Footer';
 
-export default function ({ navigate }: KktproPageProps) {
-
 const Layout = styled.div`
-  font-family: sans-serif;
-  background-color: var(--home-background-color)
+font-family: sans-serif;
+background-color: var(--home-background-color);
 `;
 
-  const Wapper = styled.div`
-    position: relative;
-    margin: -96px auto -160px;
-    max-width: 1392px;
-    height: 932px;
-    padding-top: 220px;
-    text-align: center;
-    box-sizing: border-box;
-    ::before{
-      content: "";
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      opacity: .8;
-      pointer-events: none;
-      background: no-repeat center / cover;
-      background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/a6c3488a-994c-4dd3-8e92-2324d9a1ca48/l9dmd9wl_w2858_h1864.png);
-  }
+const Wapper = styled.div`
+  position: relative;
+  margin: -96px auto -160px;
+  max-width: 1392px;
+  height: 932px;
+  padding-top: 220px;
+  text-align: center;
+  box-sizing: border-box;
+  ::before{
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .8;
+    pointer-events: none;
+    background: no-repeat center / cover;
+    background-image: url(https://gw.alipayobjects.com/zos/bmw-prod/a6c3488a-994c-4dd3-8e92-2324d9a1ca48/l9dmd9wl_w2858_h1864.png);
+}
 `;
 
-  const Container = styled.div`
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    z-index: 2;
-`
-
+export default function ({ navigate }: KktproPageProps) {
   return (
     <Layout>
       <Wapper>

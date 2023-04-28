@@ -53,7 +53,7 @@ const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
           target="_blank"
           style={{ color: 'var(--color-fg-default)' }}
         >
-          <GithubOutlined />
+          <GithubOutlined style={{ fontSize:20 }} />
         </Link>
       </Right>
     </Wrapper>

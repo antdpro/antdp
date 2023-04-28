@@ -46,7 +46,7 @@ export const Logo = styled(NavLink)`
 `;
 
 export const Title = styled.div`
-  font-weight: bold;
+  font-weight: 700;
   font-size: 18px;
 `;
 
@@ -67,9 +67,10 @@ export const HeaderTools = styled.div`
 export const LinkMenu = styled(NavLink)`
   text-decoration: none;
   font-size: 16px;
-  color: var(--color-fg-default);
+  color: #4f5866;
   padding: 2px 15px;
   border-radius: 3px;
+  font-family: sans-serif;
   &:first-child {
     margin-left: 0;
   }
@@ -81,9 +82,10 @@ export const LinkMenu = styled(NavLink)`
 export const AMenu = styled.a`
   text-decoration: none;
   font-size: 16px;
-  color: var(--color-fg-default);
+  color: #4f5866;
   padding: 2px 15px;
   border-radius: 3px;
+  font-family: sans-serif;
   &:first-child {
     margin-left: 0;
   }

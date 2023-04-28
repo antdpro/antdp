@@ -27,7 +27,7 @@ export const MenuLabel = styled(NavLink)`
   align-items: stretch;
   padding: 5px 12px;
   border-radius: 4px;
-  color: #374151;
+  color: #4f5866;
   font-size: 14px;
   margin-left: 0;
   &:hover,
@@ -49,7 +49,7 @@ export const MenuA = styled.a`
   align-items: stretch;
   padding: 5px 12px;
   border-radius: 4px;
-  color: currentColor;
+  color: #4f5866;
   margin-left: 0;
   &:hover,
   &[aria-current='page'],
@@ -65,7 +65,7 @@ export const MenuA = styled.a`
 
 export const Divider = styled.div`
   font-size: 16px;
-  font-weight: 800;
+  font-weight: 900;
   padding: 15px 5px 5px 5px;
   color: var(--color-fg-default);
 `;

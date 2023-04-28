@@ -28,6 +28,8 @@ jobs:
       - run: export NODE_OPTIONS="--max-old-space-size=8192"
       - run: npm install
       - run: npm run build
+      # examples/basic 里面的 ts 转换 成 js版本并存储到 examples/basicjs
+      - run: yarn run build:js
       - run: npm run build:website
 
       - name: Create Tag
@@ -71,6 +73,11 @@ jobs:
         run: zip -r -y basic.zip . -x "node_modules/*" -x ".umi/*" -x "dist/*" -x "coverage/*" -x ".eslintcache" -x "sandbox.config.json" -x "package-lock.json"
         working-directory: examples/basic
       - run: cp -rp examples/basic/basic.zip examples/website/build/zip
+
+      - name: Compress basicjs Example.
+        run: zip -r -y basicjs.zip . -x "node_modules/*" -x ".umi/*" -x "dist/*" -x "coverage/*" -x ".eslintcache" -x "sandbox.config.json" -x "package-lock.json"
+        working-directory: examples/basic
+      - run: cp -rp examples/basicjs/basicjs.zip examples/website/build/zip
 
       - name: Add Download Page
         working-directory: examples/website/build/zip

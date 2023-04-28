@@ -37,6 +37,8 @@
     "watch:user-login": "lerna exec  --scope @antdp/user-login -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
     "watch:hooks": "lerna exec  --scope @antdp/hooks -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
     "⬆️⬆️⬆️⬆️⬆️ watch::package ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
+    "----": "----",
+    "build:js": "node ./script/copy",
     "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
     "publish": "lerna publish from-package",
     "start": "lerna exec --scope @example/antdp-base npm run start",
@@ -78,6 +80,9 @@
     "lerna": "6.6.1",
     "lint-staged": "~13.2.0",
     "prettier": "2.8.7",
-    "tsbb": "^4.1.0"
+    "tsbb": "^4.1.0",
+    "recursive-readdir-files": "1.1.2",
+    "@babel/core": "~7.21.3",
+    "@babel/preset-typescript": "~7.21.0"
   }
 }

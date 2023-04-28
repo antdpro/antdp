@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { NavLink } from '@kkt/pro';
 
 export const Wrapper = styled.div<{ isHome?: boolean }>`
-  border-bottom: 1px solid var(--color-border-muted);
+  border-bottom: 2px solid rgb(229, 231, 235,.6);
   height: 65px;
   display: flex;
   align-items: center;

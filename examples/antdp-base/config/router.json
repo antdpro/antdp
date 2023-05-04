@@ -86,6 +86,26 @@
         ]
       },
       {
+        "path": "/detail",
+        "name": "详情页",
+        "icon": "profile",
+        "locale": "detail",
+        "routes": [
+          {
+            "path": "/detail/basicdetails",
+            "name": "基础详情页",
+            "locale": "basicdetails",
+            "component": "@/pages/Detail/BasicDetails"
+          },
+          {
+            "path": "/detail/advanceddetails",
+            "name": "高级详情页",
+            "locale": "advanceddetails",
+            "component": "@/pages/Detail/AdvancedDetails"
+          }
+        ]
+      },
+      {
         "path": "/results",
         "name": "结果页",
         "locale": "results",

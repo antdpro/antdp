@@ -18,6 +18,7 @@
     ]
   },
   "dependencies": {
+    "@ant-design/charts": "^1.4.2",
     "@ant-design/pro-form": "1.74.7",
     "@antdp/antdp-ui": "2.0.2",
     "@antdp/edit-table": "2.0.2",

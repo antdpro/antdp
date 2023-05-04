@@ -19,10 +19,17 @@
         "component": "@/pages/Home/index"
       },
       {
+        "path": "/chart",
+        "name": "图表页",
+        "locale": "chart",
+        "icon": "barChart",
+        "component": "@/pages/Chart"
+      },
+      {
         "path": "/dashboard",
         "name": "页面试例",
         "locale": "dashboard",
-        "icon": "dashboard",
+        "icon": "fileText",
         "side": true,
         "component": "@/pages/Demo"
       },
@@ -30,7 +37,7 @@
         "path": "/components",
         "name": "组件页",
         "locale": "components",
-        "icon": "dashboard",
+        "icon": "form",
         "routes": [
           {
             "path": "/components/quickform",
@@ -53,29 +60,9 @@
         ]
       },
       {
-        "path": "/results",
-        "name": "结果页",
-        "locale": "results",
-        "icon": "dashboard",
-        "routes": [
-          {
-            "path": "/results/success",
-            "name": "成功页",
-            "locale": "success",
-            "component": "@/pages/Results/Success"
-          },
-          {
-            "path": "/results/fail",
-            "name": "失败页",
-            "locale": "fail",
-            "component": "@/pages/Results/Fail"
-          }
-        ]
-      },
-      {
         "path": "/list",
         "name": "列表页",
-        "icon": "dashboard",
+        "icon": "table",
         "locale": "list",
         "routes": [
           {
@@ -99,10 +86,30 @@
         ]
       },
       {
+        "path": "/detail",
+        "name": "详情页",
+        "icon": "profile",
+        "locale": "detail",
+        "routes": [
+          {
+            "path": "/detail/basicdetails",
+            "name": "基础详情页",
+            "locale": "basicdetails",
+            "component": "@/pages/Detail/BasicDetails"
+          },
+          {
+            "path": "/detail/advanceddetails",
+            "name": "高级详情页",
+            "locale": "advanceddetails",
+            "component": "@/pages/Detail/AdvancedDetails"
+          }
+        ]
+      },
+      {
         "path": "/results",
         "name": "结果页",
         "locale": "results",
-        "icon": "dashboard",
+        "icon": "checkCircle",
         "routes": [
           {
             "path": "/results/success",
@@ -121,7 +128,7 @@
       {
         "path": "/person",
         "name": "个人页",
-        "icon": "dashboard",
+        "icon": "user",
         "locale": "person",
         "routes": [
           {

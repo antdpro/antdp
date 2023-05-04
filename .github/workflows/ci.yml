@@ -37,7 +37,7 @@ jobs:
         with:
           filter-author: (renovate\[bot\]|actions-user|renovate-bot|dependabot\[bot\])
           output: ./examples/website/build/CONTRIBUTORS.svg
-          avatarSize: 42  
+          avatarSize: 32  
 
       - name: Create Tag
         id: create_tag

@@ -54,6 +54,7 @@ export default function ({ navigate }: KktproPageProps) {
           </Button>
         </div>
       </Wapper>
+      <Footer />
       <div className={styles.normal___Nhkbz}>
         <div className={styles.normal___fStEy}>
           <div className={styles.normal___border} />
@@ -78,7 +79,6 @@ export default function ({ navigate }: KktproPageProps) {
           </div>
         </div>
       </div>
-      <Footer />
     </Layout>
   )
 }

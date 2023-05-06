@@ -22,7 +22,7 @@ export default function Layout(props: KktproPageProps) {
           algorithm: data_theme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
         }}
       >
-        <Main>
+        <Main isHome={pathname === "/home"}>
           <Body>
             {pathname === '/home' ? (
               <div style={{ paddingTop: 58, height: '100%' }}>

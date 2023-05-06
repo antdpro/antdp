@@ -20,7 +20,7 @@ export const Main = styled.main<{ isHome?: boolean }>`
 export const Body = styled.div`
   max-width: 1400px;
   margin: 0 auto;
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   position: relative;
   z-index: 1;

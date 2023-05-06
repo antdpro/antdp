@@ -5,6 +5,7 @@ import { Wrapper, Main, Body } from './style';
 import React, { useState, useEffect } from 'react'
 import { ConfigProvider, theme } from 'antd'
 import '@wcj/dark-mode';
+import HomeFooter from './HomeFooter';
 
 export default function Layout(props: KktproPageProps) {
   const { pathname } = useLocation();
@@ -38,6 +39,7 @@ export default function Layout(props: KktproPageProps) {
               </React.Fragment>
             )}
           </Body>
+          {pathname === '/home' && <HomeFooter />}
         </Main>
       </ConfigProvider>
     </Wrapper>

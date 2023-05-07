@@ -1,17 +1,17 @@
 {
   "name": "@example/basic",
   "private": true,
-  "version": "2.0.2",
+  "version": "2.0.3",
   "scripts": {
     "start": "max dev",
     "build": "max build",
     "umiinstall": "max setup"
   },
   "dependencies": {
-    "@antdp/authorized": "2.0.2",
-    "@antdp/basic-layouts": "2.0.2",
-    "@antdp/hooks": "2.0.2",
-    "@antdp/user-login": "2.0.2",
+    "@antdp/authorized": "2.0.3",
+    "@antdp/basic-layouts": "2.0.3",
+    "@antdp/hooks": "2.0.3",
+    "@antdp/user-login": "2.0.3",
     "antd": "5.4.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -25,8 +25,8 @@
     "antd": "5.4.2"
   },
   "devDependencies": {
-    "@antdp/config": "2.0.2",
-    "@antdp/dependencies": "2.0.2",
+    "@antdp/config": "2.0.3",
+    "@antdp/dependencies": "2.0.3",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@umijs/max": "~4.0.47",

@@ -1,6 +1,6 @@
 {
   "name": "antdp",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Ant Design Project",
   "repository": "https://github.com/antdpro/antdp/tree/master/packages/antdp",
   "homepage": "https://antdpro.github.io/antdp",
@@ -11,16 +11,16 @@
   "author": "jaywcjlove",
   "license": "MIT",
   "dependencies": {
-    "@antdp/antdp-ui": "2.0.2",
-    "@antdp/authorized": "2.0.2",
-    "@antdp/basic-layouts": "2.0.2",
-    "@antdp/config": "2.0.2",
-    "@antdp/dependencies": "2.0.2",
-    "@antdp/document-title": "2.0.2",
-    "@antdp/fullscreen": "2.0.2",
-    "@antdp/hooks": "2.0.2",
-    "@antdp/layout-tabs": "2.0.2",
-    "@antdp/page-loading": "2.0.2",
-    "@antdp/user-login": "2.0.2"
+    "@antdp/antdp-ui": "2.0.3",
+    "@antdp/authorized": "2.0.3",
+    "@antdp/basic-layouts": "2.0.3",
+    "@antdp/config": "2.0.3",
+    "@antdp/dependencies": "2.0.3",
+    "@antdp/document-title": "2.0.3",
+    "@antdp/fullscreen": "2.0.3",
+    "@antdp/hooks": "2.0.3",
+    "@antdp/layout-tabs": "2.0.3",
+    "@antdp/page-loading": "2.0.3",
+    "@antdp/user-login": "2.0.3"
   }
 }

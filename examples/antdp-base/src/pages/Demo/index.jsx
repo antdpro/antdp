@@ -3,8 +3,8 @@ import { useModel } from '@umijs/max';
 import { Card, Drawer, Space } from 'antd';
 import 'antd/dist/reset.css';
 import { useMemo } from 'react';
-import { detailItems } from './item';
 import SearchTable from './SearchTable';
+import { detailItems } from './item';
 
 const Demo = () => {
   const {
@@ -48,6 +48,7 @@ const Demo = () => {
                 setTrue();
                 setIsView(true);
               },
+              path: '/demo/add2',
             },
           ]}
         />

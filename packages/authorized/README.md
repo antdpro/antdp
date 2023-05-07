@@ -25,7 +25,7 @@ export default config(router, {
 +  ANTD_AUTH_CONF: {
 +    auth_menu: 'authMenu',
 +    auth_btn: 'authBtn',
-+    auth_check_url: true,
++    auth_check_url: false,
   }
 });
 ```
@@ -35,7 +35,7 @@ export default config(router, {
 | -------- | -------- | -------- | -------- |
 | auth_menu | 储存菜单路由权限---本地keys | `string`  | `authMenu` |
 | auth_btn | 储存按钮路径权限---本地keys | `string`  | `authBtn` |
-| auth_check_url | 判断路径是否有权限的字段 默认值`menuUrl`,如果字段设置为`undefined`则`auth_menu`和`auth_btn`储存形式为 `["/web"]`,反之储存形式为`[{menuUrl:"/web"}]` | `string`  | `menuUrl` |
+| auth_check_url | 判断路径是否有权限的字段 默认值`menuUrl`,如果字段设置为`false`则`auth_menu`和`auth_btn`储存形式为 `["/web"]`,反之储存形式为`[{menuUrl:"/web"}]` | `string`  | `menuUrl` |
 
 
 
@@ -122,7 +122,7 @@ export default Demo;
 | -------- | -------- | -------- | -------- |
 | auth_menu | 储存菜单路由权限---本地keys | `string`  | `authMenu` |
 | auth_btn | 储存按钮路径权限---本地keys | `string`  | `authBtn` |
-| auth_check_url | 判断路径是否有权限的字段 默认值`menuUrl`,如果字段设置为`undefined`则`auth_menu`和`auth_btn`储存形式为 `["/web"]`,反之储存形式为`[{menuUrl:"/web"}]` | `string`  | `menuUrl` |
+| auth_check_url | 判断路径是否有权限的字段 默认值`menuUrl`,如果字段设置为`false`则`auth_menu`和`auth_btn`储存形式为 `["/web"]`,反之储存形式为`[{menuUrl:"/web"}]` | `string`  | `menuUrl` |
 | isCheckAuth | 是否检查权限 | `boolean`  | `false` |
 | children | 子内容 | `string`  | - |
 

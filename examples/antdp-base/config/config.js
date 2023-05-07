@@ -15,7 +15,7 @@ export default config(router, {
     ANTD_AUTH_CONF: {
       auth_menu: 'authMenu',
       auth_btn: 'authBtn',
-      auth_check_url: true,
+      auth_check_url: false,
     },
     // ANTD_MENU_TOP_LEFT: true,
     ANTD_TITLE_TOP: true,

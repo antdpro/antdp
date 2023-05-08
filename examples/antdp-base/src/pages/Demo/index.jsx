@@ -50,6 +50,18 @@ const Demo = () => {
               },
               path: '/demo/add2',
             },
+            {
+              label: 'Menu',
+              type: 'primary',
+              menu: [
+                {
+                  key: '1',
+                  label: '新增',
+                  onClick: () => {},
+                  path: '/demo/add3',
+                },
+              ],
+            },
           ]}
         />
       </Card>

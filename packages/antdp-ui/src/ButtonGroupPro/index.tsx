@@ -7,9 +7,10 @@ import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import './index.css';
 import { MenuInfo } from 'rc-menu/lib/interface';
+import { getMenusItems } from '../utils'
 
 export interface ButtonGroupProProps {
-  button: Array<any>;
+  button: any[];
   className?: string;
 }
 export interface MenusProps extends Omit<MenuInfo, 'item'> {
@@ -19,16 +20,16 @@ export interface MenusProps extends Omit<MenuInfo, 'item'> {
   label?: string | React.ReactNode;
   /** 权限路径 */
   path?: string;
-  item: any;
   [k: string]: any;
 }
+
 export interface MenusOptionProps
   extends Omit<ButtonProps, 'type'>,
   ButtonGroupProps {
   path?: string;
   label?: string | React.ReactNode;
-  option?: Array<MenusOptionProps>;
-  menu?: Array<MenusProps>;
+  option?: MenusOptionProps[];
+  menu?: MenusProps[];
   key?: number;
   ButtonandDropdown?: string | number;
   type?: ButtonType;
@@ -55,11 +56,11 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
   }, []);
 
   const handleMenuClick = (
-    menus: any,
+    menus: MenusProps[] | undefined = [],
     idx: number | undefined,
     e: MenuInfo,
   ) => {
-    menus.forEach((menu: any, index: number | undefined) => {
+    menus.forEach((menu: MenusProps, index: number | undefined) => {
       if (String(index) === e?.key && menu.onClick) {
         setmenuDropdownLabel({ label: menu.label, key: idx });
         menu.onClick();
@@ -68,35 +69,12 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
   };
 
   const renderMenu = (
-    menus: Array<MenusProps> | undefined,
+    menus: MenusProps[] | undefined = [],
     idx: number | undefined,
   ) => {
+    const items = getMenusItems(menus)
     return (
-      <Menu onClick={(e: any) => handleMenuClick(menus, idx, e)}>
-        {menus &&
-          menus.length > 0 &&
-          menus.map((items: MenusProps, keys: number) => {
-            // 权限
-            if (items.path) {
-              // @ts-ignore
-              const auth_btn = (ANTD_AUTH_CONF && ANTD_AUTH_CONF['auth_btn']) ? ANTD_AUTH_CONF['auth_btn'] : ''
-              const accessStr = sessionStorage.getItem(auth_btn);
-              const access = accessStr ? JSON.parse(accessStr) : [];
-              if (!access) return null;
-              return access.includes(`${items.path}`) ? (
-                <Menu.Item key={keys} disabled={items.disabled}>
-                  {items.label}
-                </Menu.Item>
-              ) : null;
-            } else {
-              return (
-                <Menu.Item key={keys} disabled={items.disabled}>
-                  {items.label}
-                </Menu.Item>
-              );
-            }
-          })}
-      </Menu>
+      <Menu items={items || []} onClick={e => handleMenuClick(menus, idx, e)} />
     );
   };
 
@@ -139,12 +117,12 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
             );
             return item.path ? (
               <div key={idx}>
-                <Dropdown overlay={() => renderMenu(item.menu, idx)}>
+                <Dropdown dropdownRender={() => renderMenu(item.menu, idx)}>
                   {DropdownButtonDom}
                 </Dropdown>
               </div>
             ) : (
-              <Dropdown overlay={() => renderMenu(item.menu, idx)} key={idx}>
+              <Dropdown dropdownRender={() => renderMenu(item.menu, idx)} key={idx}>
                 {DropdownButtonDom}
               </Dropdown>
             );

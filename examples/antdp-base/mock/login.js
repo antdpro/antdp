@@ -23,7 +23,7 @@ const menus = [
   '/404',
   '/403',
 ];
-const btns = ['/demo/add1', '/demo/add2'];
+const btns = ['/demo/add1', '/demo/add2', '/demo/add3'];
 
 export default {
   'POST /api/users/login': (req, res) => {

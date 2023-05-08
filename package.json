@@ -66,13 +66,13 @@
     "react-dom": "^18.2.0",
     "react": "^18.2.0",
     "react-refresh": "^0.14.0",
-    "antd": "5.4.2"
+    "antd": "5.4.7"
   },
   "resolutions": {
     "react-dom": "^18.2.0",
     "react": "^18.2.0",
     "react-refresh": "^0.14.0",
-    "antd": "5.4.2"
+    "antd": "5.4.7"
   },
   "dependencies": {
     "@ant-design/charts": "^1.4.2",

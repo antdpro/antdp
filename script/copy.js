@@ -6,19 +6,19 @@ const fs = require('fs');
 const FS = require('fs-extra');
 const ts = require('typescript');
 const { transformFileAsync } = require('@babel/core');
-const recursiveReaddirFiles = require('recursive-readdir-files');
-
 const PWDEntry = path.resolve(__dirname, '../examples/basic/');
 const PWDOutPut = path.resolve(__dirname, '../examples/basicjs/');
 
 // 获取文件
 const getFields = async () => {
-  const dirToFiles = await recursiveReaddirFiles.default(PWDEntry, {
+  const { recursiveReaddirFiles } = await import('recursive-readdir-files');
+  const dirToFiles = await recursiveReaddirFiles(PWDEntry, {
     exclude:
       /(node_modules|.umi|build|dist|\.d\.ts|\.(test|spec)\.(ts|tsx|js|jsx))$/,
   });
   return dirToFiles;
 };
+
 // 转换ts tsx代码
 const transform = async (paths) => {
   const result = await transformFileAsync(paths, {

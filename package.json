@@ -35,6 +35,7 @@
     "watch:page-loading": "lerna exec  --scope @antdp/page-loading -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
     "watch:user-login": "lerna exec  --scope @antdp/user-login -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
     "watch:hooks": "lerna exec  --scope @antdp/hooks -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
+    "watch:request": "lerna exec  --scope @antdp/request -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
     "⬆️⬆️⬆️⬆️⬆️ watch::package ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
     "----": "----",
     "build:js": "node ./script/copy",

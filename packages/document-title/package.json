@@ -1,6 +1,6 @@
 {
   "name": "@antdp/document-title",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "设置页面标题",
   "homepage": "https://antdpro.github.io/antdp",
   "sideEffects": false,

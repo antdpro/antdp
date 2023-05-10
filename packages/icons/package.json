@@ -1,6 +1,6 @@
 {
   "name": "@antdp/icons",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "private": true,
   "description": "解决 antd 4.x Icon 组件不存在问题，通过老的方式调用新的图标组件。",
   "main": "lib/index.js",

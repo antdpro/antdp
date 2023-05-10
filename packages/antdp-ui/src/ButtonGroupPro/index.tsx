@@ -90,7 +90,7 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
             onClick: item.onClick,
             disabled: item.disabled,
             style: {
-              margin: ButtonandDropdown ? '0 0 0 -3px' : '12px 0 12px 12px',
+              margin: ButtonandDropdown ? '0 0 0 -3px' : '0px 12px 0px 0px',
             },
             ...item,
           } as ButtonProps;
@@ -106,7 +106,7 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                 size="middle"
                 type={props.type || 'default'}
                 style={{
-                  margin: ButtonandDropdown ? '0 0 0 -3px' : '12px 0 12px 12px',
+                  margin: ButtonandDropdown ? '0 0 0 -3px' : '0px 12px 0px 0px',
                 }}
               >
                 {menuDropdownLabel.key === idx

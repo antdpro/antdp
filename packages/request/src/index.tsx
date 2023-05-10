@@ -42,7 +42,7 @@ request.interceptors.request.use((url: string, options: any) => {
   if (token) {
     //如果有token 就走token逻辑
     const headers = {
-      Authorization: setToken(),
+      ...setToken(),
       ...((options || {}).headers || {})
     };
     return ({

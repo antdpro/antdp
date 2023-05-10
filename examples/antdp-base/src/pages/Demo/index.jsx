@@ -2,7 +2,7 @@ import { ButtonGroupPro, FormDetail } from '@antdp/antdp-ui';
 import { useModel } from '@umijs/max';
 import { Card, Drawer, Space } from 'antd';
 import 'antd/dist/reset.css';
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import SearchTable from './SearchTable';
 import { detailItems } from './item';
 
@@ -18,10 +18,6 @@ const Demo = () => {
   } = useModel('demo', (model) => ({
     ...model,
   }));
-
-  useEffect(() => {
-    console.log('111111');
-  }, []);
 
   const data = useMemo(() => {
     return detailItems({

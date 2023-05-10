@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import { Card, theme, Avatar, Statistic, Row, Col, List } from 'antd';
+import { Link, useRequest } from '@umijs/max';
+import { Avatar, Card, Col, List, Row, Statistic } from 'antd';
+import { serviceActivities, serviceProject } from '../../services/api';
 import styles from './style.less';
-import { useReactQuery } from '@antdp/hooks';
-import { Link } from '@umijs/max';
-import { serviceProject, serviceActivities } from '../../services/api';
 
 const PageHeaderContent = ({ currentUser }) => {
   const loading = currentUser && Object.keys(currentUser).length;
@@ -44,14 +42,11 @@ const ExtraContent = () => (
 );
 
 export default function Home(props) {
-  const { data, isLoading } = useReactQuery({
-    queryKey: ['project'],
-    url: serviceProject,
-  });
-  const { data: activities, isLoading: activitiesLoading } = useReactQuery({
-    queryKey: ['activities'],
-    url: serviceActivities,
-  });
+  const { data } = useRequest(serviceProject, { manual: false });
+  const { data: activities, loading: activitiesLoading } = useRequest(
+    serviceActivities,
+    { manual: false },
+  );
 
   const renderActivities = (item) => {
     const events = item.template.split(/@\{([^{}]*)\}/gi).map((key) => {
@@ -112,7 +107,7 @@ export default function Home(props) {
             loading={false}
             bodyStyle={{ padding: 0 }}
           >
-            {(data?.data || []).map((item) => (
+            {(data || []).map((item) => (
               <Card.Grid className={styles.projectGrid} key={item.id}>
                 <Card.Meta
                   avatar={<Avatar size="small" src={item.logo} />}
@@ -137,7 +132,7 @@ export default function Home(props) {
             <List
               loading={activitiesLoading}
               renderItem={(item) => renderActivities(item)}
-              dataSource={activities?.data || []}
+              dataSource={activities || []}
               size="large"
             />
           </Card>

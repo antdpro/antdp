@@ -149,13 +149,15 @@
         "path": "/403",
         "name": "403",
         "icon": "file-protect",
-        "component": "@/pages/403"
+        "component": "@/pages/403",
+        "hideInMenu": true
       },
       {
         "path": "/404",
         "name": "404",
         "icon": "file-protect",
-        "component": "@/pages/404"
+        "component": "@/pages/404",
+        "hideInMenu": true
       }
     ]
   }

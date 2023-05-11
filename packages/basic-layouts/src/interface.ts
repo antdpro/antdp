@@ -29,6 +29,7 @@ export interface RouterMenu {
   order?: number;
   /**原来的path*/
   oPath?: string;
+  element?:any;
 }
 
 export interface BasicLayoutsProps {

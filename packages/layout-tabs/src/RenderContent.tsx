@@ -16,7 +16,7 @@ export default (props: IframeProps) => {
           padding: bodyPadding || 14,
           height: 'calc(100% - 45px)',
           overflow: 'auto',
-          background:'#f0f2f5'
+          // background:'#f0f2f5'
         }}
       >
         <Outlet />

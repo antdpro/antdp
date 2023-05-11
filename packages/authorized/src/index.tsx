@@ -13,12 +13,14 @@ export { AuthorizedBtn, getAuthorizedPage };
 
 const Authorized = (props: AuthorizedProps) => {
   if (props.authority) {
-    return <React.Fragment>
+    return (
+      <React.Fragment>
       {React.Children.map(props.children, (child) => {
         if (!React.isValidElement(child)) return child;
         return React.cloneElement(child, { ...child.props });
       })}
-    </React.Fragment>;
+    </React.Fragment>
+    );
   }
   return useMemo(() => {
     if (props.redirectPath) {

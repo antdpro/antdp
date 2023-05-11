@@ -102,7 +102,9 @@ export class HandleMenu {
       }
       const check = this.checkAuth(item.path || "")
       if (!check && item.path) {
+        const { element:Comp } = routers.find(item=>item.path === '/403') || {}
         item.oPath = item.path
+        item.element = Comp || null
         item.path = "/403"
       } else {
         child.push({ ...item })

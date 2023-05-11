@@ -1,6 +1,6 @@
 {
   "name": "@antdp/edit-table",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "基于antd封装的组件",
   "license": "MIT",
   "main": "lib/index.js",

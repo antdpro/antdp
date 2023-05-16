@@ -4,8 +4,20 @@ import { Select } from 'antd'
 import { history, useAppData, useLocation } from '@umijs/max';
 import { RouterMenu } from '../interface';
 
+const setHideInMenu = (data: RouterMenu[] = []) => {
+  data.forEach((item) => {
+    item.hideInMenu = true;
+    if (item.routes && item.routes.length > 0) {
+      setHideInMenu(item.routes);
+    }
+  });
+};
+
 const getRoutesList = (data: RouterMenu[] = [], list: RouterMenu[] = []) => {
   data.forEach((item) => {
+    if (item.hideInMenu) { // 如果父级需要隐藏，则将所有子级 hideInMenu 属性设为 true
+      setHideInMenu(item.routes);
+    } else
     if (item.routes && item.routes.length > 0) {
       getRoutesList(item.routes, list);
     } else {

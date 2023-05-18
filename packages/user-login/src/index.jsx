@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react';
-import { Form, Input, Button, Row, Tabs, Radio } from 'antd';
+import { LockOutlined, PhoneOutlined, UserOutlined } from '@ant-design/icons';
 import DocumentTitle from '@antdp/document-title';
-import { UserOutlined, LockOutlined, PhoneOutlined } from '@ant-design/icons';
-import { ThemeContext } from './themContext';
+import { Radio, Tabs } from 'antd';
+import React, { Component, Fragment } from 'react';
 import AccountLogin from './component/accountLogin';
 import PhoneLogin from './component/phoneLogin';
 import './index.css';
+import { ThemeContext } from './themContext';
 
 const { TabPane } = Tabs;
 
@@ -87,7 +87,7 @@ export default class BaseLayout extends Component {
       children,
       // 登陆页面类型
       type,
-      from,
+      form,
     } = this.props;
     const { key } = this.state;
     return (
@@ -106,7 +106,7 @@ export default class BaseLayout extends Component {
                   loading: value?.loading,
                   onFinish: value?.onFinish,
                   formChildren: value?.formChildren,
-                  from
+                  form,
                 };
                 const phoneProps = {
                   phoneFormItems: value?.phoneFormItems,
@@ -116,7 +116,7 @@ export default class BaseLayout extends Component {
                   loading: value?.loading,
                   onFinish: value?.onFinish,
                   formChildren: value?.formChildren,
-                  from
+                  form,
                 };
                 return type === 'account' ? (
                   <AccountLogin value={accountProps} />

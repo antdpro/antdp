@@ -9,14 +9,18 @@ import {
 import 'antd/dist/antd.css';
 import logo from './logo.svg';
 import { useModel } from 'umi';
+import { Form } from 'antd';
 
 const UserLayout = (props) => {
   const baseRef = useRef();
   const TYPE = 'both';
   const { token, login } = useModel('user', (model) => ({ ...model }));
+  const [form] = Form.useForm();
+
   return (
     <Authorized authority={!token} redirectPath="/">
       <UserLogin
+        form={form}
         ref={baseRef}
         logo={logo}
         projectName="Antdp"

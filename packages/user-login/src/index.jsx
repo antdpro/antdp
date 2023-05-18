@@ -87,6 +87,7 @@ export default class BaseLayout extends Component {
       children,
       // 登陆页面类型
       type,
+      from,
     } = this.props;
     const { key } = this.state;
     return (
@@ -105,6 +106,7 @@ export default class BaseLayout extends Component {
                   loading: value?.loading,
                   onFinish: value?.onFinish,
                   formChildren: value?.formChildren,
+                  from
                 };
                 const phoneProps = {
                   phoneFormItems: value?.phoneFormItems,
@@ -114,6 +116,7 @@ export default class BaseLayout extends Component {
                   loading: value?.loading,
                   onFinish: value?.onFinish,
                   formChildren: value?.formChildren,
+                  from
                 };
                 return type === 'account' ? (
                   <AccountLogin value={accountProps} />

@@ -1,12 +1,13 @@
+import { Button, Form, Input, Row } from 'antd';
 import React from 'react';
-import { Form, Input, Button, Row } from 'antd';
 
 const AccountLogin = (props) => {
   const {
-    value: { formItems, formBtns, loading, formChildren, ...otherProps },
+    value: { formItems, formBtns, loading, formChildren, form, ...otherProps },
   } = props;
   return (
     <Form
+      form={form}
       className="antdp-login-form"
       initialValues={{ remember: true }}
       {...otherProps}

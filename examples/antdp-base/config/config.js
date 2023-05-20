@@ -25,7 +25,16 @@ export default config(router, {
   locale: {
     // 默认使用 src/locales/zh-CN.ts 作为多语言文件
     default: 'zh-CN',
-    baseSeparator: '-',
+    antd: true,
+    // default true, when it is true, will use `navigator.language` overwrite default
+    // baseNavigator: true,
+    /**
+     * [国际化] 控制台提示 Warning: The current popular language does not exist, please check the locales folder! 警告信息
+     * https://github.com/umijs/umi/issues/4363#issuecomment-616134434
+     * 警用 `baseNavigator` 和 `title` 两个配置项 可以解决国际化警告问题
+     */
+    baseNavigator: false,
+    title: false,
   },
   dva: {},
   model: {},

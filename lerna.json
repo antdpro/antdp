@@ -1,6 +1,6 @@
 {
   "packages": ["examples/*", "packages/*"],
-  "version": "2.0.10",
+  "version": "2.0.11",
   "useWorkspaces": true,
   "command": {
     "create": {

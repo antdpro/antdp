@@ -54,9 +54,9 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
               </Layout.Header>
             )}
             <Layout.Content className="antdp-basic-layouts-content"  >
-              {/* <App> */}
+              <App>
                 <WarpContent />
-              {/* </App> */}
+              </App>
             </Layout.Content>
           </Layout>
         </React.Fragment>

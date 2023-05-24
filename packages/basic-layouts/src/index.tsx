@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Layout } from "antd"
+import { Layout, App } from "antd"
 import SiderMenus from "./Sider";
 import Header from "./Header"
 import WarpContent from "./Content"
@@ -84,10 +84,12 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     <AuthorizedConfigProvider {...newData} >
       <LayoutsProvider  {...props}>
         <Layout className="antdp-basic-layouts">
-          {render}
+          <App>
+            {render}
+          </App>
         </Layout>
       </LayoutsProvider>
-    </AuthorizedConfigProvider>
+    </AuthorizedConfigProvider >
   )
 }
 export default BasicLayouts

@@ -17,7 +17,6 @@ import Loading from '../Loading';
 import BackToUp from '@uiw/react-back-to-top';
 import Footer from "../Footer"
 import './nodes/toc.less';
-import { ConfigProvider, theme } from 'antd'
 
 const Preview = CodeLayout.Preview;
 const Code = CodeLayout.Code;

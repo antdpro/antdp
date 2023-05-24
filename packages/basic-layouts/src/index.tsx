@@ -36,7 +36,9 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
           <Layout>
             {ANTD_MENU_IS_SHOW && <SiderMenus />}
             <Layout.Content className="antdp-basic-layouts-content"  >
-              <WarpContent />
+              <App>
+                <WarpContent />
+              </App>
             </Layout.Content>
           </Layout>
         </React.Fragment>
@@ -52,7 +54,9 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
               </Layout.Header>
             )}
             <Layout.Content className="antdp-basic-layouts-content"  >
-              <WarpContent />
+              <App>
+                <WarpContent />
+              </App>
             </Layout.Content>
           </Layout>
         </React.Fragment>
@@ -84,9 +88,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     <AuthorizedConfigProvider {...newData} >
       <LayoutsProvider  {...props}>
         <Layout className="antdp-basic-layouts">
-          <App>
-            {render}
-          </App>
+          {render}
         </Layout>
       </LayoutsProvider>
     </AuthorizedConfigProvider >

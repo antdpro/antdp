@@ -1,6 +1,6 @@
 {
   "name": "@antdp/antdp-ui",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "基于antd封装的组件",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "5.0.1",
-    "@antdp/authorized": "2.0.12",
+    "@antdp/authorized": "2.0.13",
     "@babel/runtime": "~7.20.1",
     "classnames": "2.3.2",
     "immutability-helper": "^3.1.1",

@@ -31,6 +31,7 @@
     "@antdp/request": "2.0.13",
     "@antdp/user-login": "2.0.13",
     "@babel/plugin-proposal-private-property-in-object": "7.21.0",
+    "@babel/plugin-syntax-unicode-sets-regex":"7.18.6",
     "@types/styled-components": "^5.1.26",
     "@uiw/react-back-to-top": "^1.2.1",
     "@uiw/react-code-preview": "4.0.5",

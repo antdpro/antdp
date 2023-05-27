@@ -1,16 +1,16 @@
 import React, { useMemo } from 'react';
 // @ts-ignore
 import { Link } from '@umijs/max';
-import { useLayouts } from "../hooks"
+import { useLayouts } from '../hooks';
 
 interface LogoProps {
-  logoJumpTo?: string
-  logo?: string
-  projectName?: string
+  logoJumpTo?: string;
+  logo?: string;
+  projectName?: string;
 }
 
 const Logo = (props: LogoProps) => {
-  const { collapsed, logo, projectName, siderWidth = 260 } = useLayouts()
+  const { collapsed, logo, projectName, siderWidth = 260 } = useLayouts();
   const { logoJumpTo = '/' } = props;
 
   const logoRender = useMemo(
@@ -26,12 +26,12 @@ const Logo = (props: LogoProps) => {
   return useMemo(
     () => (
       <div
-        style={!collapsed && { width: siderWidth } || {}}
-        className={`antdp-global-title antdp-global-title-top ${!ANTD_MENU_TOP_LEFT && "antdp-global-title-left" || ""}`}
+        style={{ width: siderWidth }}
+        className={`antdp-global-title antdp-global-title-top`}
       >
         <Link to={logoJumpTo}>
           {logoRender}
-          {!collapsed && name}
+          {name}
         </Link>
       </div>
     ),
@@ -39,4 +39,4 @@ const Logo = (props: LogoProps) => {
   );
 };
 
-export default Logo
+export default Logo;

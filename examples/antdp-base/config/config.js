@@ -18,7 +18,7 @@ export default config(router, {
       auth_btn: 'authBtn',
       auth_check_url: '',
     },
-    // ANTD_MENU_TOP_LEFT: true,
+    ANTD_MENU_TOP_LEFT: false,
     ANTD_TITLE_TOP: true,
     /** 是否展示搜索菜单  */
     ANTD_MENU_SEARCH_IS_SHOW: true,

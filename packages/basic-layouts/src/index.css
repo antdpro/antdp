@@ -20,6 +20,12 @@ body {
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   overflow: auto;
   z-index: 99;
+  .ant-layout-sider-trigger{
+    border-top: 1px solid rgba(0,0,0,.06)
+  }
+  .antdp-basic-layouts-collapsed {
+    float: left;
+  }
 }
 
 .antdp-basic-layouts-header {

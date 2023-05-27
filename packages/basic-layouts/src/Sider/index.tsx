@@ -45,7 +45,6 @@ const Sider = (props: SiderProps) => {
       collapsed={collapsed}
       theme="light"
       onCollapse={(value) => {
-        console.log('Sidercollapsedvalue: ', value);
         setCollapsed(value);
       }}
       trigger={

@@ -44,7 +44,7 @@ const User = () => {
 
   return (
     <React.Fragment>
-      {ANTD_MENU_SEARCH_IS_SHOW && <SearchMenu />}
+      {ANTD_MENU_SEARCH_IS_SHOW && <div style={{ width:150 }}><SearchMenu /></div>}
       <Fullscreen />
       <Dropdown
         menu={{ items: rightMenu }}

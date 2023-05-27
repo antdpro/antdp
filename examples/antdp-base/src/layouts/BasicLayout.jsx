@@ -21,7 +21,7 @@ const Layout = (props) => {
           avatar:
             'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
         }}
-        siderWidth={240}
+        siderWidth={208}
         logo={logo}
         // logoJumpTo="/dashboard/demo"  // 点击logo图标跳转的路径，默认 /welcome
         iframeRender={false}

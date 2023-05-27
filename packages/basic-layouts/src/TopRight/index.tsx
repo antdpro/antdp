@@ -1,46 +1,56 @@
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, Dropdown } from 'antd';
-import { ItemType } from "antd/lib/menu/hooks/useItems"
-import React, { useMemo, Fragment } from 'react';
-import { Link, } from 'react-router-dom';
 import Fullscreen from '@antdp/fullscreen';
-import { useLayouts } from "./../hooks"
+import { Avatar, Dropdown } from 'antd';
+import { ItemType } from 'antd/lib/menu/hooks/useItems';
+import React, { Fragment, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import SearchMenu from '../SearchMenus';
+import { useLayouts } from './../hooks';
 
 const User = () => {
-  const { topRightMenu = [], profile = {}, topRightLanguage } = useLayouts()
-  const { avatar, name, } = profile
+  const {
+    topRightMenu = [],
+    profile = {},
+    topRightLanguage,
+  } = useLayouts();
+  const { avatar, name } = profile;
 
   const rightMenu = useMemo(() => {
     return topRightMenu.map((item, index) => {
-      const { icon, title, link, onClick, ...rest } = item
+      const { icon, title, link, onClick, ...rest } = item;
       if (item.divider) {
-        return { type: "divider" }
+        return { type: 'divider' };
       }
       if (!title) {
         return null;
       }
       let child = (
-        <Fragment >
+        <Fragment>
           {icon && <span style={{ marginRight: 5 }}>{icon}</span>}
           {title}
         </Fragment>
       );
       if (link) {
-        child = <Link to={link}>{child}</Link>
+        child = <Link to={link}>{child}</Link>;
       }
       return {
         ...rest,
         label: child,
         key: index,
         onClick,
-      }
-    })
-  }, [topRightMenu]) as ItemType[]
+      };
+    });
+  }, [topRightMenu]) as ItemType[];
 
   return (
     <React.Fragment>
+      {ANTD_MENU_SEARCH_IS_SHOW && <SearchMenu />}
       <Fullscreen />
-      <Dropdown menu={{ items: rightMenu }} placement="bottomRight" trigger={['click']} >
+      <Dropdown
+        menu={{ items: rightMenu }}
+        placement="bottomRight"
+        trigger={['click']}
+      >
         <span className="antdp-basic-layouts-header-user">
           <span style={{ marginRight: 8 }}>
             {avatar ? (
@@ -48,16 +58,19 @@ const User = () => {
             ) : (
               <Avatar
                 size={24}
-                icon={<UserOutlined style={{ minWidth: 'inherit', marginRight: 0 }} />}
+                icon={
+                  <UserOutlined
+                    style={{ minWidth: 'inherit', marginRight: 0 }}
+                  />
+                }
               />
             )}
           </span>
-          <span style={{ userSelect: "none" }} >{name || ' - '}</span>
+          <span style={{ userSelect: 'none' }}>{name || ' - '}</span>
         </span>
       </Dropdown>
       {topRightLanguage}
     </React.Fragment>
-  )
-
-}
-export default User
+  );
+};
+export default User;

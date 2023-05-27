@@ -1,18 +1,20 @@
-#root,html,body{
+#root,
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
 }
-.antdp-basic-layouts{
+.antdp-basic-layouts {
   width: 100%;
   height: 100%;
 }
 
-.antdp-basic-layouts-sider{
+.antdp-basic-layouts-sider {
   overflow: auto;
   height: 100%;
-  box-sizing:border-box;
+  box-sizing: border-box;
   min-height: 100%;
   background-color: #001529;
   box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
@@ -20,42 +22,43 @@
   z-index: 99;
 }
 
-.antdp-basic-layouts-header{
+.antdp-basic-layouts-header {
   padding: 0 !important;
   margin: 0;
   background-color: #fff !important;
-  line-height: 42px!important;;
-  height: 42px!important;;
+  line-height: 42px !important;
+  height: 42px !important;
   display: flex;
   position: relative;
-  box-sizing:border-box;
+  box-sizing: border-box;
   box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
-.antdp-basic-layouts-header-breadcrumb{
+.antdp-basic-layouts-header-breadcrumb {
   padding-left: 10px;
 }
-.antdp-basic-layouts-header-body{
+.antdp-basic-layouts-header-body {
   display: flex;
   align-items: center;
   flex: 1;
   padding-right: 14px;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
-.antdp-basic-layouts-header-user{
+.antdp-basic-layouts-header-user {
   display: flex;
   float: right;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
-.antdp-basic-layouts-header-menus{
+.antdp-basic-layouts-header-menus {
   position: relative;
   flex: 1;
   overflow: hidden;
   width: 95%;
-  box-sizing:border-box;
+  box-sizing: border-box;
   display: flex;
-  align-items:center;
+  align-items: center;
 }
-.antdp-basic-layouts-collapsed{
+.antdp-basic-layouts-collapsed {
   padding-left: 10px;
 }
 
@@ -64,7 +67,6 @@
   height: 32px;
   vertical-align: middle;
 }
-
 
 /* ---------------------- */
 .antdp-global-title-top {
@@ -81,16 +83,16 @@
   cursor: pointer;
   transition: all 0.3s;
   float: left;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 .antdp-global-title-left a {
-  height: 64px;
-  box-sizing:border-box;
+  height: 42px;
+  box-sizing: border-box;
   display: flex;
-  align-items:center
+  align-items: center;
 }
 
-.antdp-global-title-left h1{
+.antdp-global-title-left h1 {
   color: #fff;
 }
 
@@ -116,10 +118,7 @@
   vertical-align: middle;
 }
 
-
-.antdp-basic-layouts-content{
+.antdp-basic-layouts-content {
   height: 100%;
   overflow: auto;
-  background-color:#fff
 }
-

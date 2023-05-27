@@ -29,7 +29,7 @@ export interface RouterMenu {
   order?: number;
   /**原来的path*/
   oPath?: string;
-  element?:any;
+  element?: any;
 }
 
 export interface BasicLayoutsProps {
@@ -73,6 +73,7 @@ export interface BasicLayoutsProps {
      */
     name?: string;
   };
+  contentStyle?: React.CSSProperties | undefined;
 }
 
 export interface UseLayoutsProps extends Omit<BasicLayoutsProps, 'route'> {

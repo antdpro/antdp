@@ -1,6 +1,6 @@
 {
   "name": "@antdp/page-loading",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "description": "页面过渡动画组件。",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",

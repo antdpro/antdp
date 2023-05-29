@@ -1,3 +1,4 @@
+import { SearchOutlined } from '@ant-design/icons';
 import { Select } from 'antd';
 import React from 'react';
 // @ts-ignore
@@ -30,6 +31,7 @@ const getRoutesList = (data: RouterMenu[] = [], list: RouterMenu[] = []) => {
 const SearchMenus = () => {
   const location = useLocation();
   const { clientRoutes } = useAppData();
+  const [collapsed, setCollapsed] = React.useState(false);
   const parentPath = location.pathname;
 
   const routes = React.useMemo(() => {
@@ -58,25 +60,26 @@ const SearchMenus = () => {
   }, [parentPath]);
 
   return (
-    <div
-      style={{
-        padding: '0 10px',
-        margin: '10px 0',
-      }}
-    >
-      <Select
-        value={currentValue}
-        placeholder="请搜索"
-        labelInValue
-        showSearch={true}
-        optionFilterProp="children"
-        filterOption={(input, option) =>
-          (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
-        }
-        options={listMenus}
-        onSelect={({ value }) => history.push(value)}
-        style={{ width: '100%' }}
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <SearchOutlined
+        onClick={() => setCollapsed(!collapsed)}
+        style={{ fontSize: 20, marginRight: collapsed ? 10 : 0 }}
       />
+      <div style={{ display: collapsed ? 'block' : 'none' }}>
+        <Select
+          value={currentValue}
+          placeholder="请搜索"
+          labelInValue
+          showSearch={true}
+          optionFilterProp="children"
+          filterOption={(input, option) =>
+            (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+          }
+          options={listMenus}
+          onSelect={({ value }) => history.push(value)}
+          style={{ width: 150 }}
+        />
+      </div>
     </div>
   );
 };

@@ -17,7 +17,7 @@ body {
   box-sizing: border-box;
   min-height: 100%;
   background-color: #001529;
-  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+  box-shadow: 2px 0 6px #9393930d;
   overflow: auto;
   z-index: 99;
   .ant-layout-sider-trigger{
@@ -37,7 +37,7 @@ body {
   display: flex;
   position: relative;
   box-sizing: border-box;
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 6px 0 #9393930d;
   z-index: 100;
 }
 .antdp-basic-layouts-header-breadcrumb {

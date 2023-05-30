@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Dropdown, Menu, Badge } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { AuthorizedBtn } from '@antdp/authorized';
+import { Badge, Button, Dropdown, Menu } from 'antd';
 import { ButtonProps } from 'antd/es/button';
 import { ButtonGroupProps, ButtonType } from 'antd/lib/button';
-import { AuthorizedBtn } from '@antdp/authorized';
-import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import './index.css';
 import { MenuInfo } from 'rc-menu/lib/interface';
-import { getMenusItems } from '../utils'
+import React, { useEffect, useState } from 'react';
+import { getMenusItems } from '../utils';
+import './index.css';
 
 export interface ButtonGroupProProps {
   button: any[];
@@ -25,7 +25,7 @@ export interface MenusProps extends Omit<MenuInfo, 'item'> {
 
 export interface MenusOptionProps
   extends Omit<ButtonProps, 'type'>,
-  ButtonGroupProps {
+    ButtonGroupProps {
   path?: string;
   label?: string | React.ReactNode;
   option?: MenusOptionProps[];
@@ -72,9 +72,12 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
     menus: MenusProps[] | undefined = [],
     idx: number | undefined,
   ) => {
-    const items = getMenusItems(menus)
+    const items = getMenusItems(menus);
     return (
-      <Menu items={items || []} onClick={e => handleMenuClick(menus, idx, e)} />
+      <Menu
+        items={items || []}
+        onClick={(e) => handleMenuClick(menus, idx, e)}
+      />
     );
   };
 
@@ -90,7 +93,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
             onClick: item.onClick,
             disabled: item.disabled,
             style: {
-              margin: ButtonandDropdown ? '0 0 0 -3px' : '0px 12px 0px 0px',
+              margin: ButtonandDropdown
+                ? '0 0 0 -3px'
+                : `0px ${idx === button.length - 1 ? 0 : 12}px 0px 0px`,
             },
             ...item,
           } as ButtonProps;
@@ -106,7 +111,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                 size="middle"
                 type={props.type || 'default'}
                 style={{
-                  margin: ButtonandDropdown ? '0 0 0 -3px' : '0px 12px 0px 0px',
+                  margin: ButtonandDropdown
+                    ? '0 0 0 -3px'
+                    : `0px ${idx === button.length - 1 ? 0 : 12}px 0px 0px`,
                 }}
               >
                 {menuDropdownLabel.key === idx
@@ -122,7 +129,10 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                 </Dropdown>
               </div>
             ) : (
-              <Dropdown dropdownRender={() => renderMenu(item.menu, idx)} key={idx}>
+              <Dropdown
+                dropdownRender={() => renderMenu(item.menu, idx)}
+                key={idx}
+              >
                 {DropdownButtonDom}
               </Dropdown>
             );

@@ -3,4 +3,7 @@
 }
 .antdp-ButtonGroup .ant-btn{
   margin: 0px 12px 0px 0px;
+  :last-child{
+    margin: 0px;
+  }
 }

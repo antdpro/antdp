@@ -1,6 +1,6 @@
 {
   "name": "@antdp/fuzzy-query",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "基于antd封装的组件  模糊查询 自定义提示",
   "license": "MIT",
   "main": "lib/index.js",

@@ -6,7 +6,7 @@ import TopRight from '../TopRight';
 const Header = () => {
   return (
     <div className="antdp-basic-layouts-header-body">
-      <Logo />
+      {!ANTD_MENU_SLIDER && <Logo />}
       <HeaderMenus />
       <TopRight />
     </div>

@@ -84,8 +84,8 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
       ANTD_HEAD_IS_SHOW: true,
       /** 父级菜单展示顶部 ，子集菜单展示侧边 */
       ANTD_MENU_TOP_LEFT: false,
-      /** 标题 放在 头部 ,菜单放在头部下面  */
-      ANTD_TITLE_TOP: false,
+      /** 菜单侧边展示 */
+      ANTD_MENU_SLIDER: false,
       /**  是否开启菜单栏搜索 */
       ANTD_MENU_SEARCH_IS_SHOW: false,
       ...(options.define || {}),

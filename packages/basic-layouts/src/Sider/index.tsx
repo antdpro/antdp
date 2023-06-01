@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { useLayouts } from '../hooks';
 import { RouterMenu } from '../interface';
 import { getSiderMenus } from '../utils';
+import Logo from './../Logo';
 
 export interface SiderProps extends MenuProps {
   menus?: RouterMenu[];
@@ -51,6 +52,11 @@ const Sider = (props: SiderProps) => {
         <div className="antdp-basic-layouts-collapsed">{collapsedView}</div>
       }
     >
+      {!!ANTD_MENU_SLIDER && (
+        <div>
+          <Logo />
+        </div>
+      )}
       <Menu
         {...props}
         selectedKeys={[location.pathname]}

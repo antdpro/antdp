@@ -18,16 +18,20 @@ const Logo = (props: LogoProps) => {
     [logo],
   );
 
-  const name = useMemo(
-    () => projectName && <h1>{projectName}</h1>,
-    [projectName],
-  );
+  const name = useMemo(() => {
+    if (!!ANTD_MENU_SLIDER && collapsed) {
+      return null;
+    }
+    return projectName && <h1>{projectName}</h1>;
+  }, [projectName,collapsed]);
 
   return useMemo(
     () => (
       <div
-        style={{ width: siderWidth }}
-        className={`antdp-global-title antdp-global-title-top`}
+        style={{ width: (!!ANTD_MENU_SLIDER && collapsed) ? 80 : siderWidth }}
+        className={`antdp-global-title antdp-global-title-top ${
+          (!!ANTD_MENU_SLIDER && 'antdp-global-title-left') || ''
+        }`}
       >
         <Link to={logoJumpTo}>
           {logoRender}

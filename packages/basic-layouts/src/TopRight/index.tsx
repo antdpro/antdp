@@ -8,11 +8,7 @@ import SearchMenu from '../SearchMenus';
 import { useLayouts } from './../hooks';
 
 const User = () => {
-  const {
-    topRightMenu = [],
-    profile = {},
-    topRightLanguage,
-  } = useLayouts();
+  const { topRightMenu = [], profile = {}, topRightLanguage } = useLayouts();
   const { avatar, name } = profile;
 
   const rightMenu = useMemo(() => {
@@ -44,7 +40,11 @@ const User = () => {
 
   return (
     <React.Fragment>
-      {ANTD_MENU_SEARCH_IS_SHOW && <div style={{ marginRight:10 }}><SearchMenu /></div>}
+      {ANTD_MENU_SEARCH_IS_SHOW && (
+        <div style={{ marginRight: 10 }}>
+          <SearchMenu />
+        </div>
+      )}
       <Fullscreen />
       <Dropdown
         menu={{ items: rightMenu }}

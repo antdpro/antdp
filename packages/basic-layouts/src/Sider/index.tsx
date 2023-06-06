@@ -9,6 +9,7 @@ import Logo from './../Logo';
 
 export interface SiderProps extends MenuProps {
   menus?: RouterMenu[];
+  dark: boolean;
 }
 
 const Sider = (props: SiderProps) => {
@@ -37,14 +38,13 @@ const Sider = (props: SiderProps) => {
   if (!items.length) {
     return <React.Fragment />;
   }
-
   return (
     <Layout.Sider
       className="antdp-basic-layouts-sider"
       collapsible
       width={siderWidth}
       collapsed={collapsed}
-      theme="light"
+      theme={props.dark ? 'dark' : 'light'}
       onCollapse={(value) => {
         setCollapsed(value);
       }}
@@ -63,7 +63,7 @@ const Sider = (props: SiderProps) => {
         defaultSelectedKeys={[location.pathname]}
         defaultOpenKeys={[location.pathname]}
         mode="inline"
-        theme="light"
+        theme={props.dark ? 'dark' : 'light'}
         items={items}
         style={{ width: '100%' }}
       />

@@ -1,7 +1,7 @@
 import { Button, Result, Card } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
 const App = () => (
-  <>
+  <Card>
     <Result
       status="success"
       title="提交失败"
@@ -29,6 +29,6 @@ const App = () => (
         您的账户还不具备申请资格
       </p>
     </Card>
-  </>
+  </Card>
 );
 export default App;

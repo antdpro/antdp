@@ -1,4 +1,4 @@
-import { Tabs } from 'antd';
+import { Tabs, Card } from 'antd';
 import SecuritySet from './SecuritySet';
 import AccountBind from './AccountBind';
 import Message from './Message';
@@ -27,9 +27,9 @@ const App = () => {
     },
   ];
   return (
-    <div>
+    <Card>
       <Tabs defaultActiveKey="1" tabPosition="left" items={items} />
-    </div>
+    </Card>
   );
 };
 export default App;

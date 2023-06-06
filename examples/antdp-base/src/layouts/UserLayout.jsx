@@ -22,7 +22,6 @@ const UserLayout = (props) => {
         ref={baseRef}
         logo={logo}
         projectName="Antdp"
-        loading={props.loading}
         onFinish={async (values) => {
           let params;
           if (TYPE === 'both') {

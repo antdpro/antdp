@@ -1,5 +1,5 @@
 import { AuthorizedConfigProvider } from '@antdp/authorized';
-import { App, Layout } from 'antd';
+import { App, ConfigProvider, Layout } from 'antd';
 import React, { useMemo } from 'react';
 import WarpContent from './Content';
 import Header from './Header';
@@ -24,6 +24,7 @@ export { default as TopRight } from './TopRight';
 export * from './utils';
 
 const BasicLayouts = (props: BasicLayoutsProps) => {
+  const { dark = false } = props;
   const render = useMemo(() => {
     if (!!ANTD_MENU_TOP_LEFT) {
       return (
@@ -34,14 +35,8 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
             </Layout.Header>
           )}
           <Layout>
-            {ANTD_MENU_IS_SHOW && <SiderMenus />}
-            <Layout.Content
-              className="antdp-basic-layouts-content"
-              style={{
-                backgroundColor: '#f5f5f5',
-                ...props?.contentStyle,
-              }}
-            >
+            {ANTD_MENU_IS_SHOW && <SiderMenus dark={dark} />}
+            <Layout.Content className="antdp-basic-layouts-content">
               <App>
                 <WarpContent />
               </App>
@@ -52,7 +47,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     } else if (!!ANTD_MENU_SLIDER) {
       return (
         <React.Fragment>
-          {ANTD_MENU_IS_SHOW && <SiderMenus />}
+          {ANTD_MENU_IS_SHOW && <SiderMenus dark={dark} />}
           <Layout>
             {ANTD_HEAD_IS_SHOW && (
               <Layout.Header className="antdp-basic-layouts-header">
@@ -77,14 +72,8 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
               </Layout.Header>
             )}
             <Layout>
-              {ANTD_MENU_IS_SHOW && <SiderMenus />}
-              <Layout.Content
-                className="antdp-basic-layouts-content"
-                style={{
-                  backgroundColor: '#f5f5f5',
-                  ...props?.contentStyle,
-                }}
-              >
+              {ANTD_MENU_IS_SHOW && <SiderMenus dark={dark} />}
+              <Layout.Content className="antdp-basic-layouts-content">
                 <App>
                   <WarpContent />
                 </App>
@@ -94,7 +83,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
         </React.Fragment>
       );
     }
-  }, []);
+  }, [dark]);
   const newData = useMemo(() => {
     if (typeof ANTD_AUTH_CONF === 'boolean') {
       return {
@@ -115,11 +104,14 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     }
     return { isCheckAuth: false };
   }, [ANTD_AUTH_CONF]);
-
   return (
     <AuthorizedConfigProvider {...newData}>
       <LayoutsProvider {...props}>
-        <Layout className="antdp-basic-layouts">{render}</Layout>
+        <ConfigProvider {...props.configProviderProps}>
+          <Layout className={`antdp-basic-layouts ${props.className}  antdp-basic-layouts-${dark?'dark':'light'}`}>
+            {render}
+          </Layout>
+        </ConfigProvider>
       </LayoutsProvider>
     </AuthorizedConfigProvider>
   );

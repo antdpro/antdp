@@ -12,13 +12,13 @@ import { SelectLang, useIntl, useModel } from '@umijs/max';
 import 'antd/dist/reset.css';
 import logo from './logo.svg';
 
-const Layout = (props) => {
+const Layout = () => {
   const { token, logout } = useModel('user', (model) => ({ ...model }));
   const [dark, setDark] = useState(false);
   return (
     <Authorized authority={!!token} redirectPath="/login">
       <FloatButton.Group
-        trigger="hover"
+        trigger="click"
         type="primary"
         style={{ right: 94 }}
         icon={<UnorderedListOutlined />}
@@ -29,8 +29,7 @@ const Layout = (props) => {
         />
       </FloatButton.Group>
       <BasicLayout
-        {...props}
-        dark={dark}
+        theme={dark ? 'dark' : 'light'}
         className="antdp-basic-layouts"
         projectName="Ant Design"
         profile={{

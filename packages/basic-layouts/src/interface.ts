@@ -74,7 +74,7 @@ export interface BasicLayoutsProps {
      */
     name?: string;
   };
-  dark?:boolean;
+  theme?:'dark' | 'light';
   configProviderProps?:ConfigProviderProps;
   className?:string;
 }

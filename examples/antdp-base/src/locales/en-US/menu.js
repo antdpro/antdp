@@ -6,6 +6,7 @@ export default {
   'menu.components.quickform': 'quickform',
   'menu.components.formdetail': 'formdetail',
   'menu.components.edittable': 'edittable',
+  'menu.components.proform': 'proform',
   'menu.list': 'list pages',
   'menu.list.basiclist': 'basiclist',
   'menu.list.cardlist': 'cardlist',

@@ -9,10 +9,11 @@ import Logo from './../Logo';
 
 export interface SiderProps extends MenuProps {
   menus?: RouterMenu[];
-  dark: boolean;
+  dark?: boolean;
 }
 
 const Sider = (props: SiderProps) => {
+  const { theme } = props
   const location = useLocation();
   const {
     HandleMenu,
@@ -44,7 +45,7 @@ const Sider = (props: SiderProps) => {
       collapsible
       width={siderWidth}
       collapsed={collapsed}
-      theme={props.dark ? 'dark' : 'light'}
+      theme={theme}
       onCollapse={(value) => {
         setCollapsed(value);
       }}
@@ -63,7 +64,7 @@ const Sider = (props: SiderProps) => {
         defaultSelectedKeys={[location.pathname]}
         defaultOpenKeys={[location.pathname]}
         mode="inline"
-        theme={props.dark ? 'dark' : 'light'}
+        theme={theme}
         items={items}
         style={{ width: '100%' }}
       />

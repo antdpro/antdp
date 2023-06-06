@@ -49,6 +49,12 @@
             "name": "编辑表格",
             "locale": "edittable",
             "component": "@/pages/Components/EditTable"
+          },
+          {
+            "path": "/components/proform",
+            "name": "ProForm",
+            "locale": "proform",
+            "component": "@/pages/Components/ProForm"
           }
         ]
       },

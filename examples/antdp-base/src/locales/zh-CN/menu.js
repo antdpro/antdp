@@ -6,6 +6,7 @@ export default {
   'menu.components.quickform': '快速表单',
   'menu.components.formdetail': '详情表单',
   'menu.components.edittable': '编辑表格',
+  'menu.components.proform': 'ProForm',
   'menu.list': '列表页',
   'menu.list.basiclist': '基础列表',
   'menu.list.cardlist': '卡片列表',

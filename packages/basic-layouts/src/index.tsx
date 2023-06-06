@@ -24,7 +24,7 @@ export { default as TopRight } from './TopRight';
 export * from './utils';
 
 const BasicLayouts = (props: BasicLayoutsProps) => {
-  const { dark = false } = props;
+  const { theme = 'light' } = props;
   const render = useMemo(() => {
     if (!!ANTD_MENU_TOP_LEFT) {
       return (
@@ -35,7 +35,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
             </Layout.Header>
           )}
           <Layout>
-            {ANTD_MENU_IS_SHOW && <SiderMenus dark={dark} />}
+            {ANTD_MENU_IS_SHOW && <SiderMenus theme={theme} />}
             <Layout.Content className="antdp-basic-layouts-content">
               <App>
                 <WarpContent />
@@ -47,7 +47,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     } else if (!!ANTD_MENU_SLIDER) {
       return (
         <React.Fragment>
-          {ANTD_MENU_IS_SHOW && <SiderMenus dark={dark} />}
+          {ANTD_MENU_IS_SHOW && <SiderMenus theme={theme} />}
           <Layout>
             {ANTD_HEAD_IS_SHOW && (
               <Layout.Header className="antdp-basic-layouts-header">
@@ -72,7 +72,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
               </Layout.Header>
             )}
             <Layout>
-              {ANTD_MENU_IS_SHOW && <SiderMenus dark={dark} />}
+              {ANTD_MENU_IS_SHOW && <SiderMenus theme={theme} />}
               <Layout.Content className="antdp-basic-layouts-content">
                 <App>
                   <WarpContent />
@@ -83,7 +83,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
         </React.Fragment>
       );
     }
-  }, [dark]);
+  }, [theme]);
   const newData = useMemo(() => {
     if (typeof ANTD_AUTH_CONF === 'boolean') {
       return {
@@ -108,7 +108,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     <AuthorizedConfigProvider {...newData}>
       <LayoutsProvider {...props}>
         <ConfigProvider {...props.configProviderProps}>
-          <Layout className={`antdp-basic-layouts ${props.className}  antdp-basic-layouts-${dark?'dark':'light'}`}>
+          <Layout className={`antdp-basic-layouts ${props.className}  antdp-basic-layouts-${theme}`}>
             {render}
           </Layout>
         </ConfigProvider>

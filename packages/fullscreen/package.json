@@ -1,6 +1,6 @@
 {
   "name": "@antdp/fullscreen",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "description": "设置页面全屏",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",

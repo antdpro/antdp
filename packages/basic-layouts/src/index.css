@@ -86,7 +86,7 @@ body {
   .antdp-basic-layouts-collapsed {
     padding-left: 10px;
   }
-  
+
   .antdp-basic-layouts-header-body img {
     display: inline-block;
     height: 32px;
@@ -127,13 +127,13 @@ body {
     white-space: nowrap;
     color: var(--primary-text-color);
   }
-  
+
   .antdp-global-title img {
     display: inline-block;
     height: 32px;
     vertical-align: middle;
   }
-  
+
   .antdp-basic-layouts-content {
     height: 100%;
     overflow: auto;
@@ -141,5 +141,6 @@ body {
   }
 }
 
-
-
+.ant-layout .ant-layout-sider-children {
+  height: auto;
+}

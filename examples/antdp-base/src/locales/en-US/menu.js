@@ -11,6 +11,7 @@ export default {
   'menu.list.basiclist': 'basiclist',
   'menu.list.cardlist': 'cardlist',
   'menu.list.tablelist': 'tablelist',
+  'menu.list.prolist': 'prolist',
   'menu.detail': 'detail',
   'menu.detail.basicdetails': 'basicdetails',
   'menu.detail.advanceddetails': 'advanceddetails',

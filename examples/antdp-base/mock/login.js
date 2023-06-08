@@ -12,6 +12,7 @@ const menus = [
   '/list/basiclist',
   '/list/cardlist',
   '/list/tablelist',
+  '/list/prolist',
   '/detail',
   '/detail/basicdetails',
   '/detail/advanceddetails',

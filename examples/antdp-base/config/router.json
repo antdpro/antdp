@@ -12,6 +12,10 @@
         "redirectTo": "/welcome"
       },
       {
+        "path": "/*",
+        "component": "@/pages/404"
+      },
+      {
         "path": "/welcome",
         "name": "首页",
         "locale": "welcome",
@@ -78,9 +82,15 @@
           },
           {
             "path": "/list/tablelist",
-            "name": "表格列表",
+            "name": "ProTable",
             "locale": "tablelist",
             "component": "@/pages/List/TableList"
+          },
+          {
+            "path": "/list/prolist",
+            "name": "ProList",
+            "locale": "prolist",
+            "component": "@/pages/List/ProList"
           }
         ]
       },
@@ -149,13 +159,6 @@
         "name": "403",
         "icon": "file-protect",
         "component": "@/pages/403",
-        "hideInMenu": true
-      },
-      {
-        "path": "/404",
-        "name": "404",
-        "icon": "file-protect",
-        "component": "@/pages/404",
         "hideInMenu": true
       }
     ]

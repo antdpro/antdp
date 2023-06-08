@@ -8,10 +8,7 @@ import { ProTable, PageContainer } from '@ant-design/pro-components';
 const SearchTable = () => {
   return (
     <Space direction="vertical" style={{ display: 'block' }}>
-      <CardDes
-        title="简单表格列表"
-        description="使用ProTable快速请求表格列表"
-      />
+      <CardDes title="ProTable" description="使用ProTable快速请求表格列表" />
       <div style={{ marginTop: 24 }}></div>
       <ProTable
         headerTitle="列表"

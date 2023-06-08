@@ -136,7 +136,9 @@ export default (props) => {
 | topRightLanguage | 顶部右方 |   `React.ReactNode` | - |
 | siderWidth | 置最左边菜单宽度 |   `number` | `180` |
 | profile | 用户信息显示 |   `{avatar?: string;name?: string}` | - |
-| contentStyle | 自定义内容部分样式 |   `React.CSSProperties | undefined` | - |
+| theme | 明或暗 |   `dark` | `light` | `light` |
+| className | 样式 |   `string` | - |
+| configProviderProps | `antd组件全局化配置` |   `ConfigProviderProps` | - |
 
 ## TopRightMenuProps
 | 参数 | 说明 | 类型 | 默认值 |

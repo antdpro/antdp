@@ -1,5 +1,5 @@
 import { AuthorizedConfigProvider } from '@antdp/authorized';
-import { App, ConfigProvider, Layout } from 'antd';
+import { App, ConfigProvider, Layout, theme as th } from 'antd';
 import React, { useMemo } from 'react';
 import WarpContent from './Content';
 import Header from './Header';
@@ -107,8 +107,15 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
   return (
     <AuthorizedConfigProvider {...newData}>
       <LayoutsProvider {...props}>
-        <ConfigProvider {...props.configProviderProps}>
-          <Layout className={`antdp-basic-layouts ${props.className}  antdp-basic-layouts-${theme}`}>
+        <ConfigProvider
+          theme={{
+            algorithm:theme === 'dark' ? th.darkAlgorithm : th.defaultAlgorithm,
+          }}
+          {...props.configProviderProps}
+        >
+          <Layout
+            className={`antdp-basic-layouts ${props.className}  antdp-basic-layouts-${theme}`}
+          >
             {render}
           </Layout>
         </ConfigProvider>

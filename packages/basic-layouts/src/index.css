@@ -15,12 +15,12 @@ body {
   --primary-content-bg: #f5f5f5;
 }
 .antdp-basic-layouts-dark{
-  --primary-slider-bg: #001529;
-  --primary-header-bg: #001529;
+  --primary-slider-bg: #1d1d1d;
+  --primary-header-bg: #1d1d1d;
   --primary-shadow: #001529;
   --primary-slider-trigger-border:#fff;
   --primary-text-color:#fff;
-  --primary-content-bg: #f5f5f5;
+  --primary-content-bg: #1d1d1d;
 }
 .antdp-basic-layouts {
   width: 100%;
@@ -42,6 +42,10 @@ body {
     .antdp-basic-layouts-collapsed {
       float: left;
     }
+  }
+  .ant-menu-dark {
+    color: rgba(255, 255, 255, 0.65);
+    background: var(--primary-slider-bg);
   }
   .antdp-basic-layouts-header {
     padding: 0 !important;

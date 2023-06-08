@@ -64,7 +64,7 @@ const Sider = (props: SiderProps) => {
         defaultSelectedKeys={[location.pathname]}
         defaultOpenKeys={[location.pathname]}
         mode="inline"
-        theme={theme}
+        // theme={theme}
         items={items}
         style={{ width: '100%' }}
       />

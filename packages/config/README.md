@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/v/@antdp/config.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/config)
 [![npm download](https://img.shields.io/npm/dm/@antdp/config.svg?style=flat)](https://www.npmjs.com/package/@antdp/config)
 
-我们已将 umi 配置包裹一层对于， antdp中能使用的自定义配置，你可以使用项目根目录的  `config/config.ts`进行配置
+我们已将 umi 配置包裹了一层， 如果需要antdp中能使用自定义配置，你可以使用项目根目录的  `config/config.ts`/`config/config.js`进行配置
 
 ## Installation
 

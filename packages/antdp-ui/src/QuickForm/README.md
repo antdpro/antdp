@@ -289,6 +289,7 @@ export default QuickFormDemo
 
 <!--End-->
 ### Props
+组件继承[antd Form](https://ant.design/components/form-cn)
 
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
@@ -304,6 +305,7 @@ export default QuickFormDemo
 | type | 表单类型:modal ｜ cardform ｜ CardPro | string | - |
 | extra | antd collapse.panel 自定义渲染每个面板右上角的内容 | `React.ReactNode` | - |
 | formHide | Form.useFormItemHide 返回值 | Object | - |
+| initialHide | 初始值 隐藏显示 字段对应的值 | `{ [x: string]: boolean }` | - |
 | initialHide | 初始值 隐藏显示 字段对应的值 | `{ [x: string]: boolean }` | - |
 
 ### itemProps

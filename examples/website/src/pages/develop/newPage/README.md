@@ -75,12 +75,89 @@ export default () => {
   - ``name`` 名称 
   - ``icon`` 图标 
   - ``components`` 对应页面路径
-  - ``redirect`` 重定向 
   - ``children`` 子集 路由 
   - ``hideInMenu`` 是否隐藏菜单
   - ``side`` 控制顶部和侧边菜单展示是否联动
 
 布局及路由都配置好之后，回到之前新建的 ```index.tsx```，可以开始写业务代码了！
+
+## 路由菜单权限
+开启权限配置。需要在 config/config.ts 提供权限配置。
+```diff
+import config from '@antdp/config';
+import proxy from './proxy';
+import router from './router.json';
+export default config(router, {
+  proxy,
+  define: {
++  ANTD_AUTH_CONF: {
++    auth_menu: 'authMenu',
++    auth_btn: 'authBtn',
++    auth_check_url: '',
+  }
+});
+```
+
+### `ANTD_AUTH_CONF` 权限配置参数
+
+| 参数 | 说明 | 类型 | 默认值 |
+| -------- | -------- | -------- | -------- |
+| auth_menu | 储存菜单路由权限---本地keys | `string`  | `authMenu` |
+| auth_btn | 储存按钮路径权限---本地keys | `string`  | `authBtn` |
+| auth_check_url | 判断路径是否有权限的字段 默认值`menuUrl`,如果字段设置为`undefined`则`auth_menu`和`auth_btn`储存形式为 `["/web"]`,反之储存形式为`[{menuUrl:"/web"}]` | `string`  | `menuUrl` |
+
+### 路由菜单
+
+这是你的路由菜单（config/router.json）
+```json
+[
+  {
+    "path": "/login",
+    "component": "@/layouts/UserLayout"
+  },
+  {
+    "path": "/",
+    "component": "@/layouts/BasicLayout",
+    "routes": [
+      {
+        "path": "/",
+        "redirectTo": "/welcome"
+      },
+      {
+        "path": "/*",
+        "component": "@/pages/404"
+      },
+      {
+        "path": "/welcome",
+        "name": "首页",
+        "icon": "welcome",
+        "locale": "welcome",
+        "component": "@/pages/Home/index"
+      },
+      {
+        "path": "/403",
+        "name": "403",
+        "hideInMenu": true,
+        "icon": "file-protect",
+        "component": "@/pages/403"
+      }
+    ]
+  }
+]
+```
+
+登陆后后端返回的菜单列表可能如下
+
+```js
+const menus = ['/', '/welcome', '/404', '/403'];
+```
+
+### 路由匹配过程
+- 1.当你登陆成功后，你需将其保存于你的sessionStorage中，储存的字段为你`ANTD_AUTH_CONF`中配的`auth_menu`字段，并在登陆后存储在`sessionStorage`中,如`sessionStorage.setItem('authMenu', JSON.stringify([]))`
+- 2.当你跳转至页面时，会根据sessionStorage中`authMenu`进行权限匹配，如果没有权限则会跳往403页面
+
+<strong>请保证403 和 404页面存在</strong>
+
 
 ## License
 

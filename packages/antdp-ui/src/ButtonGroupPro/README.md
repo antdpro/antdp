@@ -3,8 +3,6 @@ ButtonGroupPro
 ---
 
 ButtonGroupPro权限按钮组
-> 🚧 1.废弃 type="buttonGroup" 2.暂时去除改组件权限功能,待下版本优化
-
 
 ### 案例
 

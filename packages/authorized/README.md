@@ -6,12 +6,13 @@
 
 权限判断组件或方法，通过判断是否进入主界面还是登录界面。
 
-## Installation
+# 权限
+
+## 下载依赖
 
 ```bash
 $ npm i @antdp/authorized  # yarn add @antdp/authorized
 ```
-
 
 ## 启用方式
 配置开启。同时需要 config/config.ts 提供权限配置。
@@ -30,7 +31,8 @@ export default config(router, {
 });
 ```
 
-### ANTD_AUTH_CONF参数
+### `ANTD_AUTH_CONF` 权限配置参数
+
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
 | auth_menu | 储存菜单路由权限---本地keys | `string`  | `authMenu` |
@@ -38,52 +40,93 @@ export default config(router, {
 | auth_check_url | 判断路径是否有权限的字段 默认值`menuUrl`,如果字段设置为`undefined`则`auth_menu`和`auth_btn`储存形式为 `["/web"]`,反之储存形式为`[{menuUrl:"/web"}]` | `string`  | `menuUrl` |
 
 
-
-## 页面权限判断重定向
-
-```jsx
-import React from 'react';
-import BasicLayout from '@antdp/basic-layouts';
-import UserLogin from '@antdp/user-login';
-import Authorized from '@antdp/authorized';
-
-// 入口页面
-const UserLayout = (props) => {
-  return (
-    <Authorized authority={!props.token} redirectPath="/login">
-      <UserLogin />
-    </Authorized>
-  )
-};
-
-// 登录页面
-const Layout = (props) => {
-  return (
-    <Authorized authority={!props.token} redirectPath="/">
-      <BasicLayout />
-    </Authorized>
-  )
-};
+## 路由菜单权限
+这是你的路由菜单（config/router.json）
+```json
+[
+  {
+    "path": "/login",
+    "component": "@/layouts/UserLayout"
+  },
+  {
+    "path": "/",
+    "component": "@/layouts/BasicLayout",
+    "routes": [
+      {
+        "path": "/",
+        "redirectTo": "/welcome"
+      },
+      {
+        "path": "/welcome",
+        "name": "首页",
+        "icon": "welcome",
+        "locale": "welcome",
+        "component": "@/pages/Home/index"
+      },
+      {
+        "path": "/404",
+        "name": "404",
+        "hideInMenu": true,
+        "icon": "file-protect",
+        "component": "@/pages/404"
+      },
+      {
+        "path": "/403",
+        "name": "403",
+        "hideInMenu": true,
+        "icon": "file-protect",
+        "component": "@/pages/403"
+      }
+    ]
+  }
+]
 ```
 
-## Authorized参数
+登陆后后端返回的菜单列表可能如下
 
-| 参数 | 说明 | 类型 | 默认值 |
-| -------- | -------- | -------- | -------- |
-| authority | 准入权限/权限判断 | `boolean`  | - |
-| redirectPath | 权限异常时重定向的页面路由 | `string`  | - |
-| children | 权限异常时重定向的页面路由 | `React.ReactNode`  | - |
+```js
+const menus = ['/', '/welcome', '/404', '/403'];
+```
+
+### 路由匹配过程
+- 1.当你登陆成功后，你需将其保存于你的sessionStorage中，储存的字段为你`ANTD_AUTH_CONF`中配的`auth_menu`字段，并在登陆后存储在`sessionStorage`中,如`sessionStorage.setItem('authMenu', JSON.stringify([]))`
+- 2.当你跳转至页面时，会根据sessionStorage中`authMenu`进行权限匹配，如果没有权限则会跳往404或403页面
+
+<strong>请保证403 和 404页面存在</strong>
+
+
+## 页面权限重定向
+如果你想根据 `token`判断是否重定向回登陆页，可在layouts/BasicLayout.ts中添加`Authorized`
+```ts
+import Authorized from '@antdp/authorized';
+import BasicLayouts from '@antdp/basic-layouts';
+
+const Layout = () => {
+  const token =''
+  return (
+    <Authorized authority={!!token} redirectPath="/login">
+      <BasicLayouts
+        projectName="Ant Design"
+      />
+    </Authorized>
+  );
+};
+
+export default Layout;
+
+```
 
 ## 按钮权限
+很多大型项目中，也会对按钮权限进行管理,请提前配置好`ANTD_AUTH_CONF`中配的`auth_btn`字段，并在登陆后存储在`sessionStorage`中,如`sessionStorage.setItem("authBtn",JSON.stringify(['/api/select']))`
 
-```tsx mdx:preview
-// 为了渲染设置的本地权限数据
+```tsx
+// 为了渲染设置的本地权限数
 import React from "react"
 import { AuthorizedBtn } from "@antdp/authorized"
 const Demo = ()=>{
   return (
-    <AuthorizedBtn path="/api/select2" >
-      <button>查询按钮</button>
+    <AuthorizedBtn path="/api/select" >
+      <button>按钮</button>
     </AuthorizedBtn>
   )
 }
@@ -96,25 +139,25 @@ export default Demo;
 | path | 权限路径 | `string`  | - |
 | children | 展示内容 | `React.ReactNode`  | - |
 
-## AuthorizedConfigProvider 设置按钮权限配置
-
+## 使用AuthorizedConfigProvider 设置按钮权限配置
 使用 `AuthorizedConfigProvider`可以自己进行重新设置组件包裹内的所有按钮的权限参数，不使用默认配置的按钮权限配置
-```tsx mdx:preview
-sessionStorage.setItem("authBtn",JSON.stringify([{menuUrl:"/api/select"}]))
 
-import React from "react"
-import { AuthorizedBtn ,AuthorizedConfigProvider } from "@antdp/authorized"
-
-const Demo = ()=>{
-  return (
-  <AuthorizedConfigProvider isCheckAuth={true} >
-    <AuthorizedBtn path="/api/select" >
-      <button>查询</button>
-    </AuthorizedBtn>
-  </AuthorizedConfigProvider>
+```tsx
+  import React from "react"
+  import { AuthorizedBtn ,AuthorizedConfigProvider } from "@antdp/authorized"
+  const Page = ()=>{
+    useEffect(()=>{
+      sessionStorage.setItem("btn",JSON.stringify([{ menuUrl:"/api/select"} ]))
+    },[])
+    return (
+      <AuthorizedConfigProvider isCheckAuth={true} auth_btn="btn">
+        <AuthorizedBtn path="/api/select" >
+          <button>查询</button>
+        </AuthorizedBtn>
+      </AuthorizedConfigProvider>
   )
 }
-export default Demo;
+export default Page
 ```
 
 ### AuthorizedConfigProvider参数
@@ -126,21 +169,9 @@ export default Demo;
 | isCheckAuth | 是否检查权限 | `boolean`  | `false` |
 | children | 子内容 | `string`  | - |
 
+## License
 
-## 判断菜单是否有权限
-```ts
-import { getAuthorizedPage } from '@antdp/authorized';
-const isCheckMenu = getAuthorizedPage([{path:"/web"},{path:"/examples"}],"/examples")
-
-```
-
-### getAuthorizedPage参数
-| 参数 | 说明 | 类型 | 默认值 |
-| -------- | -------- | -------- | -------- |
-| getAuthorizedPage | 页面权限是否有权限 | `(menuRouter: Array<any>, path: string) => boolean | 404 | 403`  | - |
-
-
-
+Licensed under the MIT License.
 
 
 

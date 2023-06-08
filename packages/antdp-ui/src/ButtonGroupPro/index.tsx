@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Dropdown, Menu, Badge } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { AuthorizedBtn } from '@antdp/authorized';
+import { Badge, Button, Dropdown, Menu } from 'antd';
 import { ButtonProps } from 'antd/es/button';
 import { ButtonGroupProps, ButtonType } from 'antd/lib/button';
-// import { AuthorizedBtn } from '@antdp/authorized';
-import { DownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import './index.css';
 import { MenuInfo } from 'rc-menu/lib/interface';
+import React, { useEffect, useState } from 'react';
+import { getMenusItems } from '../utils';
+import './index.css';
 
 export interface ButtonGroupProProps {
-  button: Array<any>;
+  button: any[];
   className?: string;
 }
 export interface MenusProps extends Omit<MenuInfo, 'item'> {
@@ -19,16 +20,16 @@ export interface MenusProps extends Omit<MenuInfo, 'item'> {
   label?: string | React.ReactNode;
   /** 权限路径 */
   path?: string;
-  item: any;
   [k: string]: any;
 }
+
 export interface MenusOptionProps
   extends Omit<ButtonProps, 'type'>,
-  ButtonGroupProps {
+    ButtonGroupProps {
   path?: string;
   label?: string | React.ReactNode;
-  option?: Array<MenusOptionProps>;
-  menu?: Array<MenusProps>;
+  option?: MenusOptionProps[];
+  menu?: MenusProps[];
   key?: number;
   ButtonandDropdown?: string | number;
   type?: ButtonType;
@@ -55,11 +56,11 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
   }, []);
 
   const handleMenuClick = (
-    menus: any,
+    menus: MenusProps[] | undefined = [],
     idx: number | undefined,
     e: MenuInfo,
   ) => {
-    menus.forEach((menu: any, index: number | undefined) => {
+    menus.forEach((menu: MenusProps, index: number | undefined) => {
       if (String(index) === e?.key && menu.onClick) {
         setmenuDropdownLabel({ label: menu.label, key: idx });
         menu.onClick();
@@ -68,33 +69,15 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
   };
 
   const renderMenu = (
-    menus: Array<MenusProps> | undefined,
+    menus: MenusProps[] | undefined = [],
     idx: number | undefined,
   ) => {
+    const items = getMenusItems(menus);
     return (
-      <Menu onClick={(e: any) => handleMenuClick(menus, idx, e)}>
-        {menus &&
-          menus.length > 0 &&
-          menus.map((items: MenusProps, keys: number) => {
-            // 权限
-            if (items.path) {
-              const accessStr = sessionStorage.getItem('authBtn');
-              const access = accessStr ? JSON.parse(accessStr) : [];
-              if (!access) return null;
-              return access.includes(`${items.path}`) ? (
-                <Menu.Item key={keys} disabled={items.disabled}>
-                  {items.label}
-                </Menu.Item>
-              ) : null;
-            } else {
-              return (
-                <Menu.Item key={keys} disabled={items.disabled}>
-                  {items.label}
-                </Menu.Item>
-              );
-            }
-          })}
-      </Menu>
+      <Menu
+        items={items || []}
+        onClick={(e) => handleMenuClick(menus, idx, e)}
+      />
     );
   };
 
@@ -110,7 +93,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
             onClick: item.onClick,
             disabled: item.disabled,
             style: {
-              margin: ButtonandDropdown ? '0 0 0 -3px' : '12px 0 12px 12px',
+              margin: ButtonandDropdown
+                ? '0 0 0 -3px'
+                : `0px ${idx === button.length - 1 ? 0 : 12}px 0px 0px`,
             },
             ...item,
           } as ButtonProps;
@@ -126,7 +111,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
                 size="middle"
                 type={props.type || 'default'}
                 style={{
-                  margin: ButtonandDropdown ? '0 0 0 -3px' : '12px 0 12px 12px',
+                  margin: ButtonandDropdown
+                    ? '0 0 0 -3px'
+                    : `0px ${idx === button.length - 1 ? 0 : 12}px 0px 0px`,
                 }}
               >
                 {menuDropdownLabel.key === idx
@@ -137,12 +124,15 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
             );
             return item.path ? (
               <div key={idx}>
-                <Dropdown overlay={() => renderMenu(item.menu, idx)}>
+                <Dropdown dropdownRender={() => renderMenu(item.menu, idx)}>
                   {DropdownButtonDom}
                 </Dropdown>
               </div>
             ) : (
-              <Dropdown overlay={() => renderMenu(item.menu, idx)} key={idx}>
+              <Dropdown
+                dropdownRender={() => renderMenu(item.menu, idx)}
+                key={idx}
+              >
                 {DropdownButtonDom}
               </Dropdown>
             );
@@ -150,9 +140,9 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
           // 自定义render
           if (item.render) {
             return item.path ? (
-              // <AuthorizedBtn key={idx} path={item.path}>
-                item.render(item.label)
-              // </AuthorizedBtn>
+              <AuthorizedBtn key={idx} path={item.path}>
+                {item.render(item.label)}
+              </AuthorizedBtn>
             ) : (
               <span key={idx}>{item.render(item.label)}</span>
             );
@@ -160,15 +150,15 @@ const ButtonGroupPro = (props: ButtonGroupProProps) => {
           // 单独Button
           if (item.path) {
             return item.badge ? (
-              // <AuthorizedBtn key={idx} path={item.path}>
+              <AuthorizedBtn key={idx} path={item.path}>
                 <Badge {...badgeaParams} style={{ marginTop: '15px' }}>
                   {buttondom}
                 </Badge>
-              // </AuthorizedBtn>
+              </AuthorizedBtn>
             ) : (
-              // <AuthorizedBtn key={idx} path={item.path}>
-                buttondom
-              // </AuthorizedBtn>
+              <AuthorizedBtn key={idx} path={item.path}>
+                {buttondom}
+              </AuthorizedBtn>
             );
           } else {
             return item.badge ? (

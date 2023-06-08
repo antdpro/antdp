@@ -4,7 +4,7 @@
 [![npm](https://img.shields.io/npm/v/@antdp/config.svg?maxAge=3600)](https://www.npmjs.com/package/@antdp/config)
 [![npm download](https://img.shields.io/npm/dm/@antdp/config.svg?style=flat)](https://www.npmjs.com/package/@antdp/config)
 
-我们已将 umi 配置包裹一层对于， antdp中能使用的自定义配置，你可以使用项目根目录的  `config/config.ts`进行配置
+我们已将 umi 配置包裹了一层， 如果需要antdp中能使用自定义配置，你可以使用项目根目录的  `config/config.ts`/`config/config.js`进行配置
 
 ## Installation
 
@@ -81,8 +81,6 @@ export default config(router, {
 ```
 ### ANTD_IS_BREADCRUMB
 
-是否开启父子路由面包屑，默认值`false`不显示
-
 ```diff
 import config from '@antdp/config';
 import proxy from './proxy';
@@ -122,7 +120,7 @@ export default config(router, {
 
 ### ANTD_MENU_IS_SHOW
 
-是否显示 左侧菜单,默认值`false`不启用
+是否显示 左侧菜单,默认值`true`
 
 ```diff
 import config from '@antdp/config';
@@ -138,7 +136,7 @@ export default config(router, {
 
 ### ANTD_HEAD_IS_SHOW
 
-是否显示 head头部，默认值`false`不显示
+是否显示 head头部，默认值`true`
 
 ```diff
 import config from '@antdp/config';
@@ -164,22 +162,6 @@ export default config(router, {
   proxy,
   define: {
 +    ANTD_MENU_TOP_LEFT: true
-  },
-);
-```
-
-### ANTD_TITLE_TOP
-
-标题 放在 头部 ,菜单放在头部下面，默认值`true`
-
-```diff
-import config from '@antdp/config';
-import proxy from './proxy';
-import router from './router.json';
-export default config(router, {
-  proxy,
-  define: {
-+    ANTD_TITLE_TOP: true
   },
 );
 ```

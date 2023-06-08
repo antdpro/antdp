@@ -17,11 +17,10 @@ $ npm i @antdp/basic-layouts  # yarn add  @antdp/basic-layouts
 
 ```jsx
 import React from 'react';
-import BasicLayout from '@antdp/basic-layouts';
-const Demo = (props) => {
+import BasicLayouts from '@antdp/basic-layouts';
+const Demo = () => {
   return (
-    <BasicLayout
-      {...props}
+    <BasicLayouts
       projectName="Ant Design Pro"
     />
   )
@@ -33,13 +32,12 @@ export default Demo
 ## 菜单国际化设置
 
 ```jsx
-import BasicLayout from '@antdp/basic-layouts';
+import BasicLayouts from '@antdp/basic-layouts';
 import { useIntl,SelectLang } from '@umijs/max';
 
-const Demo = (props) => {
+const Demo = () => {
   return (
-    <BasicLayout
-      {...props}
+    <BasicLayouts
       projectName="Ant Design Pro"
       intlLanguage={useIntl()}
       topRightLanguage={<SelectLang />}
@@ -50,14 +48,13 @@ export default Demo
 ```
 ## 配置右侧菜单
 ```jsx
-import BasicLayout from '@antdp/basic-layouts';
+import BasicLayouts from '@antdp/basic-layouts';
 
-export default (props) => {
+export default () => {
   return (
-    <BasicLayout
-      {...props}
+    <BasicLayouts
       projectName="Ant Design Pro"
-       topRightMenu={[
+      topRightMenu={[
           {
             title: '个人中心',
             icon: <UserOutlined />,
@@ -85,6 +82,43 @@ export default (props) => {
 
 ```
 
+## 配置暗模式
+```jsx
+import BasicLayouts from '@antdp/basic-layouts';
+
+export default () => {
+  return (
+    <BasicLayouts
+      theme="dark"
+      projectName="Ant Design Pro"
+      topRightMenu={[
+        {
+          title: '个人中心',
+          icon: <UserOutlined />,
+          onClick: () => {},
+        },
+        {
+          title: '个人设置',
+          link: '/setting/property',
+          icon: <SettingOutlined />,
+        },
+        {
+          divider: true,
+        },
+        {
+          title: '退出登录',
+          icon: <LogoutOutlined />,
+          onClick: () => {
+            logout();
+          },
+        },
+      ]}
+    />
+  )
+};
+
+```
+
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -98,6 +132,9 @@ export default (props) => {
 | topRightLanguage | 顶部右方 |   `React.ReactNode` | - |
 | siderWidth | 置最左边菜单宽度 |   `number` | `180` |
 | profile | 用户信息显示 |   `{avatar?: string;name?: string}` | - |
+| theme | 明或暗 |   `dark` | `light` | `light` |
+| className | 样式 |   `string` | - |
+| configProviderProps | `antd组件全局化配置` |   `ConfigProviderProps` | - |
 
 ## TopRightMenuProps
 | 参数 | 说明 | 类型 | 默认值 |

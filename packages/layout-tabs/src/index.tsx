@@ -33,6 +33,7 @@ export default (props: LayoutTabsProps) => {
 
   let location = useLocation();
   const [tabAll, setTabAll] = useState<LayoutTabsRouter[]>([]);
+  const match = matchPath(location.pathname, location.pathname);
 
   useEffect(() => {
     let urlData: LayoutTabsRouter | null = null;
@@ -82,12 +83,39 @@ export default (props: LayoutTabsProps) => {
     setTabAll([...tabData]);
   }, [location.search]);
 
-  const NotFound = useMemo(
-    () => (
-      <Result status="404" title="404" subTitle="抱歉，你访问的页面不存在" />
-    ),
-    [],
-  );
+  const renderOutlet = () => {
+    if (ANTD_IS_IFRAME_RENDER) {
+      const { element } = tabAll.find(item => item.path === location.pathname) || {}
+      const Comp = element || <Result status="404" title="404" subTitle="抱歉，你访问的页面不存在" />
+      return (
+        <Iframe
+          bodyPadding={bodyPadding}
+          isShowView={!!match}
+          match={match}
+          child={Comp as any}
+          key={location.pathname}
+        />
+      )
+    }
+    if (ANTD_IS_TABS) {
+      return (
+        <RenderContent
+          bodyPadding={bodyPadding}
+          isShowView={!!match}
+        />
+      )
+    }
+    if (!!match) {
+      return (
+        <RenderContent
+          bodyPadding={bodyPadding}
+          isShowView={true}
+        />
+      )
+    }
+    return null
+  }
+
   return (
     <Fragment>
       {
@@ -141,48 +169,7 @@ export default (props: LayoutTabsProps) => {
             })}
           />
         )}
-      {tabAll.map((pane: LayoutTabsRouter, index: number) => {
-        if (!pane) return null;
-        const match = matchPath(pane.path, location.pathname);
-        const isShowView = !!match;
-        const Comp = function () {
-          return pane.element || NotFound;
-        };
-        if (ANTD_IS_IFRAME_RENDER) {
-          return (
-            <Iframe
-              bodyPadding={bodyPadding}
-              isShowView={isShowView}
-              match={pane.match}
-              child={Comp as React.FC<any>}
-              key={pane.path}
-            />
-          );
-        }
-        if (ANTD_IS_TABS) {
-          return (
-            <RenderContent
-              bodyPadding={bodyPadding}
-              isShowView={isShowView}
-              match={pane.match}
-              child={Comp as React.FC<any>}
-              key={pane.path}
-            />
-          );
-        }
-        if (isShowView) {
-          return (
-            <RenderContent
-              bodyPadding={bodyPadding}
-              match={pane.match}
-              isShowView={true}
-              child={Comp as React.FC<any>}
-              key={pane.path}
-            />
-          );
-        }
-        return null;
-      })}
+      {renderOutlet()}
     </Fragment>
   );
 };

@@ -67,18 +67,18 @@ export const menusDocsConfig: MenusConfigObject[] = [
     title: '基础配置',
   },
   {
-    title: '国际化',
-    path: '/docs/internationalization',
-  },
-  {
     title: '配置',
     path: '/docs/config',
   },
   {
-    title: 'KKTP',
-    target: '__blank',
-    path: 'https://kktjs.github.io/kkt-pro/#/doc/kktp',
+    title: '国际化',
+    path: '/docs/internationalization',
   },
+  // {
+  //   title: 'KKTP',
+  //   target: '__blank',
+  //   path: 'https://kktjs.github.io/kkt-pro/#/doc/kktp',
+  // },
   {
     title: '源码 Github 仓库',
     target: '__blank',

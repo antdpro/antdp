@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import styles from './index.module.less';
 import { KktproPageProps, Link } from '@kkt/pro';
 import { Button } from 'antd'
-import Footer from '@/components/Footer';
 
 const Layout = styled.div`
 font-family: sans-serif;
@@ -14,7 +13,7 @@ const Wapper = styled.div`
   margin-top: -96px;
   max-width: 1392px;
   padding-top: 220px;
-  padding-bottom: 100px;
+  padding-bottom: 20px;
   text-align: center;
   box-sizing: border-box;
   ::before{
@@ -54,31 +53,6 @@ export default function ({ navigate }: KktproPageProps) {
           </Button>
         </div>
       </Wapper>
-      <Footer />
-      <div className={styles.normal___Nhkbz}>
-        <div className={styles.normal___fStEy}>
-          <div className={styles.normal___border} />
-          <h2>参与建设</h2>
-          <div className={styles.normal___border} />
-        </div>
-        <div>
-          <p className={styles.p_}>
-            社区已有非常多小伙伴在和我们一同建设 <strong style={{ color: '#0273dc' }}>antdp</strong>，如果你有兴趣，欢迎{' '}
-            <a href='https://github.com/antdpro' style={{ color: '#0273dc' }}>加入我们。</a>
-          </p>
-          <div>
-            <a
-              href="https://github.com/antdpro/antdp/graphs/contributors"
-              target="_blank"
-            >
-              <img
-                src="https://antdpro.github.io/antdp/CONTRIBUTORS.svg"
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
-      </div>
     </Layout>
   )
 }

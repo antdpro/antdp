@@ -3,6 +3,7 @@ import proxy from './proxy';
 import router from './router.json';
 export default config(router, {
   proxy,
+  npmClient: 'npm',
   define: {
     // 是否显示 左侧菜单
     // ANTD_MENU_IS_SHOW: false,
@@ -15,17 +16,26 @@ export default config(router, {
     ANTD_AUTH_CONF: {
       auth_menu: 'authMenu',
       auth_btn: 'authBtn',
-      auth_check_url: true,
+      auth_check_url: '',
     },
-    // ANTD_MENU_TOP_LEFT: true,
-    ANTD_TITLE_TOP: true,
+    ANTD_MENU_TOP_LEFT: false,
+    ANTD_MENU_SLIDER: true,
     /** 是否展示搜索菜单  */
     ANTD_MENU_SEARCH_IS_SHOW: true,
   },
   locale: {
     // 默认使用 src/locales/zh-CN.ts 作为多语言文件
     default: 'zh-CN',
-    baseSeparator: '-',
+    antd: true,
+    // default true, when it is true, will use `navigator.language` overwrite default
+    // baseNavigator: true,
+    /**
+     * [国际化] 控制台提示 Warning: The current popular language does not exist, please check the locales folder! 警告信息
+     * https://github.com/umijs/umi/issues/4363#issuecomment-616134434
+     * 警用 `baseNavigator` 和 `title` 两个配置项 可以解决国际化警告问题
+     */
+    baseNavigator: false,
+    title: false,
   },
   dva: {},
   model: {},

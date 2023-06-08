@@ -1,18 +1,13 @@
 import React, { useMemo } from 'react';
-// @ts-ignore
-import { history } from '@umijs/max';
-import { useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 interface IframeProps {
   isShowView?: boolean;
   bodyPadding?: number | string;
-  match?: any;
-  child: React.FC<any>
 }
 
 export default (props: IframeProps) => {
-  const { isShowView, bodyPadding, match, child: Child } = props;
-  let location = useLocation();
+  const { isShowView, bodyPadding } = props;
   return useMemo(() => {
     return (
       <div
@@ -21,9 +16,10 @@ export default (props: IframeProps) => {
           padding: bodyPadding || 14,
           height: 'calc(100% - 45px)',
           overflow: 'auto',
+          // background:'#f0f2f5'
         }}
       >
-        <Child match={match} history={history} location={location} />
+        <Outlet />
       </div>
     );
   }, [isShowView]);

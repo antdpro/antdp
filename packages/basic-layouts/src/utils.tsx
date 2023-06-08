@@ -7,7 +7,7 @@ import { IntlShape } from "react-intl/lib/src/types"
 
 
 /**
- * 
+ *
  * 1. 对路由权限进行判定
  * 2. 保存每个子集对应的父级
  * 3. 父级链
@@ -90,30 +90,26 @@ export class HandleMenu {
    * 1. 权限处理
    *    1. 子集全部没权限，父级也没有权限
    *    2. 子集存在权限，父级也存在权限
-   *    3. 没有权限的自动把 path 转换成 403  
+   *    3. 没有权限的自动把 path 转换成 403
    * */
   initAuth(routers: RouterMenu[], isParent = false) {
-    let child: RouterMenu[] = []
-    routers.sort(it => Number(it.order || 0)).forEach((item) => {
-      const { routes } = item
-      const newItem = { ...item }
-      if (Array.isArray(routes)) {
-        newItem.routes = this.initAuth(routes, true)
-      }
-      const check = this.checkAuth(item.path || "")
-      if (!check && item.path) {
-        item.oPath = item.path
-        item.path = "/403"
-      } else {
-        child.push({ ...item })
-      }
-
-      if (!isParent) {
-        this.checkAuthMenus.push({ ...item })
-      }
-    })
-    return child
+    let child: RouterMenu[] = [];
+    routers
+      .sort((it) => Number(it.order || 0))
+      .forEach((item) => {
+        const { routes } = item;
+        const newItem = { ...item };
+        if (Array.isArray(routes)) {
+          newItem.routes = this.initAuth(routes, true);
+        }
+        if (!isParent) {
+          this.checkAuthMenus.push({ ...item });
+        }
+        child.push(newItem);
+      });
+    return child;
   }
+
   /**
    * 2. 国际化翻译
    * */
@@ -225,30 +221,60 @@ export class HandleMenu {
 
   /**8. 获取父级path*/
   getParentPath(path: string) {
-    const parentPath = this.childParent.get(path) || "/"
-    return parentPath
+    const parentPath = this.childParent.get(path) || '/';
+    return parentPath;
+  }
+
+  // 查询所有父节点和自己是否有权限
+  getCheckAuthAll(path: string) {
+    const node = this.flatAllMenu.find((item) => item.path === path);
+    if (!node) {
+      return false;
+    }
+    const pathList: string[] = [];
+    let currentNode: RouterMenu | undefined = node;
+    while (currentNode) {
+      pathList.push(currentNode.path || '');
+      currentNode = this.flatAllMenu.find((item) => item.id === currentNode?.parentId);
+    }
+    let hasPermission = true; // 假设有权限
+    // 从最上层父节点开始逐一判断权限
+    for (let i = pathList.length - 1; i >= 0; i--) {
+      const p = pathList[i];
+      if (!this.checkAuth(p)) {
+        hasPermission = false;
+        break;
+      }
+    }
+    return hasPermission;
   }
 
   /**9. 获取跳转地址*/
   getToPath(path: string) {
     // 1. 先判断是不是 side === true
-    const currentItem = this.flatAllMenu.find(item => item.path === path)
-    if (currentItem?.path === "/") {
-      this.preParentPath = ""
-      this.prePath = currentItem.redirectTo
-      return currentItem.redirectTo
+    const currentItem = this.flatAllMenu.find((item) => item.path === path);
+    if (currentItem?.path === '/') {
+      this.preParentPath = '';
+      this.prePath = currentItem.redirectTo;
+      return currentItem.redirectTo;
     }
     if (!currentItem) {
-      this.preParentPath = ""
-      if (this.prePath === "/404") {
+      this.preParentPath = ''
+      if (this.prePath === '/404') {
         return false
       }
-      this.prePath = "/404"
-      return "/404"
+      this.prePath = '/404'
+      return '/404'
+    }
+    // 查询所有父节点和自己是否有权限
+    if (!this.getCheckAuthAll(currentItem?.path || '')) {
+      this.prePath = '/403';
+      this.preParentPath = '';
+      return '/403';
     }
     if (!currentItem?.side) {
-      this.prePath = currentItem.path || ""
-      this.preParentPath = ""
+      this.prePath = currentItem.path || ''
+      this.preParentPath = ''
       return false
     }
     if (this.preParentPath === currentItem.path) {
@@ -257,7 +283,7 @@ export class HandleMenu {
     }
     this.preParentPath = currentItem.path
     const siderMenus = this.childMenu.get(path)
-    const findx = siderMenus?.find(item => item.index || item.redirectTo)
+    const findx = siderMenus?.find((item) => item.index || item.redirectTo)
     const current = findx?.path || findx?.redirectTo
     if (this.prePath === current) {
       return false

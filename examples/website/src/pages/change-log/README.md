@@ -9,6 +9,20 @@
 - 次版本号：每月发布一个带有新特性的向下兼容的版本。
 - 主版本号：含有破坏性更新和新特性，不在发布周期内。
 
+## 2.0.4
+
+`2023-05-08`
+
+- 🐞 fix: ButtonGroupPro menu菜单修改antd去除的api & 兼容按钮权限 [98f85f0](https://github.com/antdpro/antdp/commit/98f85f0eec26c07f70c2e49af6d3247bb994ca32)
+
+## 2.0.3
+
+`2023-05-07`
+
+- 📖 doc: 在线文档首页 [d7e652a](https://github.com/antdpro/antdp/commit/e4856ff1484cbb7a91886c0082973735fba316b1)
+- 📖 fix: antdp-base固定antd版本 [9791d21](https://github.com/antdpro/antdp/commit/9791d21e42173f87fe29382418492f97d214754b)
+- 🐞 fix: ButtongroupPro 增加权限功能 [5dbf87c](https://github.com/antdpro/antdp/commit/5dbf87c0af1e1baa4a54d21c1e37537fbd0120e1)
+
 ## 2.0.2
 
 `2023-04-24`

@@ -4,14 +4,13 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import Authorized from '@antdp/authorized';
-import BasicLayout from '@antdp/basic-layouts';
+import BasicLayouts from '@antdp/basic-layouts';
 import 'antd/dist/reset.css';
 import logo from './logo.svg';
-
 const Layout = () => {
   return (
     <Authorized authority={true} redirectPath="/login">
-      <BasicLayout
+      <BasicLayouts
         projectName="Ant Design"
         profile={{
           name: '埋名',

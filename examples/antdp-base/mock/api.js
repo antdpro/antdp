@@ -47,7 +47,7 @@ export default {
     }
     setTimeout(() => {
       res.send({
-        code: 1,
+        code: 200,
         message: '查询成功',
         data: {
           rows: list,

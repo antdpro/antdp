@@ -1,4 +1,4 @@
-import { Avatar, Button, List, Skeleton, Space } from 'antd';
+import { Avatar, Button, List, Skeleton, Space, Card } from 'antd';
 import { useEffect, useState } from 'react';
 import styles from './style.less';
 import { useReactMutation } from '@antdp/hooks';
@@ -26,47 +26,49 @@ const App = () => {
   return (
     <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
       <CardDes title="简单列表" description="简单列表请求" />
-      <List
-        className={styles.demo_loadmore_list}
-        loading={isLoading}
-        itemLayout="horizontal"
-        loadMore={
-          !isLoading && (
-            <div
-              style={{
-                textAlign: 'center',
-                marginTop: 12,
-                height: 32,
-                lineHeight: '32px',
-              }}
+      <Card>
+        <List
+          className={styles.demo_loadmore_list}
+          loading={isLoading}
+          itemLayout="horizontal"
+          loadMore={
+            !isLoading && (
+              <div
+                style={{
+                  textAlign: 'center',
+                  marginTop: 12,
+                  height: 32,
+                  lineHeight: '32px',
+                }}
+              >
+                <Button onClick={() => mutate()}>加载更多</Button>
+              </div>
+            )
+          }
+          dataSource={data}
+          renderItem={(item) => (
+            <List.Item
+              actions={[
+                <a key="list-loadmore-edit">edit</a>,
+                <a key="list-loadmore-more">more</a>,
+              ]}
             >
-              <Button onClick={() => mutate()}>加载更多</Button>
-            </div>
-          )
-        }
-        dataSource={data}
-        renderItem={(item) => (
-          <List.Item
-            actions={[
-              <a key="list-loadmore-edit">edit</a>,
-              <a key="list-loadmore-more">more</a>,
-            ]}
-          >
-            <Skeleton avatar title={false} loading={isLoading} active>
-              <List.Item.Meta
-                avatar={<Avatar src={item.picture.large} />}
-                title={
-                  <a href="https://antdpro.github.io/antdp/#/home/home">
-                    {item.name?.last}
-                  </a>
-                }
-                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
-              />
-              <div>content</div>
-            </Skeleton>
-          </List.Item>
-        )}
-      />
+              <Skeleton avatar title={false} loading={isLoading} active>
+                <List.Item.Meta
+                  avatar={<Avatar src={item.picture.large} />}
+                  title={
+                    <a href="https://antdpro.github.io/antdp/#/home/home">
+                      {item.name?.last}
+                    </a>
+                  }
+                  description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                />
+                <div>content</div>
+              </Skeleton>
+            </List.Item>
+          )}
+        />
+      </Card>
     </Space>
   );
 };

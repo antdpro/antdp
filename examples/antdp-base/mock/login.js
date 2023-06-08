@@ -7,6 +7,7 @@ const menus = [
   '/components/quickform',
   '/components/formdetail',
   '/components/edittable',
+  '/components/proform',
   '/list',
   '/list/basiclist',
   '/list/cardlist',

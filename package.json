@@ -35,6 +35,7 @@
     "watch:page-loading": "lerna exec  --scope @antdp/page-loading -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
     "watch:user-login": "lerna exec  --scope @antdp/user-login -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
     "watch:hooks": "lerna exec  --scope @antdp/hooks -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
+    "watch:request": "lerna exec  --scope @antdp/request -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
     "⬆️⬆️⬆️⬆️⬆️ watch::package ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
     "----": "----",
     "build:js": "node ./script/copy",
@@ -66,24 +67,23 @@
     "react-dom": "^18.2.0",
     "react": "^18.2.0",
     "react-refresh": "^0.14.0",
-    "antd": "5.4.2"
+    "antd": "5.4.7"
   },
   "resolutions": {
     "react-dom": "^18.2.0",
     "react": "^18.2.0",
     "react-refresh": "^0.14.0",
-    "antd": "5.4.2"
+    "antd": "5.4.7"
   },
   "dependencies": {
-    "@ant-design/charts": "^1.4.2",
     "compile-less-cli": "1.8.14",
     "husky": "8.0.3",
     "jest-environment-jsdom": "29.5.0",
-    "lerna": "6.6.1",
+    "lerna": "6.6.2",
     "lint-staged": "~13.2.0",
-    "prettier": "2.8.7",
+    "prettier": "2.8.8",
     "tsbb": "^4.1.0",
-    "recursive-readdir-files": "1.1.2",
+    "recursive-readdir-files": "2.3.0",
     "@babel/core": "~7.21.3",
     "@babel/preset-typescript": "~7.21.0"
   }

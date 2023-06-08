@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { Card, theme, Avatar, Statistic, Row, Col, List } from 'antd';
+import { Link, useRequest } from '@umijs/max';
+import { Avatar, Card, List, Statistic, Divider, Space } from 'antd';
+import { serviceActivities, serviceProject } from '../../services/api';
 import styles from './style.less';
-import { useReactQuery } from '@antdp/hooks';
-import { Link } from '@umijs/max';
-import { serviceProject, serviceActivities } from '../../services/api';
+import { StatisticCard, ProCard } from '@ant-design/pro-components';
 
 const PageHeaderContent = ({ currentUser }) => {
   const loading = currentUser && Object.keys(currentUser).length;
@@ -44,14 +43,17 @@ const ExtraContent = () => (
 );
 
 export default function Home(props) {
-  const { data, isLoading } = useReactQuery({
-    queryKey: ['project'],
-    url: serviceProject,
-  });
-  const { data: activities, isLoading: activitiesLoading } = useReactQuery({
-    queryKey: ['activities'],
-    url: serviceActivities,
-  });
+  const { data } = useRequest(serviceProject, { manual: false });
+  const { data: activities, loading: activitiesLoading } = useRequest(
+    serviceActivities,
+    { manual: false },
+  );
+
+  const imgStyle = {
+    display: 'block',
+    width: 42,
+    height: 42,
+  };
 
   const renderActivities = (item) => {
     const events = item.template.split(/@\{([^{}]*)\}/gi).map((key) => {
@@ -86,7 +88,7 @@ export default function Home(props) {
   };
 
   return (
-    <div>
+    <Space direction="vertical" size="middle">
       <Card>
         <PageHeaderContent
           currentUser={{
@@ -102,47 +104,220 @@ export default function Home(props) {
         />
         <ExtraContent />
       </Card>
-      <Row gutter={24}>
-        <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-          <Card
-            style={{ marginBottom: 24, marginTop: 24 }}
-            title="进行中的项目"
-            bordered={false}
-            extra="全部项目"
-            loading={false}
-            bodyStyle={{ padding: 0 }}
-          >
-            {(data?.data || []).map((item) => (
-              <Card.Grid className={styles.projectGrid} key={item.id}>
-                <Card.Meta
-                  avatar={<Avatar size="small" src={item.logo} />}
-                  title={
-                    <div className={styles.cardTitle}>
-                      <Link to={item.href}>{item.title}</Link>
-                    </div>
-                  }
-                  description={item.description}
+
+      <Card>
+        <StatisticCard.Group direction={'row'}>
+          <StatisticCard
+            statistic={{
+              title: '支付金额',
+              value: 2176,
+              icon: (
+                <img
+                  style={imgStyle}
+                  src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*dr_0RKvVzVwAAAAAAAAAAABkARQnAQ"
+                  alt="icon"
                 />
-              </Card.Grid>
-            ))}
-          </Card>
-        </Col>
-        <Col xl={24} lg={24} md={24} sm={24} xs={24}>
-          <Card
-            bodyStyle={{ padding: 0 }}
-            bordered={false}
-            title="动态"
-            loading={activitiesLoading}
-          >
-            <List
-              loading={activitiesLoading}
-              renderItem={(item) => renderActivities(item)}
-              dataSource={activities?.data || []}
-              size="large"
+              ),
+            }}
+          />
+          <StatisticCard
+            statistic={{
+              title: '访客数',
+              value: 475,
+              icon: (
+                <img
+                  style={imgStyle}
+                  src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*-jVKQJgA1UgAAAAAAAAAAABkARQnAQ"
+                  alt="icon"
+                />
+              ),
+            }}
+          />
+          <StatisticCard
+            statistic={{
+              title: '成功订单数',
+              value: 87,
+              icon: (
+                <img
+                  style={imgStyle}
+                  src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*FPlYQoTNlBEAAAAAAAAAAABkARQnAQ"
+                  alt="icon"
+                />
+              ),
+            }}
+          />
+          <StatisticCard
+            statistic={{
+              title: '浏览量',
+              value: 1754,
+              icon: (
+                <img
+                  style={imgStyle}
+                  src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*pUkAQpefcx8AAAAAAAAAAABkARQnAQ"
+                  alt="icon"
+                />
+              ),
+            }}
+          />
+        </StatisticCard.Group>
+      </Card>
+
+      <Card>
+        <StatisticCard.Group direction={'row'}>
+          <StatisticCard
+            statistic={{
+              title: '冻结金额',
+              value: 20190102,
+              precision: 2,
+              suffix: '元',
+            }}
+            chart={
+              <img
+                src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+                alt="直方图"
+                width="100%"
+              />
+            }
+          />
+          <Divider type={'vertical'} />
+          <StatisticCard
+            statistic={{
+              title: '设计资源数',
+              value: 234,
+            }}
+            chart={
+              <img
+                src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+                alt="直方图"
+                width="100%"
+              />
+            }
+          />
+          <Divider type={'vertical'} />
+          <StatisticCard
+            statistic={{
+              title: '信息完成度',
+              value: 5,
+              suffix: '/ 100',
+            }}
+            chart={
+              <img
+                src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+                alt="直方图"
+                width="100%"
+              />
+            }
+          />
+        </StatisticCard.Group>
+      </Card>
+
+      <ProCard
+        title="数据概览"
+        extra="2019年9月28日 星期五"
+        split={'vertical'}
+        headerBordered
+        bordered
+      >
+        <ProCard split="horizontal">
+          <ProCard split="horizontal">
+            <ProCard split="vertical">
+              <StatisticCard
+                statistic={{
+                  title: '昨日全部流量',
+                  value: 234,
+                  description: (
+                    <Statistic
+                      title="较本月平均流量"
+                      value="8.04%"
+                      trend="down"
+                    />
+                  ),
+                }}
+              />
+              <StatisticCard
+                statistic={{
+                  title: '本月累计流量',
+                  value: 234,
+                  description: (
+                    <Statistic title="月同比" value="8.04%" trend="up" />
+                  ),
+                }}
+              />
+            </ProCard>
+            <ProCard split="vertical">
+              <StatisticCard
+                statistic={{
+                  title: '运行中实验',
+                  value: '12/56',
+                  suffix: '个',
+                }}
+              />
+              <StatisticCard
+                statistic={{
+                  title: '历史实验总数',
+                  value: '134',
+                  suffix: '个',
+                }}
+              />
+            </ProCard>
+          </ProCard>
+          <StatisticCard
+            title="流量走势"
+            chart={
+              <img
+                src="https://gw.alipayobjects.com/zos/alicdn/_dZIob2NB/zhuzhuangtu.svg"
+                width="100%"
+              />
+            }
+          />
+        </ProCard>
+        <StatisticCard
+          title="流量占用情况"
+          chart={
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/qoYmFMxWY/jieping2021-03-29%252520xiawu4.32.34.png"
+              alt="大盘"
+              width="100%"
             />
-          </Card>
-        </Col>
-      </Row>
-    </div>
+          }
+        />
+      </ProCard>
+
+      <Card
+        title="进行中的项目"
+        bordered={false}
+        extra="全部项目"
+        loading={false}
+        bodyStyle={{ padding: 0 }}
+      >
+        {(data || []).map((item) => (
+          <Card.Grid className={styles.projectGrid} key={item.id}>
+            <Card.Meta
+              avatar={<Avatar size="small" src={item.logo} />}
+              title={
+                <div className={styles.cardTitle}>
+                  <Link to={item.href}>{item.title}</Link>
+                </div>
+              }
+              description={item.description}
+            />
+          </Card.Grid>
+        ))}
+      </Card>
+
+      <Card
+        bodyStyle={{ padding: 0 }}
+        bordered={false}
+        title="动态"
+        loading={activitiesLoading}
+      >
+        <List
+          loading={activitiesLoading}
+          renderItem={(item) => renderActivities(item)}
+          dataSource={activities || []}
+          size="large"
+        />
+      </Card>
+    </Space>
   );
 }

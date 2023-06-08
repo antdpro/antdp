@@ -1,4 +1,3 @@
-import { userLogin } from '@/services/api';
 import { history } from '@umijs/max';
 import { useState } from 'react';
 const getToken = () => sessionStorage.getItem('token');

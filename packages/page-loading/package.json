@@ -1,6 +1,6 @@
 {
   "name": "@antdp/page-loading",
-  "version": "2.0.2",
+  "version": "2.0.16",
   "description": "页面过渡动画组件。",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",
@@ -30,7 +30,7 @@
     "@babel/runtime": "~7.20.1"
   },
   "devDependencies": {
-    "antd": "5.4.2",
+    "antd": "5.4.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

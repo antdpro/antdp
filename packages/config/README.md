@@ -81,8 +81,6 @@ export default config(router, {
 ```
 ### ANTD_IS_BREADCRUMB
 
-是否开启父子路由面包屑，默认值`false`不显示
-
 ```diff
 import config from '@antdp/config';
 import proxy from './proxy';
@@ -122,7 +120,7 @@ export default config(router, {
 
 ### ANTD_MENU_IS_SHOW
 
-是否显示 左侧菜单,默认值`false`不启用
+是否显示 左侧菜单,默认值`true`
 
 ```diff
 import config from '@antdp/config';
@@ -138,7 +136,7 @@ export default config(router, {
 
 ### ANTD_HEAD_IS_SHOW
 
-是否显示 head头部，默认值`false`不显示
+是否显示 head头部，默认值`true`
 
 ```diff
 import config from '@antdp/config';
@@ -164,22 +162,6 @@ export default config(router, {
   proxy,
   define: {
 +    ANTD_MENU_TOP_LEFT: true
-  },
-);
-```
-
-### ANTD_TITLE_TOP
-
-标题 放在 头部 ,菜单放在头部下面，默认值`true`
-
-```diff
-import config from '@antdp/config';
-import proxy from './proxy';
-import router from './router.json';
-export default config(router, {
-  proxy,
-  define: {
-+    ANTD_TITLE_TOP: true
   },
 );
 ```

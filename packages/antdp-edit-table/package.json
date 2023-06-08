@@ -1,6 +1,6 @@
 {
   "name": "@antdp/edit-table",
-  "version": "2.0.2",
+  "version": "2.0.16",
   "description": "基于antd封装的组件",
   "license": "MIT",
   "main": "lib/index.js",
@@ -38,12 +38,12 @@
   },
   "dependencies": {
     "@babel/runtime": "~7.20.1",
-    "rc-field-form": "~1.29.0"
+    "rc-field-form": "~1.30.0"
   },
   "devDependencies": {
-    "@types/react": "~18.0.27",
-    "@types/react-dom": "~18.0.10",
-    "antd": "5.4.2",
+    "@types/react": "~18.2.0",
+    "@types/react-dom": "~18.2.0",
+    "antd": "5.4.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

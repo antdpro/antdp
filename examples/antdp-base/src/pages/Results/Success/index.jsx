@@ -11,7 +11,7 @@ const customDot = (dot, { status, index }) => (
   </Popover>
 );
 const App = () => (
-  <>
+  <Card>
     <Result
       status="success"
       title="提交成功"
@@ -58,6 +58,6 @@ const App = () => (
         ]}
       />
     </Card>
-  </>
+  </Card>
 );
 export default App;

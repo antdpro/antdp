@@ -1,5 +1,6 @@
 import React from 'react';
 import { IntlShape } from 'react-intl/lib/src/types';
+import { ConfigProviderProps  } from 'antd/es/config-provider'
 
 export interface HandleMenuProps {
   /**语言转换*/
@@ -29,6 +30,7 @@ export interface RouterMenu {
   order?: number;
   /**原来的path*/
   oPath?: string;
+  element?: any;
 }
 
 export interface BasicLayoutsProps {
@@ -72,6 +74,9 @@ export interface BasicLayoutsProps {
      */
     name?: string;
   };
+  theme?:'dark' | 'light';
+  configProviderProps?:ConfigProviderProps;
+  className?:string;
 }
 
 export interface UseLayoutsProps extends Omit<BasicLayoutsProps, 'route'> {

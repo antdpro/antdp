@@ -96,7 +96,7 @@ const routeList = [
             element: '@/pages/antdp-ui/uploadgrid',
           },
           { path: '/components/edit-table/*', element: '@/pages/edit-table' },
-          { path: '/components/edit-table/*', element: '@/pages/fuzzy-query' },
+          { path: '/components/fuzzy-query/*', element: '@/pages/fuzzy-query' },
         ],
       },
       { path: '*', element: '@/pages/404' },

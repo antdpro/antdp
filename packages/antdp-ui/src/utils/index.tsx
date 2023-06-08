@@ -1,4 +1,7 @@
+import React from 'react';
 import { UploadFile } from 'antd/es/upload/interface';
+import { MenusProps } from '../ButtonGroupPro'
+import { AuthorizedBtn } from '@antdp/authorized';
 
 const getBase64 = (file: File | Blob | undefined): Promise<string> => {
   if (!file) return Promise.reject(new Error('no file'));
@@ -24,4 +27,19 @@ const imagePreview = async (
   });
 };
 
-export { imagePreview };
+const getMenusItems = (menus: MenusProps[] | undefined = []) => {
+  const loop = (menus: MenusProps[] | undefined = []) => {
+    return menus.map(items => {
+      const { label, path, menus } = items
+      const object: any = { ...items }
+      object.label = path ? <AuthorizedBtn path={path}>{label}</AuthorizedBtn> : label
+      if (menus) {
+        object.children = loop(menus)
+      }
+      return object
+    })
+  }
+  return loop(menus)
+}
+
+export { imagePreview, getMenusItems };

@@ -85,6 +85,44 @@ export default (props) => {
 
 ```
 
+## 自定义背景样式
+```jsx
+import BasicLayout from '@antdp/basic-layouts';
+
+export default (props) => {
+  return (
+    <BasicLayout
+      {...props}
+      projectName="Ant Design Pro"
+      topRightMenu={[
+        {
+          title: '个人中心',
+          icon: <UserOutlined />,
+          onClick: () => {},
+        },
+        {
+          title: '个人设置',
+          link: '/setting/property',
+          icon: <SettingOutlined />,
+        },
+        {
+          divider: true,
+        },
+        {
+          title: '退出登录',
+          icon: <LogoutOutlined />,
+          onClick: () => {
+            logout();
+          },
+        },
+      ]}
+      contentStyle={{backgroundColor: '#999'}}
+    />
+  )
+};
+
+```
+
 ## API
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -98,6 +136,7 @@ export default (props) => {
 | topRightLanguage | 顶部右方 |   `React.ReactNode` | - |
 | siderWidth | 置最左边菜单宽度 |   `number` | `180` |
 | profile | 用户信息显示 |   `{avatar?: string;name?: string}` | - |
+| contentStyle | 自定义内容部分样式 |   `React.CSSProperties | undefined` | - |
 
 ## TopRightMenuProps
 | 参数 | 说明 | 类型 | 默认值 |

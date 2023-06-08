@@ -1,41 +1,37 @@
-import React, { useMemo } from "react";
-import { Menu, } from "antd"
-import { useLocation, } from 'react-router-dom';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import { getSiderMenus } from "../utils"
-import { useLayouts } from "../hooks"
-import Breadcrumbs from "./../Breadcrumb"
-import SearchMenu from '../SearchMenus'
+import { Menu } from 'antd';
+import React, { useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
+import { useLayouts } from '../hooks';
+import { getSiderMenus } from '../utils';
+import Breadcrumbs from './../Breadcrumb';
 
 const HeaderMenus = () => {
-  const location = useLocation()
-  const { HandleMenu, collapsed, setCollapsed } = useLayouts()
-  const menus = HandleMenu.parentMenu || []
+  const location = useLocation();
+  const { HandleMenu } = useLayouts();
+  const menus = HandleMenu.parentMenu || [];
+
   const items = useMemo(() => {
-    return getSiderMenus(menus, !!ANTD_MENU_TOP_LEFT)
-  }, [menus])
+    return getSiderMenus(menus, !!ANTD_MENU_TOP_LEFT);
+  }, [menus]);
 
-  const parentPath = HandleMenu.getParentPath(location.pathname)
-
-  const collapsedView = useMemo(
-    () => React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-      className: 'trigger',
-      style: { fontSize: 20, marginTop: 13 },
-      onClick: () => setCollapsed(!collapsed),
-    }), [collapsed]);
+  const parentPath = HandleMenu.getParentPath(location.pathname);
 
   if (!items.length) {
     return (
-      <div className="antdp-basic-layouts-header-menus" style={{ flex: 1, overflow: "auto" }} >
-        {ANTD_MENU_IS_SHOW && <div className="antdp-basic-layouts-collapsed">{collapsedView}</div>}
+      <div
+        className="antdp-basic-layouts-header-menus"
+        style={{ flex: 1, overflow: 'auto' }}
+      >
         {ANTD_IS_BREADCRUMB && <Breadcrumbs />}
       </div>
-    )
+    );
   }
 
   return (
-    <div className="antdp-basic-layouts-header-menus" style={{ flex: 1, overflow: "auto" }}  >
-      {ANTD_MENU_SEARCH_IS_SHOW && <SearchMenu />}
+    <div
+      className="antdp-basic-layouts-header-menus"
+      style={{ flex: 1, overflow: 'auto' }}
+    >
       <Menu
         selectedKeys={[parentPath]}
         mode="horizontal"
@@ -44,6 +40,6 @@ const HeaderMenus = () => {
         style={{ width: '95%' }}
       />
     </div>
-  )
-}
-export default HeaderMenus
+  );
+};
+export default HeaderMenus;

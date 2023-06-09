@@ -19,7 +19,7 @@ export default config(router, {
       auth_check_url: '',
     },
     ANTD_MENU_TOP_LEFT: false,
-    ANTD_MENU_SLIDER: false,
+    ANTD_MENU_SLIDER: true,
     /** 是否展示搜索菜单  */
     ANTD_MENU_SEARCH_IS_SHOW: true,
   },

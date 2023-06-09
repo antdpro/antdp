@@ -47,6 +47,12 @@ const fieldMap = async () => {
 const ci = async () => {
   try {
     await fieldMap();
+    // 删除 tsconfig.json
+    const tsConfigPath = path.resolve(
+      __dirname,
+      '../examples/basicjs/tsconfig.json',
+    );
+    FS.remove(tsConfigPath);
     // 更改 package.json name 名称
     const pagPath = path.resolve(__dirname, '../examples/basicjs/package.json');
     const pagContent = fs.readFileSync(pagPath, { encoding: 'utf-8' });

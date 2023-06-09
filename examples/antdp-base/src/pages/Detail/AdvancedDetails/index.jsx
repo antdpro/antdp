@@ -40,7 +40,7 @@ const Page = () => {
   ];
   return (
     <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
-      <CardDes title="高级详情页" description="@antdp/antdp-ui 超快速生成详情表单" />
+      <CardDes title="高级详情页" description="ProDescriptions 高级详情页" />
       <Card>
         <ProDescriptions
           title="用户信息"

@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@ant-design/pro-components": "^2.4.14",
-    "@antdp/antdp-ui": "2.0.17",
     "@antdp/authorized": "2.0.17",
     "@antdp/basic-layouts": "2.0.17",
     "@antdp/hooks": "2.0.17",

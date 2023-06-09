@@ -54,12 +54,6 @@
             "name": "EditableProTable",
             "locale": "editableProTable",
             "component": "@/pages/Components/EditableProTable"
-          },
-          {
-            "path": "/components/quickform",
-            "name": "快速表单",
-            "locale": "quickform",
-            "component": "@/pages/Components/QuickForm"
           }
         ]
       },

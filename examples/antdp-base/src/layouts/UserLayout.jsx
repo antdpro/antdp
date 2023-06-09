@@ -5,19 +5,14 @@ import {
   UserOutlined,
   WeiboOutlined,
 } from '@ant-design/icons';
+import { LoginFormPage, ProFormCaptcha, ProFormText } from '@ant-design/pro-components';
 import Authorized from '@antdp/authorized';
+import { useReactMutation } from '@antdp/hooks';
+import { history, useDispatch, useSelector } from '@umijs/max';
+import { Divider, message, Space, Tabs } from 'antd';
 import 'antd/dist/reset.css';
 import { Fragment, useState } from 'react';
 import logo from './logo.svg';
-import { useReactMutation } from '@antdp/hooks';
-import { history, useDispatch, useSelector } from '@umijs/max';
-import {
-  LoginFormPage,
-  ProFormCaptcha,
-  ProFormText,
-} from '@ant-design/pro-components';
-import { Divider, message, Space, Tabs } from 'antd';
-import DocumentTitle from '@antdp/document-title';
 
 const iconStyles = {
   color: 'rgba(0, 0, 0, 0.2)',
@@ -37,7 +32,7 @@ const otherLoginIconStyles = {
   borderRadius: '50%',
 };
 
-const UserLayout = (props) => {
+const UserLayout = () => {
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.user);
   const [loginType, setLoginType] = useState('account');
@@ -169,9 +164,7 @@ const UserLayout = (props) => {
               }}
             >
               <Divider plain>
-                <span
-                  style={{ color: '#CCC', fontWeight: 'normal', fontSize: 14 }}
-                >
+                <span style={{ color: '#CCC', fontWeight: 'normal', fontSize: 14 }}>
                   其他登录方式
                 </span>
               </Divider>

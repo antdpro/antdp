@@ -3,7 +3,6 @@ export default {
   'menu.chart': 'chart',
   'menu.dashboard': 'dashboard',
   'menu.components': 'components pages',
-  'menu.components.quickform': 'quickform',
   'menu.components.proDescriptions': 'proDescriptions',
   'menu.components.editableProTable': 'editableProTable',
   'menu.components.proform': 'proform',

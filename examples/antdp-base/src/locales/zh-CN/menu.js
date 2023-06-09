@@ -3,7 +3,6 @@ export default {
   'menu.chart': '图表页',
   'menu.dashboard': '页面实例',
   'menu.components': '组件页',
-  'menu.components.quickform': '快速表单',
   'menu.components.proDescriptions': 'ProDescriptions',
   'menu.components.editableProTable': 'EditableProTable',
   'menu.components.proform': 'ProForm',

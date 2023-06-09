@@ -41,7 +41,7 @@ export default {
       list[i] = {
         id: i,
         name: '霞仔',
-        title: '16',
+        age: '16',
         address: '上海市',
       };
     }
@@ -240,40 +240,35 @@ export default {
           avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
           title: 'Card title',
           descriptio: 'antdp 好用',
-          image:
-            'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+          image: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
         },
         {
           id: 'trend-2',
           avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
           title: 'Card title',
           descriptio: 'antdp 好用',
-          image:
-            'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+          image: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
         },
         {
           id: 'trend-3',
           avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
           title: 'Card title',
           descriptio: 'antdp 好用',
-          image:
-            'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+          image: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
         },
         {
           id: 'trend-4',
           avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
           title: 'Card title',
           descriptio: 'antdp 好用',
-          image:
-            'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+          image: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
         },
         {
           id: 'trend-5',
           avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
           title: 'Card title',
           descriptio: 'antdp 好用',
-          image:
-            'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+          image: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
         },
       ],
     });

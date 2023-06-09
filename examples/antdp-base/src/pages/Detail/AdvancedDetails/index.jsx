@@ -1,19 +1,8 @@
-import { FormDetail } from '@antdp/antdp-ui';
-import {
-  Card,
-  Space,
-  Table,
-  Steps,
-  Row,
-  Col,
-  Radio,
-  Popover,
-  Empty,
-  Tabs,
-} from 'antd';
 import CardDes from '@/components/CardDes';
+import { ProDescriptions } from '@ant-design/pro-components';
+import { Card, Col, Empty, Popover, Row, Space, Steps, Table, Tabs } from 'antd';
 import 'antd/dist/reset.css';
-import { detailItems, userItems, columns1, data1 } from './item';
+import { columns1, columns2, data1 } from './item';
 
 const Page = () => {
   const customDot = (dot, { status, index }) => (
@@ -29,12 +18,7 @@ const Page = () => {
   );
 
   const tables = (
-    <Table
-      columns={columns1}
-      dataSource={data1}
-      bordered={false}
-      pagination={false}
-    />
+    <Table columns={columns1} dataSource={data1} bordered={false} pagination={false} />
   );
 
   const items = [
@@ -56,44 +40,26 @@ const Page = () => {
   ];
   return (
     <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
-      <CardDes
-        title="高级详情页"
-        description="@antdp/antdp-ui 超快速生成详情表单"
-      />
+      <CardDes title="高级详情页" description="@antdp/antdp-ui 超快速生成详情表单" />
       <Card>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div style={{ width: '80%' }}>
-            <FormDetail
-              isView={true}
-              header="单号：234231029431"
-              formDatas={detailItems}
-            />
-          </div>
-          <div style={{ width: '20%', textAlign: 'right' }}>
-            <div style={{ textAlign: 'right' }}>
-              <Radio.Group
-                value="top"
-                style={{
-                  marginBottom: 8,
-                }}
-              >
-                <Radio.Button>操作一</Radio.Button>
-                <Radio.Button>操作二</Radio.Button>
-                <Radio.Button>操作三</Radio.Button>
-              </Radio.Group>
-            </div>
-            <Row>
-              <Col style={{ marginRight: 12, textAlign: 'center' }}>
-                <div>状态</div>
-                <div style={{ fontSize: 24 }}>待审批</div>
-              </Col>
-              <Col style={{ textAlign: 'center' }}>
-                <div>订单金额</div>
-                <div style={{ fontSize: 24 }}>¥568.08</div>
-              </Col>
-            </Row>
-          </div>
-        </div>
+        <ProDescriptions
+          title="用户信息"
+          request={async () => {
+            return Promise.resolve({
+              success: true,
+              data: {
+                id: '这是一段文本columns',
+                date: '20200809',
+                money: '1212100',
+                money2: -12345.33,
+                state: 'all',
+                switch: true,
+                state2: 'open',
+              },
+            });
+          }}
+          columns={columns2}
+        />
       </Card>
       <Card title="流程进度">
         <Row style={{ padding: 20 }}>
@@ -123,12 +89,79 @@ const Page = () => {
         />
       </Card>
       <Card title="用户信息">
-        <FormDetail isView={true} formDatas={userItems} />
-        <h4>信息组</h4>
+        <ProDescriptions
+          title="基础信息"
+          request={async () => {
+            return Promise.resolve({
+              success: true,
+              data: {
+                id: '这是一段文本columns',
+                date: '20200809',
+                money: '1212100',
+                money2: -12345.33,
+                state: 'all',
+                switch: true,
+                state2: 'open',
+              },
+            });
+          }}
+          columns={columns2}
+        />
         <Card type="inner" title="多层级信息组" bordered={false}>
-          <FormDetail isView={true} header="组名称" formDatas={userItems} />
-          <FormDetail isView={true} header="组名称" formDatas={userItems} />
-          <FormDetail isView={true} header="组名称" formDatas={userItems} />
+          <ProDescriptions
+            title="嵌套信息1"
+            request={async () => {
+              return Promise.resolve({
+                success: true,
+                data: {
+                  id: '这是一段文本columns',
+                  date: '20200809',
+                  money: '1212100',
+                  money2: -12345.33,
+                  state: 'all',
+                  switch: true,
+                  state2: 'open',
+                },
+              });
+            }}
+            columns={columns2}
+          />
+          <ProDescriptions
+            title="嵌套信息2"
+            request={async () => {
+              return Promise.resolve({
+                success: true,
+                data: {
+                  id: '这是一段文本columns',
+                  date: '20200809',
+                  money: '1212100',
+                  money2: -12345.33,
+                  state: 'all',
+                  switch: true,
+                  state2: 'open',
+                },
+              });
+            }}
+            columns={columns2}
+          />
+          <ProDescriptions
+            title="嵌套信息3"
+            request={async () => {
+              return Promise.resolve({
+                success: true,
+                data: {
+                  id: '这是一段文本columns',
+                  date: '20200809',
+                  money: '1212100',
+                  money2: -12345.33,
+                  state: 'all',
+                  switch: true,
+                  state2: 'open',
+                },
+              });
+            }}
+            columns={columns2}
+          />
         </Card>
       </Card>
       <Card title="用户近半年来电记录">

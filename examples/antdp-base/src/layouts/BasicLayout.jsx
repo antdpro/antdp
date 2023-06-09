@@ -1,21 +1,21 @@
 import {
   LogoutOutlined,
   SettingOutlined,
-  UserOutlined,
   UnorderedListOutlined,
+  UserOutlined,
 } from '@ant-design/icons';
-import { useState } from 'react';
-import { FloatButton } from 'antd';
 import Authorized from '@antdp/authorized';
 import BasicLayouts from '@antdp/basic-layouts';
 import {
   SelectLang,
-  useIntl,
-  useDispatch,
-  useSelector,
   history,
+  useDispatch,
+  useIntl,
+  useSelector,
 } from '@umijs/max';
+import { FloatButton } from 'antd';
 import 'antd/dist/reset.css';
+import { useState } from 'react';
 import logo from './logo.svg';
 
 const Layout = () => {
@@ -42,6 +42,7 @@ const Layout = () => {
         />
       </FloatButton.Group>
       <BasicLayouts
+        layout="slider"
         theme={dark ? 'dark' : 'light'}
         className="antdp-basic-layouts"
         projectName="Ant Design"

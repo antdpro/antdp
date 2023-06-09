@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 // @ts-ignore
 import { Link } from '@umijs/max';
 import { useLayouts } from '../hooks';
+import { LayoutModel } from '../interface';
 
 interface LogoProps {
   logoJumpTo?: string;
@@ -10,7 +11,7 @@ interface LogoProps {
 }
 
 const Logo = (props: LogoProps) => {
-  const { collapsed, logo, projectName, siderWidth = 260 } = useLayouts();
+  const { collapsed, logo, projectName, layout, siderWidth = 260 } = useLayouts();
   const { logoJumpTo = '/' } = props;
 
   const logoRender = useMemo(
@@ -19,19 +20,18 @@ const Logo = (props: LogoProps) => {
   );
 
   const name = useMemo(() => {
-    if (!!ANTD_MENU_SLIDER && collapsed) {
+    if (layout === LayoutModel.SLIDER && collapsed) {
       return null;
     }
     return projectName && <h1>{projectName}</h1>;
-  }, [projectName,collapsed]);
+  }, [projectName, collapsed, layout]);
 
   return useMemo(
     () => (
       <div
-        style={{ width: (!!ANTD_MENU_SLIDER && collapsed) ? 80 : siderWidth }}
-        className={`antdp-global-title antdp-global-title-top ${
-          (!!ANTD_MENU_SLIDER && 'antdp-global-title-left') || ''
-        }`}
+        style={{ width: (layout === LayoutModel.SLIDER && collapsed) ? 80 : siderWidth }}
+        className={`antdp-global-title antdp-global-title-top ${(layout === LayoutModel.SLIDER && 'antdp-global-title-left') || ''
+          }`}
       >
         <Link to={logoJumpTo}>
           {logoRender}

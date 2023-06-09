@@ -35,10 +35,12 @@
         "name": "组件页",
         "locale": "components",
         "icon": "form",
+        "side": true,
         "routes": [
           {
             "path": "/components/quickform",
             "name": "快速表单",
+            "index": true,
             "locale": "quickform",
             "component": "@/pages/Components/QuickForm"
           },
@@ -67,6 +69,7 @@
         "name": "列表页",
         "icon": "table",
         "locale": "list",
+        "side": true,
         "routes": [
           {
             "path": "/list/basiclist",
@@ -77,6 +80,7 @@
           {
             "path": "/list/cardlist",
             "name": "卡片列表",
+            "index": true,
             "locale": "cardlist",
             "component": "@/pages/List/CardList"
           },

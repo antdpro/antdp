@@ -10,16 +10,14 @@ export default config(router, {
     // 是否显示 head头部
     // ANTD_HEAD_IS_SHOW: false,
     // 是否展示tab栏
-    ANTD_IS_TABS: true,
+    ANTD_IS_TABS: false,
     // 是否展示面包屑
-    ANTD_IS_BREADCRUMB: false,
+    ANTD_IS_BREADCRUMB: true,
     ANTD_AUTH_CONF: {
       auth_menu: 'authMenu',
       auth_btn: 'authBtn',
       auth_check_url: '',
     },
-    ANTD_MENU_TOP_LEFT: false,
-    ANTD_MENU_SLIDER: false,
     /** 是否展示搜索菜单  */
     ANTD_MENU_SEARCH_IS_SHOW: true,
   },

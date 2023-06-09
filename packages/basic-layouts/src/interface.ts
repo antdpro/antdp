@@ -35,7 +35,18 @@ export interface RouterMenu {
   parentId?: string;
 }
 
+export enum LayoutModel {
+  SLIDER = 'sider',
+  TOPLEFT = 'topleft',
+  MIX = 'mix',
+}
+
 export interface BasicLayoutsProps {
+  /**
+   * layout 的菜单模式
+   * @default MIX
+   * */
+  layout?: LayoutModel;
   /**
    * 项目logo
    */

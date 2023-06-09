@@ -3,7 +3,7 @@ import { Layout, Menu, MenuProps } from 'antd';
 import React, { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLayouts } from '../hooks';
-import { RouterMenu } from '../interface';
+import { LayoutModel, RouterMenu } from '../interface';
 import { getSiderMenus } from '../utils';
 import Logo from './../Logo';
 
@@ -20,6 +20,7 @@ const Sider = (props: SiderProps) => {
     collapsed,
     siderWidth = 260,
     setCollapsed,
+    layout
   } = useLayouts();
 
   const collapsedView = useMemo(
@@ -34,11 +35,13 @@ const Sider = (props: SiderProps) => {
 
   const menus = HandleMenu.getSiderMenus(location.pathname);
   const items = useMemo(() => {
-    return getSiderMenus(menus, !!ANTD_MENU_TOP_LEFT);
-  }, [menus]);
+    return getSiderMenus(menus, layout === LayoutModel.TOPLEFT);
+  }, [menus, layout]);
+
   if (!items.length) {
     return <React.Fragment />;
   }
+
   return (
     <Layout.Sider
       className="antdp-basic-layouts-sider"
@@ -53,7 +56,7 @@ const Sider = (props: SiderProps) => {
         <div className="antdp-basic-layouts-collapsed">{collapsedView}</div>
       }
     >
-      {!!ANTD_MENU_SLIDER && (
+      {layout === LayoutModel.SLIDER && (
         <div>
           <Logo />
         </div>

@@ -17,11 +17,10 @@ $ npm i @antdp/basic-layouts  # yarn add  @antdp/basic-layouts
 
 ```jsx
 import React from 'react';
-import BasicLayout from '@antdp/basic-layouts';
-const Demo = (props) => {
+import BasicLayouts from '@antdp/basic-layouts';
+const Demo = () => {
   return (
-    <BasicLayout
-      {...props}
+    <BasicLayouts
       projectName="Ant Design Pro"
     />
   )
@@ -33,13 +32,12 @@ export default Demo
 ## 菜单国际化设置
 
 ```jsx
-import BasicLayout from '@antdp/basic-layouts';
+import BasicLayouts from '@antdp/basic-layouts';
 import { useIntl,SelectLang } from '@umijs/max';
 
-const Demo = (props) => {
+const Demo = () => {
   return (
-    <BasicLayout
-      {...props}
+    <BasicLayouts
       projectName="Ant Design Pro"
       intlLanguage={useIntl()}
       topRightLanguage={<SelectLang />}
@@ -50,14 +48,13 @@ export default Demo
 ```
 ## 配置右侧菜单
 ```jsx
-import BasicLayout from '@antdp/basic-layouts';
+import BasicLayouts from '@antdp/basic-layouts';
 
-export default (props) => {
+export default () => {
   return (
-    <BasicLayout
-      {...props}
+    <BasicLayouts
       projectName="Ant Design Pro"
-       topRightMenu={[
+      topRightMenu={[
           {
             title: '个人中心',
             icon: <UserOutlined />,
@@ -85,14 +82,14 @@ export default (props) => {
 
 ```
 
-## 自定义背景样式
+## 配置暗模式
 ```jsx
-import BasicLayout from '@antdp/basic-layouts';
+import BasicLayouts from '@antdp/basic-layouts';
 
-export default (props) => {
+export default () => {
   return (
-    <BasicLayout
-      {...props}
+    <BasicLayouts
+      theme="dark"
       projectName="Ant Design Pro"
       topRightMenu={[
         {
@@ -116,7 +113,6 @@ export default (props) => {
           },
         },
       ]}
-      contentStyle={{backgroundColor: '#999'}}
     />
   )
 };

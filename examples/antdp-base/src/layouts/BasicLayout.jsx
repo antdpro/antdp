@@ -14,6 +14,7 @@ import logo from './logo.svg';
 
 const Layout = () => {
   const [dark, setDark] = useState(false);
+  const [layout, setLayout] = useState('slider');
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.user);
   const update = (data) => {
@@ -31,9 +32,12 @@ const Layout = () => {
         icon={<UnorderedListOutlined />}
       >
         <FloatButton description={dark ? 'light' : 'dark'} onClick={() => setDark(!dark)} />
+        <FloatButton description="slider" onClick={() => setLayout('slider')} />
+        <FloatButton description="topleft" onClick={() => setLayout('topleft')} />
+        <FloatButton description="mix" onClick={() => setLayout('mix')} />
       </FloatButton.Group>
       <BasicLayouts
-        layout="slider"
+        layout={layout}
         theme={dark ? 'dark' : 'light'}
         className="antdp-basic-layouts"
         projectName="Ant Design"

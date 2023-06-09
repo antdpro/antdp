@@ -80,6 +80,7 @@ export default config(router, {
 );
 ```
 ### ANTD_IS_BREADCRUMB
+是否展示面包屑, Tab 选项卡优先级大于面包屑
 
 ```diff
 import config from '@antdp/config';

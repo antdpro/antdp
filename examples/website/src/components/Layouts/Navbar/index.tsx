@@ -40,6 +40,12 @@ const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
         >
           实例预览
         </AMenu>
+        <AMenu
+          href="https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base2?embed=1&hideNavigation=0&hidedevtools=0"
+          target="__blank"
+        >
+          实例预览2
+        </AMenu>
         <LinkMenu to="/docs">教程</LinkMenu>
         <LinkMenu to="/components">组件</LinkMenu>
         <LinkMenu to="https://raw.githack.com/antdpro/antdp/v1-doc/index.html#/">

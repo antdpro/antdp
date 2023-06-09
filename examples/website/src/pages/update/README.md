@@ -168,11 +168,11 @@ class Page extends Component {
 #### SelectLang 和 useIntl
 ```diff
 + import { SelectLang,useIntl } from '@umijs/max';
-import BasicLayout from '@antdp/basic-layouts';
+import BasicLayouts from '@antdp/basic-layouts';
 export default function Page(props) {
 + const match = useMatch({ path: 'list/search/:type' });
   return (
-    <BasicLayout
+    <BasicLayouts
 +      topRightLanguage={<SelectLang />}
 +      intlLanguage={useIntl()}
     />

@@ -17,6 +17,7 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { Divider, message, Space, Tabs } from 'antd';
+import DocumentTitle from '@antdp/document-title';
 
 const iconStyles = {
   color: 'rgba(0, 0, 0, 0.2)',

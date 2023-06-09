@@ -31,12 +31,12 @@ locale: {
 
 在 `layouts` 中添加`SelectLang` 和 `useIntl`：
 ```diff
-import BasicLayout from '@antdp/basic-layouts';
+import BasicLayouts from '@antdp/basic-layouts';
 + import { SelectLang, useIntl } from '@umijs/max';
 
 const Layout = (props) => {
   return (
-    <BasicLayout
+    <BasicLayouts
       ...
       projectName="Ant Design"
 +      topRightLanguage={<SelectLang />}

@@ -10,12 +10,12 @@ $ nvm -v
 0.39.1
 ```
 
-安装 node。
+安装 node。(^16.14.0 || >=18.0.0)
 ```bash
-$ nvm install 16
-$ nvm use 16
+$ nvm install 16.19.1
+$ nvm use 16.19.1
 $ node -v
-v16.10.0
+v16.19.1
 ```
 
 然后需要包管理工具。node 默认包含 npm，但也可以选择其他方案，

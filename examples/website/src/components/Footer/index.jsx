@@ -1,6 +1,6 @@
-import styles from './index.module.less';
-import { ReactComponent as Github } from '../../assets/github.svg';
 import { ReactComponent as Gitee } from '../../assets/gitee.svg';
+import { ReactComponent as Github } from '../../assets/github.svg';
+import styles from './index.module.less';
 
 const data = [
   {
@@ -38,6 +38,10 @@ const data = [
       {
         href: 'https://github.com/alibaba/hooks',
         title: 'ahooks-React Hooks 库',
+      },
+      {
+        href: 'https://kktjs.github.io/kkt-pro/#/doc/kktp',
+        title: 'KKTP',
       },
     ],
   },

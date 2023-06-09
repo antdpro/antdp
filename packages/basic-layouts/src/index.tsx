@@ -5,7 +5,7 @@ import WarpContent from './Content';
 import Header from './Header';
 import { LayoutsProvider } from './hooks';
 import './index.css';
-import { BasicLayoutsProps } from './interface';
+import { BasicLayoutsProps, LayoutModel } from './interface';
 import SiderMenus from './Sider';
 export * from './Breadcrumb';
 export { default as Breadcrumb } from './Breadcrumb';
@@ -25,8 +25,11 @@ export * from './utils';
 
 const BasicLayouts = (props: BasicLayoutsProps) => {
   const { theme = 'light' } = props;
+  const layout = props.layout
+
+
   const render = useMemo(() => {
-    if (!!ANTD_MENU_TOP_LEFT) {
+    if (layout === LayoutModel.TOPLEFT) {
       return (
         <React.Fragment>
           {ANTD_HEAD_IS_SHOW && (
@@ -44,7 +47,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
           </Layout>
         </React.Fragment>
       );
-    } else if (!!ANTD_MENU_SLIDER) {
+    } else if (layout === LayoutModel.SLIDER) {
       return (
         <React.Fragment>
           {ANTD_MENU_IS_SHOW && <SiderMenus theme={theme} />}
@@ -83,7 +86,8 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
         </React.Fragment>
       );
     }
-  }, [theme]);
+  }, [theme, layout]);
+
   const newData = useMemo(() => {
     if (typeof ANTD_AUTH_CONF === 'boolean') {
       return {
@@ -104,6 +108,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     }
     return { isCheckAuth: false };
   }, [ANTD_AUTH_CONF]);
+
   return (
     <AuthorizedConfigProvider {...newData}>
       <LayoutsProvider {...props}>

@@ -9,7 +9,7 @@ import DocumentTitleDom, { DocumentTitle } from '@antdp/document-title';
 import { useLocation } from 'react-router-dom';
 // @ts-ignore
 import { useAppData } from '@umijs/max';
-import { UseLayoutsProps, RouterMenu } from './interface';
+import { UseLayoutsProps, RouterMenu, LayoutModel } from './interface';
 import { HandleMenu } from './utils';
 
 export interface LayoutsContextType extends UseLayoutsProps {
@@ -22,6 +22,7 @@ export const LayoutsContext = createContext<LayoutsContextType>({
   HandleMenu: new HandleMenu({ routers: [] }),
   collapsed: false,
   setCollapsed: () => null,
+  layout: LayoutModel.MIX
 });
 
 export const useLayouts = () => useContext(LayoutsContext);
@@ -31,6 +32,7 @@ export const LayoutsProvider = (props: UseLayoutsProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
   const { clientRoutes } = useAppData();
+  const layout = props.layout
 
   const routes = useMemo(() => {
     const routes = (clientRoutes as RouterMenu[]).find(
@@ -44,9 +46,9 @@ export const LayoutsProvider = (props: UseLayoutsProps) => {
       routers: routes || [],
       intlLanguage: intlLanguage,
       isCheckAuth: !!ANTD_AUTH_CONF,
-      isTOPLEFT: !!ANTD_MENU_TOP_LEFT,
+      isTOPLEFT: layout === LayoutModel.TOPLEFT,
     });
-  }, [routes, intlLanguage]);
+  }, [routes, intlLanguage, layout]);
 
   const title = useMemo(() => {
     const item = Menus.getPathItem(location.pathname);
@@ -67,8 +69,12 @@ export const LayoutsProvider = (props: UseLayoutsProps) => {
   return createElement<DocumentTitle>(DocumentTitleDom, {
     title: renderTitle,
     children: createElement(LayoutsContext.Provider, {
-      value: { HandleMenu: Menus, collapsed, setCollapsed, ...rest },
+      value: {
+        HandleMenu: Menus, collapsed, setCollapsed, layout: LayoutModel.MIX,
+        ...rest
+      },
       children,
     }),
   });
 };
+

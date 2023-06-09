@@ -1,0 +1,52 @@
+{
+  "name": "@example/antdp-base3",
+  "private": true,
+  "scripts": {
+    "start": "max dev",
+    "build": "max build",
+    "umiinstall": "max setup",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,less,md,json}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "@ant-design/pro-form": "1.74.7",
+    "@antdp/antdp-ui": "2.0.16",
+    "@antdp/edit-table": "2.0.16",
+    "@antdp/authorized": "2.0.16",
+    "@antdp/basic-layouts": "2.0.16",
+    "@antdp/hooks": "2.0.16",
+    "@antdp/page-loading": "2.0.16",
+    "@antdp/request": "2.0.16",
+    "@antdp/user-login": "2.0.16",
+    "ahooks": "~3.7.2",
+    "antd": "5.4.7",
+    "rc-field-form": "~1.27.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "overrides": {
+    "dva": "^2.6.0-beta.20",
+    "antd": "5.4.7"
+  },
+  "resolutions": {
+    "dva": "^2.6.0-beta.20",
+    "antd": "5.4.7"
+  },
+  "devDependencies": {
+    "@antdp/config": "2.0.16",
+    "@antdp/dependencies": "2.0.16",
+    "@umijs/max": "~4.0.47",
+    "@umijs/plugin-model": "~2.6.2",
+    "lint-staged": "~13.0.4",
+    "prettier": "2.8.1"
+  }
+}

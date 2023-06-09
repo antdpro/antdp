@@ -1,0 +1,168 @@
+[
+  {
+    "path": "/login",
+    "component": "@/layouts/UserLayout"
+  },
+  {
+    "path": "/",
+    "component": "@/layouts/BasicLayout",
+    "routes": [
+      {
+        "path": "/",
+        "redirectTo": "/welcome"
+      },
+      {
+        "path": "/*",
+        "component": "@/pages/404"
+      },
+      {
+        "path": "/welcome",
+        "name": "首页",
+        "locale": "welcome",
+        "icon": "dashboard",
+        "component": "@/pages/Home/index"
+      },
+      {
+        "path": "/dashboard",
+        "name": "页面实例",
+        "locale": "dashboard",
+        "icon": "fileText",
+        "component": "@/pages/Demo"
+      },
+      {
+        "path": "/components",
+        "name": "组件页",
+        "locale": "components",
+        "icon": "form",
+        "side": true,
+        "routes": [
+          {
+            "path": "/components/quickform",
+            "name": "快速表单",
+            "index": true,
+            "locale": "quickform",
+            "component": "@/pages/Components/QuickForm"
+          },
+          {
+            "path": "/components/formdetail",
+            "name": "详情表单",
+            "locale": "formdetail",
+            "hideInMenu": true,
+            "component": "@/pages/Components/FormDetail"
+          },
+          {
+            "path": "/components/edittable",
+            "name": "编辑表格",
+            "locale": "edittable",
+            "component": "@/pages/Components/EditTable"
+          },
+          {
+            "path": "/components/proform",
+            "name": "ProForm",
+            "locale": "proform",
+            "component": "@/pages/Components/ProForm"
+          }
+        ]
+      },
+      {
+        "path": "/list",
+        "name": "列表页",
+        "icon": "table",
+        "locale": "list",
+        "routes": [
+          {
+            "path": "/list/basiclist",
+            "name": "基础列表",
+            "locale": "basiclist",
+            "component": "@/pages/List/BasicList"
+          },
+          {
+            "path": "/list/cardlist",
+            "name": "卡片列表",
+            "locale": "cardlist",
+            "component": "@/pages/List/CardList"
+          },
+          {
+            "path": "/list/tablelist",
+            "name": "ProTable",
+            "locale": "tablelist",
+            "component": "@/pages/List/TableList"
+          },
+          {
+            "path": "/list/prolist",
+            "name": "ProList",
+            "locale": "prolist",
+            "component": "@/pages/List/ProList"
+          }
+        ]
+      },
+      {
+        "path": "/detail",
+        "name": "详情页",
+        "icon": "profile",
+        "locale": "detail",
+        "routes": [
+          {
+            "path": "/detail/basicdetails",
+            "name": "基础详情页",
+            "locale": "basicdetails",
+            "component": "@/pages/Detail/BasicDetails"
+          },
+          {
+            "path": "/detail/advanceddetails",
+            "name": "高级详情页",
+            "locale": "advanceddetails",
+            "component": "@/pages/Detail/AdvancedDetails"
+          }
+        ]
+      },
+      {
+        "path": "/results",
+        "name": "结果页",
+        "locale": "results",
+        "icon": "checkCircle",
+        "routes": [
+          {
+            "path": "/results/success",
+            "name": "成功页",
+            "locale": "success",
+            "component": "@/pages/Results/Success"
+          },
+          {
+            "path": "/results/fail",
+            "name": "失败页",
+            "locale": "fail",
+            "component": "@/pages/Results/Fail"
+          }
+        ]
+      },
+      {
+        "path": "/person",
+        "name": "个人页",
+        "icon": "user",
+        "locale": "person",
+        "routes": [
+          {
+            "path": "/person/personalCenter",
+            "name": "个人中心",
+            "locale": "personalCenter",
+            "component": "@/pages/Person/PersonalCenter"
+          },
+          {
+            "path": "/person/personalSettings",
+            "name": "个人设置",
+            "locale": "personalSettings",
+            "component": "@/pages/Person/PersonalSettings"
+          }
+        ]
+      },
+      {
+        "path": "/403",
+        "name": "403",
+        "icon": "file-protect",
+        "component": "@/pages/403",
+        "hideInMenu": true
+      }
+    ]
+  }
+]

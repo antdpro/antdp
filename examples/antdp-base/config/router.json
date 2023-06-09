@@ -24,7 +24,7 @@
       },
       {
         "path": "/dashboard",
-        "name": "页面试例",
+        "name": "页面实例",
         "locale": "dashboard",
         "icon": "fileText",
         "side": true,

@@ -1,7 +1,7 @@
 export default {
   'menu.welcome': '首页',
   'menu.chart': '图表页',
-  'menu.dashboard': '页面试例',
+  'menu.dashboard': '页面实例',
   'menu.components': '组件页',
   'menu.components.quickform': '快速表单',
   'menu.components.formdetail': '详情表单',

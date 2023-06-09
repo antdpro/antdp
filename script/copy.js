@@ -39,7 +39,13 @@ const fieldMap = async () => {
     if (item.ext && /ts|tsx/.test(item.ext)) {
       transform(item.path);
     } else {
-      FS.copySync(item.path, item.path.replace(PWDEntry, PWDOutPut));
+      const outPutPath = item.path.replace(PWDEntry, PWDOutPut);
+      // 删除 custom.d.ts 文件
+      if (outPutPath.endsWith('custom.d.ts')) {
+        fs.unlinkSync(outPutPath);
+      } else {
+        FS.copySync(item.path, outPutPath);
+      }
     }
   });
 };

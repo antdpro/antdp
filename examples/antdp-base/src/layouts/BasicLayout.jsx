@@ -7,7 +7,7 @@ import {
 import { useState } from 'react';
 import { FloatButton } from 'antd';
 import Authorized from '@antdp/authorized';
-import BasicLayout from '@antdp/basic-layouts';
+import BasicLayouts from '@antdp/basic-layouts';
 import {
   SelectLang,
   useIntl,
@@ -41,7 +41,7 @@ const Layout = () => {
           onClick={() => setDark(!dark)}
         />
       </FloatButton.Group>
-      <BasicLayout
+      <BasicLayouts
         theme={dark ? 'dark' : 'light'}
         className="antdp-basic-layouts"
         projectName="Ant Design"

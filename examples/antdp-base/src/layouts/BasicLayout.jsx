@@ -1,21 +1,15 @@
 import {
   LogoutOutlined,
   SettingOutlined,
-  UserOutlined,
   UnorderedListOutlined,
+  UserOutlined,
 } from '@ant-design/icons';
-import { useState } from 'react';
-import { FloatButton } from 'antd';
 import Authorized from '@antdp/authorized';
 import BasicLayouts from '@antdp/basic-layouts';
-import {
-  SelectLang,
-  useIntl,
-  useDispatch,
-  useSelector,
-  history,
-} from '@umijs/max';
+import { history, SelectLang, useDispatch, useIntl, useSelector } from '@umijs/max';
+import { FloatButton } from 'antd';
 import 'antd/dist/reset.css';
+import { useState } from 'react';
 import logo from './logo.svg';
 
 const Layout = () => {
@@ -36,19 +30,16 @@ const Layout = () => {
         style={{ right: 94 }}
         icon={<UnorderedListOutlined />}
       >
-        <FloatButton
-          description={dark ? 'light' : 'dark'}
-          onClick={() => setDark(!dark)}
-        />
+        <FloatButton description={dark ? 'light' : 'dark'} onClick={() => setDark(!dark)} />
       </FloatButton.Group>
       <BasicLayouts
+        layout="slider"
         theme={dark ? 'dark' : 'light'}
         className="antdp-basic-layouts"
         projectName="Ant Design"
         profile={{
           name: '埋名',
-          avatar:
-            'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
+          avatar: 'https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png',
         }}
         siderWidth={208}
         logo={logo}

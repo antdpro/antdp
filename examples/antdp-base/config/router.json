@@ -35,6 +35,7 @@
         "name": "组件页",
         "locale": "components",
         "icon": "form",
+        "side": true,
         "routes": [
           {
             "path": "/components/proform",
@@ -67,6 +68,7 @@
         "name": "列表页",
         "icon": "table",
         "locale": "list",
+        "side": true,
         "routes": [
           {
             "path": "/list/tablelist",

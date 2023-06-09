@@ -150,22 +150,6 @@ export default config(router, {
 );
 ```
 
-### ANTD_MENU_TOP_LEFT
-
-父级菜单展示顶部 ，子集菜单展示侧边，默认值`false`不显示
-
-```diff
-import config from '@antdp/config';
-import proxy from './proxy';
-import router from './router.json';
-export default config(router, {
-  proxy,
-  define: {
-+    ANTD_MENU_TOP_LEFT: true
-  },
-);
-```
-
 ### ANTD_MENU_SEARCH_IS_SHOW
 
 是否开启菜单栏搜索，默认值`false`

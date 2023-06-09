@@ -4,15 +4,16 @@ import { useLocation } from 'react-router-dom';
 import { useLayouts } from '../hooks';
 import { getSiderMenus } from '../utils';
 import Breadcrumbs from './../Breadcrumb';
+import { LayoutModel } from '../interface';
 
 const HeaderMenus = () => {
   const location = useLocation();
-  const { HandleMenu } = useLayouts();
+  const { HandleMenu, layout } = useLayouts();
   const menus = HandleMenu.parentMenu || [];
 
   const items = useMemo(() => {
-    return getSiderMenus(menus, !!ANTD_MENU_TOP_LEFT);
-  }, [menus]);
+    return getSiderMenus(menus, layout === LayoutModel.TOPLEFT);
+  }, [menus, layout]);
 
   const parentPath = HandleMenu.getParentPath(location.pathname);
 

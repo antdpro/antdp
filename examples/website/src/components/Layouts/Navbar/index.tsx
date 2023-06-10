@@ -38,19 +38,7 @@ const Navbar: FC<PropsWithRef<NavbarProps>> = (props) => {
           href="https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0"
           target="__blank"
         >
-          实例预览（基础导航）
-        </AMenu>
-        <AMenu
-          href="https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base2?embed=1&hideNavigation=0&hidedevtools=0"
-          target="__blank"
-        >
-          实例预览（左侧导航）
-        </AMenu>
-        <AMenu
-          href="https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base3?embed=1&hideNavigation=0&hidedevtools=0"
-          target="__blank"
-        >
-          实例预览（顶部导航）
+          实例预览
         </AMenu>
         <LinkMenu to="/docs">教程</LinkMenu>
         <LinkMenu to="/components">组件</LinkMenu>

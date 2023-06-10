@@ -1,9 +1,6 @@
-import { useState, useMemo } from 'react';
-import { QuickForm, ButtonGroupPro } from '@antdp/antdp-ui';
-import { Card, Space, Avatar, Button, message, Upload } from 'antd';
-import 'antd/dist/reset.css';
-import { detailItems } from './item';
 import { UploadOutlined } from '@ant-design/icons';
+import { Avatar, Button, message, Upload } from 'antd';
+import 'antd/dist/reset.css';
 import Edit from './Edit';
 
 const props = {
@@ -25,15 +22,6 @@ const props = {
 };
 
 const Page = () => {
-  const [queryInfo, setInfo] = useState({ time2: 123456, fileList: [] });
-
-  const data = useMemo(() => {
-    return detailItems({
-      queryInfo,
-      setInfo,
-    });
-  }, [queryInfo, setInfo]);
-
   return (
     <div>
       <div

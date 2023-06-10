@@ -29,6 +29,24 @@ const Demo = () => {
 export default Demo
 ```
 
+## 导航菜单模式
+
+```jsx
+import React from 'react';
+import BasicLayout from '@antdp/basic-layouts';
+const Demo = (props) => {
+  return (
+    <BasicLayout
+      {...props}
+      layout="slider"
+    />
+  )
+};
+
+export default Demo
+```
+
+
 ## 菜单国际化设置
 
 ```jsx
@@ -135,6 +153,8 @@ export default () => {
 | theme | 明或暗 |   `dark` | `light` | `light` |
 | className | 样式 |   `string` | - |
 | configProviderProps | `antd组件全局化配置` |   `ConfigProviderProps` | - |
+| contentStyle | 自定义内容部分样式 |   `React.CSSProperties | undefined` | - |
+| layout | 导航菜单模式,slider：右侧导航，topleft：顶部左侧导航 |   `LayoutModel | undefined` | mix |
 
 ## TopRightMenuProps
 | 参数 | 说明 | 类型 | 默认值 |

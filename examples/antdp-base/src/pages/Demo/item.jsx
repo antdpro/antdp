@@ -1,17 +1,7 @@
-import moment from 'moment';
+import { DatePicker } from 'antd';
+import React from 'react';
 
-export const columns = [
-  {
-    title: '序号',
-    dataIndex: 'number',
-    fixed: 'left',
-    width: 90,
-    align: 'center',
-    hideInSearch: true,
-    render: (text, record, index) => {
-      return index + 1;
-    },
-  },
+export const columns = ({ edit }) => [
   {
     title: '姓名',
     dataIndex: 'name',
@@ -20,7 +10,7 @@ export const columns = [
   },
   {
     title: '年龄',
-    dataIndex: 'title',
+    dataIndex: 'age',
     align: 'center',
     width: 90,
   },
@@ -30,89 +20,141 @@ export const columns = [
     align: 'center',
     width: 90,
   },
+  {
+    title: '操作',
+    align: 'center',
+    width: 90,
+    render: (_, record) => {
+      return (
+        <span>
+          {React.cloneElement(edit, {
+            queryData: { ...record },
+            label: '编辑',
+          })}
+        </span>
+      );
+    },
+  },
 ];
 
-export const detailItems = ({ isView, queryInfo, setInfo }) => [
-  {
-    label: '备注',
-    name: 'remark',
-    type: 'input',
-    initialValue: 'zz爱ff',
+const valueEnum = {
+  all: { text: '全部', status: 'Default' },
+  open: {
+    text: '未解决',
+    status: 'Error',
   },
-  {
-    label: '水果',
-    name: 'fruit',
-    type: 'select',
-    options: [{ label: '苹果', value: 1 }],
-    initialValue: 1,
+  closed: {
+    text: '已解决',
+    status: 'Success',
+    disabled: true,
   },
+  processing: {
+    text: '解决中',
+    status: 'Processing',
+  },
+};
+
+export const schema = ({ queryData }) => [
   {
-    label: '城市',
-    name: 'citys',
-    type: 'treeSelect',
-    attributes: {
-      treeData: [
-        { label: '上海', value: 1, children: [{ label: '黄浦区', value: 11 }] },
-        { label: '北京', value: 2, children: [{ label: '西城区', value: 21 }] },
+    title: '姓名',
+    dataIndex: 'name',
+    formItemProps: {
+      rules: [
+        {
+          required: true,
+          message: '此项为必填项',
+        },
       ],
-      allowClear: true,
-      dropdownStyle: { maxHeight: 400, overflow: 'auto' },
     },
-    initialValue: 21,
+    initialValue: queryData.name || '',
   },
   {
-    label: '蔬菜',
-    name: 'fruits',
-    type: 'radio',
-    options: [
-      { label: '青菜', value: 1 },
-      { label: '黄瓜', value: 2 },
-    ],
-    initialValue: 2,
+    title: '年龄',
+    dataIndex: 'age',
+    initialValue: queryData.age || '',
   },
   {
-    label: '蔬菜',
-    name: 'id',
-    type: 'checkbox',
-    options: [
-      { label: '黄瓜', value: 2 },
-      { label: '番茄', value: 3 },
-    ],
-    initialValue: [2, 3],
+    title: '状态',
+    dataIndex: 'state',
+    valueType: 'select',
+    valueEnum,
   },
   {
-    label: '上报时间',
-    name: 'time',
-    type: 'datePicker',
-    initialValue: moment(),
-  },
-  {
-    label: '照片',
-    name: 'picture',
-    type: 'UploadGrid',
-    full: true,
-    onlyimg: true,
-    attributes: {
-      fileList: queryInfo?.fileList,
-      onChange: ({ fileList }) => setInfo({ ...queryInfo, fileList: fileList }),
-      onDownload: (file) => {
-        console.log('file', file);
+    valueType: 'switch',
+    title: '开关',
+    dataIndex: 'Switch',
+    fieldProps: {
+      style: {
+        width: '200px',
       },
-      action: '',
-      listType: 'picture-card',
-      showDownloadIcon: isView,
-      showRemoveIcon: !isView,
-      showPreviewIcon: true,
-      maxCount: 1,
     },
   },
   {
-    label: '验证码',
-    name: 'time2',
-    type: 'inputCount',
-    attributes: {
-      onChange: (e) => setInfo({ ...queryInfo, time2: e }),
+    title: '创建时间',
+    key: 'showTime',
+    colProps: {
+      span: 8,
     },
-    initialValue: queryInfo?.time2,
+    dataIndex: 'createName',
+    renderFormItem: () => <DatePicker.RangePicker />,
+  },
+  {
+    title: '更新时间',
+    colProps: {
+      span: 8,
+    },
+    dataIndex: 'updateName',
+    renderFormItem: () => <DatePicker.RangePicker />,
+  },
+  {
+    title: '购买时间',
+    colProps: {
+      span: 8,
+    },
+    dataIndex: 'created_at',
+    valueType: 'dateRange',
+    transform: (value) => {
+      return {
+        startTime: value[0],
+        endTime: value[1],
+      };
+    },
+  },
+  {
+    title: '列表',
+    valueType: 'formList',
+    dataIndex: 'list',
+    colProps: {
+      span: 24,
+    },
+    columns: [
+      {
+        title: '状态',
+        dataIndex: 'state',
+        valueType: 'select',
+        valueEnum,
+        formItemProps: {
+          rules: [
+            {
+              required: true,
+              message: '此项为必填项',
+            },
+          ],
+        },
+      },
+      {
+        title: '日期',
+        valueType: 'dateTime',
+        dataIndex: 'currentTime',
+        formItemProps: {
+          rules: [
+            {
+              required: true,
+              message: '此项为必填项',
+            },
+          ],
+        },
+      },
+    ],
   },
 ];

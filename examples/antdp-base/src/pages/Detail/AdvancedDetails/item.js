@@ -1,140 +1,4 @@
 import { Badge } from 'antd';
-
-export const detailItems = [
-  {
-    label: '创建人',
-    name: 'remark',
-    type: 'input',
-    initialValue: 'uiw',
-  },
-  {
-    label: '订购产品',
-    name: 'remark',
-    type: 'input',
-    initialValue: 'XX 服务',
-  },
-  {
-    label: '创建时间',
-    name: 'remark',
-    type: 'input',
-    initialValue: '2017-07-07',
-  },
-  {
-    label: '关联单据',
-    name: 'remark',
-    type: 'input',
-    initialValue: '12421',
-  },
-  {
-    label: '生效日期',
-    name: 'remark',
-    type: 'input',
-    initialValue: '2017-07-07 ~ 2017-08-08',
-  },
-  {
-    label: '备注',
-    name: 'remark',
-    type: 'input',
-    initialValue: '请于两个工作日内确认',
-  },
-];
-
-export const userItems = [
-  {
-    label: '用户姓名',
-    name: 'remark',
-    type: 'input',
-    initialValue: 'uiw',
-  },
-  {
-    label: '联系电话',
-    name: 'remark',
-    type: 'input',
-    initialValue: '18888888888',
-  },
-  {
-    label: '常用快递',
-    name: 'remark',
-    type: 'input',
-    initialValue: 'nihao',
-  },
-  {
-    label: '取货地址',
-    name: 'remark',
-    type: 'input',
-    initialValue: 'xx',
-  },
-  {
-    label: '备注',
-    name: 'remark',
-    type: 'input',
-    initialValue: '无',
-  },
-];
-
-export const columns = [
-  {
-    title: '商品编号',
-    dataIndex: 'key',
-  },
-  {
-    title: '商品名称',
-    dataIndex: 'name',
-  },
-  {
-    title: '商品条码',
-    dataIndex: 'barCode',
-  },
-  {
-    title: '单价',
-    dataIndex: 'price',
-  },
-  {
-    title: '数量（件）',
-    className: 'num',
-    dataIndex: 'num',
-  },
-  {
-    title: '金额',
-    dataIndex: 'money',
-    align: 'right',
-  },
-];
-export const data = [
-  {
-    key: '1234561',
-    name: '矿泉水 550ml',
-    barCode: '12421432143214321',
-    price: '2.00	',
-    num: '1',
-    money: '￥2.00',
-  },
-  {
-    key: '1234562',
-    name: '凉茶 300ml',
-    barCode: '12421432143214322',
-    price: '3.00',
-    num: '2',
-    money: '￥6.00',
-  },
-  {
-    key: '1234563',
-    name: '好吃的薯片',
-    barCode: '12421432143214323',
-    price: '7.00	',
-    num: '4',
-    money: '￥28.00',
-  },
-  {
-    key: '1234564',
-    name: '特别好吃的蛋卷',
-    barCode: '12421432143214324',
-    price: '8.50	',
-    num: '3',
-    money: '￥25.50',
-  },
-];
-
 export const columns1 = [
   {
     title: '时间',
@@ -147,9 +11,7 @@ export const columns1 = [
   {
     title: '状态',
     dataIndex: 'barCode',
-    render: (text) => (
-      <Badge status={text === '成功' ? 'success' : 'processing'} text={text} />
-    ),
+    render: (text) => <Badge status={text === '成功' ? 'success' : 'processing'} text={text} />,
   },
   {
     title: '操作员ID',
@@ -196,5 +58,83 @@ export const data1 = [
     barCode: '成功',
     price: '用户',
     num: '5mins',
+  },
+];
+
+export const columns2 = [
+  {
+    title: '文本',
+    key: 'text',
+    dataIndex: 'id',
+  },
+  {
+    title: '状态',
+    key: 'state',
+    dataIndex: 'state',
+    valueType: 'select',
+    valueEnum: {
+      all: { text: '全部', status: 'Default' },
+      open: {
+        text: '未解决',
+        status: 'Error',
+      },
+      closed: {
+        text: '已解决',
+        status: 'Success',
+      },
+    },
+  },
+  {
+    title: '状态2',
+    key: 'state2',
+    dataIndex: 'state2',
+  },
+  {
+    title: '时间',
+    key: 'date',
+    dataIndex: 'date',
+    valueType: 'date',
+  },
+  {
+    title: '时间',
+    key: 'date',
+    dataIndex: 'date',
+    valueType: 'date',
+    fieldProps: {
+      format: 'DD.MM.YYYY',
+    },
+  },
+  {
+    title: '开关',
+    key: 'switch',
+    dataIndex: 'switch',
+    valueType: 'switch',
+  },
+  {
+    title: 'money',
+    key: 'money',
+    dataIndex: 'money',
+    valueType: 'money',
+    fieldProps: {
+      moneySymbol: '$',
+    },
+  },
+  {
+    title: 'money无符号',
+    key: 'money',
+    dataIndex: 'money',
+    valueType: 'money',
+    fieldProps: {
+      moneySymbol: false,
+    },
+  },
+  {
+    title: 'money负数无符号',
+    key: 'money2',
+    dataIndex: 'money2',
+    valueType: 'money',
+    fieldProps: {
+      moneySymbol: false,
+    },
   },
 ];

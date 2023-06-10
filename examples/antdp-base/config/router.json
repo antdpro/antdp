@@ -35,30 +35,25 @@
         "name": "组件页",
         "locale": "components",
         "icon": "form",
+        "side": true,
         "routes": [
-          {
-            "path": "/components/quickform",
-            "name": "快速表单",
-            "locale": "quickform",
-            "component": "@/pages/Components/QuickForm"
-          },
-          {
-            "path": "/components/formdetail",
-            "name": "详情表单",
-            "locale": "formdetail",
-            "component": "@/pages/Components/FormDetail"
-          },
-          {
-            "path": "/components/edittable",
-            "name": "编辑表格",
-            "locale": "edittable",
-            "component": "@/pages/Components/EditTable"
-          },
           {
             "path": "/components/proform",
             "name": "ProForm",
             "locale": "proform",
             "component": "@/pages/Components/ProForm"
+          },
+          {
+            "path": "/components/proDescriptions",
+            "name": "ProDescriptions",
+            "locale": "proDescriptions",
+            "component": "@/pages/Components/ProDescriptions"
+          },
+          {
+            "path": "/components/editableProTable",
+            "name": "EditableProTable",
+            "locale": "editableProTable",
+            "component": "@/pages/Components/EditableProTable"
           }
         ]
       },
@@ -67,19 +62,8 @@
         "name": "列表页",
         "icon": "table",
         "locale": "list",
+        "side": true,
         "routes": [
-          {
-            "path": "/list/basiclist",
-            "name": "基础列表",
-            "locale": "basiclist",
-            "component": "@/pages/List/BasicList"
-          },
-          {
-            "path": "/list/cardlist",
-            "name": "卡片列表",
-            "locale": "cardlist",
-            "component": "@/pages/List/CardList"
-          },
           {
             "path": "/list/tablelist",
             "name": "ProTable",
@@ -91,6 +75,18 @@
             "name": "ProList",
             "locale": "prolist",
             "component": "@/pages/List/ProList"
+          },
+          {
+            "path": "/list/basiclist",
+            "name": "基础列表",
+            "locale": "basiclist",
+            "component": "@/pages/List/BasicList"
+          },
+          {
+            "path": "/list/cardlist",
+            "name": "卡片列表",
+            "locale": "cardlist",
+            "component": "@/pages/List/CardList"
           }
         ]
       },

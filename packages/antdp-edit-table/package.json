@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@babel/runtime": "~7.20.1",
-    "rc-field-form": "~1.30.0"
+    "rc-field-form": "~1.32.0"
   },
   "devDependencies": {
     "@types/react": "~18.2.0",

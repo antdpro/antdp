@@ -5,7 +5,7 @@ import { useComponentMarkdown } from './hooks';
 
 export default function Anchors() {
   const markdownText = useComponentMarkdown();
-  const [headers, setHeaders] = useState([]);
+  const [items, setItems] = useState([]);
 
   function traverse(node, headers = []) {
     let currentHeader = null;
@@ -48,7 +48,9 @@ export default function Anchors() {
     const processor = remark();
     const ast = processor.parse(markdownText);
     const headers = traverse(ast);
-    setHeaders(headers);
+
+    const items = createItems(headers);
+    setItems(items);
   }, [markdownText]);
 
   function createItems(headers) {
@@ -67,10 +69,6 @@ export default function Anchors() {
     });
   }
 
-  const items = createItems(headers);
-
-  // ... 使用 items 渲染你的锚点 ...
-
   return (
     <Anchor
       items={items}
@@ -78,14 +76,6 @@ export default function Anchors() {
         e.preventDefault();
         const element = document.getElementById(link.href);
         element?.scrollIntoView({ behavior: 'instant', block: 'start' });
-        // console.log('element.offsetTop: ', window.scrollTo, element.offsetTop);
-        // if (element) {
-        //   window.scrollTo({
-        //     top: element.offsetTop - 58,
-        //     left: 0,
-        //     behavior: 'smooth'
-        //   });
-        // }
       }}
     />
   );

@@ -92,35 +92,35 @@ export const menusComponentsConfig: MenusConfigObject[] = [
     title: '依赖',
   },
   {
-    title: 'Use Login',
+    title: 'Use Login - 登陆表单',
     path: '/components/user-login',
   },
   {
-    title: 'Page Loading',
+    title: 'Page Loading - 过渡动画',
     path: '/components/page-loading',
   },
   {
-    title: "Document Title",
+    title: "Document Title - 页面标题",
     path: "/components/document-title"
   },
   {
-    title: 'Fullscreen',
+    title: 'Fullscreen - 页面全屏',
     path: '/components/fullscreen',
   },
   {
-    title: 'BasicLayouts',
+    title: 'BasicLayouts - 高级布局',
     path: '/components/basic-layouts',
   },
   {
-    title: 'LayoutTabs',
+    title: 'LayoutTabs - 选项卡',
     path: '/components/layout-tabs',
   },
   {
-    title: "Authorized",
+    title: "Authorized - 权限",
     path: "/components/authorized"
   },
   {
-    title: 'Config',
+    title: 'Config - 配置',
     path: '/components/config',
   },
   {
@@ -128,31 +128,31 @@ export const menusComponentsConfig: MenusConfigObject[] = [
     title: '业务组件',
   },
   {
-    title: 'ButtonGroupPro',
+    title: 'ButtonGroupPro - 按钮组',
     path: '/components/buttongrouppro',
   },
   {
-    title: 'QuickForm',
+    title: 'QuickForm - 快速表单',
     path: '/components/quickform',
   },
   {
-    title: 'CardPro',
+    title: 'CardPro - 卡片',
     path: '/components/cardpro',
   },
   {
-    title: 'FormDetail',
+    title: 'FormDetail - 表单详情',
     path: '/components/formdetail',
   },
   {
-    title:'UploadGrid',
+    title:'UploadGrid - 拖拽上传',
     path: '/components/uploadgrid',
   },
   {
-    title:'Edit-Table',
+    title:'Edit-Table - 编辑表格',
     path: '/components/edit-table',
   },
   {
-    title:'Fuzzy-Query',
+    title:'Fuzzy-Query - 模糊查询',
     path: '/components/fuzzy-query',
   },
 ];

@@ -1,13 +1,8 @@
 import { Layout, Space } from 'antd';
-import User from './User';
 import Contents from './Contents';
+import User from './User';
 const { Sider } = Layout;
 
-const headerStyle = {
-  textAlign: 'center',
-  color: '#fff',
-  backgroundColor: '#7dbcea',
-};
 const contentStyle = {
   textAlign: 'center',
   backgroundColor: '#fff',

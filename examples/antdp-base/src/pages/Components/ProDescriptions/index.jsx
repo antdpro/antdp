@@ -13,19 +13,15 @@ const Page = () => {
       <Card>
         <ProDescriptions
           title="用户信息"
-          request={async () => {
-            return Promise.resolve({
-              success: true,
-              data: {
-                id: '这是一段文本columns',
-                date: '20200809',
-                money: '1212100',
-                money2: -12345.33,
-                state: 'all',
-                switch: true,
-                state2: 'open',
-              },
-            });
+          dataSource={{
+            id: '这是一段文本columns',
+            date: '20200809',
+            money: '1212100',
+            money3: '1212100',
+            money2: -12345.33,
+            state: 'all',
+            switch: true,
+            state2: 'open',
           }}
           columns={[
             {
@@ -58,13 +54,13 @@ const Page = () => {
             {
               title: '时间',
               key: 'date',
-              dataIndex: 'date',
+              dataIndex: 'date2',
               valueType: 'date',
             },
             {
               title: '时间',
-              key: 'date',
-              dataIndex: 'date',
+              key: 'date2',
+              dataIndex: 'date2',
               valueType: 'date',
               fieldProps: {
                 format: 'DD.MM.YYYY',
@@ -87,8 +83,8 @@ const Page = () => {
             },
             {
               title: 'money无符号',
-              key: 'money',
-              dataIndex: 'money',
+              key: 'money3',
+              dataIndex: 'mone3',
               valueType: 'money',
               fieldProps: {
                 moneySymbol: false,
@@ -110,19 +106,15 @@ const Page = () => {
       <Card>
         <ProDescriptions
           title="客户信息"
-          request={async () => {
-            return Promise.resolve({
-              success: true,
-              data: {
-                id: '这是一段文本columns',
-                date: '20200809',
-                money: '1212100',
-                money2: -12345.33,
-                state: 'all',
-                switch: true,
-                state2: 'open',
-              },
-            });
+          dataSource={{
+            id: '这是一段文本columns',
+            date: '20200809',
+            money: '1212100',
+            money3: '1212100',
+            money2: -12345.33,
+            state: 'all',
+            switch: true,
+            state2: 'open',
           }}
           columns={[
             {
@@ -160,8 +152,8 @@ const Page = () => {
             },
             {
               title: '时间',
-              key: 'date',
-              dataIndex: 'date',
+              key: 'date2',
+              dataIndex: 'date2',
               valueType: 'date',
               fieldProps: {
                 format: 'DD.MM.YYYY',
@@ -184,8 +176,8 @@ const Page = () => {
             },
             {
               title: 'money无符号',
-              key: 'money',
-              dataIndex: 'money',
+              key: 'money3',
+              dataIndex: 'money3',
               valueType: 'money',
               fieldProps: {
                 moneySymbol: false,

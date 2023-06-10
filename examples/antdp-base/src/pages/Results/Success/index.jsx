@@ -1,4 +1,4 @@
-import { Button, Result, Popover, Steps, Row, Col, Card } from 'antd';
+import { Button, Card, Col, Popover, Result, Row, Steps } from 'antd';
 const customDot = (dot, { status, index }) => (
   <Popover
     content={
@@ -21,7 +21,7 @@ const App = () => (
           返回列表
         </Button>,
         <Button key="buy">查看项目</Button>,
-        <Button key="buy">打印</Button>,
+        <Button key="buy2">打印</Button>,
       ]}
     />
     <Card

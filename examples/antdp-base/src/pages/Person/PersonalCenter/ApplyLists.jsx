@@ -1,23 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Avatar, Card, Skeleton, Row, Col, Space } from 'antd';
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
 import { getList } from '@/services/api';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { useReactMutation } from '@antdp/hooks';
+import { Avatar, Card, Col, Row, Skeleton, Space } from 'antd';
+import { useEffect, useState } from 'react';
 import { applyItems } from './item';
-const { Meta } = Card;
 
 export default function () {
   const [data, setData] = useState([]);
 
-  const {
-    mutate,
-    data: result,
-    isLoading,
-  } = useReactMutation({
+  const { mutate, isLoading } = useReactMutation({
     method: 'POST',
     url: getList,
     onSuccess: ({ data: results = [] }) => {
@@ -32,15 +23,7 @@ export default function () {
     <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
       <Row>
         {applyItems.map((item, i) => (
-          <Col
-            key={i}
-            xl={12}
-            lg={12}
-            md={12}
-            sm={12}
-            xs={12}
-            style={{ marginBottom: 12 }}
-          >
+          <Col key={i} xl={12} lg={12} md={12} sm={12} xs={12} style={{ marginBottom: 12 }}>
             <Card
               loading={isLoading}
               style={{ width: 360 }}
@@ -50,13 +33,7 @@ export default function () {
                 <EllipsisOutlined key="ellipsis" />,
               ]}
             >
-              <Skeleton
-                avatar
-                description
-                title={false}
-                loading={isLoading}
-                active
-              >
+              <Skeleton avatar description title={false} loading={isLoading} active>
                 <div style={{ display: 'flex', flexDirection: 'row' }}>
                   <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />
                   <div style={{ marginLeft: 10 }}>{item.title}</div>
@@ -71,18 +48,14 @@ export default function () {
                   }}
                 >
                   <div>
-                    <div style={{ color: '#969696', fontSize: 12 }}>
-                      活跃用户
-                    </div>
+                    <div style={{ color: '#969696', fontSize: 12 }}>活跃用户</div>
                     <div>
                       {item.maxNum}
                       <span style={{ fontSize: 18 }}>万</span>
                     </div>
                   </div>
                   <div>
-                    <div style={{ color: '#969696', fontSize: 12 }}>
-                      新增用户
-                    </div>
+                    <div style={{ color: '#969696', fontSize: 12 }}>新增用户</div>
                     <div>{item.minNum}</div>
                   </div>
                 </div>

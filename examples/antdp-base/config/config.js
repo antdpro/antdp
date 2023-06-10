@@ -10,9 +10,9 @@ export default config(router, {
     // 是否显示 head头部
     // ANTD_HEAD_IS_SHOW: false,
     // 是否展示tab栏
-    ANTD_IS_TABS: false,
+    ANTD_IS_TABS: true,
     // 是否展示面包屑
-    ANTD_IS_BREADCRUMB: true,
+    ANTD_IS_BREADCRUMB: false,
     ANTD_AUTH_CONF: {
       auth_menu: 'authMenu',
       auth_btn: 'authBtn',
@@ -42,5 +42,10 @@ export default config(router, {
     // 是否开启 react query 官方 devtool 工具
     devtool: false,
     queryClient: true,
+  },
+  antd: {
+    theme: {
+      token: {},
+    },
   },
 });

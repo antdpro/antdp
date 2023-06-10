@@ -1,6 +1,5 @@
 export default {
   'menu.welcome': 'home',
-  'menu.chart': 'chart',
   'menu.dashboard': 'dashboard',
   'menu.components': 'components pages',
   'menu.components.proDescriptions': 'proDescriptions',

@@ -1,7 +1,6 @@
 import { DatePicker } from 'antd';
-import React from 'react';
 
-export const columns = ({ edit }) => [
+export const columns = ({ handleEdit }) => [
   {
     title: '姓名',
     dataIndex: 'name',
@@ -27,10 +26,7 @@ export const columns = ({ edit }) => [
     render: (_, record) => {
       return (
         <span>
-          {React.cloneElement(edit, {
-            queryData: { ...record },
-            label: '编辑',
-          })}
+          <a onClick={() => handleEdit(record)}>编辑</a>
         </span>
       );
     },

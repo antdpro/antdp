@@ -1,9 +1,4 @@
-import {
-  LogoutOutlined,
-  SettingOutlined,
-  UnorderedListOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import Authorized from '@antdp/authorized';
 import BasicLayouts from '@antdp/basic-layouts';
 import { history, SelectLang, useDispatch, useIntl, useSelector } from '@umijs/max';
@@ -11,10 +6,16 @@ import { FloatButton } from 'antd';
 import 'antd/dist/reset.css';
 import { useState } from 'react';
 import logo from './logo.svg';
+import SettingDrawer from './SettingDrawer';
 
 const Layout = () => {
-  const [dark, setDark] = useState(false);
-  const [layout, setLayout] = useState('slider');
+  const [config, setConfig] = useState({
+    layout: 'slider',
+    dark: 'light',
+    colorPrimary: 'rgb(22, 119, 255)',
+    componentSize: 'default',
+  });
+  const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.user);
   const update = (data) => {
@@ -25,20 +26,21 @@ const Layout = () => {
   };
   return (
     <Authorized authority={!!token} redirectPath="/login">
-      <FloatButton.Group
+      <FloatButton
         trigger="click"
         type="primary"
-        style={{ right: 94 }}
-        icon={<UnorderedListOutlined />}
-      >
-        <FloatButton description={dark ? 'light' : 'dark'} onClick={() => setDark(!dark)} />
-        <FloatButton description="slider" onClick={() => setLayout('slider')} />
-        <FloatButton description="topleft" onClick={() => setLayout('topleft')} />
-        <FloatButton description="mix" onClick={() => setLayout('mix')} />
-      </FloatButton.Group>
+        icon={<SettingOutlined />}
+        onClick={() => setVisible(true)}
+      />
+      <SettingDrawer
+        visible={visible}
+        onClose={() => setVisible(false)}
+        config={config}
+        setConfig={setConfig}
+      />
       <BasicLayouts
-        layout={layout}
-        theme={dark ? 'dark' : 'light'}
+        layout={config.layout}
+        theme={config.dark}
         className="antdp-basic-layouts"
         projectName="Ant Design"
         profile={{

@@ -1,65 +1,5 @@
 import { Badge } from 'antd';
 
-export const detailItems = [
-  {
-    label: '取货单号',
-    name: 'remark',
-    type: 'input',
-    initialValue: '1000000000',
-  },
-  {
-    label: '状态',
-    name: 'remark',
-    type: 'input',
-    initialValue: '已取货',
-  },
-  {
-    label: '销售单号',
-    name: 'remark',
-    type: 'input',
-    initialValue: '1234123421',
-  },
-  {
-    label: '子订单',
-    name: 'remark',
-    type: 'input',
-    initialValue: '3214321432',
-  },
-];
-
-export const userItems = [
-  {
-    label: '用户姓名',
-    name: 'remark',
-    type: 'input',
-    initialValue: 'uiw',
-  },
-  {
-    label: '联系电话',
-    name: 'remark',
-    type: 'input',
-    initialValue: '18888888888',
-  },
-  {
-    label: '常用快递',
-    name: 'remark',
-    type: 'input',
-    initialValue: 'nihao',
-  },
-  {
-    label: '取货地址',
-    name: 'remark',
-    type: 'input',
-    initialValue: 'xx',
-  },
-  {
-    label: '备注',
-    name: 'remark',
-    type: 'input',
-    initialValue: '无',
-  },
-];
-
 export const columns = [
   {
     title: '商品编号',
@@ -135,9 +75,7 @@ export const columns1 = [
   {
     title: '状态',
     dataIndex: 'barCode',
-    render: (text) => (
-      <Badge status={text === '成功' ? 'success' : 'processing'} text={text} />
-    ),
+    render: (text) => <Badge status={text === '成功' ? 'success' : 'processing'} text={text} />,
   },
   {
     title: '操作员ID',

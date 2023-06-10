@@ -1,6 +1,9 @@
 export default {
   namespace: 'demo',
-  state: {},
+  state: {
+    queryData: {},
+    visible: false,
+  },
   reducers: {
     update: (state, { payload }) => ({
       ...state,

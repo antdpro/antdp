@@ -28,7 +28,7 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@ant-design/icons": "5.0.1",
+    "@ant-design/icons": "5.1.4",
     "@antdp/authorized": "2.0.18",
     "@babel/runtime": "~7.20.1",
     "classnames": "2.3.2",
@@ -40,7 +40,7 @@
     "@types/classnames": "2.3.1",
     "@types/react": "~18.2.0",
     "@types/react-dom": "~18.2.0",
-    "antd": "5.4.7",
+    "antd": "5.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

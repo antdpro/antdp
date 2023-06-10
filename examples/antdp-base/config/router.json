@@ -38,20 +38,21 @@
         "side": true,
         "routes": [
           {
+            "index": true,
             "path": "/components/proform",
-            "name": "ProForm",
+            "name": "高级表单",
             "locale": "proform",
             "component": "@/pages/Components/ProForm"
           },
           {
             "path": "/components/proDescriptions",
-            "name": "ProDescriptions",
+            "name": "定义列表",
             "locale": "proDescriptions",
             "component": "@/pages/Components/ProDescriptions"
           },
           {
             "path": "/components/editableProTable",
-            "name": "EditableProTable",
+            "name": "编辑表格",
             "locale": "editableProTable",
             "component": "@/pages/Components/EditableProTable"
           }
@@ -65,14 +66,15 @@
         "side": true,
         "routes": [
           {
+            "index": true,
             "path": "/list/tablelist",
-            "name": "ProTable",
+            "name": "高级表格",
             "locale": "tablelist",
             "component": "@/pages/List/TableList"
           },
           {
             "path": "/list/prolist",
-            "name": "ProList",
+            "name": "高级列表",
             "locale": "prolist",
             "component": "@/pages/List/ProList"
           },

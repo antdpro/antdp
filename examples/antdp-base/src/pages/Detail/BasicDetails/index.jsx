@@ -17,7 +17,9 @@ const Page = () => {
               data: {
                 id: '这是一段文本columns',
                 date: '20200809',
+                date2: '20200809',
                 money: '1212100',
+                money3: '1212100',
                 money2: -12345.33,
                 state: 'all',
                 switch: true,
@@ -61,8 +63,8 @@ const Page = () => {
             },
             {
               title: '时间',
-              key: 'date',
-              dataIndex: 'date',
+              key: 'date2',
+              dataIndex: 'date2',
               valueType: 'date',
               fieldProps: {
                 format: 'DD.MM.YYYY',
@@ -85,8 +87,8 @@ const Page = () => {
             },
             {
               title: 'money无符号',
-              key: 'money',
-              dataIndex: 'money',
+              key: 'money3',
+              dataIndex: 'money3',
               valueType: 'money',
               fieldProps: {
                 moneySymbol: false,

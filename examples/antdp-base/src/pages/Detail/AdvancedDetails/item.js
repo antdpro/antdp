@@ -97,8 +97,8 @@ export const columns2 = [
   },
   {
     title: '时间',
-    key: 'date',
-    dataIndex: 'date',
+    key: 'date2',
+    dataIndex: 'date2',
     valueType: 'date',
     fieldProps: {
       format: 'DD.MM.YYYY',
@@ -121,8 +121,8 @@ export const columns2 = [
   },
   {
     title: 'money无符号',
-    key: 'money',
-    dataIndex: 'money',
+    key: 'money3',
+    dataIndex: 'money3',
     valueType: 'money',
     fieldProps: {
       moneySymbol: false,

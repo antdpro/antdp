@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   setValue,
-  setValues,
   getValue,
 } from 'rc-field-form/lib/utils/valueUtil';
 import {
@@ -85,7 +84,7 @@ class Store {
 
   private setInitialValues = (initialValues: {}, init: boolean) => {
     if (init) {
-      this.store = setValues({}, initialValues, this.store);
+      this.store = Object.assign({}, this.store, initialValues);
     }
   };
 

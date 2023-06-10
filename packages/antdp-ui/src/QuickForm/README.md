@@ -19,7 +19,8 @@ const QuickFormDemo = (props) => {
           {
             label: "备注",
             name: "remark",
-            type: "input"
+            type: "input",
+            initialValue:"1234"
           },
           {
             label: "水果",
@@ -195,7 +196,7 @@ export default QuickFormDemo
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx  mdx:preview
 import React, { useRef } from 'react';
-import { QuickForm,CardPro,getChildFormItemFun } from '@antdp/antdp-ui'
+import { QuickForm,CardPro } from '@antdp/antdp-ui'
 
 const QuickFormDemo = (props) => {
   const baseRef = useRef();

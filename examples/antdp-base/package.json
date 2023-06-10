@@ -22,17 +22,17 @@
     "@antdp/hooks": "2.0.18",
     "@antdp/request": "2.0.18",
     "ahooks": "~3.7.2",
-    "antd": "5.4.7",
+    "antd": "5.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "overrides": {
     "dva": "^2.6.0-beta.20",
-    "antd": "5.4.7"
+    "antd": "5.6.1"
   },
   "resolutions": {
     "dva": "^2.6.0-beta.20",
-    "antd": "5.4.7"
+    "antd": "5.6.1"
   },
   "devDependencies": {
     "@antdp/config": "2.0.18",

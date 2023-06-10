@@ -267,7 +267,7 @@ export class HandleMenu {
       return '/404'
     }
     // 查询所有父节点和自己是否有权限
-    if (!this.getCheckAuthAll(currentItem?.path || '')) {
+    if (!!ANTD_AUTH_CONF && !this.getCheckAuthAll(currentItem?.path || '')) {
       this.prePath = '/403';
       this.preParentPath = '';
       return '/403';

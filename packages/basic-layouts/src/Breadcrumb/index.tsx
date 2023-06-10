@@ -7,7 +7,6 @@ import { LayoutModel } from "../interface";
 const Breadcrumbs = () => {
   const location = useLocation()
   const { HandleMenu, layout } = useLayouts()
-  console.log('Breadcrumbs layout: ', layout);
 
   const breadcrumbMenu = useMemo(() => {
     return (

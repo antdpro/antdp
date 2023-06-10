@@ -24,7 +24,7 @@ const layoutsOptions = [
   { label: 'mix', value: 'mix' },
 ];
 
-export default ({ visible, onClose, dark, setDark, layout, setLayout, ...props }) => {
+export default ({ visible, onClose, config, setConfig, ...props }) => {
   return (
     <Drawer
       bodyStyle={{ padding: 0 }}
@@ -38,67 +38,69 @@ export default ({ visible, onClose, dark, setDark, layout, setLayout, ...props }
       }}
       {...props}
     >
-      <ProCard gutter={8} title="明暗主题">
-        <Row gutter={8}>
-          {darkOptions.map((item) => (
-            <Col span={8} key={item.value}>
-              <div
-                style={{
-                  ...itemStyle,
-                  border: dark === item.value ? '1px solid #1677ff' : 'none',
-                }}
-                onClick={() => setDark(item.value)}
-              >
-                <span
+      <ProCard split="horizontal">
+        <ProCard gutter={8} title="明暗主题">
+          <Row gutter={8}>
+            {darkOptions.map((item) => (
+              <Col span={8} key={item.value}>
+                <div
                   style={{
-                    position: 'absolute',
-                    width: '100%',
-                    height: '100%',
-                    background: item.label,
+                    ...itemStyle,
+                    border: config.dark === item.value ? '1px solid #1677ff' : 'none',
                   }}
-                />
-              </div>
-            </Col>
-          ))}
-        </Row>
-      </ProCard>
-      <ProCard gutter={8} title="导航模式">
-        <Row gutter={8}>
-          {layoutsOptions.map((item) => (
-            <Col span={8} key={item.value}>
-              <div
-                style={{
-                  ...itemStyle,
-                  border: layout === item.value ? '1px solid #1677ff' : 'none',
-                }}
-                onClick={() => setLayout(item.value)}
-              >
-                {item.value !== 'topleft' && (
+                  onClick={() => setConfig({ ...config, dark: item.value })}
+                >
+                  <span
+                    style={{
+                      position: 'absolute',
+                      width: '100%',
+                      height: '100%',
+                      background: item.label,
+                    }}
+                  />
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </ProCard>
+        <ProCard gutter={8} title="导航模式">
+          <Row gutter={8}>
+            {layoutsOptions.map((item) => (
+              <Col span={8} key={item.value}>
+                <div
+                  style={{
+                    ...itemStyle,
+                    border: config.layout === item.value ? '1px solid #1677ff' : 'none',
+                  }}
+                  onClick={() => setConfig({ ...config, layout: item.value })}
+                >
+                  {item.value !== 'topleft' && (
+                    <span
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '33%',
+                        height: '100%',
+                        background: item.value === 'slider' ? '#001529' : '#fff',
+                      }}
+                    />
+                  )}
                   <span
                     style={{
                       position: 'absolute',
                       top: 0,
                       left: 0,
-                      width: '33%',
-                      height: '100%',
-                      background: item.value === 'slider' ? '#001529' : '#fff',
+                      width: '100%',
+                      height: '25%',
+                      background: item.value === 'slider' ? '#fff' : '#001529',
                     }}
                   />
-                )}
-                <span
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '25%',
-                    background: item.value === 'slider' ? '#fff' : '#001529',
-                  }}
-                />
-              </div>
-            </Col>
-          ))}
-        </Row>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </ProCard>
       </ProCard>
     </Drawer>
   );

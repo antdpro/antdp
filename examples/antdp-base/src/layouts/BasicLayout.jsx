@@ -1,9 +1,4 @@
-import {
-  LogoutOutlined,
-  SettingOutlined,
-  UnorderedListOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import Authorized from '@antdp/authorized';
 import BasicLayouts from '@antdp/basic-layouts';
 import { history, SelectLang, useDispatch, useIntl, useSelector } from '@umijs/max';
@@ -14,8 +9,12 @@ import logo from './logo.svg';
 import SettingDrawer from './SettingDrawer';
 
 const Layout = () => {
-  const [dark, setDark] = useState('light');
-  const [layout, setLayout] = useState('slider');
+  const [config, setConfig] = useState({
+    layout: 'slider',
+    dark: 'light',
+    colorPrimary: 'rgb(22, 119, 255)',
+    componentSize: 'default',
+  });
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.user);
@@ -30,26 +29,18 @@ const Layout = () => {
       <FloatButton
         trigger="click"
         type="primary"
-        style={{ right: 94 }}
-        icon={<UnorderedListOutlined />}
+        icon={<SettingOutlined />}
         onClick={() => setVisible(true)}
-      >
-        {/* <FloatButton description={dark ? 'light' : 'dark'} onClick={() => setDark(!dark)} />
-        <FloatButton description="slider" onClick={() => setLayout('slider')} />
-        <FloatButton description="topleft" onClick={() => setLayout('topleft')} />
-        <FloatButton description="mix" onClick={() => setLayout('mix')} /> */}
-      </FloatButton>
+      />
       <SettingDrawer
         visible={visible}
         onClose={() => setVisible(false)}
-        dark={dark}
-        setDark={setDark}
-        layout={layout}
-        setLayout={setLayout}
+        config={config}
+        setConfig={setConfig}
       />
       <BasicLayouts
-        layout={layout}
-        theme={dark}
+        layout={config.layout}
+        theme={config.dark}
         className="antdp-basic-layouts"
         projectName="Ant Design"
         profile={{

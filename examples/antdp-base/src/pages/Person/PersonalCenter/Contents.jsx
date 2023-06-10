@@ -1,7 +1,7 @@
 import { Tabs } from 'antd';
-import Lists from './Lists';
-import CardLists from './CardLists';
 import ApplyLists from './ApplyLists';
+import CardLists from './CardLists';
+import Lists from './Lists';
 const onChange = (key) => {
   console.log(key);
 };

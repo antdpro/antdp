@@ -1,23 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Avatar, Card, Skeleton, Row, Col, Button, Space } from 'antd';
-import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
 import { getList } from '@/services/api';
 import { useReactMutation } from '@antdp/hooks';
+import { Card, Col, Row } from 'antd';
+import { useEffect, useState } from 'react';
 import { cardItems } from './item';
-const { Meta } = Card;
 
 export default function () {
   const [data, setData] = useState([]);
 
-  const {
-    mutate,
-    data: result,
-    isLoading,
-  } = useReactMutation({
+  const { mutate, isLoading } = useReactMutation({
     method: 'POST',
     url: getList,
     onSuccess: ({ data: results = [] }) => {
@@ -32,15 +22,7 @@ export default function () {
   return (
     <Row>
       {cardItems.map((item, i) => (
-        <Col
-          key={i}
-          xl={12}
-          lg={12}
-          md={12}
-          sm={12}
-          xs={12}
-          style={{ marginBottom: 12 }}
-        >
+        <Col key={i} xl={12} lg={12} md={12} sm={12} xs={12} style={{ marginBottom: 12 }}>
           <Card
             loading={isLoading}
             style={{ width: 360 }}
@@ -59,9 +41,7 @@ export default function () {
               }}
             >
               <div>{item.title}</div>
-              <div style={{ color: '#8C8C8C', fontSize: 12 }}>
-                {item.content}
-              </div>
+              <div style={{ color: '#8C8C8C', fontSize: 12 }}>{item.content}</div>
             </div>
             <div
               style={{

@@ -1,9 +1,8 @@
-import React from 'react';
-import { Card, Avatar, Divider } from 'antd';
-import styles from './style.less';
-import { useReactQuery } from '@antdp/hooks';
-import { serviceProject } from '../../../services/api';
 import { UserOutlined } from '@ant-design/icons';
+import { useReactQuery } from '@antdp/hooks';
+import { Avatar, Card, Divider, Skeleton } from 'antd';
+import { serviceProject } from '../../../services/api';
+import styles from './style.less';
 
 const PageHeaderContent = ({ currentUser }) => {
   const loading = currentUser && Object.keys(currentUser).length;
@@ -62,8 +61,12 @@ const PageHeaderContent = ({ currentUser }) => {
       <div className={styles.describe}>
         <div className={styles.title}>标签</div>
         <div className={styles.labels}>
-          {labels.map((a) => {
-            return <div className={styles.labelsItem}>{a}</div>;
+          {labels.map((a, i) => {
+            return (
+              <div key={i} className={styles.labelsItem}>
+                {a}
+              </div>
+            );
           })}
         </div>
       </div>
@@ -71,9 +74,9 @@ const PageHeaderContent = ({ currentUser }) => {
       <div className={styles.describe}>
         <div className={styles.title}>团队</div>
         <div className={styles.labels}>
-          {teams.map((a) => {
+          {teams.map((a, i) => {
             return (
-              <div className={styles.teamsItem}>
+              <div className={styles.teamsItem} key={i}>
                 <Avatar
                   size={20}
                   style={{ marginRight: 8 }}
@@ -89,8 +92,8 @@ const PageHeaderContent = ({ currentUser }) => {
   );
 };
 
-export default function User(props) {
-  const { data, isLoading } = useReactQuery({
+export default function User() {
+  useReactQuery({
     queryKey: ['project'],
     url: serviceProject,
   });
@@ -99,8 +102,7 @@ export default function User(props) {
       <Card bordered={false}>
         <PageHeaderContent
           currentUser={{
-            avatar:
-              'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
+            avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
             name: 'xxx',
             userid: '00000001',
             email: 'antdp@.com',

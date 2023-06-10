@@ -1,8 +1,8 @@
+import { ProCard, StatisticCard } from '@ant-design/pro-components';
 import { Link, useRequest } from '@umijs/max';
-import { Avatar, Card, List, Statistic, Divider, Space } from 'antd';
+import { Avatar, Card, Divider, List, Skeleton, Space, Statistic } from 'antd';
 import { serviceActivities, serviceProject } from '../../services/api';
 import styles from './style.less';
-import { StatisticCard, ProCard } from '@ant-design/pro-components';
 
 const PageHeaderContent = ({ currentUser }) => {
   const loading = currentUser && Object.keys(currentUser).length;
@@ -42,19 +42,17 @@ const ExtraContent = () => (
   </div>
 );
 
-export default function Home(props) {
+export default function Home() {
   const { data } = useRequest(serviceProject, { manual: false });
-  const { data: activities, loading: activitiesLoading } = useRequest(
-    serviceActivities,
-    { manual: false },
-  );
+  const { data: activities, loading: activitiesLoading } = useRequest(serviceActivities, {
+    manual: false,
+  });
 
   const imgStyle = {
     display: 'block',
     width: 42,
     height: 42,
   };
-
   const renderActivities = (item) => {
     const events = item.template.split(/@\{([^{}]*)\}/gi).map((key) => {
       if (item[key]) {
@@ -92,8 +90,7 @@ export default function Home(props) {
       <Card>
         <PageHeaderContent
           currentUser={{
-            avatar:
-              'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
+            avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
             name: 'xxx',
             userid: '00000001',
             email: 'antdp@.com',
@@ -225,22 +222,14 @@ export default function Home(props) {
                 statistic={{
                   title: '昨日全部流量',
                   value: 234,
-                  description: (
-                    <Statistic
-                      title="较本月平均流量"
-                      value="8.04%"
-                      trend="down"
-                    />
-                  ),
+                  description: <Statistic title="较本月平均流量" value="8.04%" trend="down" />,
                 }}
               />
               <StatisticCard
                 statistic={{
                   title: '本月累计流量',
                   value: 234,
-                  description: (
-                    <Statistic title="月同比" value="8.04%" trend="up" />
-                  ),
+                  description: <Statistic title="月同比" value="8.04%" trend="up" />,
                 }}
               />
             </ProCard>
@@ -305,12 +294,7 @@ export default function Home(props) {
         ))}
       </Card>
 
-      <Card
-        bodyStyle={{ padding: 0 }}
-        bordered={false}
-        title="动态"
-        loading={activitiesLoading}
-      >
+      <Card bodyStyle={{ padding: 0 }} bordered={false} title="动态" loading={activitiesLoading}>
         <List
           loading={activitiesLoading}
           renderItem={(item) => renderActivities(item)}

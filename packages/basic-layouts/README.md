@@ -34,10 +34,10 @@ export default Demo
 ```jsx
 import React from 'react';
 import BasicLayout from '@antdp/basic-layouts';
-const Demo = (props) => {
+const Demo = () => {
   return (
     <BasicLayout
-      {...props}
+      // topleft | mix
       layout="slider"
     />
   )
@@ -150,11 +150,10 @@ export default () => {
 | topRightLanguage | 顶部右方 |   `React.ReactNode` | - |
 | siderWidth | 置最左边菜单宽度 |   `number` | `180` |
 | profile | 用户信息显示 |   `{avatar?: string;name?: string}` | - |
-| theme | 明或暗 |   `dark` | `light` | `light` |
+| theme | 明暗主题 |   `dark \| light`  | `light` |
 | className | 样式 |   `string` | - |
 | configProviderProps | `antd组件全局化配置` |   `ConfigProviderProps` | - |
-| contentStyle | 自定义内容部分样式 |   `React.CSSProperties | undefined` | - |
-| layout | 导航菜单模式,slider：右侧导航，topleft：顶部左侧导航 |   `LayoutModel | undefined` | mix |
+| layout | 导航菜单模式,slider：右侧导航，topleft：顶部左侧导航，mix：混合导航 |   `LayoutModel` | `mix` |
 
 ## TopRightMenuProps
 | 参数 | 说明 | 类型 | 默认值 |

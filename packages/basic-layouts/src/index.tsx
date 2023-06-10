@@ -6,6 +6,7 @@ import Header from './Header';
 import { LayoutsProvider } from './hooks';
 import './index.css';
 import { BasicLayoutsProps, LayoutModel } from './interface';
+import Message from './Message';
 import SiderMenus from './Sider';
 export * from './Breadcrumb';
 export { default as Breadcrumb } from './Breadcrumb';
@@ -18,6 +19,7 @@ export { default as HeaderMenus } from './HeaderMenus';
 export * from './hooks';
 export * from './Logo';
 export { default as Logo } from './Logo';
+export { message, modal, notification } from './Message';
 export * from './Sider';
 export { default as Sider } from './Sider';
 export { default as TopRight } from './TopRight';
@@ -25,8 +27,7 @@ export * from './utils';
 
 const BasicLayouts = (props: BasicLayoutsProps) => {
   const { theme = 'light' } = props;
-  const layout = props.layout
-
+  const layout = props.layout;
 
   const render = useMemo(() => {
     if (layout === LayoutModel.TOPLEFT) {
@@ -42,6 +43,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
             <Layout.Content className="antdp-basic-layouts-content">
               <App>
                 <WarpContent />
+                <Message />
               </App>
             </Layout.Content>
           </Layout>
@@ -60,6 +62,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
             <Layout.Content className="antdp-basic-layouts-content">
               <App>
                 <WarpContent />
+                <Message />
               </App>
             </Layout.Content>
           </Layout>
@@ -79,6 +82,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
               <Layout.Content className="antdp-basic-layouts-content">
                 <App>
                   <WarpContent />
+                  <Message />
                 </App>
               </Layout.Content>
             </Layout>
@@ -114,7 +118,8 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
       <LayoutsProvider {...props}>
         <ConfigProvider
           theme={{
-            algorithm:theme === 'dark' ? th.darkAlgorithm : th.defaultAlgorithm,
+            algorithm:
+              theme === 'dark' ? th.darkAlgorithm : th.defaultAlgorithm,
           }}
           {...props.configProviderProps}
         >

@@ -11,10 +11,12 @@ import { FloatButton } from 'antd';
 import 'antd/dist/reset.css';
 import { useState } from 'react';
 import logo from './logo.svg';
+import SettingDrawer from './SettingDrawer';
 
 const Layout = () => {
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState('light');
   const [layout, setLayout] = useState('slider');
+  const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
   const { token } = useSelector((state) => state.user);
   const update = (data) => {
@@ -25,20 +27,29 @@ const Layout = () => {
   };
   return (
     <Authorized authority={!!token} redirectPath="/login">
-      <FloatButton.Group
+      <FloatButton
         trigger="click"
         type="primary"
         style={{ right: 94 }}
         icon={<UnorderedListOutlined />}
+        onClick={() => setVisible(true)}
       >
-        <FloatButton description={dark ? 'light' : 'dark'} onClick={() => setDark(!dark)} />
+        {/* <FloatButton description={dark ? 'light' : 'dark'} onClick={() => setDark(!dark)} />
         <FloatButton description="slider" onClick={() => setLayout('slider')} />
         <FloatButton description="topleft" onClick={() => setLayout('topleft')} />
-        <FloatButton description="mix" onClick={() => setLayout('mix')} />
-      </FloatButton.Group>
+        <FloatButton description="mix" onClick={() => setLayout('mix')} /> */}
+      </FloatButton>
+      <SettingDrawer
+        visible={visible}
+        onClose={() => setVisible(false)}
+        dark={dark}
+        setDark={setDark}
+        layout={layout}
+        setLayout={setLayout}
+      />
       <BasicLayouts
         layout={layout}
-        theme={dark ? 'dark' : 'light'}
+        theme={dark}
         className="antdp-basic-layouts"
         projectName="Ant Design"
         profile={{

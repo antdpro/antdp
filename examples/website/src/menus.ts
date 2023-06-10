@@ -16,11 +16,11 @@ export const menusDocsConfig: MenusConfigObject[] = [
   },
   {
     title: '更新日志',
-    path:'/docs/change-log'
+    path: '/docs/change-log'
   },
   {
     title: '从v1到v2',
-    path:'/docs/update'
+    path: '/docs/update'
   },
   {
     divider: true,
@@ -144,15 +144,15 @@ export const menusComponentsConfig: MenusConfigObject[] = [
     path: '/components/formdetail',
   },
   {
-    title:'UploadGrid - 拖拽上传',
+    title: 'UploadGrid - 拖拽上传',
     path: '/components/uploadgrid',
   },
   {
-    title:'Edit-Table - 编辑表格',
+    title: 'Edit-Table - 编辑表格',
     path: '/components/edit-table',
   },
   {
-    title:'Fuzzy-Query - 模糊查询',
+    title: 'Fuzzy-Query - 模糊查询',
     path: '/components/fuzzy-query',
   },
 ];

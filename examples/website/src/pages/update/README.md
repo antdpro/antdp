@@ -120,7 +120,7 @@ export default function Page(props) {
     }}>
     </div>
   );
-} 
+}
 ```
 #### location
 ```diff
@@ -159,7 +159,7 @@ class Page extends Component {
     return (
       <div>
 -        {this.props.match.type}
-+        {this.match.type} 
++        {this.match.type}
       </div>
     )
   }

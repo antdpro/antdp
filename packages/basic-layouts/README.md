@@ -33,10 +33,10 @@ export default Demo
 
 ```jsx
 import React from 'react';
-import BasicLayout from '@antdp/basic-layouts';
+import BasicLayouts from '@antdp/basic-layouts';
 const Demo = () => {
   return (
-    <BasicLayout
+    <BasicLayouts
       // topleft | mix
       layout="slider"
     />

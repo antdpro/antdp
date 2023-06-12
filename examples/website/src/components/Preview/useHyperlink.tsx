@@ -43,7 +43,7 @@ export const useHyperlink = (dom: HTMLDivElement | null) => {
           target.classList.add('active');
         }
       };
-      const scrollFn = () => {};
+      const scrollFn = () => { };
       const scrollEndFn = () => {
         const $main = document.getElementsByTagName(
           'main',

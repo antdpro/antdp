@@ -1,27 +1,69 @@
 import { selectPage } from '@/services/api';
-import { BetaSchemaForm, ProTable } from '@ant-design/pro-components';
+import { BetaSchemaForm, ProCard, ProTable } from '@ant-design/pro-components';
 import { useDispatch, useSelector } from '@umijs/max';
 import { Button, Modal } from 'antd';
 import 'antd/dist/reset.css';
+import { cloneElement, useRef } from 'react';
 import { columns, schema } from './item';
 
 const Edit = ({ visible, onClose, queryData }) => {
+  const formRef = useRef();
   return (
-    <Modal width={600} open={visible} onCancel={onClose} destroyOnClose={true}>
-      <BetaSchemaForm
-        modalProps={{
-          destroyOnClose: true,
-        }}
-        layoutType="Form"
-        onFinish={async (values) => {
-          console.log(values);
-        }}
-        colProps={{
-          span: 12,
-        }}
-        grid={true}
-        columns={schema({ queryData })}
-      />
+    <Modal
+      modalRender={(comps) => {
+        return cloneElement(comps, {
+          ...comps.props,
+          style: {
+            padding: 0,
+          },
+        });
+      }}
+      width={600}
+      open={visible}
+      onCancel={onClose}
+      destroyOnClose={true}
+      footer={
+        <div
+          style={{
+            paddingBottom: 24,
+            paddingRight: 24,
+          }}
+        >
+          <Button key="cancel" onClick={onClose}>
+            取消
+          </Button>
+          <Button
+            key="save"
+            type="primary"
+            onClick={() => {
+              formRef.current
+                ?.validateFields()
+                .then((values) => {
+                  console.log('values', values);
+                })
+                .catch((err) => console.log('err', err));
+            }}
+          >
+            保存
+          </Button>
+        </div>
+      }
+    >
+      <ProCard title="新增/编辑" headerBordered bodyStyle={{ paddingBottom: 0 }}>
+        <BetaSchemaForm
+          formRef={formRef}
+          submitter={false}
+          layoutType="Form"
+          onFinish={async (values) => {
+            console.log(values);
+          }}
+          colProps={{
+            span: 12,
+          }}
+          grid={true}
+          columns={schema({ queryData })}
+        />
+      </ProCard>
     </Modal>
   );
 };

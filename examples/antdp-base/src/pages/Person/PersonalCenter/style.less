@@ -41,15 +41,15 @@
   }
 
   .describe {
-    margin: 20px;
     display: flex;
     flex-direction: column;
     align-items: self-start;
     justify-content: flex-start;
+    margin: 20px;
 
     .title {
-      font-weight: bold;
       margin-bottom: 10px;
+      font-weight: bold;
     }
 
     .labels {
@@ -61,10 +61,9 @@
 
     .labelsItem {
       margin: 6px;
-      border: 1px solid #d9d9d9;
       padding: 1px 2px;
       font-size: 12px;
-      background: #fafafa;
+      border: 1px solid #d9d9d9;
     }
 
     .teamsItem {
@@ -75,6 +74,8 @@
 }
 
 .extraContent {
+  float: right;
+  white-space: nowrap;
   zoom: 1;
 
   &::before,
@@ -89,9 +90,6 @@
     font-size: 0;
     visibility: hidden;
   }
-
-  float: right;
-  white-space: nowrap;
 
   .statItem {
     position: relative;

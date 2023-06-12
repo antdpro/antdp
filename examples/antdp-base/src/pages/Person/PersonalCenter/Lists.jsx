@@ -55,7 +55,6 @@ const App = () => {
                         border: '1px solid #D9D9D9',
                         padding: '1px 2px',
                         fontSize: 12,
-                        background: '#FAFAFA',
                       }}
                     >
                       {a}

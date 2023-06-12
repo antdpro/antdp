@@ -98,18 +98,16 @@ export default function User() {
     url: serviceProject,
   });
   return (
-    <div>
-      <Card bordered={false}>
-        <PageHeaderContent
-          currentUser={{
-            avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
-            name: 'xxx',
-            userid: '00000001',
-            email: 'antdp@.com',
-            signature: '海纳百川，有容乃大',
-          }}
-        />
-      </Card>
-    </div>
+    <Card bordered={false}>
+      <PageHeaderContent
+        currentUser={{
+          avatar: 'https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png',
+          name: 'xxx',
+          userid: '00000001',
+          email: 'antdp@.com',
+          signature: '海纳百川，有容乃大',
+        }}
+      />
+    </Card>
   );
 }

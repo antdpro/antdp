@@ -1,4 +1,5 @@
 import { ProCard, StatisticCard } from '@ant-design/pro-components';
+import { message } from '@antdp/basic-layouts';
 import { Link, useRequest } from '@umijs/max';
 import { Avatar, Card, Divider, List, Skeleton, Space, Statistic } from 'antd';
 import { serviceActivities, serviceProject } from '../../services/api';
@@ -46,8 +47,8 @@ export default function Home() {
   const { data } = useRequest(serviceProject, { manual: false });
   const { data: activities, loading: activitiesLoading } = useRequest(serviceActivities, {
     manual: false,
+    onSuccess: () => message.success('查询成功'),
   });
-
   const imgStyle = {
     display: 'block',
     width: 42,

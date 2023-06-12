@@ -6,7 +6,9 @@ import Header from './Header';
 import { LayoutsProvider } from './hooks';
 import './index.css';
 import { BasicLayoutsProps, LayoutModel } from './interface';
+import Message from './Message';
 import SiderMenus from './Sider';
+import { themeColor } from './utils';
 export * from './Breadcrumb';
 export { default as Breadcrumb } from './Breadcrumb';
 export * from './Content';
@@ -18,16 +20,15 @@ export { default as HeaderMenus } from './HeaderMenus';
 export * from './hooks';
 export * from './Logo';
 export { default as Logo } from './Logo';
+export { message, modal, notification } from './Message';
 export * from './Sider';
 export { default as Sider } from './Sider';
 export { default as TopRight } from './TopRight';
 export * from './utils';
 
 const BasicLayouts = (props: BasicLayoutsProps) => {
-  const { theme = 'light' } = props;
-  const layout = props.layout
-
-
+  const { theme = 'light', token = undefined } = props;
+  const layout = props.layout;
   const render = useMemo(() => {
     if (layout === LayoutModel.TOPLEFT) {
       return (
@@ -38,10 +39,13 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
             </Layout.Header>
           )}
           <Layout>
-            {ANTD_MENU_IS_SHOW && <SiderMenus theme={theme} />}
+            {ANTD_MENU_IS_SHOW && (
+              <SiderMenus menuProps={props.menuProps} theme={theme} />
+            )}
             <Layout.Content className="antdp-basic-layouts-content">
               <App>
                 <WarpContent />
+                <Message />
               </App>
             </Layout.Content>
           </Layout>
@@ -50,7 +54,9 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     } else if (layout === LayoutModel.SLIDER) {
       return (
         <React.Fragment>
-          {ANTD_MENU_IS_SHOW && <SiderMenus theme={theme} />}
+          {ANTD_MENU_IS_SHOW && (
+            <SiderMenus menuProps={props.menuProps} theme={theme} />
+          )}
           <Layout>
             {ANTD_HEAD_IS_SHOW && (
               <Layout.Header className="antdp-basic-layouts-header">
@@ -60,6 +66,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
             <Layout.Content className="antdp-basic-layouts-content">
               <App>
                 <WarpContent />
+                <Message />
               </App>
             </Layout.Content>
           </Layout>
@@ -75,10 +82,13 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
               </Layout.Header>
             )}
             <Layout>
-              {ANTD_MENU_IS_SHOW && <SiderMenus theme={theme} />}
+              {ANTD_MENU_IS_SHOW && (
+                <SiderMenus menuProps={props.menuProps} theme={theme} />
+              )}
               <Layout.Content className="antdp-basic-layouts-content">
                 <App>
                   <WarpContent />
+                  <Message />
                 </App>
               </Layout.Content>
             </Layout>
@@ -109,17 +119,86 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     return { isCheckAuth: false };
   }, [ANTD_AUTH_CONF]);
 
+  const style = {
+    ['--primary-slider-bg']:
+      token?.menu?.colorMenuBackground ||
+      themeColor[theme]['--primary-slider-bg'],
+    ['--primary-slider-trigger-border']:
+      token?.menu?.triggerColor ||
+      themeColor[theme]['--primary-slider-trigger-border'],
+    ['--primary-sider-trigger-text-color']:
+      token?.menu?.triggerTextColor ||
+      themeColor[theme]['--primary-sider-trigger-text-color'],
+    ['--primary-header-bg']:
+      token?.header?.colorHeaderBackground ||
+      themeColor[theme]['--primary-header-bg'],
+    ['--primary-header-text-color']:
+      token?.header?.headerTextColor ||
+      themeColor[theme]['--primary-header-text-color'],
+    ['--primary-shadow']:
+      token?.shadowColor || themeColor[theme]['--primary-shadow'],
+    ['--primary-title-text-color']:
+      token?.titleColor || themeColor[theme]['--primary-title-text-color'],
+    ['--primary-content-bg']:
+      token?.contentBackground || themeColor[theme]['--primary-content-bg'],
+  } as any;
+
   return (
     <AuthorizedConfigProvider {...newData}>
       <LayoutsProvider {...props}>
         <ConfigProvider
           theme={{
-            algorithm:theme === 'dark' ? th.darkAlgorithm : th.defaultAlgorithm,
+            algorithm:
+              theme === 'dark' ? th.darkAlgorithm : th.defaultAlgorithm,
+            components: {
+              Layout: {
+                colorBgHeader: 'transparent',
+                colorBgBody: 'transparent',
+              },
+              Menu: token
+                ? {
+                    itemBg:
+                      token?.menu?.colorMenuBackground ||
+                      themeColor[theme]['--primary-slider-bg'],
+                    subMenuItemBg:
+                      token?.menu?.colorMenuBackground ||
+                      themeColor[theme]['--primary-slider-bg'],
+                    itemBorderRadius: 4,
+                    itemSelectedBg:
+                      token?.menu?.colorBgMenuItemSelected ||
+                      themeColor[theme]['itemSelectedBg'],
+                    colorItemBgSelected:
+                      token?.menu?.colorBgMenuItemSelected ||
+                      themeColor[theme]['colorItemBgSelected'],
+                    itemActiveBg:
+                      token?.menu?.colorBgMenuItemHover ||
+                      themeColor[theme]['itemActiveBg'],
+                    horizontalItemSelectedBg:
+                      token?.menu?.colorBgMenuItemSelected ||
+                      themeColor[theme]['horizontalItemSelectedBg'],
+                    colorActiveBarWidth: 0,
+                    colorActiveBarHeight: 0,
+                    colorActiveBarBorderSize: 0,
+                    itemColor:
+                      token?.menu?.colorTextMenu ||
+                      themeColor[theme]['itemColor'],
+                    itemHoverColor:
+                      token?.menu?.colorTextMenuActive ||
+                      themeColor[theme]['itemHoverColor'],
+                    itemSelectedColor:
+                      token?.menu?.colorTextMenuSelected ||
+                      themeColor[theme]['itemSelectedColor'],
+                    colorBgElevated:
+                      token?.menu?.colorBgMenuItemCollapsedElevated ||
+                      themeColor[theme]['colorBgElevated'],
+                  }
+                : undefined,
+            },
           }}
-          {...props.configProviderProps}
         >
           <Layout
-            className={`antdp-basic-layouts ${props.className}  antdp-basic-layouts-${theme}`}
+            className={`antdp-basic-layouts antdp-basic-layouts-${theme} ${props.className}`}
+            style={style}
           >
             {render}
           </Layout>

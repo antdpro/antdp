@@ -8,19 +8,20 @@ import { getSiderMenus } from '../utils';
 import Logo from './../Logo';
 
 export interface SiderProps extends MenuProps {
+  theme: 'light' | 'dark';
   menus?: RouterMenu[];
-  dark?: boolean;
+  menuProps?: MenuProps;
 }
 
 const Sider = (props: SiderProps) => {
-  const { theme } = props
+  const { theme, menuProps } = props;
   const location = useLocation();
   const {
     HandleMenu,
     collapsed,
     siderWidth = 260,
     setCollapsed,
-    layout
+    layout,
   } = useLayouts();
 
   const collapsedView = useMemo(
@@ -56,21 +57,24 @@ const Sider = (props: SiderProps) => {
         <div className="antdp-basic-layouts-collapsed">{collapsedView}</div>
       }
     >
-      {layout === LayoutModel.SLIDER && (
-        <div>
-          <Logo />
-        </div>
-      )}
-      <Menu
-        {...props}
-        selectedKeys={[location.pathname]}
-        defaultSelectedKeys={[location.pathname]}
-        defaultOpenKeys={[location.pathname]}
-        mode="inline"
-        // theme={theme}
-        items={items}
-        style={{ width: '100%' }}
-      />
+      {layout === LayoutModel.SLIDER && <Logo />}
+      <div
+        style={{
+          flex: '1 1 0%',
+          overflow: 'hidden auto',
+        }}
+      >
+        <Menu
+          theme={theme}
+          selectedKeys={[location.pathname]}
+          defaultSelectedKeys={[location.pathname]}
+          defaultOpenKeys={[location.pathname]}
+          mode="inline"
+          items={items}
+          style={{ width: '100%' }}
+          {...menuProps}
+        />
+      </div>
     </Layout.Sider>
   );
 };

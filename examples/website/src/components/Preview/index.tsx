@@ -17,6 +17,8 @@ import Loading from '../Loading';
 import BackToUp from '@uiw/react-back-to-top';
 import Footer from "../Footer"
 import './nodes/toc.less';
+import { useHyperlink } from './useHyperlink';
+import Anchors from './Anchor';
 
 const Preview = CodeLayout.Preview;
 const Code = CodeLayout.Code;
@@ -58,6 +60,7 @@ const Markdown = styled<
 const PreviewDocument = ({ path, editePath }: { path: MdDataHandle, editePath: string; }) => {
   const $dom = useRef<HTMLDivElement>(null);
   const { mdData, loading } = useMdData(path);
+  useHyperlink($dom.current);
   return (
     <Wrapper ref={$dom}>
       <Loading loading={loading}>
@@ -151,6 +154,9 @@ const PreviewDocument = ({ path, editePath }: { path: MdDataHandle, editePath: s
       <BackToUp element={$dom.current} style={{ float: 'right' }}>
         Top
       </BackToUp>
+      <div style={{ position: 'fixed', marginLeft: 1150, top: 100 }}>
+        <Anchors markdownText={mdData.source} />
+      </div>
     </Wrapper>
   );
 };

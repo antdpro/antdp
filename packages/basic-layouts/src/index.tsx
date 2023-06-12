@@ -28,7 +28,6 @@ export * from './utils';
 const BasicLayouts = (props: BasicLayoutsProps) => {
   const { theme = 'light' } = props;
   const layout = props.layout;
-
   const render = useMemo(() => {
     if (layout === LayoutModel.TOPLEFT) {
       return (
@@ -39,7 +38,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
             </Layout.Header>
           )}
           <Layout>
-            {ANTD_MENU_IS_SHOW && <SiderMenus theme={theme} />}
+            {ANTD_MENU_IS_SHOW && <SiderMenus menuProps={props.menuProps} theme={theme} />}
             <Layout.Content className="antdp-basic-layouts-content">
               <App>
                 <WarpContent />
@@ -52,7 +51,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     } else if (layout === LayoutModel.SLIDER) {
       return (
         <React.Fragment>
-          {ANTD_MENU_IS_SHOW && <SiderMenus theme={theme} />}
+          {ANTD_MENU_IS_SHOW && <SiderMenus menuProps={props.menuProps} theme={theme} />}
           <Layout>
             {ANTD_HEAD_IS_SHOW && (
               <Layout.Header className="antdp-basic-layouts-header">
@@ -78,7 +77,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
               </Layout.Header>
             )}
             <Layout>
-              {ANTD_MENU_IS_SHOW && <SiderMenus theme={theme} />}
+              {ANTD_MENU_IS_SHOW && <SiderMenus menuProps={props.menuProps} theme={theme} />}
               <Layout.Content className="antdp-basic-layouts-content">
                 <App>
                   <WarpContent />
@@ -112,7 +111,6 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
     }
     return { isCheckAuth: false };
   }, [ANTD_AUTH_CONF]);
-
   return (
     <AuthorizedConfigProvider {...newData}>
       <LayoutsProvider {...props}>
@@ -124,7 +122,7 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
           {...props.configProviderProps}
         >
           <Layout
-            className={`antdp-basic-layouts ${props.className}  antdp-basic-layouts-${theme}`}
+            className={`antdp-basic-layouts antdp-basic-layouts-${theme} ${props.className}`}
           >
             {render}
           </Layout>

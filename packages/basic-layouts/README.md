@@ -45,13 +45,13 @@ const Demo = () => {
 
 export default Demo
 ```
-### slider
+slider
 [![Ant Design Project](https://user-images.githubusercontent.com/59959718/244599964-eb494b03-7de0-43ea-a896-cb42c3b32d5e.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
-### mix
+mix
 [![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037617-542a3c87-9ce8-4ea9-ab79-fd588f6723d4.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base2?embed=1&hideNavigation=0&hidedevtools=0)
 
-### topleft
+topleft
 [![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037507-28d13b4b-cc18-4f7d-a0e2-2cbd4c8ef2eb.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base3?embed=1&hideNavigation=0&hidedevtools=0)
 
 
@@ -121,7 +121,7 @@ export default () => {
   )
 };
 ```
-### 默认样式
+默认样式
 ```css
  /* 亮模式默认配色 */
 .antdp-basic-layouts-light{
@@ -157,7 +157,7 @@ export default () => {
 
 ## className改变BasicLayouts颜色
 
-### 第一步配置样式
+第一步配置样式
 ```css
   .antdp-basic-layouts-light{
     --primary-slider-bg: #1d1d1d !important;
@@ -171,7 +171,7 @@ export default () => {
   }
 ```
 
-### 第二步引用样式
+第二步引用样式
 ```jsx
 import BasicLayouts from '@antdp/basic-layouts';
 import './index.css';
@@ -196,7 +196,7 @@ export default () => {
 ## Message
 由于antd 5.x需全局包裹App，引用message组件。我们在basic-layouts下也进行了注册。
 
-### 使用方法一
+使用方法一
 ```jsx
 import { App } from 'antd';
 import React from 'react';
@@ -213,7 +213,7 @@ const MyPage = () => {
 export default MyPage;
 ```
 
-### 使用方法二
+使用方法二
 ```jsx
 import { Button, Space } from 'antd';
 import React from 'react';

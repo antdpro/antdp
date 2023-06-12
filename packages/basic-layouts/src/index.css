@@ -11,7 +11,9 @@ body {
   --primary-header-bg: #fff;
   --primary-shadow: #9393930d;
   --primary-slider-trigger-border:rgba(0,0,0,.06);
-  --primary-text-color:#000;
+  --primary-sider-trigger-text-color:#1d1d1d;
+  --primary-header-text-color:#1d1d1d;
+  --primary-title-text-color:#1d1d1d;
   --primary-content-bg: #f5f5f5;
 }
 .antdp-basic-layouts-dark{
@@ -19,7 +21,9 @@ body {
   --primary-header-bg: #1d1d1d;
   --primary-shadow: #001529;
   --primary-slider-trigger-border:#fff;
-  --primary-text-color:#fff;
+  --primary-sider-trigger-text-color:#fff;
+  --primary-header-text-color:#fff;
+  --primary-title-text-color:#fff;
   --primary-content-bg: #1d1d1d;
 }
 .antdp-basic-layouts {
@@ -35,17 +39,14 @@ body {
     overflow: auto;
     z-index: 99;
     .ant-layout-sider-trigger{
+      background: 0 0;
       background-color: var(--primary-slider-bg);
       border-top: 1px solid var(--primary-slider-trigger-border);
-      color: var(--primary-text-color);
+      color: var(--primary-sider-trigger-text-color);
     }
     .antdp-basic-layouts-collapsed {
       float: left;
     }
-  }
-  .ant-menu-dark {
-    color: rgba(255, 255, 255, 0.65);
-    background: var(--primary-slider-bg);
   }
   .antdp-basic-layouts-header {
     padding: 0 !important;
@@ -70,13 +71,13 @@ body {
     box-sizing: border-box;
   }
   .antdp-basic-layouts-header-body svg {
-    color: var(--primary-text-color)
+    color: var(--primary-header-text-color)
   }
   .antdp-basic-layouts-header-user {
     display: flex;
     float: right;
     box-sizing: border-box;
-    color:var(--primary-text-color)
+    color:var(--primary-header-text-color)
   }
   .antdp-basic-layouts-header-menus {
     position: relative;
@@ -129,7 +130,7 @@ body {
     animation: fade-in;
     animation-duration: 0.3s;
     white-space: nowrap;
-    color: var(--primary-text-color);
+    color: var(--primary-title-text-color);
   }
 
   .antdp-global-title img {
@@ -146,5 +147,7 @@ body {
 }
 
 .ant-layout .ant-layout-sider-children {
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }

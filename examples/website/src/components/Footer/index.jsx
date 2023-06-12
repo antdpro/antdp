@@ -166,7 +166,7 @@ export default function Footer(props) {
             </a>
           </div>
           <p>
-            Copyright © 2021{' '}
+            Copyright © 2023{' '}
             <a href="https://github.com/antdpro/antdp" target="__blank">
               antdp
             </a>

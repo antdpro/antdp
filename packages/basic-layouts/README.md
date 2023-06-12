@@ -45,6 +45,14 @@ const Demo = () => {
 
 export default Demo
 ```
+slider
+[![Ant Design Project](https://user-images.githubusercontent.com/59959718/244599964-eb494b03-7de0-43ea-a896-cb42c3b32d5e.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
+
+mix
+[![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037617-542a3c87-9ce8-4ea9-ab79-fd588f6723d4.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base2?embed=1&hideNavigation=0&hidedevtools=0)
+
+topleft
+[![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037507-28d13b4b-cc18-4f7d-a0e2-2cbd4c8ef2eb.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base3?embed=1&hideNavigation=0&hidedevtools=0)
 
 
 ## 菜单国际化设置
@@ -64,7 +72,7 @@ const Demo = () => {
 };
 export default Demo
 ```
-## 配置右侧菜单
+## 配置头部右侧菜单
 ```jsx
 import BasicLayouts from '@antdp/basic-layouts';
 
@@ -100,7 +108,7 @@ export default () => {
 
 ```
 
-## 配置暗模式
+## 配置明亮主题
 ```jsx
 import BasicLayouts from '@antdp/basic-layouts';
 
@@ -109,32 +117,121 @@ export default () => {
     <BasicLayouts
       theme="dark"
       projectName="Ant Design Pro"
-      topRightMenu={[
-        {
-          title: '个人中心',
-          icon: <UserOutlined />,
-          onClick: () => {},
-        },
-        {
-          title: '个人设置',
-          link: '/setting/property',
-          icon: <SettingOutlined />,
-        },
-        {
-          divider: true,
-        },
-        {
-          title: '退出登录',
-          icon: <LogoutOutlined />,
-          onClick: () => {
-            logout();
-          },
-        },
-      ]}
     />
   )
 };
+```
+默认样式
+```css
+ /* 亮模式默认配色 */
+.antdp-basic-layouts-light{
+  /* Layout.Slider背景色 */
+  --primary-slider-bg: #fff;
+  /* Header背景色 */
+  --primary-header-bg: #fff;
+  /* 阴影色 */
+  --primary-shadow: #9393930d;
+  /* Layout.Slider底部分割线颜色 */
+  --primary-slider-trigger-border:rgba(0,0,0,.06);
+  /* Layout.Slider底部按钮颜色 */
+  --primary-sider-trigger-text-color:#1d1d1d;
+  /* Header文字颜色 */
+  --primary-header-text-color:#1d1d1d;
+  /* 项目title颜色 */
+  --primary-title-text-color:#1d1d1d;
+  /* 页面背景色 */
+  --primary-content-bg: #f5f5f5;
+}
+ /* 暗模式默认配色 */
+.antdp-basic-layouts-dark{
+  --primary-slider-bg: #1d1d1d;
+  --primary-header-bg: #1d1d1d;
+  --primary-shadow: #001529;
+  --primary-slider-trigger-border:#fff;
+  --primary-sider-trigger-text-color:#fff;
+  --primary-header-text-color:#fff;
+  --primary-title-text-color:#fff;
+  --primary-content-bg: #1d1d1d;
+}
+```
 
+## className改变BasicLayouts颜色
+
+第一步配置样式
+```css
+  .antdp-basic-layouts-light{
+    --primary-slider-bg: #1d1d1d !important;
+    --primary-header-bg: #fff !important;
+    --primary-shadow: #9393930d !important;
+    --primary-slider-trigger-border:#fff !important;
+    --primary-header-text-color:#1d1d1d !important;
+    --primary-title-text-color:#1677ff !important;
+    --primary-sider-trigger-text-color:#fff !important;
+    --primary-content-bg: #f5f5f5 !important;
+  }
+```
+
+第二步引用样式
+```jsx
+import BasicLayouts from '@antdp/basic-layouts';
+import './index.css';
+
+export default () => {
+  return (
+    <BasicLayouts
+      projectName="Ant Design Pro"
+      theme="light"
+      layout="slider"
+      className="antdp-basic-layouts-light"
+      menuProps={{
+        theme: 'dark',
+      }}
+    />
+  )
+};
+```
+如下图：
+![](https://user-images.githubusercontent.com/59959718/245036444-3907b947-e311-48df-841c-a4e4b666f2b3.jpg)
+
+## Message
+由于antd 5.x需全局包裹App，引用message组件。我们在basic-layouts下也进行了注册。
+
+使用方法一
+```jsx
+import { App } from 'antd';
+import React from 'react';
+
+const MyPage = () => {
+  const { message, notification, modal } = App.useApp();
+  message.success('Good!');
+  notification.info({ message: 'Good' });
+  modal.warning({ title: 'Good' });
+  // ....
+  // other message, notification, modal static function
+  return <div>Hello word</div>;
+};
+export default MyPage;
+```
+
+使用方法二
+```jsx
+import { Button, Space } from 'antd';
+import React from 'react';
+import { message } from '@antdp/basic-layouts';
+
+export default () => {
+  const showMessage = () => {
+    message.success('Success!');
+  };
+
+  return (
+    <Space>
+      <Button type="primary" onClick={showMessage}>
+        Open message
+      </Button>
+    </Space>
+  );
+};
 ```
 
 ## API

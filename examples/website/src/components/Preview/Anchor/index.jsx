@@ -1,13 +1,11 @@
 import { Anchor } from 'antd';
 import { useEffect, useState } from 'react';
 import remark from 'remark';
-import { useComponentMarkdown } from './hooks';
 
-export default function Anchors() {
-  const markdownText = useComponentMarkdown();
+export default function Anchors({ markdownText }) {
   const [items, setItems] = useState([]);
 
-  function traverse(node, headers = []) {
+  function traverse(node, stack = [{ children: [] }]) {
     let currentHeader = null;
 
     if (node.type === 'heading') {
@@ -15,40 +13,41 @@ export default function Anchors() {
       const text = node.children[0].value;
       const href = text
         ?.toLowerCase()
-        .replace(/^[^\w\u4e00-\u9fa5]+|[^\w\u4e00-\u9fa5]+$/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/\./g, '');
+        .replace(/^[^\w\u4e00-\u9fa5]+|[^\w\u4e00-\u9fa5]+$|[\n+/\/@\.]/g, '')
+        .replace(/\s+/g, '-');
 
       const level = node.depth;
       currentHeader = { text, href, level, children: [] };
 
-      if (level === 1) {
-        headers.push(currentHeader);
-      } else {
-        const parentHeader = headers[headers.length - 1];
-        if (parentHeader) {
-          parentHeader.children.push(currentHeader);
+      let top = stack[stack.length - 1];
+
+      while (stack.length > level) {
+        stack.pop();
+        top = stack[stack.length - 1];
+      }
+
+      if (level > stack.length) {
+        if (top.children.length > 0) {
+          stack.push(top.children[top.children.length - 1]);
         }
       }
+
+      top.children.push(currentHeader);
     }
 
     if (node.children) {
       for (let i = 0; i < node.children.length; i++) {
-        traverse(
-          node.children[i],
-          currentHeader ? currentHeader.children : headers,
-        );
+        traverse(node.children[i], stack);
       }
     }
 
-    return headers;
+    return stack[0].children;
   }
 
   useEffect(() => {
     const processor = remark();
     const ast = processor.parse(markdownText);
     const headers = traverse(ast);
-
     const items = createItems(headers);
     setItems(items);
   }, [markdownText]);
@@ -73,6 +72,7 @@ export default function Anchors() {
     <Anchor
       items={items}
       onClick={(e, link) => {
+        console.log('link: ', link);
         e.preventDefault();
         const element = document.getElementById(link.href);
         element?.scrollIntoView({ behavior: 'instant', block: 'start' });

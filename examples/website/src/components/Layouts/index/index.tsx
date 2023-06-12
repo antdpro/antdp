@@ -6,7 +6,6 @@ import React, { useState, useEffect } from 'react'
 import { ConfigProvider, theme } from 'antd'
 import '@wcj/dark-mode';
 import HomeFooter from './HomeFooter';
-import AnchorRight from '../Anchor';
 
 export default function Layout(props: KktproPageProps) {
   const { pathname } = useLocation();
@@ -37,9 +36,6 @@ export default function Layout(props: KktproPageProps) {
                 <Menu />
                 <div style={{ paddingLeft: 240, paddingTop: 58, height: '100%' }}>
                   <Outlet />
-                  <div style={{ position: 'fixed', marginLeft: 1150, top: 100 }}>
-                    <AnchorRight />
-                  </div>
                 </div>
               </React.Fragment>
             )}

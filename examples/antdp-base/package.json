@@ -17,10 +17,10 @@
   },
   "dependencies": {
     "@ant-design/pro-components": "^2.4.14",
-    "@antdp/authorized": "2.0.18",
-    "@antdp/basic-layouts": "2.0.18",
-    "@antdp/hooks": "2.0.18",
-    "@antdp/request": "2.0.18",
+    "@antdp/authorized": "2.0.19",
+    "@antdp/basic-layouts": "2.0.19",
+    "@antdp/hooks": "2.0.19",
+    "@antdp/request": "2.0.19",
     "ahooks": "~3.7.2",
     "antd": "5.6.1",
     "react": "^18.2.0",
@@ -35,8 +35,8 @@
     "antd": "5.6.1"
   },
   "devDependencies": {
-    "@antdp/config": "2.0.18",
-    "@antdp/dependencies": "2.0.18",
+    "@antdp/config": "2.0.19",
+    "@antdp/dependencies": "2.0.19",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@umijs/fabric": "~2.14.1",

@@ -45,14 +45,14 @@ const Demo = () => {
 
 export default Demo
 ```
-slider
+slider，如下图
 [![Ant Design Project](https://user-images.githubusercontent.com/59959718/244599964-eb494b03-7de0-43ea-a896-cb42c3b32d5e.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
-mix
-[![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037617-542a3c87-9ce8-4ea9-ab79-fd588f6723d4.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base2?embed=1&hideNavigation=0&hidedevtools=0)
+mix，如下图
+[![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037617-542a3c87-9ce8-4ea9-ab79-fd588f6723d4.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
-topleft
-[![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037507-28d13b4b-cc18-4f7d-a0e2-2cbd4c8ef2eb.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base3?embed=1&hideNavigation=0&hidedevtools=0)
+topleft，如下图
+[![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037507-28d13b4b-cc18-4f7d-a0e2-2cbd4c8ef2eb.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
 
 ## 菜单国际化设置
@@ -124,7 +124,7 @@ export default () => {
 默认样式
 ```css
  /* 亮模式默认配色 */
-.antdp-basic-layouts-light{
+.antdp-basic-layouts{
   /* Layout.Slider背景色 */
   --primary-slider-bg: #fff;
   /* Header背景色 */
@@ -143,7 +143,7 @@ export default () => {
   --primary-content-bg: #f5f5f5;
 }
  /* 暗模式默认配色 */
-.antdp-basic-layouts-dark{
+.antdp-basic-layouts{
   --primary-slider-bg: #1d1d1d;
   --primary-header-bg: #1d1d1d;
   --primary-shadow: #001529;
@@ -155,23 +155,7 @@ export default () => {
 }
 ```
 
-## className改变BasicLayouts颜色
-
-第一步配置样式
-```css
-  .antdp-basic-layouts-light{
-    --primary-slider-bg: #1d1d1d !important;
-    --primary-header-bg: #fff !important;
-    --primary-shadow: #9393930d !important;
-    --primary-slider-trigger-border:#fff !important;
-    --primary-header-text-color:#1d1d1d !important;
-    --primary-title-text-color:#1677ff !important;
-    --primary-sider-trigger-text-color:#fff !important;
-    --primary-content-bg: #f5f5f5 !important;
-  }
-```
-
-第二步引用样式
+## token自定义BasicLayouts颜色
 ```jsx
 import BasicLayouts from '@antdp/basic-layouts';
 import './index.css';
@@ -182,16 +166,42 @@ export default () => {
       projectName="Ant Design Pro"
       theme="light"
       layout="slider"
-      className="antdp-basic-layouts-light"
-      menuProps={{
-        theme: 'dark',
+      token={{
+        menu: {
+          // menu 的背景颜色
+          colorMenuBackground: '#004FD9',
+          // menuItem 的 hover 背景颜色
+          colorBgMenuItemHover: 'rgba(0,0,0,0.06)',
+          // menuItem 的选中背景颜色
+          colorBgMenuItemSelected: 'rgba(0,0,0,0.15)',
+          // menuItem 的字体颜色
+          colorTextMenu: 'rgba(255,255,255,0.75)',
+          // menuItem hover 的选中字体颜色
+          colorTextMenuActive: 'rgba(255,255,255,0.95)',
+          // menuItem 的选中字体颜色
+          colorTextMenuSelected: '#fff',
+          // colorBgMenuItemCollapsedElevated
+          colorBgMenuItemCollapsedElevated: 'rgba(0,0,0,0.85)',
+          // 菜单底部操作栏boderTopColor
+          triggerColor: '#fff',
+          // 菜单底部操作栏字体颜色
+          triggerTextColor: '#fff',
+        },
+        header: {
+          // 头部背景色
+          colorHeaderBackground: '#fff',
+          // 头部文字颜色
+          headerTextColor: '#000',
+        },
+        // 项目名称颜色
+        titleColor: '#fff',
       }}
     />
   )
 };
 ```
 如下图：
-![](https://user-images.githubusercontent.com/59959718/245036444-3907b947-e311-48df-841c-a4e4b666f2b3.jpg)
+![](https://user-images.githubusercontent.com/59959718/245099199-77d4288b-08e9-49cf-bab8-532d2d2d9f2c.png)
 
 ## Message
 由于antd 5.x需全局包裹App，引用message组件。我们在basic-layouts下也进行了注册。
@@ -250,6 +260,7 @@ export default () => {
 | theme | 明暗主题 |   `dark \| light`  | `light` |
 | className | 样式 |   `string` | - |
 | layout | 导航菜单模式,slider：右侧导航，topleft：顶部左侧导航，mix：混合导航 |   `LayoutModel` | `mix` |
+| token | 导航和头部样式集合 |   `TokenProps` | - |
 
 ## TopRightMenuProps
 | 参数 | 说明 | 类型 | 默认值 |
@@ -259,3 +270,27 @@ export default () => {
 | link | 链接 | `string` | - |
 | divider | 是否有下划线 | `boolean` | - |
 | onClick | 点击事件 | `IntlShape` |
+
+
+```ts
+export interface TokenProps {
+  menu?: {
+    colorMenuBackground?: string;
+    colorBgMenuItemHover?: string;
+    colorBgMenuItemSelected?: string;
+    colorTextMenu?: string;
+    colorTextMenuActive?: string;
+    colorTextMenuSelected?: string;
+    colorBgMenuItemCollapsedElevated?: string;
+    triggerColor?: string;
+    triggerTextColor?: string;
+  };
+  header?: {
+    colorHeaderBackground?: string;
+    headerTextColor?: string;
+  };
+  titleColor?: string;
+  shadowColor?: string;
+  contentBackground?: string;
+}
+```

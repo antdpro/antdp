@@ -90,26 +90,28 @@ export interface BasicLayoutsProps {
   theme?: 'dark' | 'light';
   className?: string;
   menuProps?: MenuProps;
-  token?: {
-    menu?: {
-      colorMenuBackground?: string;
-      colorBgMenuItemHover?: string;
-      colorBgMenuItemSelected?: string;
-      colorTextMenu?: string;
-      colorTextMenuActive?: string;
-      colorTextMenuSelected?: string;
-      colorBgMenuItemCollapsedElevated?: string;
-      triggerColor?: string;
-      triggerTextColor?: string;
-    };
-    header?: {
-      colorHeaderBackground?: string;
-      headerTextColor?: string;
-    };
-    titleColor?: string;
-    shadowColor?: string;
-    contentBackground?: string;
+  token?: TokenProps
+}
+
+export interface TokenProps {
+  menu?: {
+    colorMenuBackground?: string;
+    colorBgMenuItemHover?: string;
+    colorBgMenuItemSelected?: string;
+    colorTextMenu?: string;
+    colorTextMenuActive?: string;
+    colorTextMenuSelected?: string;
+    colorBgMenuItemCollapsedElevated?: string;
+    triggerColor?: string;
+    triggerTextColor?: string;
   };
+  header?: {
+    colorHeaderBackground?: string;
+    headerTextColor?: string;
+  };
+  titleColor?: string;
+  shadowColor?: string;
+  contentBackground?: string;
 }
 
 export interface UseLayoutsProps extends Omit<BasicLayoutsProps, 'route'> {

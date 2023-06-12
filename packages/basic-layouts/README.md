@@ -249,7 +249,6 @@ export default () => {
 | profile | 用户信息显示 |   `{avatar?: string;name?: string}` | - |
 | theme | 明暗主题 |   `dark \| light`  | `light` |
 | className | 样式 |   `string` | - |
-| configProviderProps | `antd组件全局化配置` |   `ConfigProviderProps` | - |
 | layout | 导航菜单模式,slider：右侧导航，topleft：顶部左侧导航，mix：混合导航 |   `LayoutModel` | `mix` |
 
 ## TopRightMenuProps

@@ -1,7 +1,6 @@
+import { MenuProps } from 'antd';
 import React from 'react';
 import { IntlShape } from 'react-intl/lib/src/types';
-import { ConfigProviderProps } from 'antd/es/config-provider'
-import { MenuProps } from 'antd';
 
 export interface HandleMenuProps {
   /**语言转换*/
@@ -89,9 +88,28 @@ export interface BasicLayoutsProps {
     name?: string;
   };
   theme?: 'dark' | 'light';
-  configProviderProps?: ConfigProviderProps;
   className?: string;
   menuProps?: MenuProps;
+  token?: {
+    menu?: {
+      colorMenuBackground?: string;
+      colorBgMenuItemHover?: string;
+      colorBgMenuItemSelected?: string;
+      colorTextMenu?: string;
+      colorTextMenuActive?: string;
+      colorTextMenuSelected?: string;
+      colorBgMenuItemCollapsedElevated?: string;
+      triggerColor?: string;
+      triggerTextColor?: string;
+    };
+    header?: {
+      colorHeaderBackground?: string;
+      headerTextColor?: string;
+    };
+    titleColor?: string;
+    shadowColor?: string;
+    contentBackground?: string;
+  };
 }
 
 export interface UseLayoutsProps extends Omit<BasicLayoutsProps, 'route'> {

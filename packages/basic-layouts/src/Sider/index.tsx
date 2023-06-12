@@ -8,13 +8,13 @@ import { getSiderMenus } from '../utils';
 import Logo from './../Logo';
 
 export interface SiderProps extends MenuProps {
-  theme:'light' | 'dark'
+  theme: 'light' | 'dark';
   menus?: RouterMenu[];
   menuProps?: MenuProps;
 }
 
 const Sider = (props: SiderProps) => {
-  const { theme,menuProps } = props;
+  const { theme, menuProps } = props;
   const location = useLocation();
   const {
     HandleMenu,
@@ -71,7 +71,7 @@ const Sider = (props: SiderProps) => {
           defaultOpenKeys={[location.pathname]}
           mode="inline"
           items={items}
-          style={{ width: '100%', background: '0 0' }}
+          style={{ width: '100%' }}
           {...menuProps}
         />
       </div>

@@ -39,24 +39,24 @@ const Layout = () => {
         setConfig={setConfig}
       />
       <BasicLayouts
-        token={{
-          menu: {
-            colorMenuBackground: '#004FD9',
-            colorBgMenuItemHover: 'rgba(0,0,0,0.06)',
-            colorBgMenuItemSelected: 'rgba(0,0,0,0.15)',
-            colorTextMenu: 'rgba(255,255,255,0.75)',
-            colorTextMenuActive: 'rgba(255,255,255,0.95)',
-            colorTextMenuSelected: '#fff',
-            colorBgMenuItemCollapsedElevated: 'rgba(0,0,0,0.85)',
-            triggerColor: '#fff',
-            triggerTextColor: '#fff',
-          },
-          header: {
-            colorHeaderBackground: '#fff',
-            headerTextColor: '#000',
-          },
-          titleColor: '#fff',
-        }}
+        // token={{
+        //   menu: {
+        //     colorMenuBackground: '#004FD9',
+        //     colorBgMenuItemHover: 'rgba(0,0,0,0.06)',
+        //     colorBgMenuItemSelected: 'rgba(0,0,0,0.15)',
+        //     colorTextMenu: 'rgba(255,255,255,0.75)',
+        //     colorTextMenuActive: 'rgba(255,255,255,0.95)',
+        //     colorTextMenuSelected: '#fff',
+        //     colorBgMenuItemCollapsedElevated: 'rgba(0,0,0,0.85)',
+        //     triggerColor: '#fff',
+        //     triggerTextColor: '#fff',
+        //   },
+        //   header: {
+        //     colorHeaderBackground: '#fff',
+        //     headerTextColor: '#000',
+        //   },
+        //   titleColor: '#fff',
+        // }}
         layout={config.layout}
         theme={config.dark}
         className="antdp-basic-layouts"

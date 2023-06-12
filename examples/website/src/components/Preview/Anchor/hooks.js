@@ -7,8 +7,8 @@ export function useComponentMarkdown() {
     const componentName = pathname?.split('/').at(-1);
     if (componentName) {
       try {
-        const mdText = require(`../../../pages/${componentName}/README.md`)
-          ?.default?.source;
+        const mdText = require(`src/pages/${componentName}/README.md`)?.default
+          ?.source;
         return mdText;
       } catch {}
     }

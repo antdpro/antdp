@@ -8,7 +8,7 @@ Ant Design Project
 
 [![Ant Design Project](https://user-images.githubusercontent.com/59959718/244599964-eb494b03-7de0-43ea-a896-cb42c3b32d5e.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
-[![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037617-542a3c87-9ce8-4ea9-ab79-fd588f6723d4.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
+<!-- [![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037617-542a3c87-9ce8-4ea9-ab79-fd588f6723d4.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0) -->
 
 [![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037507-28d13b4b-cc18-4f7d-a0e2-2cbd4c8ef2eb.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 

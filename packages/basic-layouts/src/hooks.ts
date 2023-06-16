@@ -1,15 +1,15 @@
+import DocumentTitleDom, { DocumentTitle } from '@antdp/document-title';
 import {
-  useMemo,
   createContext,
   createElement,
   useContext,
+  useMemo,
   useState,
 } from 'react';
-import DocumentTitleDom, { DocumentTitle } from '@antdp/document-title';
 import { useLocation } from 'react-router-dom';
 // @ts-ignore
 import { useAppData } from '@umijs/max';
-import { UseLayoutsProps, RouterMenu, LayoutModel } from './interface';
+import { LayoutModel, RouterMenu, UseLayoutsProps } from './interface';
 import { HandleMenu } from './utils';
 
 export interface LayoutsContextType extends UseLayoutsProps {
@@ -22,7 +22,7 @@ export const LayoutsContext = createContext<LayoutsContextType>({
   HandleMenu: new HandleMenu({ routers: [] }),
   collapsed: false,
   setCollapsed: () => null,
-  layout: LayoutModel.MIX
+  layout: LayoutModel.MIX,
 });
 
 export const useLayouts = () => useContext(LayoutsContext);
@@ -32,7 +32,7 @@ export const LayoutsProvider = (props: UseLayoutsProps) => {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
   const { clientRoutes } = useAppData();
-  const layout = props.layout
+  const layout = props.layout;
 
   const routes = useMemo(() => {
     const routes = (clientRoutes as RouterMenu[]).find(
@@ -70,11 +70,14 @@ export const LayoutsProvider = (props: UseLayoutsProps) => {
     title: renderTitle,
     children: createElement(LayoutsContext.Provider, {
       value: {
-        HandleMenu: Menus, collapsed, setCollapsed, layout: LayoutModel.MIX,
-        ...rest
+        HandleMenu: Menus,
+        collapsed,
+        setCollapsed,
+        layout: LayoutModel.MIX,
+        defultOpenMenus: false,
+        ...rest,
       },
       children,
     }),
   });
 };
-

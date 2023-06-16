@@ -43,6 +43,11 @@ export enum LayoutModel {
 
 export interface BasicLayoutsProps {
   /**
+   * 刷新后是否展开菜单
+   * @default false
+   * */
+  defultOpenMenus?:boolean;
+  /**
    * layout 的菜单模式
    * @default MIX
    * */

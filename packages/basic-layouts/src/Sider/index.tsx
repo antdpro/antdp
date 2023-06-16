@@ -1,6 +1,6 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { Layout, Menu, MenuProps } from 'antd';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useLayouts } from '../hooks';
 import { LayoutModel, RouterMenu } from '../interface';
@@ -22,7 +22,15 @@ const Sider = (props: SiderProps) => {
     siderWidth = 260,
     setCollapsed,
     layout,
+    defultOpenMenus,
   } = useLayouts();
+  const [defaultOpenKeys, setDefaultOpenKeys] = useState<string[]>([]);
+  useEffect(() => {
+    const keys = localStorage.getItem('defaultOpenKeys');
+    if (keys !== null) {
+      setDefaultOpenKeys(JSON.parse(keys));
+    }
+  }, []);
 
   const collapsedView = useMemo(
     () =>
@@ -36,13 +44,16 @@ const Sider = (props: SiderProps) => {
 
   const menus = HandleMenu.getSiderMenus(location.pathname);
   const items = useMemo(() => {
+    const keys = localStorage.getItem('defaultOpenKeys');
+    if (keys !== null && defultOpenMenus) {
+      setDefaultOpenKeys(JSON.parse(keys));
+    }
     return getSiderMenus(menus, layout === LayoutModel.TOPLEFT);
   }, [menus, layout]);
 
   if (!items.length) {
     return <React.Fragment />;
   }
-
   return (
     <Layout.Sider
       className="antdp-basic-layouts-sider"
@@ -68,10 +79,16 @@ const Sider = (props: SiderProps) => {
           theme={theme}
           selectedKeys={[location.pathname]}
           defaultSelectedKeys={[location.pathname]}
-          defaultOpenKeys={[location.pathname]}
+          defaultOpenKeys={defaultOpenKeys}
           mode="inline"
           items={items}
           style={{ width: '100%' }}
+          onOpenChange={(keys) => {
+            if (defultOpenMenus) {
+              setDefaultOpenKeys(keys);
+              localStorage.setItem('defaultOpenKeys', JSON.stringify(keys));
+            }
+          }}
           {...menuProps}
         />
       </div>

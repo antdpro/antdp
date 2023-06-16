@@ -57,6 +57,7 @@ const Layout = () => {
         //   },
         //   titleColor: '#fff',
         // }}
+        defultOpenMenus={true}
         layout={config.layout}
         theme={config.dark}
         className="antdp-basic-layouts"

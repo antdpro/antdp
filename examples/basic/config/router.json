@@ -12,6 +12,12 @@
         "redirectTo": "/welcome"
       },
       {
+        "path": "/doc/:id",
+        "name": "首页21",
+        "icon": "welcome",
+        "component": "@/pages/index"
+      },
+      {
         "path": "/welcome",
         "name": "首页",
         "icon": "welcome",

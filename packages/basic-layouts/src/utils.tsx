@@ -3,6 +3,8 @@ import { ItemType } from 'antd/lib/menu/hooks/useItems';
 import React from 'react';
 import { IntlShape } from 'react-intl/lib/src/types';
 import { NavLink } from 'react-router-dom';
+// @ts-ignore
+import { matchRoutes } from '@umijs/max';
 import { HandleMenuProps, RouterMenu } from './interface';
 
 /**
@@ -256,13 +258,20 @@ export class HandleMenu {
 
   /**9. 获取跳转地址*/
   getToPath(path: string) {
+
+    let [currentItem] = matchRoutes(this.flatAllMenu, path)
+
+    if (currentItem && currentItem.route) {
+      currentItem = currentItem.route
+    }
     // 1. 先判断是不是 side === true
-    const currentItem = this.flatAllMenu.find((item) => item.path === path);
+    // const currentItem = this.flatAllMenu.find((item) => item.path === path);
     if (currentItem?.path === '/') {
       this.preParentPath = '';
       this.prePath = currentItem.redirectTo;
       return currentItem.redirectTo;
     }
+
     if (!currentItem) {
       this.preParentPath = '';
       if (this.prePath === '/404') {
@@ -271,12 +280,14 @@ export class HandleMenu {
       this.prePath = '/404';
       return '/404';
     }
+
     // 查询所有父节点和自己是否有权限
     if (!!ANTD_AUTH_CONF && !this.getCheckAuthAll(currentItem?.path || '')) {
       this.prePath = '/403';
       this.preParentPath = '';
       return '/403';
     }
+
     if (!currentItem?.side) {
       this.prePath = currentItem.path || '';
       this.preParentPath = '';
@@ -288,8 +299,10 @@ export class HandleMenu {
     }
     this.preParentPath = currentItem.path;
     const siderMenus = this.childMenu.get(path);
+
     const findx = siderMenus?.find((item) => item.index || item.redirectTo);
     const current = findx?.path || findx?.redirectTo;
+
     if (this.prePath === current) {
       return false;
     }
@@ -368,14 +381,14 @@ export const themeColor = {
     '--primary-header-text-color': '#1d1d1d',
     '--primary-title-text-color': '#1d1d1d',
     '--primary-content-bg': '#f5f5f5',
-    'itemSelectedBg':'#e6f7ff',
-    'colorItemBgSelected':'rgba(0, 0, 0, 0.06)',
-    'itemActiveBg':'#e6f7ff',
-    'horizontalItemSelectedBg':'rgba(0, 0, 0, 0.06)',
-    'itemColor':'rgba(0, 0, 0, 0.65)',
-    'itemHoverColor':'rgba(0, 0, 0, 0.85)',
-    'itemSelectedColor':'rgb(24, 144, 255)',
-    'colorBgElevated':'#fff',
+    'itemSelectedBg': '#e6f7ff',
+    'colorItemBgSelected': 'rgba(0, 0, 0, 0.06)',
+    'itemActiveBg': '#e6f7ff',
+    'horizontalItemSelectedBg': 'rgba(0, 0, 0, 0.06)',
+    'itemColor': 'rgba(0, 0, 0, 0.65)',
+    'itemHoverColor': 'rgba(0, 0, 0, 0.85)',
+    'itemSelectedColor': 'rgb(24, 144, 255)',
+    'colorBgElevated': '#fff',
   },
   dark: {
     '--primary-slider-bg': '#1d1d1d',
@@ -386,13 +399,13 @@ export const themeColor = {
     '--primary-header-text-color': '#fff',
     '--primary-title-text-color': '#fff',
     '--primary-content-bg': '#1d1d1d',
-    'itemSelectedBg':'rgb(24, 144, 255)',
-    'colorItemBgSelected':'#fff',
-    'itemActiveBg':'#fff',
-    'horizontalItemSelectedBg':'#fff',
-    'itemColor':'rgba(229, 224, 216, 0.85)',
-    'itemHoverColor':'rgba(229, 224, 216, 0.85)',
-    'itemSelectedColor':'#fff',
-    'colorBgElevated':'rgba(229, 224, 216, 0.85)',
+    'itemSelectedBg': 'rgb(24, 144, 255)',
+    'colorItemBgSelected': '#fff',
+    'itemActiveBg': '#fff',
+    'horizontalItemSelectedBg': '#fff',
+    'itemColor': 'rgba(229, 224, 216, 0.85)',
+    'itemHoverColor': 'rgba(229, 224, 216, 0.85)',
+    'itemSelectedColor': '#fff',
+    'colorBgElevated': 'rgba(229, 224, 216, 0.85)',
   },
 };

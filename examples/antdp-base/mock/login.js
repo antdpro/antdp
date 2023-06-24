@@ -22,6 +22,7 @@ const menus = [
   '/person',
   '/person/personalCenter',
   '/person/personalSettings',
+  '/user/:id',
   '/404',
   '/403',
 ];

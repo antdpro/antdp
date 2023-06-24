@@ -1,6 +1,6 @@
 import { ProCard, StatisticCard } from '@ant-design/pro-components';
 import { message } from '@antdp/basic-layouts';
-import { Link, useRequest } from '@umijs/max';
+import { history, Link, useRequest } from '@umijs/max';
 import { Avatar, Card, Divider, List, Skeleton, Space, Statistic } from 'antd';
 import { serviceActivities, serviceProject } from '../../services/api';
 import styles from './style.less';
@@ -13,7 +13,11 @@ const PageHeaderContent = ({ currentUser }) => {
   return (
     <div className={styles.pageHeaderContent}>
       <div className={styles.avatar}>
-        <Avatar size="large" src={currentUser.avatar} />
+        <Avatar
+          size="large"
+          src={currentUser.avatar}
+          onClick={() => history.push(`/user/${123}`)}
+        />
       </div>
       <div className={styles.content}>
         <div className={styles.contentTitle}>

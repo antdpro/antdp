@@ -23,6 +23,13 @@
         "component": "@/pages/Home/index"
       },
       {
+        "path": "/user/:id",
+        "name": "用户",
+        "locale": "user",
+        "icon": "dashboard",
+        "component": "@/pages/User/index"
+      },
+      {
         "path": "/dashboard",
         "name": "页面实例",
         "locale": "dashboard",

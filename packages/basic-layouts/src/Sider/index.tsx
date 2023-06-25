@@ -25,11 +25,17 @@ const Sider = (props: SiderProps) => {
     defultOpenMenus,
   } = useLayouts();
   const [defaultOpenKeys, setDefaultOpenKeys] = useState<string[]>([]);
+
   useEffect(() => {
     const keys = localStorage.getItem('defaultOpenKeys');
     if (keys !== null) {
       setDefaultOpenKeys(JSON.parse(keys));
     }
+    return () => {
+      // 组件销毁时执行清空操作
+      setDefaultOpenKeys([]);
+      localStorage.removeItem('defaultOpenKeys');
+    };
   }, []);
 
   const collapsedView = useMemo(

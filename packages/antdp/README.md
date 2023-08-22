@@ -6,11 +6,11 @@ Ant Design Project
 
 一个基于 [antd](https://github.com/ant-design/ant-design/) 和 [umi](https://github.com/umijs/umi) 的初始级别项目，集成路由、[`dva`](https://github.com/dvajs/dva)(Redux)、选项卡等特性，用于简化 [antd 5.x +](https://github.com/ant-design/ant-design) 的部分使用。
 
-[![Ant Design Project](https://user-images.githubusercontent.com/59959718/244599964-eb494b03-7de0-43ea-a896-cb42c3b32d5e.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
+[![Ant Design Project](https://user-images.githubusercontent.com/59959718/262203847-d1612c3c-a37e-47fa-8282-dba85a8366be.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
-<!-- [![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037617-542a3c87-9ce8-4ea9-ab79-fd588f6723d4.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0) -->
+[![Ant Design Project](https://user-images.githubusercontent.com/59959718/262203891-ba31a1c0-84ad-42ae-8e0f-447b81ab9439.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
-[![Ant Design Project](https://user-images.githubusercontent.com/59959718/245037507-28d13b4b-cc18-4f7d-a0e2-2cbd4c8ef2eb.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
+[![Ant Design Project](https://user-images.githubusercontent.com/59959718/262203911-58268a5b-a948-4909-87cc-bd6b4a6b8d1f.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
 ### Features
 

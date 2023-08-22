@@ -8,7 +8,7 @@ import './index.css';
 import { BasicLayoutsProps, LayoutModel } from './interface';
 import Message from './Message';
 import SiderMenus from './Sider';
-import { themeColor } from './utils';
+import { defaultThemeColors } from './utils';
 export * from './Breadcrumb';
 export { default as Breadcrumb } from './Breadcrumb';
 export * from './Content';
@@ -122,27 +122,29 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
   const style = {
     ['--primary-slider-bg']:
       token?.menu?.colorMenuBackground ||
-      themeColor[theme]['--primary-slider-bg'],
+      defaultThemeColors(layout)[theme]['--primary-slider-bg'],
     ['--primary-slider-trigger-border']:
       token?.menu?.triggerColor ||
-      themeColor[theme]['--primary-slider-trigger-border'],
+      defaultThemeColors(layout)[theme]['--primary-slider-trigger-border'],
     ['--primary-sider-trigger-text-color']:
       token?.menu?.triggerTextColor ||
-      themeColor[theme]['--primary-sider-trigger-text-color'],
+      defaultThemeColors(layout)[theme]['--primary-sider-trigger-text-color'],
     ['--primary-header-bg']:
       token?.header?.colorHeaderBackground ||
-      themeColor[theme]['--primary-header-bg'],
+      defaultThemeColors(layout)[theme]['--primary-header-bg'],
     ['--primary-header-text-color']:
       token?.header?.headerTextColor ||
-      themeColor[theme]['--primary-header-text-color'],
+      defaultThemeColors(layout)[theme]['--primary-header-text-color'],
     ['--primary-shadow']:
-      token?.shadowColor || themeColor[theme]['--primary-shadow'],
+      token?.shadowColor ||
+      defaultThemeColors(layout)[theme]['--primary-shadow'],
     ['--primary-title-text-color']:
-      token?.titleColor || themeColor[theme]['--primary-title-text-color'],
+      token?.titleColor ||
+      defaultThemeColors(layout)[theme]['--primary-title-text-color'],
     ['--primary-content-bg']:
-      token?.contentBackground || themeColor[theme]['--primary-content-bg'],
+      token?.contentBackground ||
+      defaultThemeColors(layout)[theme]['--primary-content-bg'],
   } as any;
-
   return (
     <AuthorizedConfigProvider {...newData}>
       <LayoutsProvider {...props}>
@@ -155,49 +157,47 @@ const BasicLayouts = (props: BasicLayoutsProps) => {
                 colorBgHeader: 'transparent',
                 colorBgBody: 'transparent',
               },
-              Menu: token
-                ? {
-                    itemBg:
-                      token?.menu?.colorMenuBackground ||
-                      themeColor[theme]['--primary-slider-bg'],
-                    subMenuItemBg:
-                      token?.menu?.colorMenuBackground ||
-                      themeColor[theme]['--primary-slider-bg'],
-                    itemBorderRadius: 4,
-                    itemSelectedBg:
-                      token?.menu?.colorBgMenuItemSelected ||
-                      themeColor[theme]['itemSelectedBg'],
-                    colorItemBgSelected:
-                      token?.menu?.colorBgMenuItemSelected ||
-                      themeColor[theme]['colorItemBgSelected'],
-                    itemActiveBg:
-                      token?.menu?.colorBgMenuItemHover ||
-                      themeColor[theme]['itemActiveBg'],
-                    horizontalItemSelectedBg:
-                      token?.menu?.colorBgMenuItemSelected ||
-                      themeColor[theme]['horizontalItemSelectedBg'],
-                    colorActiveBarWidth: 0,
-                    colorActiveBarHeight: 0,
-                    colorActiveBarBorderSize: 0,
-                    itemColor:
-                      token?.menu?.colorTextMenu ||
-                      themeColor[theme]['itemColor'],
-                    itemHoverColor:
-                      token?.menu?.colorTextMenuActive ||
-                      themeColor[theme]['itemHoverColor'],
-                    itemSelectedColor:
-                      token?.menu?.colorTextMenuSelected ||
-                      themeColor[theme]['itemSelectedColor'],
-                    colorBgElevated:
-                      token?.menu?.colorBgMenuItemCollapsedElevated ||
-                      themeColor[theme]['colorBgElevated'],
-                  }
-                : undefined,
+              Menu: {
+                itemBg:
+                  token?.menu?.colorMenuBackground ||
+                  defaultThemeColors(layout)[theme]['--primary-slider-bg'],
+                subMenuItemBg:
+                  token?.menu?.colorMenuBackground ||
+                  defaultThemeColors(layout)[theme]['--primary-slider-bg'],
+                itemBorderRadius: 4,
+                itemSelectedBg:
+                  token?.menu?.colorBgMenuItemSelected ||
+                  defaultThemeColors(layout)[theme]['itemSelectedBg'],
+                colorItemBgSelected:
+                  token?.menu?.colorBgMenuItemSelected ||
+                  defaultThemeColors(layout)[theme]['colorItemBgSelected'],
+                itemActiveBg:
+                  token?.menu?.colorBgMenuItemHover ||
+                  defaultThemeColors(layout)[theme]['itemActiveBg'],
+                horizontalItemSelectedBg:
+                  token?.menu?.colorBgMenuItemSelected ||
+                  defaultThemeColors(layout)[theme]['horizontalItemSelectedBg'],
+                colorActiveBarWidth: 0,
+                colorActiveBarHeight: 0,
+                colorActiveBarBorderSize: 0,
+                itemColor:
+                  token?.menu?.colorTextMenu ||
+                  defaultThemeColors(layout)[theme]['itemColor'],
+                itemHoverColor:
+                  token?.menu?.colorTextMenuActive ||
+                  defaultThemeColors(layout)[theme]['itemHoverColor'],
+                itemSelectedColor:
+                  token?.menu?.colorTextMenuSelected ||
+                  defaultThemeColors(layout)[theme]['itemSelectedColor'],
+                colorBgElevated:
+                  token?.menu?.colorBgMenuItemCollapsedElevated ||
+                  defaultThemeColors(layout)[theme]['colorBgElevated'],
+              },
             },
           }}
         >
           <Layout
-            className={`antdp-basic-layouts antdp-basic-layouts-${theme} ${props.className}`}
+            className={`antdp-basic-layouts ${props.className}`}
             style={style}
           >
             {render}

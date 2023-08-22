@@ -5,7 +5,7 @@ import { IntlShape } from 'react-intl/lib/src/types';
 import { NavLink } from 'react-router-dom';
 // @ts-ignore
 import { matchRoutes } from '@umijs/max';
-import { HandleMenuProps, RouterMenu } from './interface';
+import { HandleMenuProps, RouterMenu,LayoutModel } from './interface';
 
 /**
  *
@@ -371,41 +371,126 @@ export const getSiderMenus = (menus: RouterMenu[] = [], isSider = false) => {
   return loop(menus);
 };
 
-export const themeColor = {
-  light: {
-    '--primary-slider-bg': '#fff',
-    '--primary-header-bg': '#fff',
-    '--primary-shadow': '#9393930d',
-    '--primary-slider-trigger-border': 'rgba(0,0,0,.06)',
-    '--primary-sider-trigger-text-color': '#1d1d1d',
-    '--primary-header-text-color': '#1d1d1d',
-    '--primary-title-text-color': '#1d1d1d',
-    '--primary-content-bg': '#f5f5f5',
-    'itemSelectedBg': '#e6f7ff',
-    'colorItemBgSelected': 'rgba(0, 0, 0, 0.06)',
-    'itemActiveBg': '#e6f7ff',
-    'horizontalItemSelectedBg': 'rgba(0, 0, 0, 0.06)',
-    'itemColor': 'rgba(0, 0, 0, 0.65)',
-    'itemHoverColor': 'rgba(0, 0, 0, 0.85)',
-    'itemSelectedColor': 'rgb(24, 144, 255)',
-    'colorBgElevated': '#fff',
-  },
-  dark: {
-    '--primary-slider-bg': '#1d1d1d',
-    '--primary-header-bg': '#1d1d1d',
-    '--primary-shadow': '#001529',
-    '--primary-slider-trigger-border': '#fff',
-    '--primary-sider-trigger-text-color': '#fff',
-    '--primary-header-text-color': '#fff',
-    '--primary-title-text-color': '#fff',
-    '--primary-content-bg': '#1d1d1d',
-    'itemSelectedBg': 'rgb(24, 144, 255)',
-    'colorItemBgSelected': '#fff',
-    'itemActiveBg': '#fff',
-    'horizontalItemSelectedBg': '#fff',
-    'itemColor': 'rgba(229, 224, 216, 0.85)',
-    'itemHoverColor': 'rgba(229, 224, 216, 0.85)',
-    'itemSelectedColor': '#fff',
-    'colorBgElevated': 'rgba(229, 224, 216, 0.85)',
-  },
-};
+
+export const defaultThemeColors = (layout?:LayoutModel) : any =>{
+  if(layout === 'slider'){
+    return {
+      light: {
+        '--primary-slider-bg': 'rgb(36, 37, 37)',
+        '--primary-header-bg': '#fff',
+        '--primary-shadow': 'rgba(29,35,41,.05)',
+        '--primary-slider-trigger-border': '#fff',
+        '--primary-sider-trigger-text-color': '#fff',
+        '--primary-header-text-color': 'rgb(36, 37, 37)',
+        '--primary-title-text-color': '#fff',
+        '--primary-content-bg': '#f5f5f5',
+        'itemSelectedBg': 'rgb(24, 144, 255)',
+        'colorItemBgSelected': '#fff',
+        'itemActiveBg': '#fff',
+        'horizontalItemSelectedBg': '#fff',
+        'itemColor': 'rgba(229, 224, 216, 0.85)',
+        'itemHoverColor': 'rgba(229, 224, 216, 0.85)',
+        'itemSelectedColor': '#fff',
+        'colorBgElevated': 'rgba(229, 224, 216, 0.85)',
+      },
+      dark: {
+        '--primary-slider-bg': 'rgb(36, 37, 37)',
+        '--primary-header-bg': 'rgb(36, 37, 37)',
+        '--primary-shadow': 'rgba(13, 13, 13, 0.65)',
+        '--primary-slider-trigger-border': '#fff',
+        '--primary-sider-trigger-text-color': '#fff',
+        '--primary-header-text-color': '#fff',
+        '--primary-title-text-color': '#fff',
+        '--primary-content-bg': '#1d1d1d',
+        'itemSelectedBg': 'rgb(24, 144, 255)',
+        'colorItemBgSelected': '#fff',
+        'itemActiveBg': '#fff',
+        'horizontalItemSelectedBg': '#fff',
+        'itemColor': 'rgba(229, 224, 216, 0.85)',
+        'itemHoverColor': 'rgba(229, 224, 216, 0.85)',
+        'itemSelectedColor': '#fff',
+        'colorBgElevated': 'rgba(229, 224, 216, 0.85)',
+      },
+    }
+  }
+  if(layout === 'topleft'){
+    return {
+      light: {
+        '--primary-slider-bg': '#fff',
+        '--primary-header-bg': '#fff',
+        '--primary-shadow': 'rgba(0,21,41,.12)',
+        '--primary-slider-trigger-border': 'rgba(0,0,0,.06)',
+        '--primary-sider-trigger-text-color': '#1d1d1d',
+        '--primary-header-text-color': '#1d1d1d',
+        '--primary-title-text-color': '#1d1d1d',
+        '--primary-content-bg': '#f5f5f5',
+        'itemSelectedBg': '#e6f7ff',
+        'colorItemBgSelected': 'rgba(0, 0, 0, 0.06)',
+        'itemActiveBg': '#e6f7ff',
+        'horizontalItemSelectedBg': 'rgba(0, 0, 0, 0.06)',
+        'itemColor': 'rgba(0, 0, 0, 0.65)',
+        'itemHoverColor': 'rgba(0, 0, 0, 0.85)',
+        'itemSelectedColor': 'rgb(24, 144, 255)',
+        'colorBgElevated': '#fff',
+      },
+      dark: {
+        '--primary-slider-bg': 'rgb(36, 37, 37)',
+        '--primary-header-bg': 'rgb(36, 37, 37)',
+        '--primary-shadow': 'rgba(13, 13, 13, 0.65)',
+        '--primary-slider-trigger-border': '#fff',
+        '--primary-sider-trigger-text-color': '#fff',
+        '--primary-header-text-color': '#fff',
+        '--primary-title-text-color': '#fff',
+        '--primary-content-bg': '#1d1d1d',
+        'itemSelectedBg': 'rgb(24, 144, 255)',
+        'colorItemBgSelected': 'rgb(36, 37, 37)',
+        'itemActiveBg': '#fff',
+        'horizontalItemSelectedBg': 'rgb(36, 37, 37)',
+        'itemColor': 'rgba(229, 224, 216, 0.85)',
+        'itemHoverColor': 'rgba(229, 224, 216, 0.85)',
+        'itemSelectedColor': '#fff',
+        'colorBgElevated': 'rgba(229, 224, 216, 0.85)',
+      },
+    }
+  }
+  if(layout === 'mix'){
+    return {
+      light: {
+        '--primary-slider-bg': '#fff',
+        '--primary-header-bg': 'rgb(36, 37, 37)',
+        '--primary-shadow': 'rgba(0,21,41,.08)',
+        '--primary-slider-trigger-border': 'rgba(0,0,0,.06)',
+        '--primary-sider-trigger-text-color': 'rgb(36, 37, 37)',
+        '--primary-header-text-color': '#fff',
+        '--primary-title-text-color': '#fff',
+        '--primary-content-bg': '#f5f5f5',
+        'itemSelectedBg': '#e6f7ff',
+        'colorItemBgSelected': 'rgba(0, 0, 0, 0.06)',
+        'itemActiveBg': '#e6f7ff',
+        'horizontalItemSelectedBg': 'rgba(0, 0, 0, 0.06)',
+        'itemColor': 'rgba(0, 0, 0, 0.65)',
+        'itemHoverColor': 'rgba(0, 0, 0, 0.85)',
+        'itemSelectedColor': 'rgb(24, 144, 255)',
+        'colorBgElevated': '#fff',
+      },
+      dark: {
+        '--primary-slider-bg': 'rgb(36, 37, 37)',
+        '--primary-header-bg': 'rgb(15, 28, 41)',
+        '--primary-shadow': 'rgba(13, 13, 13, 0.65)',
+        '--primary-slider-trigger-border': '#fff',
+        '--primary-sider-trigger-text-color': '#fff',
+        '--primary-header-text-color': '#fff',
+        '--primary-title-text-color': '#fff',
+        '--primary-content-bg': '#1d1d1d',
+        'itemSelectedBg': 'rgb(24, 144, 255)',
+        'colorItemBgSelected': '#fff',
+        'itemActiveBg': '#fff',
+        'horizontalItemSelectedBg': '#fff',
+        'itemColor': 'rgba(229, 224, 216, 0.85)',
+        'itemHoverColor': 'rgba(229, 224, 216, 0.85)',
+        'itemSelectedColor': '#fff',
+        'colorBgElevated': 'rgba(229, 224, 216, 0.85)',
+      },
+    }
+  }
+}

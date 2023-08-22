@@ -1,5 +1,5 @@
 import { ProCard } from '@ant-design/pro-components';
-import { Col, ConfigProvider, Drawer, Row, theme as th } from 'antd';
+import { Col, ConfigProvider, Drawer, Row, Switch, theme as th } from 'antd';
 
 const itemStyle = {
   position: 'relative',
@@ -44,7 +44,7 @@ export default ({ visible, onClose, config, setConfig, ...props }) => {
         {...props}
       >
         <ProCard split="horizontal">
-          <ProCard gutter={8} title="明暗主题">
+          <ProCard gutter={8} title="明暗主题/自定义">
             <Row gutter={8}>
               {darkOptions.map((item) => (
                 <Col span={8} key={item.value}>
@@ -67,6 +67,12 @@ export default ({ visible, onClose, config, setConfig, ...props }) => {
                 </Col>
               ))}
             </Row>
+          </ProCard>
+          <ProCard gutter={8} title="自定义导航色">
+            <Switch
+              checked={config.checked}
+              onChange={(value) => setConfig({ ...config, checked: value })}
+            />
           </ProCard>
           <ProCard gutter={8} title="导航模式">
             <Row gutter={8}>

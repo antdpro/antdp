@@ -14,6 +14,7 @@ const Layout = () => {
     dark: 'light',
     colorPrimary: 'rgb(22, 119, 255)',
     componentSize: 'default',
+    checked: false,
   });
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
@@ -24,6 +25,28 @@ const Layout = () => {
       payload: data,
     });
   };
+
+  const renderToken = config.checked
+    ? {
+        menu: {
+          colorMenuBackground: '#004FD9',
+          colorBgMenuItemHover: 'rgba(0,0,0,0.06)',
+          colorBgMenuItemSelected: 'rgba(0,0,0,0.15)',
+          colorTextMenu: 'rgba(255,255,255,0.75)',
+          colorTextMenuActive: 'rgba(255,255,255,0.95)',
+          colorTextMenuSelected: '#fff',
+          colorBgMenuItemCollapsedElevated: 'rgba(0,0,0,0.85)',
+          triggerColor: '#fff',
+          triggerTextColor: '#fff',
+        },
+        header: {
+          colorHeaderBackground: config.dark === 'dark' ? '#000' : '#fff',
+          headerTextColor: config.dark === 'dark' ? '#fff' : '#000',
+        },
+        titleColor: '#fff',
+      }
+    : undefined;
+
   return (
     <Authorized authority={!!token} redirectPath="/login">
       <FloatButton
@@ -39,24 +62,7 @@ const Layout = () => {
         setConfig={setConfig}
       />
       <BasicLayouts
-        // token={{
-        //   menu: {
-        //     colorMenuBackground: '#004FD9',
-        //     colorBgMenuItemHover: 'rgba(0,0,0,0.06)',
-        //     colorBgMenuItemSelected: 'rgba(0,0,0,0.15)',
-        //     colorTextMenu: 'rgba(255,255,255,0.75)',
-        //     colorTextMenuActive: 'rgba(255,255,255,0.95)',
-        //     colorTextMenuSelected: '#fff',
-        //     colorBgMenuItemCollapsedElevated: 'rgba(0,0,0,0.85)',
-        //     triggerColor: '#fff',
-        //     triggerTextColor: '#fff',
-        //   },
-        //   header: {
-        //     colorHeaderBackground: '#fff',
-        //     headerTextColor: '#000',
-        //   },
-        //   titleColor: '#fff',
-        // }}
+        token={renderToken}
         defultOpenMenus={true}
         layout={config.layout}
         theme={config.dark}

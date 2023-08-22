@@ -42,16 +42,36 @@ const convertMarkdownToItems = (markdown) => {
 
 export default function Anchors({ markdownText }) {
   const [items, setItems] = useState([]);
+  const [activeAnchor, setActiveAnchor] = useState('');
+  useEffect(() => {
+    const handleScroll = () => {
+      const headings = document.querySelectorAll('h2');
+      let currentAnchor = '';
+      for (const heading of headings) {
+        const { top } = heading.getBoundingClientRect();
+        if (top <= 0) {
+          currentAnchor = heading.id;
+        }
+      }
+
+      setActiveAnchor(currentAnchor);
+    };
+    document.addEventListener('scroll', handleScroll, true);
+    return () => {
+      document.removeEventListener('scroll', handleScroll, true);
+    };
+  }, []);
+
   useEffect(() => {
     if (markdownText) {
       const items = convertMarkdownToItems(markdownText);
       setItems(items);
     }
   }, [markdownText]);
-
   return (
     <Anchor
       items={items}
+      getCurrentAnchor={() => activeAnchor}
       onClick={(e, link) => {
         e.preventDefault();
         const element = document.getElementById(link.href);

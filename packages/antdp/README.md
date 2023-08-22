@@ -8,9 +8,6 @@ Ant Design Project
 
 [![Ant Design Project](https://user-images.githubusercontent.com/59959718/262203847-d1612c3c-a37e-47fa-8282-dba85a8366be.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
-[![Ant Design Project](https://user-images.githubusercontent.com/59959718/262203891-ba31a1c0-84ad-42ae-8e0f-447b81ab9439.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
-
-[![Ant Design Project](https://user-images.githubusercontent.com/59959718/262203911-58268a5b-a948-4909-87cc-bd6b4a6b8d1f.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
 ### Features
 

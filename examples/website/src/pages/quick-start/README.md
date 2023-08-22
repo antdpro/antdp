@@ -31,31 +31,21 @@ $ pnpm -v
 
 ## 创建ts项目
 ```shell 
-# npm 6.x
 $ npm init antdp my-app --example basic
-# npm 7+, extra double-dash is needed:
 $ npm init antdp my-app -- --example basic
-
 $ yarn create antdp [appName]
-# or npm
 $ npm create antdp my-app
-# or npx
 $ npx create-antdp my-app
 ```
 
 或者直接下载: [`basic.zip`](https://antdpro.github.io/antdp/zip/basic.zip)
 
-### 创建js项目
+## 创建js项目
 ```shell
-# npm 6.x
 $ npm init antdp my-app --example basicjs
-# npm 7+，extra double-dash is needed:
 $ npm init antdp my-app -- --example basicjs
-
 $ yarn create antdp [appName] -- --example basicjs
-# or npm
 $ npm create antdp my-app -- --example basicjs
-# or npx
 $ npx create-antdp my-app -- --example basicjs
 ```
 或者直接下载版本: [`basicjs.zip`](https://antdpro.github.io/antdp/zip/basicjs.zip)

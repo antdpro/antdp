@@ -67,7 +67,6 @@ const PreviewDocument = ({
   const $dom = useRef<HTMLDivElement>(null);
   const { mdData, loading } = useMdData(path);
   useHyperlink($dom.current);
-
   return (
     <Wrapper ref={$dom}>
       <Loading loading={loading}>

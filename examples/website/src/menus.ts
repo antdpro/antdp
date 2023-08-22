@@ -31,7 +31,7 @@ export const menusDocsConfig: MenusConfigObject[] = [
     path: '/docs/newPage',
   },
   {
-    title: 'Mock 模拟数据',
+    title: '样式',
     path: '/docs/css',
   },
   {
@@ -43,11 +43,15 @@ export const menusDocsConfig: MenusConfigObject[] = [
     path: '/docs/mock',
   },
   {
+    title:'快速搭建 CRUD',
+    path:'docs/curd'
+  },
+  {
     divider: true,
     title: '数据管理',
   },
   {
-    title: '接口代理',
+    title: '跨域与代理',
     path: '/docs/proxy',
   },
   {

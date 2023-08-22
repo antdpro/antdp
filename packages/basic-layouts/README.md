@@ -73,6 +73,7 @@ const Demo = () => {
 ```
 [![Ant Design Project](https://user-images.githubusercontent.com/59959718/262203891-ba31a1c0-84ad-42ae-8e0f-447b81ab9439.png)](https://stackblitz.com/github/antdpro/antdp/tree/master/examples/antdp-base?embed=1&hideNavigation=0&hidedevtools=0)
 
+
 ## 配置明亮主题
 
 ### 亮主题light
@@ -104,7 +105,7 @@ export default () => {
 ```
 
 
-#### 默认样式
+### 默认样式
 ```js
  const defaultThemeColors = (layout) =>{
   if(layout === 'slider'){

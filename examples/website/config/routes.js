@@ -33,6 +33,7 @@ const routeList = [
           { path: '/docs/auth/*', element: '@/pages/develop/auth' },
           { path: '/docs/data-flow/*', element: '@/pages/develop/data-flow' },
           { path: '/docs/dva/*', element: '@/pages/develop/dva' },
+          { path: '/docs/curd/*', element: '@/pages/develop/curd' },
           {
             path: '/docs/internationalization/*',
             element: '@/pages/develop/internationalization',

@@ -334,7 +334,7 @@ export default () => {
 ## Message
 由于antd 5.x需全局包裹App，引用message组件。我们在basic-layouts下也进行了注册。
 
-使用方法一
+### 方法一
 ```jsx
 import { App } from 'antd';
 import React from 'react';
@@ -351,7 +351,7 @@ const MyPage = () => {
 export default MyPage;
 ```
 
-使用方法二
+### 方法二
 ```jsx
 import { Button, Space } from 'antd';
 import React from 'react';

@@ -1,12 +1,12 @@
 EditTable 编辑表格
 ===
 
-### 依赖安装
+## 依赖安装
 
 ```bash
  npm i @antdp/edit-table
 ```
-### 基本使用
+## 基本使用
 ```tsx  mdx:preview
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
@@ -118,7 +118,7 @@ const EditableTable =() => {
 export default EditableTable
 ```
 
-### 操作列在第一列
+## 操作列在第一列
 ```tsx  mdx:preview
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
@@ -191,7 +191,7 @@ const EditableTable =() => {
 export default EditableTable
 ```
 
-### 显示删除按钮
+## 显示删除按钮
 ```tsx  mdx:preview
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
@@ -264,7 +264,7 @@ const EditableTable =() => {
 export default EditableTable
 ```
 
-### 允许同时编辑多行
+## 允许同时编辑多行
 ```tsx  mdx:preview
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
@@ -338,7 +338,7 @@ const EditableTable =() => {
 export default EditableTable
 ```
 
-### 无操作和新增
+## 无操作和新增
 ```tsx  mdx:preview
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
@@ -409,7 +409,7 @@ const EditableTable =() => {
 export default EditableTable
 ```
 
-### API
+## API
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
 | columns | 列 | `ColumnsProps[]`  | - |
@@ -429,7 +429,7 @@ export default EditableTable
 | addBtnProps | 新增按钮配置 | `ButtonProps`  | - |
 | store | form 存储表单 | `Store`  | - |
 
-### ColumnsProps
+## ColumnsProps
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
 | editable | 是否编辑 | `boolean`  | - |
@@ -444,7 +444,7 @@ export default EditableTable
 | listAttr | List 组件参数 | `Omit<ListProps, 'children' \| 'name'>`  | - |
 | render | 自定义 渲染(列原始默认的自定义渲染,加了个 other 参数，不是编辑状态下的表格渲染)  ， other 参数 只有操作列才有 | `(value: any,record: any,index: number,other?: OtherProps) => React.ReactNode \| RenderedCell<any>`  | - |
 
-### OtherProps
+## OtherProps
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
 | editingKey | 编辑中字段 | `any[]`  | - |
@@ -456,7 +456,7 @@ export default EditableTable
 | onDelete | 删除 ，`id：主键`， `rowItem 当前行数据` ，`index:下标` | `(id: string \| number, rowItem: any, index: number) => void`  | - |
 | edit | 编辑 按钮 ，`record 当前行数` | `(record: any) => void`  | - |
 
-### ref 返回值
+## ref 返回值
 
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
@@ -470,7 +470,7 @@ export default EditableTable
 | newAdd | 是否编辑 新增的数据 | `(string \| number)[]`  | - |
 | forms | 收集 所有 表单 | `Store`  | - |
 
-### Item 组件参数
+## Item 组件参数
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |
 | preName | 当前行数据存储父级的name list时不用传 | `string`  | - |

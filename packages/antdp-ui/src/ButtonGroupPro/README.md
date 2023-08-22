@@ -4,7 +4,7 @@ ButtonGroupPro
 
 ButtonGroupPro权限按钮组
 
-### 案例
+## 案例
 
 ```tsx mdx:preview
 import React from "react";
@@ -40,7 +40,7 @@ const Demo  = ()=>(
 export default Demo;
 ```
 
-### Props
+## Props
 组件继承antd的 [`Button`](https://ant.design/components/button-cn/#header)
 
 

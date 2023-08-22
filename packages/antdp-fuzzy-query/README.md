@@ -1,13 +1,13 @@
 FuzzyQuery 模糊查询
 ===
 
-### 依赖安装
+## 依赖安装
 
 ```bash
  npm i @antdp/fuzzy-query
 ```
 
-### 基本使用
+## 基本使用
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```tsx mdx:preview
@@ -44,7 +44,7 @@ const Query =() => {
 export default Query
 ```
 
-### 延迟时间5s
+## 延迟时间5s
 ```tsx mdx:preview
 import React from 'react';
 import { Input, Col, InputNumber, Button, Select ,Form} from 'antd';
@@ -80,7 +80,7 @@ const Query =() => {
 export default Query
 ```
 
-### API
+## API
 [更多参数参考 antd5 Select组件](https://ant.design/components/select-cn#api)
 
 | 参数 | 说明 | 类型 | 默认值 |

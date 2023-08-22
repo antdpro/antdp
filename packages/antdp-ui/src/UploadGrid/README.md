@@ -3,7 +3,7 @@ UploadGrid 可拖拽上传组件
 
 UploadGrid 可拖拽上传组件。
 
-### 基础示例
+## 基础示例
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx  mdx:preview
@@ -35,7 +35,7 @@ export default Demo;
 ```
 <!--End-->
 
-### Props
+## Props
 组件继承 [`antd Upload`](https:ant.design/components/upload-cn/#header)
 
 | 参数 | 说明 | 类型 | 默认值 |

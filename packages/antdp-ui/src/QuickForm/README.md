@@ -3,7 +3,7 @@ QuickForm 快速表单
 
 快速生成Form表单。
 
-### 基础示例
+## 基础示例
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx  mdx:preview
@@ -36,7 +36,7 @@ const QuickFormDemo = (props) => {
 export default QuickFormDemo
 ```
 
-### 各种类型表单
+## 各种类型表单
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx  mdx:preview
@@ -91,7 +91,7 @@ const QuickFormDemo = (props) => {
 export default QuickFormDemo
 ```
 
-### 表单排列
+## 表单排列
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx  mdx:preview
@@ -124,7 +124,7 @@ const QuickFormDemo = (props) => {
 export default QuickFormDemo
 ```
 
-### 表单size
+## 表单size
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx  mdx:preview
@@ -157,7 +157,7 @@ const QuickFormDemo = (props) => {
 export default QuickFormDemo
 ```
 
-### 折叠表单时每个面板右上角的内容
+## 折叠表单时每个面板右上角的内容
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx  mdx:preview
@@ -191,7 +191,7 @@ const QuickFormDemo = (props) => {
 export default QuickFormDemo
 ```
 
-### 初始隐藏表单项
+## 初始隐藏表单项
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx  mdx:preview
@@ -240,7 +240,7 @@ const QuickFormDemo = (props) => {
 export default QuickFormDemo
 ```
 
-### 表单提交验证
+## 表单提交验证
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx  mdx:preview
@@ -289,7 +289,7 @@ export default QuickFormDemo
 ```
 
 <!--End-->
-### Props
+## Props
 组件继承[antd Form](https://ant.design/components/form-cn)
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -309,7 +309,7 @@ export default QuickFormDemo
 | initialHide | 初始值 隐藏显示 字段对应的值 | `{ [x: string]: boolean }` | - |
 | initialHide | 初始值 隐藏显示 字段对应的值 | `{ [x: string]: boolean }` | - |
 
-### itemProps
+## itemProps
 
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |

@@ -4,7 +4,7 @@ InputCount
 
 可用于短信验证
 
-### 基础示例
+## 基础示例
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
 ```jsx  mdx:preview
@@ -26,7 +26,7 @@ export default Demo
 ```
 <!--End-->
 
-### Props
+## Props
 组件继承 [`Input`](https://ant.design/components/input-cn/#header)[`Button`](https://ant.design/components/button-cn/#header)
 
 | 参数 | 说明 | 类型 | 默认值 |

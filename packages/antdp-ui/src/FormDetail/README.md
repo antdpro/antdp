@@ -3,7 +3,7 @@ FormDetail 快速详情表单
 
 快速生成详情表单表单。
 
-### 基础示例
+## 基础示例
 
 
 <!--rehype:bgWhite=true&codeSandbox=true&codePen=true-->
@@ -44,7 +44,7 @@ export default FormDetailDemo;
 ```
 <!--End-->
 
-### Props
+## Props
 
 | 参数 | 说明 | 类型 | 默认值 |
 | -------- | -------- | -------- | -------- |

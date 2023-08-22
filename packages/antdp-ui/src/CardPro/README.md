@@ -6,7 +6,7 @@ CardPro 卡片
 > 🚧 该组件为内用组件， 取消了 `Card` 默认的 `border`<!--rehype:style=color: #e00000;-->， <!--rehype:style=color: #e00000;--> 支持自定义样式
 <!--rehype:style=border-left: 8px solid #ffe564;background-color: #ffe56440;padding: 12px 16px;-->
 
-### 基础示例
+## 基础示例
 
 ```jsx mdx:preview
 import React from "react"
@@ -23,7 +23,7 @@ const Demo = () => (
 export default Demo
 ```
 
-### Props
+## Props
 
 组件继承 [`Card`](https://ant.design/components/card-cn/#header)
 

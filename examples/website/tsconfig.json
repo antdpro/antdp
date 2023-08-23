@@ -1,31 +1,12 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "jsx": "react-jsx",
-    "declaration": true,
     "strict": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "importHelpers": true,
-    "noImplicitAny": true,
-    "resolveJsonModule": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "isolatedModules": true,
-    "types": ["jest", "node"],
-    "noEmit": true,
+    "esModuleInterop": true,
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"],
-      "@@/*": ["./src/.kktp/*"],
-      "kktp": ["./src/.kktp/*"]
+      "@@/*": [".dumi/tmp/*"]
     }
   },
-  "include": ["src", "config/.kktprc.ts"]
+  "include": [".dumi/**/*", ".dumirc.ts"]
 }

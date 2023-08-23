@@ -1,4 +1,11 @@
+---
+nav: 教程
+group: 页面开发
+order: 4
+---
+
 # ProTable 快速搭建 CRUD 的利器
+
 大部分中后台页面都是非常同质化的 CRUD 组成的，很多时候都是一个 Table，然后提供一些操作按钮，并且有一个新增表单。看起来就像这样：
 
 ![0BAFCFEF-9EA2-4DB7-A36D-4D5A092BCC30.png](https://gw.alipayobjects.com/zos/antfincdn/w6XCWacQH6/1582038656687-065b40ef-5029-4bf7-8941-6e843570e4e0.png)
@@ -9,7 +16,7 @@ antd 作为服务于企业级产品的设计体系的组件库，已经提供了
 
 ProTable 就是为了解决这些问题，在 Table 的层面上提供了一些预设，你可以通过 [`valueType` ](https://procomponents.ant.design/components/tablevalue-type)来支持各种类型的数据，预设了 金额，日期，序号，进度条 等多种类型，并且支持通过 `valueEnum`  来映射枚举，解决非常烦人的各种枚举配置，可以大大的简化代码。
 
-```tsx
+```tsx | pure
 const columns = [
   {
     title: '状态',

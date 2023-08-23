@@ -1,1 +1,20 @@
-website: https://antdpro.github.io/antdp/#/home
+#
+
+A static site base on [dumi](https://d.umijs.org).
+
+## Development
+
+```bash
+# install dependencies
+$ yarn install
+
+# start dev server
+$ yarn start
+
+# build docs
+$ yarn run build
+```
+
+## LICENSE
+
+MIT

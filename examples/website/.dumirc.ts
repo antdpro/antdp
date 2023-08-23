@@ -2,7 +2,7 @@ import { defineConfig } from 'dumi';
 import { featuresZh } from './config/features';
 
 export default defineConfig({
-  outputPath: 'build',
+  outputPath: 'docs-dist',
   themeConfig: {
     name: 'antd project',
     logo: '/logo.svg',

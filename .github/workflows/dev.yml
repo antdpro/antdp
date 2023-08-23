@@ -2,7 +2,7 @@ name: Build & Deploy
 on:
   push:
     branches:
-      - dev2
+      - dev
 
 env:
   SKIP_PREFLIGHT_CHECK: true

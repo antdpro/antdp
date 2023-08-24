@@ -1,8 +1,11 @@
 import { defineConfig } from 'dumi';
 import { featuresZh } from './config/features';
-
+const isProd = process.env.NODE_ENV === 'production';
 export default defineConfig({
   outputPath: 'docs-dist',
+  // Because of using GitHub Pages
+  base: isProd ? '/antdp/' : '/',
+  publicPath: isProd ? '/antdp/' : '/',
   themeConfig: {
     name: 'antd project',
     logo: '/logo.svg',

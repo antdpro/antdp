@@ -7,8 +7,6 @@ export default defineConfig({
   base: isProd ? '/antdp/' : '/',
   publicPath: isProd ? '/antdp/' : '/',
   themeConfig: {
-    name: 'antd project',
-    logo: '/logo.svg',
     hero: {
       description:
         '一个基于 antd5.x 和 umi 的初始级别项目，集成路由、dva(Redux)、选项卡等特性',
@@ -26,6 +24,8 @@ export default defineConfig({
       ],
       features: featuresZh,
     },
+    name: 'antd project',
+    logo: 'https://gw.alipayobjects.com/zos/hitu-asset/c88e3678-6900-4289-8538-31367c2d30f2/hitu-1609235995955-image.png',
     socialLinks: {
       github: 'https://github.com/antdpro/antdp',
     },

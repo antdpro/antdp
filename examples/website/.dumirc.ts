@@ -14,7 +14,7 @@ export default defineConfig({
         {
           type: 'primary',
           text: '开始使用',
-          link: '/guid/quick-start',
+          link: '/guide/quick-start',
         },
         {
           text: 'Github',

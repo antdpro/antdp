@@ -75,7 +75,7 @@
     "antd": "5.6.1"
   },
   "dependencies": {
-    "compile-less-cli": "1.8.14",
+    "compile-less-cli": "1.9.0",
     "husky": "8.0.3",
     "jest-environment-jsdom": "29.5.0",
     "lerna": "^7.0.0",

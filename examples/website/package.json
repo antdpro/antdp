@@ -1,6 +1,6 @@
 {
   "name": "@example/website",
-  "version": "2.0.21",
+  "version": "2.0.22",
   "private": true,
   "description": "A static site based on dumi",
   "license": "MIT",

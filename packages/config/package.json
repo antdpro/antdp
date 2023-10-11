@@ -9,6 +9,10 @@
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
   "repository": "https://github.com/antdpro/antdp/tree/master/packages/config",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "files": [
     "lib",
     "esm",

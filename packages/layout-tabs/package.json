@@ -19,7 +19,8 @@
   ],
   "repository": "https://github.com/antdpro/antdp/tree/master/packages/layout-tabs",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "files": [
     "lib",

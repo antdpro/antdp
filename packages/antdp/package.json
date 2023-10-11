@@ -22,5 +22,9 @@
     "@antdp/layout-tabs": "2.0.21",
     "@antdp/page-loading": "2.0.21",
     "@antdp/user-login": "2.0.21"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }

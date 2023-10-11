@@ -10,6 +10,10 @@
     "antdp",
     "antd"
   ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "dependencies": {
     "@babel/runtime": "~7.20.1"
   },

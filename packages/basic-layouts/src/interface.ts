@@ -46,7 +46,7 @@ export interface BasicLayoutsProps {
    * 刷新后是否展开菜单
    * @default false
    * */
-  defultOpenMenus?:boolean;
+  defultOpenMenus?: boolean;
   /**
    * layout 的菜单模式
    * @default MIX

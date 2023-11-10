@@ -24,6 +24,9 @@
     "antdp",
     "umi"
   ],
+  "devDependencies": {
+    "webpack": "5.89.0"
+  },
   "dependencies": {
     "@ant-design/icons": "5.1.4",
     "@babel/runtime": "~7.20.1",

@@ -28,7 +28,7 @@ export * from './utils';
 
 const BasicLayouts = (props: BasicLayoutsProps) => {
   const { theme = 'light', token = undefined } = props;
-  const layout = props.layout;
+  const layout = props.layout || LayoutModel.MIX;
   const render = useMemo(() => {
     if (layout === LayoutModel.TOPLEFT) {
       return (

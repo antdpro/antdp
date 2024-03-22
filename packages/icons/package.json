@@ -23,7 +23,7 @@
     "index.d.ts"
   ],
   "dependencies": {
-    "@ant-design/icons": "5.1.4",
+    "@ant-design/icons": "5.3.5",
     "@babel/runtime": "~7.20.1"
   }
 }

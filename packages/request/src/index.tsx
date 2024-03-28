@@ -60,7 +60,8 @@ request.interceptors.request.use((url: string, options: any) => {
 request.interceptors.response.use(async (response) => {
   let token = getToken();
   if (token) {
-    sessionStorage.setItem('token', token);
+    const store = ANTD_IS_STORAGE ? sessionStorage : localStorage;
+    store.setItem('token', token);
   }
   const data = await response.clone().json();
   if ((data && data?.code)) {

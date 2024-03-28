@@ -1,6 +1,8 @@
 import { useAuthorizedonfig } from "./hooks"
 import React, { useMemo } from "react";
 import { AuthList } from "./interface"
+import { store } from "./utils";
+
 export interface AuthButtonProps {
   path?: string
   children?: React.ReactNode;
@@ -10,7 +12,7 @@ export const AuthButton = (props: AuthButtonProps) => {
   const { auth_btn, auth_check_url, isCheckAuth } = useAuthorizedonfig()
 
   const authBtns: AuthList = useMemo(() => {
-    const authBtnStr = sessionStorage.getItem(auth_btn || "")
+    const authBtnStr = store.getItem(auth_btn || "")
     if (authBtnStr) {
       return JSON.parse(authBtnStr)
     }
@@ -48,7 +50,7 @@ export const getAuthButton = (path: string, other: { auth_btn?: string, auth_che
         newAuthBtn = (ANTD_AUTH_CONF as any).auth_btn
       }
     }
-    const authBtnStr = sessionStorage.getItem(newAuthBtn || "")
+    const authBtnStr = store.getItem(newAuthBtn || "")
     if (authBtnStr) {
       return JSON.parse(authBtnStr)
     }

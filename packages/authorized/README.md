@@ -15,7 +15,9 @@ $ npm i @antdp/authorized  # yarn add @antdp/authorized
 ```
 
 ## 启用方式
+
 配置开启。同时需要 config/config.ts 提供权限配置。
+
 ```diff
 import config from '@antdp/config';
 import proxy from './proxy';
@@ -41,7 +43,9 @@ export default config(router, {
 
 
 ## 路由菜单权限
+
 这是你的路由菜单（config/router.json）
+
 ```json
 [
   {
@@ -92,11 +96,12 @@ const menus = ['/', '/welcome', '/404', '/403'];
 - 1.当你登陆成功后，你需将其保存于你的sessionStorage中，储存的字段为你`ANTD_AUTH_CONF`中配的`auth_menu`字段，并在登陆后存储在`sessionStorage`中,如`sessionStorage.setItem('authMenu', JSON.stringify([]))`
 - 2.当你跳转至页面时，会根据sessionStorage中`authMenu`进行权限匹配，如果没有权限则会跳往404或403页面
 
-<strong>请保证403 和 404页面存在</strong>
-
+**请保证403 和 404页面存在**
 
 ## 页面权限重定向
-如果你想根据 `token`判断是否重定向回登陆页，可在layouts/BasicLayout.ts中添加`Authorized`
+
+如果你想根据 `token`判断是否重定向回登陆页，可在 `layouts/BasicLayout.ts` 中添加`Authorized`
+
 ```ts
 import Authorized from '@antdp/authorized';
 import BasicLayouts from '@antdp/basic-layouts';

@@ -17,7 +17,8 @@ function getFetchOption(type: ReactQueryOptions['contentType'] = 'json', option:
     };
   }
   option.headers = new Headers({ ...option.headers || {} });
-  const token = sessionStorage.getItem("token");
+  const store = ANTD_IS_STORAGE ? sessionStorage : localStorage;
+  const token = store.getItem("token");
   if (token && !option.headers.get('Authorization')) {
     option.headers.set('Authorization', `Bearer ${token}`);
   }

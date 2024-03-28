@@ -1,5 +1,6 @@
 import { AuthList, GetAuthorizedPageProps } from '.';
 import { IRoute } from '@umijs/max';
+import { store } from "./utils";
 
 declare const ANTD_AUTH_CONF: {
   auth_menu: 'authMenu';
@@ -19,8 +20,8 @@ declare const ANTD_AUTH_CONF: {
 //   }
 //   if (!!ANTD_AUTH_CONF) {
 //     const authBtns: AuthList =
-//       (sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) &&
-//         JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_btn) || '[]')) ||
+//       (store.getItem(ANTD_AUTH_CONF.auth_btn) &&
+//         JSON.parse(store.getItem(ANTD_AUTH_CONF.auth_btn) || '[]')) ||
 //       [];
 //     let finx = -1;
 //     if (ANTD_AUTH_CONF.auth_check_url) {
@@ -80,8 +81,8 @@ export const getFormatPage: GetAuthorizedPageProps = (allRouters, pathname) => {
   // 4. 无权限 无页面 404
   // 5. 其他
   if (!!ANTD_AUTH_CONF) {
-    const allMenu = !!sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu)
-      ? JSON.parse(sessionStorage.getItem(ANTD_AUTH_CONF.auth_menu) || '[]')
+    const allMenu = !!store.getItem(ANTD_AUTH_CONF.auth_menu)
+      ? JSON.parse(store.getItem(ANTD_AUTH_CONF.auth_menu) || '[]')
       : [];
     const check =
       mapRouterCheck(allRouters, pathname).length > 0 ? true : false;

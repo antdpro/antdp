@@ -47,8 +47,9 @@ export class HandleMenu {
   prePath?: string = '';
 
   constructor(props: HandleMenuProps) {
+    const store = ANTD_IS_STORAGE ? sessionStorage : localStorage;
     // 所有的 权限菜单
-    const auth_menus = sessionStorage.getItem('authMenu');
+    const auth_menus = store.getItem('authMenu');
     if (auth_menus) {
       this.authMenus = JSON.parse(auth_menus);
     } else {

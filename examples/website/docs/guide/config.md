@@ -87,6 +87,22 @@ export default config(router, {
 );
 ```
 
+### ANTD_IS_STORAGE
+
+默认 `sessionStorage` 存储，如果需要使用 `localStorage` 存储，设置为 `false`
+
+```diff
+import config from '@antdp/config';
+import proxy from './proxy';
+import router from './router.json';
+export default config(router, {
+  proxy,
+  define: {
++    ANTD_IS_STORAGE: false
+  },
+);
+```
+
 ### ANTD_IS_BREADCRUMB
 
 是否展示面包屑, Tab 选项卡优先级大于面包屑

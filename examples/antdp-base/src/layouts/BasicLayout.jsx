@@ -99,9 +99,10 @@ const Layout = () => {
             title: '退出登录',
             icon: <LogoutOutlined />,
             onClick: async () => {
-              await sessionStorage.removeItem('token');
-              await sessionStorage.removeItem('refresh_token');
-              await sessionStorage.removeItem('userDate');
+              const store = ANTD_IS_STORAGE ? sessionStorage : localStorage;
+              await store.removeItem('token');
+              await store.removeItem('refresh_token');
+              await store.removeItem('userDate');
               update({ token: '' });
               history.push('/login');
             },

@@ -1,7 +1,9 @@
 import { message } from 'antd';
 
+const store = ANTD_IS_STORAGE ? sessionStorage : localStorage;
+
 export const getToken = () => {
-  const token = sessionStorage.getItem("token")
+  const token = store.getItem("token")
   return token
 }
 
@@ -11,7 +13,7 @@ export const setToken = () => {
 }
 
 export const saveToken = (value: string) => {
-  sessionStorage.setItem('token', value)
+  store.setItem('token', value)
 }
 
 export const codeMessage: Record<number, string> = {

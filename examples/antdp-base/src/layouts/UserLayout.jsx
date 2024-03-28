@@ -47,9 +47,10 @@ const UserLayout = () => {
     url: '/api/users/login',
     onSuccess: async ({ code, data, token }) => {
       if (code === 1) {
-        await sessionStorage.setItem('token', token);
-        await sessionStorage.setItem('authBtn', JSON.stringify(data.btns));
-        await sessionStorage.setItem('authMenu', JSON.stringify(data.menus));
+        const store = ANTD_IS_STORAGE ? sessionStorage : localStorage;
+        await store.setItem('token', token);
+        await store.setItem('authBtn', JSON.stringify(data.btns));
+        await store.setItem('authMenu', JSON.stringify(data.menus));
         update({ token: token });
         history.push('/');
       }

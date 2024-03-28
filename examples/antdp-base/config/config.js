@@ -13,6 +13,8 @@ export default config(router, {
     ANTD_IS_TABS: true,
     // 是否展示面包屑
     ANTD_IS_BREADCRUMB: false,
+    // 默认 sessionStorage 存储，如果需要使用 localStorage 存储，设置为 `false`
+    // ANTD_IS_STORAGE: false,
     ANTD_AUTH_CONF: {
       auth_menu: 'authMenu',
       auth_btn: 'authBtn',

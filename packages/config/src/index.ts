@@ -14,6 +14,7 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
   const defineObj = options.define || {};
   // 是否开启路由面包屑
   const ANTD_IS_BREADCRUMB = !!defineObj.ANTD_IS_BREADCRUMB;
+  const ANTD_IS_STORAGE = defineObj.ANTD_IS_STORAGE ?? true;
   // 权限配置参数
   let ANTD_AUTH_CONF = defineObj.ANTD_AUTH_CONF || false;
   if (typeof ANTD_AUTH_CONF === 'boolean' && ANTD_AUTH_CONF) {
@@ -31,6 +32,7 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
       ...(ANTD_AUTH_CONF || {}),
     };
   }
+  console.log("ANTD_IS_STORAGE:", ANTD_IS_STORAGE)
 
   return defineConfig({
     hash: true,
@@ -85,6 +87,8 @@ export default (routes: IRoute[] = [], options: OptionsProps = {}) => {
       /**  是否开启菜单栏搜索 */
       ANTD_MENU_SEARCH_IS_SHOW: false,
       ...(options.define || {}),
+      /** 默认 sessionStorage 存储，如果需要使用 localStorage 存储，设置为 `false` */
+      ANTD_IS_STORAGE,
       /** 是否开启父子路由面包屑 */
       ANTD_IS_BREADCRUMB,
       /**  是否开启权限验证 */

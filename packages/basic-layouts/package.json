@@ -29,7 +29,7 @@
     "react-dom": ">=16.7.0"
   },
   "dependencies": {
-    "@ant-design/icons": "5.1.4",
+    "@ant-design/icons": "~5.3.5",
     "@antdp/authorized": "2.0.23",
     "@antdp/document-title": "2.0.23",
     "@antdp/fullscreen": "2.0.23",

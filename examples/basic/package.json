@@ -1,7 +1,7 @@
 {
   "name": "@example/basic",
   "private": true,
-  "version": "2.0.23",
+  "version": "2.0.24",
   "scripts": {
     "start": "max dev",
     "build": "max build",
@@ -9,10 +9,10 @@
   },
   "dependencies": {
     "@ant-design/pro-components": "^2.4.14",
-    "@antdp/authorized": "2.0.23",
-    "@antdp/basic-layouts": "2.0.23",
-    "@antdp/hooks": "2.0.23",
-    "@antdp/user-login": "2.0.23",
+    "@antdp/authorized": "2.0.24",
+    "@antdp/basic-layouts": "2.0.24",
+    "@antdp/hooks": "2.0.24",
+    "@antdp/user-login": "2.0.24",
     "antd": "5.6.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -26,8 +26,8 @@
     "antd": "5.6.1"
   },
   "devDependencies": {
-    "@antdp/config": "2.0.23",
-    "@antdp/dependencies": "2.0.23",
+    "@antdp/config": "2.0.24",
+    "@antdp/dependencies": "2.0.24",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@umijs/max": "~4.0.47",

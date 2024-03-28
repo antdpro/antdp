@@ -36,6 +36,8 @@
     "watch:hooks": "lerna exec  --scope @antdp/hooks -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
     "watch:request": "lerna exec  --scope @antdp/request -- tsbb watch --use-babel src/*.{js,ts,tsx,jsx}",
     "⬆️⬆️⬆️⬆️⬆️ watch::package ⬆️⬆️⬆️⬆️⬆️": "▲▲▲▲▲ watch::package ▲▲▲▲▲",
+    "css:build": "lerna exec --scope @antdp/* -- compile-less -d src -o esm",
+    "css:watch": "lerna exec --scope @antdp/* -- compile-less -d src -o esm --watch",
     "----": "----",
     "build:js": "node ./script/copy",
     "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",

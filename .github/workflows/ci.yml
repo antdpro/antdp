@@ -34,6 +34,7 @@ jobs:
       - run: npm run build:website
       # examples/basic 里面的 ts 转换 成 js版本并存储到 examples/basicjs
       - run: yarn run build:js
+      - run: npm run css:build
 
       - name: Create Tag
         id: create_tag

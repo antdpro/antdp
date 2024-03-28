@@ -1,6 +1,6 @@
 {
   "name": "@antdp/hooks",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "@/antdp-hooks",
   "homepage": "https://antdpro.github.io/antdp",
   "main": "lib/index.js",

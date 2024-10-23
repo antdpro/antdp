@@ -32,13 +32,13 @@
     "@ant-design/icons": "~5.3.5",
     "@antdp/authorized": "2.1.1",
     "@babel/runtime": "~7.20.1",
-    "classnames": "2.3.2",
+    "classnames": "2.5.1",
     "immutability-helper": "^3.1.1",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1"
   },
   "devDependencies": {
-    "@types/classnames": "2.3.1",
+    "@types/classnames": "2.3.4",
     "@types/react": "~18.2.0",
     "@types/react-dom": "~18.2.0",
     "antd": "5.6.1",

@@ -27,7 +27,7 @@
     "react-dom": ">=16.7.0"
   },
   "devDependencies": {
-    "@umijs/max": "~4.0.47",
+    "@umijs/max": "~4.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "~6.11.0",

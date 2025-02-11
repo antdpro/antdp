@@ -15,7 +15,7 @@
     "provenance": true
   },
   "dependencies": {
-    "@babel/runtime": "~7.20.1"
+    "@babel/runtime": "~7.26.0"
   },
   "devDependencies": {
     "react": "^18.2.0",

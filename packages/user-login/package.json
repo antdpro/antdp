@@ -35,7 +35,7 @@
     "@ant-design/icons": "~5.3.5",
     "@antdp/antdp-ui": "2.1.2",
     "@antdp/document-title": "2.1.2",
-    "@babel/runtime": "~7.20.1"
+    "@babel/runtime": "~7.26.0"
   },
   "devDependencies": {
     "@types/react": "~18.2.0",

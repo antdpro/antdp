@@ -24,6 +24,6 @@
   ],
   "dependencies": {
     "@ant-design/icons": "~5.3.5",
-    "@babel/runtime": "~7.20.1"
+    "@babel/runtime": "~7.26.0"
   }
 }

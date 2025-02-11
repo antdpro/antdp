@@ -139,7 +139,7 @@ const FormDetail: FormDetailComponent = (props, ref) => {
               } else if (multiple) {
                 const selObj = getTreeDataParent(
                   treeData,
-                  [initialValue] || [],
+                  initialValue ? [initialValue] : [],
                 );
                 content = (selObj || []).toString();
                 // 单选对象
@@ -152,7 +152,7 @@ const FormDetail: FormDetailComponent = (props, ref) => {
                 if (treeData.length > 0) {
                   const selObj = getTreeDataParent(
                     treeData,
-                    [initialValue] || [],
+                    initialValue ? [initialValue] : [],
                   );
                   content = (selObj || []).toString();
                 }

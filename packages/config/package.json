@@ -25,7 +25,7 @@
     "umi"
   ],
   "devDependencies": {
-    "webpack": "5.89.0"
+    "webpack": "5.94.0"
   },
   "dependencies": {
     "@ant-design/icons": "~5.3.5",
